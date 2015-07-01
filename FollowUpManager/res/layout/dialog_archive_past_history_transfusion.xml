@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:minWidth="120dp"
+            android:text="输血名称：" />
+
+        <EditText
+            android:id="@+id/nameEditText"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:imeOptions="actionNext"
+            android:inputType="text" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="常见输血：" />
+
+        <Spinner
+            android:id="@+id/type"
+            style="@style/PersonalInfoSpinnerStyle"
+            android:entries="@array/diseaseType" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="输血日期：" />
+
+        <EditText
+            android:id="@+id/date"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="200dp"
+            android:drawableRight="@drawable/icon_calendar" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:minWidth="120dp"
+            android:text="发病日期：" />
+
+        <EditText
+            android:id="@+id/onsetDate"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:drawableRight="@drawable/icon_calendar" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="输血原因：" />
+
+        <EditText
+            android:id="@+id/reason"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="200dp"
+            android:imeOptions="actionNext"
+            android:inputType="text" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="治疗结果：" />
+
+        <Spinner
+            android:id="@+id/treatResult"
+            style="@style/PersonalInfoSpinnerStyle"
+            android:entries="@array/treatResult" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout style="@style/ContentLayoutStyle" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:text="性别：" />
+
+                <Spinner
+                    android:id="@+id/genderSpinner"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/gender" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:drawableLeft="@drawable/icon_required"
+                    android:text="出生日期：" />
+
+                <EditText
+                    android:id="@+id/birthdayEditText"
+                    style="@style/PersonalInfoEditTextStyle"
+                    android:clickable="true"
+                    android:cursorVisible="false"
+                    android:drawableRight="@drawable/icon_calendar"
+                    android:editable="false"
+                    android:focusableInTouchMode="false" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:text="与户主关系：" />
+
+                <Spinner
+                    android:id="@+id/relationshipSpinner"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/relationship" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal" >
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:drawableLeft="@drawable/icon_required"
+                    android:text="工作单位：" />
+
+                <EditText
+                    android:id="@+id/workUnitEditText"
+                    style="@style/PersonalInfoEditTextStyle" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:drawableLeft="@drawable/icon_required"
+                    android:text="本人电话：" />
+
+                <EditText
+                    android:id="@+id/telephoneEditText"
+                    style="@style/PersonalInfoEditTextStyle"
+                    android:inputType="textPhonetic" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:text="民族：" />
+
+                <Spinner
+                    android:id="@+id/ethnicSpinner"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/ethnic" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal" >
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:text="联系人：" />
+
+                <EditText
+                    android:id="@+id/contactNameEditText"
+                    style="@style/PersonalInfoEditTextStyle" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:text="联系人电话：" />
+
+                <EditText
+                    android:id="@+id/contactPhoneEditText"
+                    style="@style/PersonalInfoEditTextStyle"
+                    android:inputType="textPhonetic" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:text="文化程度：" />
+
+                <Spinner
+                    android:id="@+id/educationSpinner"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/education" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal" >
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:text="血型：" />
+
+                <Spinner
+                    android:id="@+id/bloodTypeSpinner"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/bloodType" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:text="户口性质：" />
+
+                <Spinner
+                    android:id="@+id/accountPropertySpinner"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/registeredResidence" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:text="婚姻状况：" />
+
+                <Spinner
+                    android:id="@+id/marriageSpinner"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/marriage" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal" >
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:text="RH阴型：" />
+
+                <Spinner
+                    android:id="@+id/RHNegativeSpinner"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/RHNegative" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:text="职业：" />
+
+                <Spinner
+                    android:id="@+id/jobSpinner"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/job" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:text="国籍：" />
+
+                <Spinner
+                    android:id="@+id/nationalitySpinner"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/nationality" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal" >
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:text="援助对象：" />
+
+                <Spinner
+                    android:id="@+id/assistTypeSpinner"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/assistType" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:text="电子邮箱：" />
+
+                <EditText
+                    android:id="@+id/emailEditText"
+                    style="@style/PersonalInfoEditTextStyle"
+                    android:inputType="textEmailAddress" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:text="邮编：" />
+
+                <EditText
+                    android:id="@+id/postcodeEditText"
+                    style="@style/PersonalInfoEditTextStyle"
+                    android:inputType="textPostalAddress" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                style="@style/PersonalInfoItemStyle"
+                android:layout_weight="2" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:drawableLeft="@drawable/icon_required"
+                    android:text="家庭地址：" />
+
+                <EditText
+                    android:id="@+id/familyAddressEditText"
+                    style="@style/PersonalInfoEditTextStyle"
+                    android:layout_width="530dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/PersonalInfoItemStyle"
+                android:layout_weight="1" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:text="常住类型：" />
+
+                <Spinner
+                    android:id="@+id/residentTypeSpinner"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/residentType" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                style="@style/PersonalInfoItemStyle"
+                android:layout_weight="2" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:drawableLeft="@drawable/icon_required"
+                    android:text="户籍地址：" />
+
+                <EditText
+                    android:id="@+id/residentAddressEditText"
+                    style="@style/PersonalInfoEditTextStyle"
+                    android:layout_width="530dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/PersonalInfoItemStyle"
+                android:layout_weight="1" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:text="证件类型：" />
+
+                <Spinner
+                    android:id="@+id/certificateTypeSpinner"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/certificateType" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal" >
+
+            <RelativeLayout
+                android:id="@+id/negativeEventLayout"
+                style="@style/PersonalInfoItemStyle"
+                android:layout_weight="2" >
+
+                <TextView
+                    android:id="@+id/negativeEventLabel"
+                    style="@style/PersonalInfoLabelStyle"
+                    android:layout_alignBaseline="@+id/negativeEvent0"
+                    android:text="负性事件：" />
+
+                <CheckBox
+                    android:id="@+id/negativeEvent0"
+                    style="@style/CheckBoxStyle"
+                    android:layout_toRightOf="@id/negativeEventLabel"
+                    android:text="丧偶" />
+
+                <CheckBox
+                    android:id="@+id/negativeEvent1"
+                    style="@style/CheckBoxStyle"
+                    android:layout_toRightOf="@id/negativeEvent0"
+                    android:text="独居" />
+
+                <CheckBox
+                    android:id="@+id/negativeEvent2"
+                    style="@style/CheckBoxStyle"
+                    android:layout_toRightOf="@id/negativeEvent1"
+                    android:text="近期住院" />
+
+                <CheckBox
+                    android:id="@+id/negativeEvent3"
+                    style="@style/CheckBoxStyle"
+                    android:layout_below="@id/negativeEvent0"
+                    android:layout_marginTop="15dp"
+                    android:layout_toRightOf="@id/negativeEventLabel"
+                    android:text="子女分家" />
+
+                <CheckBox
+                    android:id="@+id/negativeEvent4"
+                    style="@style/CheckBoxStyle"
+                    android:layout_below="@id/negativeEvent0"
+                    android:layout_marginTop="15dp"
+                    android:layout_toRightOf="@id/negativeEvent3"
+                    android:text="失去亲人" />
+
+                <CheckBox
+                    android:id="@+id/negativeEventOther"
+                    style="@style/CheckBoxStyle"
+                    android:layout_below="@id/negativeEvent0"
+                    android:layout_marginTop="15dp"
+                    android:layout_toRightOf="@id/negativeEvent4"
+                    android:minWidth="80dp"
+                    android:text="其他" />
+
+                <EditText
+                    android:id="@+id/negativeEventEditText"
+                    style="@style/PersonalInfoEditTextStyle"
+                    android:layout_below="@id/negativeEvent0"
+                    android:layout_marginTop="15dp"
+                    android:enabled="false"
+                    android:layout_toRightOf="@id/negativeEventOther" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                style="@style/PersonalInfoItemStyle"
+                android:layout_weight="1" >
+
+                <TextView
+                    android:id="@+id/managerUnitLabel"
+                    style="@style/PersonalInfoLabelStyle"
+                    android:layout_alignBaseline="@+id/managerUnitEditText"
+                    android:text="管理单位：" />
+
+                <EditText
+                    android:id="@+id/managerUnitEditText"
+                    style="@style/PersonalInfoEditTextStyle"
+                    android:layout_toRightOf="@id/managerUnitLabel" />
+
+                <TextView
+                    android:id="@+id/createDateLabel"
+                    style="@style/PersonalInfoLabelStyle"
+                    android:layout_alignBaseline="@+id/createDateEditText"
+                    android:layout_below="@id/managerUnitEditText"
+                    android:layout_marginTop="15dp"
+                    android:drawableLeft="@drawable/icon_required"
+                    android:text="建档日期：" />
+
+                <EditText
+                    android:id="@+id/createDateEditText"
+                    style="@style/PersonalInfoEditTextStyle"
+                    android:layout_below="@id/managerUnitEditText"
+                    android:layout_marginTop="15dp"
+                    android:layout_toRightOf="@id/createDateLabel"
+                    android:clickable="true"
+                    android:cursorVisible="false"
+                    android:drawableRight="@drawable/icon_calendar"
+                    android:editable="false"
+                    android:focusableInTouchMode="false" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

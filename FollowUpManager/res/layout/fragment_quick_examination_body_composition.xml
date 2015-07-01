@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="15dp" >
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:minWidth="120dp"
+                android:text="人体成分分析："
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <Button android:id="@+id/getDataButton"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:background="@drawable/button_blue_selector"
+                android:text="获取数据"
+                android:textColor="@color/white"
+                android:textSize="@dimen/global_font_size_middle" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:minWidth="120dp"
+                android:text="身高："
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <EditText android:id="@+id/heightEditText"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_with_padding_selector"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:minWidth="80dp"
+                android:text="cm"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:minWidth="120dp"
+                android:text="体重："
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <EditText android:id="@+id/weightEditText"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_with_padding_selector"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:minWidth="80dp"
+                android:text="kg"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:minWidth="120dp"
+                android:text="BMI："
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <EditText android:id="@+id/BMIEditText"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_with_padding_selector"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:minWidth="80dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:minWidth="120dp"
+                android:text="阻抗："
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <EditText android:id="@+id/bodyImpedanceEditText"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_with_padding_selector"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:minWidth="80dp"
+                android:text="Ω"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:minWidth="120dp"
+                android:text="基础代谢："
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <EditText android:id="@+id/KCALEditText"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_with_padding_selector"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:minWidth="80dp"
+                android:text="kcal"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:minWidth="120dp"
+                android:text="相对基础代谢："
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <EditText
+                android:id="@+id/RKCALEditText"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_with_padding_selector"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:minWidth="80dp"
+                android:text="kcal"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:minWidth="120dp"
+                android:text="体脂肪率："
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <EditText android:id="@+id/fatEditText"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_with_padding_selector"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:minWidth="80dp"
+                android:text="%"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:minWidth="120dp"
+                android:text="内脏脂肪："
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <EditText android:id="@+id/visceralFatEditText"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_with_padding_selector"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:minWidth="80dp"
+                android:text="级"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:minWidth="120dp"
+                android:text="肌肉含量："
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <EditText android:id="@+id/muscleEditText"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_with_padding_selector"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:minWidth="80dp"
+                android:text="kg"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:minWidth="120dp"
+                android:text="水分含量："
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <EditText android:id="@+id/bodyWaterEditText"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_with_padding_selector"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:minWidth="80dp"
+                android:text="%"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:minWidth="120dp"
+                android:text="骨含量："
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <EditText android:id="@+id/boneMassEditText"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_with_padding_selector"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:minWidth="80dp"
+                android:text="kg"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:minWidth="120dp"
+                android:text="身体类型："
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <EditText
+                android:id="@+id/conclusionEditText"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_with_padding_selector"
+                android:imeOptions="actionNone"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:minWidth="80dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.shbestwin.followupmanager.view.widget.MeasureTipsLayout
+        android:id="@+id/measureTipsLayuout"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp" />
+
+</LinearLayout>

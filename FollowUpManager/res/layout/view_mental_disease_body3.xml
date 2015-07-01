@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="20dp" >
+
+    <RelativeLayout
+        android:id="@+id/symptomRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <CheckBox
+            android:id="@+id/symptom0"
+            style="@style/CheckBoxStyle"
+            android:layout_width="160dp"
+            android:text="幻觉" />
+
+        <CheckBox
+            android:id="@+id/symptom1"
+            style="@style/CheckBoxStyle"
+            android:layout_width="160dp"
+            android:layout_toRightOf="@id/symptom0"
+            android:text="交流困难" />
+
+        <CheckBox
+            android:id="@+id/symptom2"
+            style="@style/CheckBoxStyle"
+            android:layout_width="160dp"
+            android:layout_toRightOf="@id/symptom1"
+            android:text="猜疑" />
+
+        <CheckBox
+            android:id="@+id/symptom3"
+            style="@style/CheckBoxStyle"
+            android:layout_width="160dp"
+            android:layout_toRightOf="@id/symptom2"
+            android:text="喜怒无常" />
+
+        <CheckBox
+            android:id="@+id/symptom4"
+            style="@style/CheckBoxStyle"
+            android:layout_width="160dp"
+            android:layout_toRightOf="@id/symptom3"
+            android:text="行为怪异" />
+
+        <CheckBox
+            android:id="@+id/symptom5"
+            style="@style/CheckBoxStyle"
+            android:layout_width="160dp"
+            android:layout_toRightOf="@id/symptom4"
+            android:text="兴奋话多" />
+
+        <CheckBox
+            android:id="@+id/symptom6"
+            style="@style/CheckBoxStyle"
+            android:layout_width="160dp"
+            android:layout_below="@id/symptom0"
+            android:layout_marginTop="10dp"
+            android:text="伤人毁物" />
+
+        <CheckBox
+            android:id="@+id/symptom7"
+            style="@style/CheckBoxStyle"
+            android:layout_width="160dp"
+            android:layout_below="@id/symptom0"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/symptom6"
+            android:text="悲观厌世" />
+
+        <CheckBox
+            android:id="@+id/symptom8"
+            style="@style/CheckBoxStyle"
+            android:layout_width="160dp"
+            android:layout_below="@id/symptom0"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/symptom7"
+            android:text="无故外走" />
+
+        <CheckBox
+            android:id="@+id/symptom9"
+            style="@style/CheckBoxStyle"
+            android:layout_width="160dp"
+            android:layout_below="@id/symptom0"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/symptom8"
+            android:text="自语自笑" />
+
+        <CheckBox
+            android:id="@+id/symptom10"
+            style="@style/CheckBoxStyle"
+            android:layout_width="160dp"
+            android:layout_below="@id/symptom0"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/symptom9"
+            android:text="孤僻懒散" />
+
+        <CheckBox
+            android:id="@+id/symptom11"
+            style="@style/CheckBoxStyle"
+            android:layout_width="90dp"
+            android:layout_alignBaseline="@+id/otherSymptomTextView"
+            android:layout_below="@id/symptom6"
+            android:layout_marginTop="10dp"
+            android:text="其他" />
+
+        <EditText
+            android:id="@+id/et_other"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/symptom6"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/symptom11"
+            android:background="@drawable/edit_text_with_padding_selector"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/global_font_size_large" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="自知力：" />
+
+        <RadioGroup
+            android:id="@+id/rg_zzl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/rb_wq"
+                style="@style/RadioButtonStyle"
+                android:checked="true"
+                android:text="自知力完全" />
+
+            <RadioButton
+                android:id="@+id/rb_bwq"
+                style="@style/RadioButtonStyle"
+                android:layout_marginLeft="20dp"
+                android:text="自知力不全" />
+
+            <RadioButton
+                android:id="@+id/rb_qs"
+                style="@style/RadioButtonStyle"
+                android:layout_marginLeft="20dp"
+                android:text="自知力缺失" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="睡眠情况：" />
+
+        <Spinner
+            android:id="@+id/sn_smqk"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="150dp"
+            android:entries="@array/sleepQuality" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="饮食情况：" />
+
+        <Spinner
+             android:id="@+id/sn_ysqk"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="150dp"
+            android:entries="@array/dietQuality" />
+    </LinearLayout>
+
+</LinearLayout>

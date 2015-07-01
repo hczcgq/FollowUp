@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="20dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="160dp"
+            android:text="宫底高度(cm)：" />
+
+        <EditText
+            android:id="@+id/et_gdgd"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:minWidth="160dp"
+            android:text="腹围(cm)：" />
+
+        <EditText
+            android:id="@+id/et_fw"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="160dp"
+            android:text="胎心率(次/分钟)：" />
+
+        <EditText
+            android:id="@+id/et_txl"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+    </LinearLayout>
+
+</LinearLayout>

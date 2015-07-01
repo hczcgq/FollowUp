@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.shbestwin.followupmanager"
+    style="@style/ContentLayoutStyle"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <com.shbestwin.followupmanager.view.widget.CardLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="个人信息" />
+
+                <com.shbestwin.followupmanager.view.widget.CerebralApoplexyBody1
+                    android:id="@+id/cerebralApoplexyBody1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="生活习惯改变" />
+
+                <com.shbestwin.followupmanager.view.widget.CerebralApoplexyBody2
+                    android:id="@+id/cerebralApoplexyBody2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="危险因素控制-高血压" />
+
+                <com.shbestwin.followupmanager.view.widget.CerebralApoplexyBody3
+                    android:id="@+id/cerebralApoplexyBody3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="危险因素控制-糖尿病" />
+
+                <com.shbestwin.followupmanager.view.widget.CerebralApoplexyBody4
+                    android:id="@+id/cerebralApoplexyBody4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="危险因素控制-高血脂" />
+
+                <com.shbestwin.followupmanager.view.widget.CerebralApoplexyBody5
+                    android:id="@+id/cerebralApoplexyBody5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="终点事件" />
+
+                <com.shbestwin.followupmanager.view.widget.CerebralApoplexyBody6
+                    android:id="@+id/cerebralApoplexyBody6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </com.shbestwin.followupmanager.view.widget.CardLayout>
+    </ScrollView>
+
+</LinearLayout>

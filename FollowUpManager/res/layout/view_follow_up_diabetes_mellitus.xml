@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.shbestwin.followupmanager"
+    style="@style/ContentLayoutStyle"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <com.shbestwin.followupmanager.view.widget.CardLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="个人信息" />
+
+                <com.shbestwin.followupmanager.view.widget.DiabetesMellitusBody1
+                    android:id="@+id/diabetesMellitusBody1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="症状" />
+
+                <com.shbestwin.followupmanager.view.widget.DiabetesMellitusBody2
+                    android:id="@+id/diabetesMellitusBody2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="体征" />
+
+                <com.shbestwin.followupmanager.view.widget.DiabetesMellitusBody3
+                    android:id="@+id/diabetesMellitusBody3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="生活方式指导" />
+
+                <com.shbestwin.followupmanager.view.widget.DiabetesMellitusBody4
+                    android:id="@+id/diabetesMellitusBody4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="用药情况" />
+
+                <com.shbestwin.followupmanager.view.widget.DiabetesMellitusBody5
+                    android:id="@+id/diabetesMellitusBody5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="胰岛素" />
+
+                <com.shbestwin.followupmanager.view.widget.DiabetesMellitusBody6
+                    android:id="@+id/diabetesMellitusBody6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="辅助检查" />
+
+                <com.shbestwin.followupmanager.view.widget.DiabetesMellitusBody7
+                    android:id="@+id/diabetesMellitusBody7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="服药依从性" />
+
+                <com.shbestwin.followupmanager.view.widget.DiabetesMellitusBody8
+                    android:id="@+id/diabetesMellitusBody8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="药物不良反应" />
+
+                <com.shbestwin.followupmanager.view.widget.DiabetesMellitusBody9
+                    android:id="@+id/diabetesMellitusBody9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="低血糖反应" />
+
+                <com.shbestwin.followupmanager.view.widget.DiabetesMellitusBody10
+                    android:id="@+id/diabetesMellitusBody10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="此次随访分类" />
+
+                <com.shbestwin.followupmanager.view.widget.DiabetesMellitusBody11
+                    android:id="@+id/diabetesMellitusBody11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="转诊" />
+
+                <com.shbestwin.followupmanager.view.widget.DiabetesMellitusBody12
+                    android:id="@+id/diabetesMellitusBody12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="转诊回访" />
+
+                <com.shbestwin.followupmanager.view.widget.DiabetesMellitusBody13
+                    android:id="@+id/diabetesMellitusBody13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </com.shbestwin.followupmanager.view.widget.CardLayout>
+    </ScrollView>
+
+</LinearLayout>

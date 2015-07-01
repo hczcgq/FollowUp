@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="20dp"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="体重(kg)：" />
+
+        <EditText
+            android:id="@+id/et_tz"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="150dp" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="身长(cm)：" />
+
+        <EditText
+             android:id="@+id/et_sc"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="150dp" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="BMI(kg/m²)：" />
+
+        <EditText
+             android:id="@+id/et_bmi"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="150dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="体格发育评价：" />
+
+        <Spinner
+             android:id="@+id/sn_tgfypj"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="220dp"
+            android:entries="@array/growthEvaluation" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/white_label_bg"
+        android:text="视力"
+        android:textColor="@color/light_blue"
+        android:textSize="@dimen/global_font_size_xlarge" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="视力：" />
+
+        <EditText
+             android:id="@+id/et_sl_zy"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="150dp"
+            android:hint="左眼" />
+
+        <TextView
+            style="@style/GeneralExaminationTipsStyle"
+            android:layout_marginRight="10dp"
+            android:text="/" />
+
+        <EditText
+             android:id="@+id/et_sl_yy"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="150dp"
+            android:hint="右眼" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/white_label_bg"
+        android:text="口腔"
+        android:textColor="@color/light_blue"
+        android:textSize="@dimen/global_font_size_xlarge" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="出牙/龋齿数(颗)：" />
+
+        <EditText
+             android:id="@+id/et_cyzzs_1"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="80dp"
+            android:layout_marginLeft="20dp" />
+
+        <TextView
+            style="@style/GeneralExaminationTipsStyle"
+            android:layout_marginRight="10dp"
+            android:text="/" />
+
+        <EditText
+             android:id="@+id/et_cyzzs_2"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="80dp" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="结论：" />
+
+        <Spinner
+             android:id="@+id/sn_cyzzs_jl"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="220dp"
+            android:layout_marginLeft="20dp"
+            android:entries="@array/odontiasisConclusion" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/white_label_bg"
+        android:text="听力"
+        android:textColor="@color/light_blue"
+        android:textSize="@dimen/global_font_size_xlarge" />
+
+    <RadioGroup
+        android:id="@+id/rg_tl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="听力：" />
+
+        <RadioButton
+            android:id="@+id/rb_tl_tg"
+            style="@style/RadioButtonStyle"
+            android:checked="true"
+            android:text="通过" />
+
+        <RadioButton
+            android:id="@+id/rb_tl_wtg"
+            style="@style/RadioButtonStyle"
+            android:layout_marginLeft="20dp"
+            android:text="未通过" />
+
+        <EditText
+            android:id="@+id/et_tl"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:layout_marginLeft="20dp" />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/white_label_bg"
+        android:text="眼部"
+        android:textColor="@color/light_blue"
+        android:textSize="@dimen/global_font_size_xlarge" />
+
+    <RadioGroup
+         android:id="@+id/rg_yb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="眼部：" />
+
+        <RadioButton
+            android:id="@+id/rb_yb_wjyc"
+            style="@style/RadioButtonStyle"
+            android:checked="true"
+            android:text="未见异常" />
+
+        <RadioButton
+            android:id="@+id/rb_yb_yc"
+            style="@style/RadioButtonStyle"
+            android:layout_marginLeft="20dp"
+            android:text="异常" />
+
+        <EditText
+            android:id="@+id/et_yb"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:layout_marginLeft="20dp" />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/white_label_bg"
+        android:text="耳鼻"
+        android:textColor="@color/light_blue"
+        android:textSize="@dimen/global_font_size_xlarge" />
+
+    <RadioGroup
+         android:id="@+id/rg_eb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="耳鼻：" />
+
+        <RadioButton
+            android:id="@+id/rb_eb_wjyc"
+            style="@style/RadioButtonStyle"
+            android:checked="true"
+            android:text="未见异常" />
+
+        <RadioButton
+            android:id="@+id/rb_eb_yc"
+            style="@style/RadioButtonStyle"
+            android:layout_marginLeft="20dp"
+            android:text="异常" />
+
+        <EditText
+            android:id="@+id/et_eb"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:layout_marginLeft="20dp" />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/white_label_bg"
+        android:text="心肺"
+        android:textColor="@color/light_blue"
+        android:textSize="@dimen/global_font_size_xlarge" />
+
+    <RadioGroup
+         android:id="@+id/rg_xf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="心肺：" />
+
+        <RadioButton
+            android:id="@+id/rb_xf_wjyc"
+            style="@style/RadioButtonStyle"
+            android:checked="true"
+            android:text="未见异常" />
+
+        <RadioButton
+            android:id="@+id/rb_xf_yc"
+            style="@style/RadioButtonStyle"
+            android:layout_marginLeft="20dp"
+            android:text="异常" />
+
+        <EditText
+            android:id="@+id/et_xf"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:layout_marginLeft="20dp" />
+    </RadioGroup>
+    
+       <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/white_label_bg"
+        android:text="腹部"
+        android:textColor="@color/light_blue"
+        android:textSize="@dimen/global_font_size_xlarge" />
+
+    <RadioGroup
+         android:id="@+id/rg_fb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="腹部：" />
+
+        <RadioButton
+            android:id="@+id/rb_fb_wjyc"
+            style="@style/RadioButtonStyle"
+            android:checked="true"
+            android:text="未见异常" />
+
+        <RadioButton
+            android:id="@+id/rb_fb_yc"
+            style="@style/RadioButtonStyle"
+            android:layout_marginLeft="20dp"
+            android:text="异常" />
+
+        <EditText
+            android:id="@+id/et_fb"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:layout_marginLeft="20dp" />
+    </RadioGroup>
+    
+       <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/white_label_bg"
+        android:text="外生殖器"
+        android:textColor="@color/light_blue"
+        android:textSize="@dimen/global_font_size_xlarge" />
+
+    <RadioGroup
+         android:id="@+id/rg_wszq"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="外生殖器：" />
+
+        <RadioButton
+            android:id="@+id/rb_wszq_wjyc"
+            style="@style/RadioButtonStyle"
+            android:checked="true"
+            android:text="未见异常" />
+
+        <RadioButton
+            android:id="@+id/rb_wszq_yc"
+            style="@style/RadioButtonStyle"
+            android:layout_marginLeft="20dp"
+            android:text="异常" />
+
+        <EditText
+            android:id="@+id/et_wszq"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:layout_marginLeft="20dp" />
+    </RadioGroup>
+    
+           <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/white_label_bg"
+        android:text="骨骼异常体征"
+        android:textColor="@color/light_blue"
+        android:textSize="@dimen/global_font_size_xlarge" />
+
+    <RadioGroup
+         android:id="@+id/rg_ggyctz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="骨骼异常体征：" />
+
+        <RadioButton
+            android:id="@+id/rb_ggyctz_wjyc"
+            style="@style/RadioButtonStyle"
+            android:checked="true"
+            android:text="未见异常" />
+
+        <RadioButton
+            android:id="@+id/rb_ggyctz_yc"
+            style="@style/RadioButtonStyle"
+            android:layout_marginLeft="20dp"
+            android:text="异常" />
+
+        <EditText
+            android:id="@+id/et_ggyctz"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:layout_marginLeft="20dp" />
+    </RadioGroup>
+
+</LinearLayout>

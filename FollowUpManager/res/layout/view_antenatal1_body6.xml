@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/familyHistoryCategoryLayout"
+    android:layout_marginBottom="20dp" >
+
+    <CheckBox
+        android:id="@+id/familyHistoryCategoryNone"
+        style="@style/CheckBoxStyle"
+        android:checked="true"
+        android:layout_width="160dp"
+        android:text="无" />
+
+    <CheckBox
+        android:id="@+id/familyHistoryCategory1"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_toRightOf="@id/familyHistoryCategoryNone"
+        android:text="高血压" />
+
+    <CheckBox
+        android:id="@+id/familyHistoryCategory2"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_toRightOf="@id/familyHistoryCategory1"
+        android:text="糖尿病" />
+
+    <CheckBox
+        android:id="@+id/familyHistoryCategory3"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_toRightOf="@id/familyHistoryCategory2"
+        android:text="冠心病" />
+
+    <CheckBox
+        android:id="@+id/familyHistoryCategory4"
+        style="@style/CheckBoxStyle"
+        android:layout_toRightOf="@id/familyHistoryCategory3"
+        android:text="慢性阻塞性肺疾病" />
+
+    <CheckBox
+        android:id="@+id/familyHistoryCategory5"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_below="@id/familyHistoryCategoryNone"
+        android:layout_marginTop="10dp"
+        android:text="恶性肿瘤" />
+
+    <CheckBox
+        android:id="@+id/familyHistoryCategory6"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_below="@id/familyHistoryCategoryNone"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/familyHistoryCategory5"
+        android:text="脑卒中" />
+
+    <CheckBox
+        android:id="@+id/familyHistoryCategory7"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_below="@id/familyHistoryCategoryNone"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/familyHistoryCategory6"
+        android:text="重性精神病" />
+
+    <CheckBox
+        android:id="@+id/familyHistoryCategory8"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_below="@id/familyHistoryCategoryNone"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/familyHistoryCategory7"
+        android:text="结核病" />
+
+    <CheckBox
+        android:id="@+id/familyHistoryCategory9"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_below="@id/familyHistoryCategoryNone"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/familyHistoryCategory8"
+        android:text="肝脏疾病" />
+
+    <CheckBox
+        android:id="@+id/familyHistoryCategory10"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_below="@id/familyHistoryCategory6"
+        android:layout_marginTop="10dp"
+        android:text="先天畸形" />
+
+    <CheckBox
+        android:id="@+id/familyHistoryCategoryOther"
+        style="@style/CheckBoxStyle"
+        android:layout_width="90dp"
+        android:layout_below="@id/familyHistoryCategory6"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/familyHistoryCategory10"
+        android:text="其他" />
+
+    <EditText
+        android:id="@+id/familyHistoryCategoryEditext"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/familyHistoryCategoryOther"
+        android:layout_below="@id/familyHistoryCategory6"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/familyHistoryCategoryOther"
+        android:background="@drawable/edit_text_with_padding_selector"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/global_font_size_large" />
+
+</RelativeLayout>

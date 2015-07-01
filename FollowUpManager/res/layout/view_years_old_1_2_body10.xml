@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    android:id="@+id/rg_hbqk"
+    android:gravity="center_vertical"
+    android:orientation="horizontal" >
+
+    <TextView
+        style="@style/GeneralExaminationLabelStyle"
+        android:text="两次随访间患病情况：" />
+
+    <RadioButton
+        android:id="@+id/rb_whb"
+        style="@style/RadioButtonStyle"
+        android:checked="true"
+        android:text="未患病" />
+
+    <RadioButton
+        android:id="@+id/rb_hb"
+        style="@style/RadioButtonStyle"
+        android:layout_marginLeft="20dp"
+        android:text="患病" />
+
+    <EditText
+         android:id="@+id/et_hbqk"
+        style="@style/GeneralExaminationEditTextStyle"
+        android:layout_width="220dp"
+        android:layout_marginLeft="10dp" />
+
+</RadioGroup>

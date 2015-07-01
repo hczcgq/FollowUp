@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/symptomLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="20dp" >
+
+    <CheckBox
+        android:id="@+id/symptom0"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:checked="true"
+        android:text="无症状" />
+
+    <CheckBox
+        android:id="@+id/symptom1"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_toRightOf="@id/symptom0"
+        android:text="头痛" />
+
+    <CheckBox
+        android:id="@+id/symptom2"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_toRightOf="@id/symptom1"
+        android:text="头晕" />
+
+    <CheckBox
+        android:id="@+id/symptom3"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_toRightOf="@id/symptom2"
+        android:text="心悸" />
+
+    <CheckBox
+        android:id="@+id/symptom4"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_toRightOf="@id/symptom3"
+        android:text="胸闷" />
+
+    <CheckBox
+        android:id="@+id/symptom5"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_toRightOf="@id/symptom4"
+        android:text="胸痛" />
+
+    <CheckBox
+        android:id="@+id/symptom6"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_below="@id/symptom0"
+        android:layout_marginTop="10dp"
+        android:text="慢性咳嗽" />
+
+    <CheckBox
+        android:id="@+id/symptom7"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_below="@id/symptom0"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/symptom6"
+        android:text="咳炎" />
+
+    <CheckBox
+        android:id="@+id/symptom8"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_below="@id/symptom0"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/symptom7"
+        android:text="呼吸困难" />
+
+    <CheckBox
+        android:id="@+id/symptom9"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_below="@id/symptom0"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/symptom8"
+        android:text="多饮" />
+
+    <CheckBox
+        android:id="@+id/symptom10"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_below="@id/symptom0"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/symptom9"
+        android:text="多尿" />
+
+    <CheckBox
+        android:id="@+id/symptom11"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_below="@id/symptom0"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/symptom10"
+        android:text="体重下降" />
+
+    <CheckBox
+        android:id="@+id/symptom12"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_below="@id/symptom6"
+        android:layout_marginTop="10dp"
+        android:text="乏力" />
+
+    <CheckBox
+        android:id="@+id/symptom13"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_below="@id/symptom6"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/symptom12"
+        android:text="关节肿痛" />
+
+    <CheckBox
+        android:id="@+id/symptom14"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_below="@id/symptom6"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/symptom13"
+        android:text="视力模糊" />
+
+    <CheckBox
+        android:id="@+id/symptom15"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_below="@id/symptom6"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/symptom14"
+        android:text="手脚麻木" />
+
+    <CheckBox
+        android:id="@+id/symptom16"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_below="@id/symptom6"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/symptom15"
+        android:text="尿急" />
+
+    <CheckBox
+        android:id="@+id/symptom17"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_below="@id/symptom6"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/symptom16"
+        android:text="尿痛" />
+
+    <CheckBox
+        android:id="@+id/symptom18"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_below="@id/symptom17"
+        android:layout_marginTop="10dp"
+        android:text="便秘" />
+
+    <CheckBox
+        android:id="@+id/symptom19"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_below="@id/symptom12"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/symptom18"
+        android:text="腹泻" />
+
+    <CheckBox
+        android:id="@+id/symptom20"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_below="@id/symptom12"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/symptom19"
+        android:text="恶心呕吐" />
+
+    <CheckBox
+        android:id="@+id/symptom21"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_below="@id/symptom12"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/symptom20"
+        android:text="眼花" />
+
+    <CheckBox
+        android:id="@+id/symptom22"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_below="@id/symptom12"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/symptom21"
+        android:text="耳鸣" />
+
+    <CheckBox
+        android:id="@+id/symptom23"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_below="@id/symptom12"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/symptom22"
+        android:text="乳房胀痛" />
+
+    <CheckBox
+        android:id="@+id/symptom24"
+        style="@style/CheckBoxStyle"
+        android:layout_width="90dp"
+        android:layout_below="@id/symptom18"
+        android:layout_marginTop="10dp"
+        android:text="其他" />
+
+    <EditText
+        android:id="@+id/otherSymptomEditText"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/symptom18"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/symptom24"
+        android:background="@drawable/edit_text_with_padding_selector"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/global_font_size_large" />
+
+</RelativeLayout>

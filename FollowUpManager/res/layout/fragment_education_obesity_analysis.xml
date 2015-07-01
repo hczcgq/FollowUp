@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ContentLayoutStyle" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralEducationLabelStyle"
+            android:text="身高(cm)：" />
+
+        <TextView
+            android:id="@+id/heightTextView"
+            style="@style/GeneralEducationTextStyle"
+            android:text="170" />
+
+        <TextView
+            style="@style/GeneralEducationLabelStyle"
+            android:text="体重(kg)：" />
+
+        <TextView
+            android:id="@+id/weightTextView"
+            style="@style/GeneralEducationTextStyle"
+            android:text="70" />
+
+        <TextView
+            style="@style/GeneralEducationLabelStyle"
+            android:text="BMI：" />
+
+        <TextView
+            android:id="@+id/BMITextView"
+            style="@style/GeneralEducationTextStyle"
+            android:text="12" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralEducationLabelStyle"
+            android:text="腰围(cm)：" />
+
+        <TextView
+            android:id="@+id/waistTextView"
+            style="@style/GeneralEducationTextStyle"
+            android:text="80" />
+
+        <TextView
+            style="@style/GeneralEducationLabelStyle"
+            android:text="臀围(cm)：" />
+
+        <TextView
+            android:id="@+id/hipsTextView"
+            style="@style/GeneralEducationTextStyle"
+            android:text="90" />
+
+        <TextView
+            style="@style/GeneralEducationLabelStyle"
+            android:text="腰臀比：" />
+
+        <TextView
+            android:id="@+id/waistToHipratioTextView"
+            style="@style/GeneralEducationTextStyle"
+            android:text="1.2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralEducationLabelStyle"
+            android:text="阻抗(Ω)：" />
+
+        <TextView
+            android:id="@+id/bodyImpedanceTextView"
+            style="@style/GeneralEducationTextStyle"
+            android:text="80" />
+
+        <TextView
+            style="@style/GeneralEducationLabelStyle"
+            android:text="体脂肪率(%)：" />
+
+        <TextView
+            android:id="@+id/fatTextView"
+            style="@style/GeneralEducationTextStyle"
+            android:text="90" />
+
+        <TextView
+            style="@style/GeneralEducationLabelStyle"
+            android:text="内脏脂肪等级：" />
+
+        <TextView
+            android:id="@+id/visceralFatTextView"
+            style="@style/GeneralEducationTextStyle"
+            android:text="1.2" />
+
+        <TextView
+            style="@style/GeneralEducationLabelStyle"
+            android:text="基础代谢(kcal)：" />
+
+        <TextView
+            android:id="@+id/KCALTextView"
+            style="@style/GeneralEducationTextStyle"
+            android:text="1.2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/analysisResultTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/global_font_size_xlarge"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/adviseTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:lineSpacingMultiplier="1.2"
+            android:textColor="@color/black"
+            android:textSize="@dimen/global_font_size_large" />
+    </LinearLayout>
+
+</LinearLayout>

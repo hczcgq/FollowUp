@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/searchLayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:text="搜索："
+            android:textColor="@color/black"
+            android:textSize="@dimen/global_font_size_large" />
+
+        <AutoCompleteTextView
+            android:id="@+id/searchACTextView"
+            android:layout_width="600dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_with_padding_selector"
+            android:completionHint="@string/yyzd_keyword_empty"
+            android:completionThreshold="1"
+            android:drawableLeft="@drawable/icon_left_search"
+            android:drawablePadding="5dp"
+            android:singleLine="true"
+            android:dropDownHorizontalOffset="20dp"
+            android:ems="50"
+            android:hint="@string/yyzd_keyword_empty"
+            android:minHeight="40dp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/global_font_size_large" 
+            android:text="高血压的防治"/>
+
+        <Button
+            android:id="@+id/searchButton"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/button_blue_selector"
+            android:text="搜索"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TextView android:id="@+id/contentTextView"
+            android:layout_marginLeft="45dp"
+            android:layout_marginRight="45dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingMultiplier="1.2"
+            android:text="@string/jkjy_diet_guide_gxyfz"
+            android:textColor="@color/black"
+            android:textSize="@dimen/global_font_size_xlarge" />
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.shbestwin.followupmanager"
+    style="@style/ContentLayoutStyle"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <com.shbestwin.followupmanager.view.widget.CardLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="个人信息" />
+
+                <com.shbestwin.followupmanager.view.widget.DisabilityBody1
+                    android:id="@+id/disabilityBody1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="残疾类型" />
+
+                <com.shbestwin.followupmanager.view.widget.DisabilityBody2
+                    android:id="@+id/disabilityBody2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="一般情况" />
+
+                <com.shbestwin.followupmanager.view.widget.DisabilityBody3
+                    android:id="@+id/disabilityBody3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="康复服务" />
+
+                <com.shbestwin.followupmanager.view.widget.DisabilityBody4
+                    android:id="@+id/disabilityBody4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="生活方式指导" />
+
+                <com.shbestwin.followupmanager.view.widget.DisabilityBody5
+                    android:id="@+id/disabilityBody5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </com.shbestwin.followupmanager.view.widget.CardLayout>
+    </ScrollView>
+
+</LinearLayout>

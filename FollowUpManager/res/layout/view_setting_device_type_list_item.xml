@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="15dp" >
+
+    <TextView
+        android:id="@+id/brandTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="三星"
+        android:textColor="@color/black"
+        android:textSize="@dimen/global_font_size_middle" />
+
+    <TextView
+        android:id="@+id/modelTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="SM-T520"
+        android:textColor="@color/black"
+        android:textSize="@dimen/global_font_size_middle" />
+
+    <ImageView
+        android:id="@+id/checkImageView"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:contentDescription="@null"
+        android:scaleType="centerInside"
+        android:src="@drawable/icon_check" />
+
+</LinearLayout>

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:minWidth="120dp"
+            android:text="阶段：" />
+
+        <Spinner
+            android:id="@+id/problemPhaseSpinner"
+            style="@style/PersonalInfoSpinnerStyle"
+            android:layout_width="200dp"
+            android:entries="@array/problemPhase" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="发生人：" />
+
+        <EditText
+            android:id="@+id/happenNameEditText"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:imeOptions="actionNext"
+            android:inputType="text" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="发生日期：" />
+
+        <EditText
+            android:id="@+id/happenDateEditText"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="200dp"
+            android:drawableRight="@drawable/icon_calendar" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:minWidth="120dp"
+            android:text="问题评估：" />
+
+        <EditText
+            android:id="@+id/problemEvaluateEditText"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="860dp"
+            android:gravity="left|top"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:singleLine="true" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:minWidth="120dp"
+            android:text="主要问题：" />
+
+        <EditText
+            android:id="@+id/mainProblemEditText"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="860dp"
+            android:gravity="left|top"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:singleLine="true" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView        
+            style="@style/PersonalInfoLabelStyle"
+            android:minWidth="120dp"
+            android:text="处理及结果：" />
+
+        <EditText
+            android:id="@+id/handleResultEditText"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="860dp"
+            android:gravity="left|top"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:singleLine="true" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:minWidth="120dp"
+            android:text="主观资料：" />
+
+        <EditText
+            android:id="@+id/subjectDataEditText"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:imeOptions="actionNext"
+            android:inputType="text" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="客观资料：" />
+
+        <EditText
+            android:id="@+id/objectiveDataEditText"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="200dp"
+            android:imeOptions="actionNext"
+            android:inputType="text" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="其他：" />
+
+        <EditText
+            android:id="@+id/otherDataEditText"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="200dp"
+            android:imeOptions="actionNext"
+            android:inputType="text" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:minWidth="120dp"
+            android:text="管理计划：" />
+
+        <EditText
+            android:id="@+id/managementPlanEditText"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:imeOptions="actionNext"
+            android:inputType="text" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="记录医生：" />
+
+        <EditText
+            android:id="@+id/recordDoctorEditText"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="200dp"
+            android:imeOptions="actionNext"
+            android:inputType="text" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="记录日期：" />
+
+        <EditText
+            android:id="@+id/recordDateEditText"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="200dp"
+            android:drawableRight="@drawable/icon_calendar"
+            android:imeOptions="actionNext"
+            android:inputType="text" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:minWidth="120dp"
+            android:text="备注：" />
+
+        <EditText
+            android:id="@+id/remarkEditText"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="860dp"
+            android:gravity="left|top"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:minHeight="80dp" />
+    </LinearLayout>
+
+</LinearLayout>

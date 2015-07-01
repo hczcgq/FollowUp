@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioButton xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="110dp"
+    android:layout_height="match_parent"
+    android:button="@null"
+    android:gravity="center"
+    android:text="常规体检"
+    android:textColor="@color/tab_menu_item_text_selector"
+    android:textSize="@dimen/global_font_size_large" 
+    android:background="@drawable/tab_item_selector"/>

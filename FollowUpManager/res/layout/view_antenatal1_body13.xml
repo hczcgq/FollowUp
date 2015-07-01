@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    android:id="@+id/rg_ztpg"
+    android:gravity="center_vertical"
+    android:orientation="horizontal" >
+
+    <TextView
+        style="@style/GeneralExaminationLabelStyle"
+        android:text="总体评估：" />
+
+    <RadioButton
+        android:id="@+id/rb_w"
+        style="@style/RadioButtonStyle"
+        android:checked="true"
+        android:text="未见异常" />
+
+    <RadioButton
+        android:id="@+id/rb_y"
+        style="@style/RadioButtonStyle"
+        android:layout_marginLeft="20dp"
+        android:text="异常" />
+
+    <EditText
+        android:id="@+id/et_ztpg"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/edit_text_with_padding_selector"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/global_font_size_large" />
+
+</RadioGroup>

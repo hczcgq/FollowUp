@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/body_border_bg"
+    android:orientation="vertical"
+    android:padding="40dp" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="本系统是家庭医生作上门随访的辅助工具，主要功能如下："
+        android:textColor="@color/light_blue"
+        android:textSize="@dimen/global_font_size_xlarge" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:lineSpacingMultiplier="1.5"
+        android:text="1. 健康档案建设与动态更新；\n2. 快速健康体检，包括血压、血糖、血脂等常见慢病检测项目；\n3. 随访管理，包括高血压、糖尿病、精神病等主要公共卫生服务内容；\n4. 健康教育，包括肥胖分析、风险因素、膳食指导、运动处方、综合评估，健康知识；\n5. 用药指导，包括药理学、病理学、适应症、禁忌症、不良反应、相互作用等。"
+        android:textColor="@color/black"
+        android:textSize="@dimen/global_font_size_large" />
+
+</LinearLayout>

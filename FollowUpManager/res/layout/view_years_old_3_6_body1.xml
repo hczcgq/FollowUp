@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="20dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="130dp"
+            android:text="访视日期：" />
+
+        <EditText
+            android:id="@+id/et_fsrq"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:drawableRight="@drawable/icon_calendar" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="50dp"
+            android:minWidth="130dp"
+            android:text="年龄：" />
+
+        <Spinner
+            android:id="@+id/sn_yn"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="220dp"
+            android:entries="@array/moonAge2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="130dp"
+            android:text="实际年龄：" />
+
+        <EditText
+            android:id="@+id/et_csrl"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="180dp" />
+
+        <TextView
+            style="@style/GeneralExaminationTipsStyle"
+            android:layout_width="30dp"
+            android:text="岁" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="50dp"
+            android:minWidth="130dp"
+            android:text="责任医师：" />
+
+        <EditText
+            android:id="@+id/et_zrys"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+    </LinearLayout>
+
+</LinearLayout>

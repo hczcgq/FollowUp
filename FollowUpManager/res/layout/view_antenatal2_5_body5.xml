@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    android:gravity="center_vertical"
+    android:id="@+id/rg_zd"
+    android:orientation="horizontal" >
+
+    <TextView
+        style="@style/GeneralExaminationLabelStyle"
+        android:text="指导：" />
+
+    <RadioButton
+        android:id="@+id/rb_grws"
+        style="@style/RadioButtonStyle"
+        android:checked="true"
+        android:text="个人卫生" />
+
+    <RadioButton
+        android:id="@+id/rb_ss"
+        style="@style/RadioButtonStyle"
+        android:layout_marginLeft="20dp"
+        android:text="膳食" />
+
+    <RadioButton
+        android:id="@+id/rb_xl"
+        style="@style/RadioButtonStyle"
+        android:layout_marginLeft="20dp"
+        android:text="心理" />
+
+    <RadioButton
+        android:id="@+id/rb_yd"
+        style="@style/RadioButtonStyle"
+        android:layout_marginLeft="20dp"
+        android:text="运动" />
+
+</RadioGroup>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="20dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="访视日期：" />
+
+        <EditText
+            android:id="@+id/et_fsrq"
+            android:clickable="true"
+            android:editable="false"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:drawableRight="@drawable/icon_calendar" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:minWidth="130dp"
+            android:text="孕周(周)：" />
+
+        <EditText
+            android:id="@+id/et_yz"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="180dp" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:minWidth="130dp"
+            android:text="产前访视次数：" />
+
+        <EditText
+            android:id="@+id/et_cqfscs"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="180dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="主述：" />
+
+        <EditText
+            android:id="@+id/et_zs"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="500dp" />
+    </LinearLayout>
+
+</LinearLayout>

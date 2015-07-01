@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:paddingBottom="15dp"
+    android:paddingLeft="25dp"
+    android:paddingRight="25dp"
+    android:paddingTop="15dp" >
+
+    <TextView
+        android:id="@+id/number01TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/examination_indicator_number_bg_active"
+        android:gravity="center"
+        android:text="1"
+        android:textColor="#BEBEBE"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/line01TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="5.0dip"
+        android:layout_gravity="center"
+        android:layout_weight="1.0"
+        android:background="@drawable/examination_indicator_line_normal"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/number02TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/examination_indicator_number_bg_normal"
+        android:gravity="center"
+        android:text="2"
+        android:textColor="#BEBEBE"
+        android:textSize="20sp" />
+
+    <TextView android:id="@+id/line02TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="5.0dip"
+        android:layout_weight="1.0"
+        android:background="@drawable/examination_indicator_line_normal"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/number03TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/examination_indicator_number_bg_normal"
+        android:gravity="center"
+        android:text="3"
+        android:textColor="#BEBEBE"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/line03TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="5.0dip"
+        android:layout_weight="1.0"
+        android:background="@drawable/examination_indicator_line_normal"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/number04TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/examination_indicator_number_bg_normal"
+        android:gravity="center"
+        android:text="4"
+        android:textColor="#BEBEBE"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/line04TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="5.0dip"
+        android:layout_weight="1.0"
+        android:background="@drawable/examination_indicator_line_normal"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/number05TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/examination_indicator_number_bg_normal"
+        android:gravity="center"
+        android:text="5"
+        android:textColor="#BEBEBE"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/line05TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="5.0dip"
+        android:layout_weight="1.0"
+        android:background="@drawable/examination_indicator_line_normal"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/number06TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/examination_indicator_number_bg_normal"
+        android:gravity="center"
+        android:text="6"
+        android:textColor="#BEBEBE"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/line06TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="5.0dip"
+        android:layout_weight="1.0"
+        android:background="@drawable/examination_indicator_line_normal"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/number07TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/examination_indicator_number_bg_normal"
+        android:gravity="center"
+        android:text="7"
+        android:textColor="#BEBEBE"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/line07TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="5.0dip"
+        android:layout_weight="1.0"
+        android:background="@drawable/examination_indicator_line_normal"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/number08TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/examination_indicator_number_bg_normal"
+        android:gravity="center"
+        android:text="8"
+        android:textColor="#BEBEBE"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/line08TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="5.0dip"
+        android:layout_weight="1.0"
+        android:background="@drawable/examination_indicator_line_normal"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/number09TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/examination_indicator_number_bg_normal"
+        android:gravity="center"
+        android:text="9"
+        android:textColor="#BEBEBE"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/line09TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="5.0dip"
+        android:layout_weight="1.0"
+        android:background="@drawable/examination_indicator_line_normal"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/number10TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/examination_indicator_number_bg_normal"
+        android:gravity="center"
+        android:text="10"
+        android:textColor="#BEBEBE"
+        android:textSize="20sp" />
+
+</LinearLayout>

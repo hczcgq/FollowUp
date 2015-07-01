@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="black">#333333</color>
+    <color name="white">#FFFFFF</color>
+    <color name="red">#D82F27</color>
+    <color name="light_blue">#40ABD9</color>
+    <!-- #F2F2F2 -->
+    <color name="main_bg">#E9E8E8</color>
+    <color name="operate_bg">#4C93C7</color>
+    <color name="divider">#DEDEDE</color>
+    <color name="top_bar_item_text_normal">#333333</color>
+    <color name="top_bar_item_text_selected">#FFFFFF</color>
+
+    <!-- 偶数背景 -->
+    <color name="global_list_even_bg">#F3F2F0</color>
+    <!-- 基数背景 -->
+    <color name="global_list_cardinal_bg">#F7F7F7</color>
+    
+    
+    
+    <color name="yellow">#ffffff00</color>
+    <color name="orange">#ffffa500</color>
+    <color name="title_white">#fff5f9fa</color>
+    <color name="red2">#ff7f0000</color>
+    <color name="text_black">#ff2d2d2d</color>
+    <color name="text_gray">#ff595959</color>
+    <color name="green">#ff00ff00</color>
+    <color name="text_green">#ff0ba8dd</color>
+    <color name="text_blue">#ff4182e0</color>
+    <color name="blue">#ff0000ff</color>
+    <color name="custom_blue">#ff3c465c</color>
+    <color name="white2">#fff5f5f5</color>
+    <color name="sky_blue">#ff87ceeb</color>
+    <color name="steel_blue">#ff4682b4</color>
+    <color name="list_divider">#ffffcc99</color>
+    <color name="new_item_time_color">#ffffa200</color>
+    <color name="null_color">#00ffffff</color>
+    <color name="gray">#ff999999</color>
+    <color name="user_info_name_text">#ff777777</color>
+    <color name="user_info_count_text">#ff555555</color>
+    <color name="ForestGreen">#ff6b8e23</color>
+    <color name="personal_sex_textcolor">#ff817f7d</color>
+    <color name="personal_textcolor">#ff504f4d</color>
+    <color name="head_textcolor">#ff2793a1</color>
+    <color name="bl_bg_color">#ff7fb7be</color>
+    <color name="bl_line_color">#ffd3d3d3</color>
+    <color name="jz_text_color">#ff38929e</color>
+    <color name="lnpg_text_color">#ffc84b4b</color>
+    <color name="green_pressed_text_color">#ff32a7b8</color>
+    <color name="green_normal_text_color">#ffa2c8ce</color>
+    <color name="sjgl_background_color">#ffdddcd6</color>
+    <color name="list_jsh_background_color">#fff7f7f7</color>
+    <color name="list_osh_background_color">#fff3f2f0</color>
+
+</resources>

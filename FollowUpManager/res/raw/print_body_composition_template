@@ -1,0 +1,31 @@
+
+
+{title}
+
+个人基本信息
+姓名：{personal_name}
+性别：{personal_sex}  年龄：{personal_age}
+体检编号：{test_num}
+
+
+人体成分
+
+身高（cm）：{height}
+体重（kg）：{weight}
+BMI：{BMI}
+阻抗（Ω）：{body_impedance}
+基础代谢（kcal）：{KCAL}
+相对基础代谢（kcal）：{RKCAL}
+体脂肪率（%）：{fat}
+内脏脂肪（级）：{visceral_fat}
+肌肉含量（kg）：{muscle}
+水分含量（%）：{body_water}
+骨含量（kg）：{bone_mass}
+身体类型：{conclusion}
+
+
+社区名称：{community_name}
+社区地址：{community_address}
+电        话：{community_phone}
+服务热线：{community_service_hotline}
+

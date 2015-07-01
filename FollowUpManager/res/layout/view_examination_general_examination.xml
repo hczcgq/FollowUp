@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout style="@style/ContentLayoutStyle" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="健康体检表"
+            android:textColor="@color/light_blue"
+            android:textSize="@dimen/global_font_size_xlarge"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="责任医师："
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_large" />
+
+            <EditText
+                android:id="@+id/zrysEditText"
+                style="@style/PersonalInfoEditTextStyle"
+                android:layout_width="220dp" />
+
+            <TextView
+                style="@style/PersonalInfoLabelStyle"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="体检日期：" />
+
+            <EditText
+                android:id="@+id/tjrqEditText"
+                style="@style/PersonalInfoEditTextStyle"
+                android:layout_width="220dp"
+                android:clickable="true"
+                android:cursorVisible="false"
+                android:drawableRight="@drawable/icon_calendar"
+                android:editable="false"
+                android:focusableInTouchMode="false"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+        </LinearLayout>
+
+        <com.shbestwin.followupmanager.view.widget.CardLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <include layout="@layout/view_general_examination_header1" />
+
+                <com.shbestwin.followupmanager.view.widget.GeneralExaminationBody1
+                    android:id="@+id/generalExaminationBody1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <include layout="@layout/view_general_examination_header2" />
+
+                <com.shbestwin.followupmanager.view.widget.GeneralExaminationBody2
+                    android:id="@+id/generalExaminationBody2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <include layout="@layout/view_general_examination_header3" />
+
+                <com.shbestwin.followupmanager.view.widget.GeneralExaminationBody3
+                    android:id="@+id/generalExaminationBody3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <include layout="@layout/view_general_examination_header4" />
+
+                <com.shbestwin.followupmanager.view.widget.GeneralExaminationBody4
+                    android:id="@+id/generalExaminationBody4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <include layout="@layout/view_general_examination_header5" />
+
+                <com.shbestwin.followupmanager.view.widget.GeneralExaminationBody5
+                    android:id="@+id/generalExaminationBody5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <include layout="@layout/view_general_examination_header6" />
+
+                <com.shbestwin.followupmanager.view.widget.GeneralExaminationBody6
+                    android:id="@+id/generalExaminationBody6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <include layout="@layout/view_general_examination_header7" />
+
+                <com.shbestwin.followupmanager.view.widget.GeneralExaminationBody7
+                    android:id="@+id/generalExaminationBody7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <include layout="@layout/view_general_examination_header8" />
+
+                <com.shbestwin.followupmanager.view.widget.GeneralExaminationBody8
+                    android:id="@+id/generalExaminationBody8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <include layout="@layout/view_general_examination_header9" />
+
+                <com.shbestwin.followupmanager.view.widget.GeneralExaminationBody9
+                    android:id="@+id/generalExaminationBody9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <include layout="@layout/view_general_examination_header10" />
+
+                <com.shbestwin.followupmanager.view.widget.GeneralExaminationBody10
+                    android:id="@+id/generalExaminationBody10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <include layout="@layout/view_general_examination_header11" />
+
+                <com.shbestwin.followupmanager.view.widget.GeneralExaminationBody11
+                    android:id="@+id/generalExaminationBody11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <include layout="@layout/view_general_examination_header12" />
+
+                <com.shbestwin.followupmanager.view.widget.GeneralExaminationBody12
+                    android:id="@+id/generalExaminationBody12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <include layout="@layout/view_general_examination_header13" />
+
+                <com.shbestwin.followupmanager.view.widget.GeneralExaminationBody13
+                    android:id="@+id/generalExaminationBody13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <include layout="@layout/view_general_examination_header14" />
+
+                <com.shbestwin.followupmanager.view.widget.GeneralExaminationBody14
+                    android:id="@+id/generalExaminationBody14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </com.shbestwin.followupmanager.view.widget.CardLayout>
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:flipInterval="1000"
+    android:persistentDrawingCache="animation" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="25dp"
+        android:paddingLeft="60dp"
+        android:paddingRight="60dp"
+        android:paddingTop="25dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="中医体质学"
+            android:textColor="@color/black"
+            android:textSize="@dimen/global_font_size_xlarge"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:lineSpacingMultiplier="1.2"
+            android:text="中医体质学以生命个体的人为研究出发点，旨在研究不同体质、构成特点、演变规律、影响因素、分类标准，从而应用于指导疾病的预防、诊治、康复于养生。贯彻中医学“治未病”的学术思想，结合体质进行预防，通过改善体质、调整功能状态，为从人群体质的角度预防疾病提供了理疗和方法。充分体现了以人为本，因人制宜的思想。"
+            android:textColor="@color/black"
+            android:textSize="@dimen/global_font_size_large" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="九种中医体质"
+            android:textColor="@color/red"
+            android:textSize="@dimen/global_font_size_large"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="平和质\t\t\t\t气虚质\t\t\t\t阳虚质\t\t\t\t阴虚质\t\t\t\t痰湿质\t\t\t\t湿热质\t\t\t\t血瘀质\t\t\t\t气郁质\t\t\t\t特禀质"
+            android:textColor="@color/red"
+            android:textSize="@dimen/global_font_size_large" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/startExaminationButton"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:background="@drawable/button_blue_selector"
+                android:text="开始检测"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/lastExaminationButton"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="40dp"
+                android:background="@drawable/button_gray_selector"
+                android:text="上次结果"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.shbestwin.followupmanager.view.widget.ExaminationLayout
+        android:id="@+id/examinationLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/physiqueBarChart"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="right"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/physiqueReportButton"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:background="@drawable/button_blue_selector"
+                android:text="体质报告"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/returnButton"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="40dp"
+                android:background="@drawable/button_blue_selector"
+                android:text="返回"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="25dp"
+        android:paddingLeft="60dp"
+        android:paddingRight="60dp"
+        android:paddingTop="25dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="中医体质判识报告"
+            android:textColor="@color/black"
+            android:textSize="@dimen/global_font_size_xlarge" />
+
+        <TextView
+            android:id="@+id/physiqueNameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="平和体质"
+            android:textColor="@color/light_blue"
+            android:textSize="@dimen/global_font_size_xlarge" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="体质特征"
+                    android:textColor="@color/black"
+                    android:textSize="28sp" />
+
+                <TextView
+                    android:id="@+id/physiqueFeatureTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/black"
+                    android:textSize="23sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="辨识与调节方法"
+                    android:textColor="@color/black"
+                    android:textSize="28sp" />
+
+                <TextView
+                    android:id="@+id/physiqueGuidanceTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/black"
+                    android:textSize="23sp" />
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/againExaminationButton"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:background="@drawable/button_blue_selector"
+            android:text="重新测试"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+</ViewFlipper>

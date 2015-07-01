@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ContentLayoutStyle" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:minWidth="120dp"
+            android:text="家庭档案编号：" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:minWidth="220dp"
+            android:text="41961181.20090713.1008" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="家庭类型：" />
+
+        <Spinner
+            android:id="@+id/homestyleSpinner"
+            style="@style/PersonalInfoSpinnerStyle"
+            android:entries="@array/homestyle" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:minWidth="120dp"
+            android:text="户主姓名：" />
+
+        <EditText
+            android:id="@+id/householderName"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="人口数：" />
+
+        <EditText
+            android:id="@+id/familyNum"
+            android:numeric="integer"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="180dp" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:minWidth="30dp"
+            android:text="人" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="经济状况：" />
+
+        <Spinner
+            android:id="@+id/economySpinner"
+            style="@style/PersonalInfoSpinnerStyle"
+            android:entries="@array/economy" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/incomeRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/incomeLabel"
+            style="@style/PersonalInfoLabelStyle"
+            android:layout_alignBaseline="@+id/incomeRadioButton0"
+            android:minWidth="120dp"
+            android:text="年人均收入：" />
+
+        <RadioButton
+            android:id="@+id/incomeRadioButton0"
+            style="@style/RadioButtonStyle"
+            android:layout_toRightOf="@id/incomeLabel"
+            android:checked="true"
+            android:minWidth="220dp"
+            android:text="&lt;1000元" />
+
+        <RadioButton
+            android:id="@+id/incomeRadioButton1"
+            style="@style/RadioButtonStyle"
+            android:layout_toRightOf="@id/incomeRadioButton0"
+            android:minWidth="220dp"
+            android:text="1000-1999元" />
+
+        <RadioButton
+            android:id="@+id/incomeRadioButton2"
+            style="@style/RadioButtonStyle"
+            android:layout_toRightOf="@id/incomeRadioButton1"
+            android:minWidth="220dp"
+            android:text="2000-3999元" />
+
+        <RadioButton
+            android:id="@+id/incomeRadioButton3"
+            style="@style/RadioButtonStyle"
+            android:layout_below="@id/incomeRadioButton0"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/incomeLabel"
+            android:minWidth="220dp"
+            android:text="4000-7999元" />
+
+        <RadioButton
+            android:id="@+id/incomeRadioButton4"
+            style="@style/RadioButtonStyle"
+            android:layout_below="@id/incomeRadioButton0"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/incomeRadioButton3"
+            android:minWidth="220dp"
+            android:text="8000元以上" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/accountAttributeRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/accountAttributeLabel"
+            style="@style/PersonalInfoLabelStyle"
+            android:layout_alignBaseline="@+id/accountAttributeRadioButton0"
+            android:minWidth="120dp"
+            android:text="户属性：" />
+
+        <RadioButton
+            android:id="@+id/accountAttributeRadioButton0"
+            style="@style/RadioButtonStyle"
+            android:layout_toRightOf="@id/accountAttributeLabel"
+            android:checked="true"
+            android:minWidth="220dp"
+            android:text="城镇居民" />
+
+        <RadioButton
+            android:id="@+id/accountAttributeRadioButton1"
+            style="@style/RadioButtonStyle"
+            android:layout_toRightOf="@id/accountAttributeRadioButton0"
+            android:minWidth="220dp"
+            android:text="一般农户" />
+
+        <RadioButton
+            android:id="@+id/accountAttributeRadioButton2"
+            style="@style/RadioButtonStyle"
+            android:layout_toRightOf="@id/accountAttributeRadioButton1"
+            android:minWidth="220dp"
+            android:text="低保户" />
+
+        <RadioButton
+            android:id="@+id/accountAttributeRadioButton3"
+            style="@style/RadioButtonStyle"
+            android:layout_below="@id/accountAttributeRadioButton0"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/accountAttributeLabel"
+            android:minWidth="220dp"
+            android:text="五保户" />
+
+        <RadioButton
+            android:id="@+id/accountAttributeRadioButton4"
+            style="@style/RadioButtonStyle"
+            android:layout_below="@id/accountAttributeRadioButton0"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/accountAttributeRadioButton3"
+            android:minWidth="220dp"
+            android:text="贫困户" />
+
+        <RadioButton
+            android:id="@+id/accountAttributeRadioButton5"
+            style="@style/RadioButtonStyle"
+            android:layout_below="@id/accountAttributeRadioButton0"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/accountAttributeRadioButton4"
+            android:minWidth="220dp"
+            android:text="特困户" />
+
+        <RadioButton
+            android:id="@+id/accountAttributeRadioButton6"
+            style="@style/RadioButtonStyle"
+            android:layout_below="@id/accountAttributeRadioButton3"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/accountAttributeLabel"
+            android:minWidth="220dp"
+            android:text="烈军属" />
+
+        <RadioButton
+            android:id="@+id/accountAttributeRadioButton7"
+            style="@style/RadioButtonStyle"
+            android:layout_below="@id/accountAttributeRadioButton3"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/accountAttributeRadioButton3"
+            android:minWidth="220dp"
+            android:text="其他" />
+    </RelativeLayout>
+
+</LinearLayout>

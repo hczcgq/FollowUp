@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:paddingBottom="20dp" >
+
+    <TextView
+        android:id="@+id/riskFactorLabel"
+        style="@style/GeneralExaminationLabelStyle"
+        android:text="危险因素控制：" />
+
+    <CheckBox
+        android:id="@+id/riskFactor0"
+        style="@style/CheckBoxStyle"
+        android:layout_toRightOf="@id/riskFactorLabel"
+        android:minWidth="105dp"
+        android:text="戒烟" />
+
+    <CheckBox
+        android:id="@+id/riskFactor1"
+        style="@style/CheckBoxStyle"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/riskFactor0"
+        android:text="健康饮酒" />
+
+    <CheckBox
+        android:id="@+id/riskFactor2"
+        style="@style/CheckBoxStyle"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/riskFactor1"
+        android:text="锻炼" />
+
+    <CheckBox
+        android:id="@+id/riskFactor3"
+        style="@style/CheckBoxStyle"
+        android:layout_below="@id/riskFactor0"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/riskFactorLabel"
+        android:text="减体重" />
+
+    <TextView
+        android:id="@+id/targetLabel"
+        style="@style/GeneralExaminationLabelStyle"
+        android:layout_alignBaseline="@id/riskFactor3"
+        android:layout_below="@id/riskFactor0"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/riskFactor3"
+        android:text="目标：" />
+
+    <EditText
+        android:id="@+id/loseWeightEditText"
+        style="@style/GeneralExaminationEditTextStyle"
+        android:layout_below="@id/riskFactor0"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/targetLabel" />
+
+    <TextView
+        android:id="@+id/loseWeightUnitLabel"
+        style="@style/GeneralExaminationTipsStyle"
+        android:layout_alignBaseline="@id/loseWeightEditText"
+        android:layout_below="@id/riskFactor0"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/loseWeightEditText"
+        android:text="kg" />
+
+    <CheckBox
+        android:id="@+id/riskFactor4"
+        style="@style/CheckBoxStyle"
+        android:layout_below="@id/riskFactor0"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/loseWeightUnitLabel"
+        android:text="建议接种疫苗" />
+
+    <EditText
+        style="@style/GeneralExaminationEditTextStyle"
+        android:layout_width="220dp"
+        android:layout_below="@id/riskFactor0"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/riskFactor4" />
+    
+    <CheckBox
+        android:id="@+id/riskFactor5"
+        style="@style/CheckBoxStyle"
+        android:layout_below="@id/riskFactor3"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@id/riskFactorLabel"
+        android:text="其他" />
+
+    <EditText
+        style="@style/GeneralExaminationEditTextStyle"
+        android:layout_width="220dp"
+        android:layout_below="@id/riskFactor3"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@id/riskFactor5" />
+
+</RelativeLayout>

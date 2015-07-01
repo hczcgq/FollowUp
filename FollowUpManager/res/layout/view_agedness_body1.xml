@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="20dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="责任医师：" />
+
+        <EditText
+            android:id="@+id/et_zrys"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="50dp"
+            android:minWidth="130dp"
+            android:text="随访日期：" />
+
+        <EditText
+            android:id="@+id/et_sfrq"
+            android:editable="true"
+            android:clickable="true"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:drawableRight="@drawable/icon_calendar" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="50dp"
+            android:minWidth="130dp"
+            android:text="随访周期建议：" />
+
+        <Spinner
+            android:id="@+id/sn_sfzqjy"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="220dp"
+            android:entries="@array/followupCycleAdvise" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="随访方式：" />
+
+        <Spinner
+            android:id="@+id/sn_sffs"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="220dp"
+            android:entries="@array/followupType" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="50dp"
+            android:minWidth="130dp"
+            android:text="随访性质：" />
+
+        <Spinner
+            android:id="@+id/sn_sfxz"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="220dp"
+            android:entries="@array/followupProperty" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="50dp"
+            android:minWidth="130dp"
+            android:text="心理状态：" />
+
+        <Spinner
+            android:id="@+id/sn_xlzt"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="220dp"
+            android:entries="@array/psychology" />
+    </LinearLayout>
+
+</LinearLayout>

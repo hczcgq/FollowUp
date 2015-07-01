@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <drawable name="yyzd_menu_item_normal_bg">@android:color/transparent</drawable>
+    <drawable name="yyzd_Menu_item_focus_bg">@android:color/white</drawable>
+
+</resources>

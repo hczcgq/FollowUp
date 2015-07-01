@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="20dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="随访日期：" />
+
+        <EditText
+            android:id="@+id/et_sfqr"
+            android:editable="false"
+            android:clickable="true"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:drawableRight="@drawable/icon_calendar" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="50dp"
+            android:minWidth="130dp"
+            android:text="随访方式：" />
+
+        <Spinner
+            android:id="@+id/sn_sffs"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="220dp"
+            android:entries="@array/followupType" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="50dp"
+            android:minWidth="130dp"
+            android:text="困难群体：" />
+
+        <Spinner
+            android:id="@+id/sn_knqt"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="220dp"
+            android:entries="@array/difficultiesGroup" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="康复需求：" />
+
+        <Spinner
+            android:id="@+id/sn_kfxq"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="220dp"
+            android:entries="@array/rehabilitationRequire" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="50dp"
+            android:minWidth="130dp"
+            android:text="责任医师：" />
+
+        <EditText
+            android:id="@+id/et_zrys"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+    </LinearLayout>
+
+</LinearLayout>

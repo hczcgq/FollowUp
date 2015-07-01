@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="20dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="130dp"
+            android:text="心理状况：" />
+
+        <EditText
+            android:id="@+id/et_xlzk"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:minWidth="160dp"
+            android:text="睡眠状况：" />
+
+        <EditText
+            android:id="@+id/et_smzk"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="130dp"
+            android:text="健康状况：" />
+
+        <EditText
+            android:id="@+id/et_jkzk"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+    </LinearLayout>
+
+</LinearLayout>

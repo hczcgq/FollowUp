@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/peopleListLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center|left"
+        
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:text="选择项目：" />
+
+        <Spinner
+            android:id="@+id/healthExaminationSpinner"
+            style="@style/PersonalInfoSpinnerStyle"
+            android:layout_marginLeft="10dp"
+            android:entries="@array/healthExamination" />
+
+        <Spinner
+            android:id="@+id/quikeExaminationSpinner"
+            style="@style/PersonalInfoSpinnerStyle"
+            android:layout_marginLeft="10dp"
+            android:entries="@array/quickExamination" />
+
+        <EditText
+            android:id="@+id/startDateEditText"
+            style="@style/PersonalInfoEditTextStyle"
+            android:layout_marginLeft="50dp"
+            android:clickable="true"
+            android:cursorVisible="false"
+            android:drawableRight="@drawable/icon_calendar"
+            android:editable="false"
+            android:focusableInTouchMode="false" >
+
+            <requestFocus />
+        </EditText>
+
+        <EditText
+            android:id="@+id/endDateEditText"
+            style="@style/PersonalInfoEditTextStyle"
+            android:layout_marginLeft="10dp"
+            android:clickable="true"
+            android:cursorVisible="false"
+            android:drawableRight="@drawable/icon_calendar"
+            android:editable="false"
+            android:focusableInTouchMode="false" />
+
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="50dp"
+            android:background="#47ADD8"
+            android:text="查询"
+            android:textColor="@color/white"
+            android:textSize="@dimen/global_font_size_large" />
+    </LinearLayout>
+    
+     <LinearLayout
+        android:id="@+id/peopleImageLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:text="选择类型：" />
+
+        <Spinner
+            android:id="@+id/imageTypeExaminationSpinner"
+            style="@style/PersonalInfoSpinnerStyle"
+            android:layout_marginLeft="10dp"
+            android:entries="@array/SearchExamination" />
+
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_list"
+            android:layout_width="150dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/date_manage_button_selector"
+            android:enabled="false"
+            android:text="列表"
+            android:textColor="@color/date_manage_font_selector"
+            android:textSize="@dimen/global_font_size_large" />
+
+        <Button
+            android:id="@+id/btn_image"
+            android:layout_width="150dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/date_manage_button_selector"
+            android:enabled="true"
+            android:text="趋势图"
+            android:textColor="@color/date_manage_font_selector"
+            android:textSize="@dimen/global_font_size_large" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/peoplemainlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:background="#DDDCD6" />
+
+</LinearLayout>

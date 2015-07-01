@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="20dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal" >
+
+    <TextView
+        style="@style/GeneralExaminationLabelStyle"
+        android:text="孕产史：" />
+
+    <Spinner
+        android:id="@+id/sn_ycs"
+        style="@style/GeneralExaminationSpinnerStyle"
+        android:layout_width="220dp"
+        android:entries="@array/pregnancyHistory" />
+
+</LinearLayout>

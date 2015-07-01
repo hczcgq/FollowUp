@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="20dp"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="150dp"
+            android:text="个人生活料理：" />
+
+        <Spinner
+            android:id="@+id/sn_grshll"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="150dp"
+            android:entries="@array/lifeQuality" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:minWidth="130dp"
+            android:text="家务活动：" />
+
+        <Spinner
+            android:id="@+id/sn_jwhd"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="150dp"
+            android:entries="@array/houseworkActivity" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="学习能力：" />
+
+        <Spinner
+            android:id="@+id/sn_xxnl"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="150dp"
+            android:entries="@array/learningAbility" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="150dp"
+            android:text="生产劳动及工作：" />
+
+        <Spinner
+            android:id="@+id/sn_scndjgz"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="150dp"
+            android:entries="@array/wrokingAbility" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:minWidth="130dp"
+            android:text="社会人际交往：" />
+
+        <Spinner
+            android:id="@+id/sn_shrjjw"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="150dp"
+            android:entries="@array/communicationAbility" />
+    </LinearLayout>
+
+</LinearLayout>

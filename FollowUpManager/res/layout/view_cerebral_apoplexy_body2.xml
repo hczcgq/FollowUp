@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RadioGroup
+        android:id="@+id/rg_smoking"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="吸烟：" />
+
+        <RadioButton
+            android:id="@+id/rb_xy_w"
+            style="@style/RadioButtonStyle"
+            android:checked="true"
+            android:text="未戒" />
+
+        <RadioButton
+            android:id="@+id/rb_xy_y"
+            style="@style/RadioButtonStyle"
+            android:layout_marginLeft="20dp"
+            android:text="已戒" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="50dp"
+            android:minWidth="130dp"
+            android:text="饮食：" />
+
+        <Spinner
+            android:id="@+id/sn_ys"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="220dp"
+            android:entries="@array/waterRource" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/rg_drinking"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="饮酒：" />
+
+        <RadioButton
+            android:id="@+id/rb_yj_w"
+            style="@style/RadioButtonStyle"
+            android:checked="true"
+            android:text="未戒" />
+
+        <RadioButton
+            android:id="@+id/rb_yj_y"
+            style="@style/RadioButtonStyle"
+            android:layout_marginLeft="20dp"
+            android:text="已戒" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="白酒或黄酒：" />
+
+        <EditText
+            android:id="@+id/et_bhj"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="100dp" />
+
+        <TextView
+            
+            style="@style/GeneralExaminationTipsStyle"
+            android:text="两/次" />
+
+        <TextView
+            
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="啤酒：" />
+
+        <EditText
+            android:id="@+id/et_pj"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="100dp" />
+
+        <TextView
+            style="@style/GeneralExaminationTipsStyle"
+            android:text="两/次" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="运动：" />
+
+        <EditText
+            android:id="@+id/et_yd"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:minWidth="130dp"
+            android:text="时间：" />
+
+        <EditText
+            android:id="@+id/et_yd_sj"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="康复锻炼：" />
+
+        <EditText
+            android:id="@+id/et_kfdl"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:minWidth="130dp"
+            android:text="时间：" />
+
+        <EditText
+            android:id="@+id/et_kfdl_sj"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+    </LinearLayout>
+
+</LinearLayout>

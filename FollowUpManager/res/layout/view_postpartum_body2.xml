@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="20dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="130dp"
+            android:text="体温(℃)：" />
+
+        <EditText
+            android:id="@+id/et_tw"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:minWidth="160dp"
+            android:text="血压(mmHg)：" />
+
+        <EditText
+            android:id="@+id/et_xy_ssy"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="100dp"
+            android:hint="收缩压" />
+
+        <TextView
+            style="@style/GeneralExaminationTipsStyle"
+            android:layout_marginLeft="0dp"
+            android:gravity="center"
+            android:minWidth="20dp"
+            android:text="/" />
+
+        <EditText
+             android:id="@+id/et_xy_szy"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="100dp"
+            android:hint="舒张压" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="130dp"
+            android:text="脉搏(次/分)：" />
+
+        <EditText
+            android:id="@+id/et_mb"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+    </LinearLayout>
+
+</LinearLayout>

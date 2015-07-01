@@ -1,0 +1,27 @@
+
+
+{title}
+
+个人基本信息
+姓名：{personal_name}
+性别：{personal_sex}  年龄：{personal_age}
+体检编号：{test_num}
+
+
+血脂
+
+胆固醇（mmol/L）：{cholesterin}
+结论：{cholesterin_conclusion}
+甘油三酯（mmol/L）：{triglyceride}
+结论：{triglyceride_conclusion}
+高密度脂蛋白（mmol/L）：{HDL}
+结论：{HDL_conclusion}
+低密度脂蛋白（mmol/L）：{LDL}
+结论：{LDL_conclusion}
+
+
+社区名称：{community_name}
+社区地址：{community_address}
+电        话：{community_phone}
+服务热线：{community_service_hotline}
+

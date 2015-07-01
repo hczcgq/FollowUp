@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="20dp"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="轻度滋事：" />
+
+        <EditText
+            android:id="@+id/et_qdzs" 
+            style="@style/GeneralExaminationEditTextStyle" />
+
+        <TextView
+            style="@style/GeneralExaminationTipsStyle"
+            android:layout_width="30dp"
+            android:text="次" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:minWidth="130dp"
+            android:text="肇事：" />
+
+        <EditText
+            android:id="@+id/et_zs"  
+            style="@style/GeneralExaminationEditTextStyle" />
+
+        <TextView
+            style="@style/GeneralExaminationTipsStyle"
+            android:text="次" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="自伤：" />
+
+        <EditText
+            android:id="@+id/et_zis"  
+            style="@style/GeneralExaminationEditTextStyle" />
+
+        <TextView
+            style="@style/GeneralExaminationTipsStyle"
+            android:layout_width="30dp"
+            android:text="次" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:minWidth="130dp"
+            android:text="自杀未遂：" />
+
+        <EditText
+            android:id="@+id/et_zsws"  
+            style="@style/GeneralExaminationEditTextStyle" />
+
+        <TextView
+            style="@style/GeneralExaminationTipsStyle"
+            android:text="次" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="关锁情况：" />
+
+        <Spinner
+            android:id="@+id/sn_gsqk" 
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="180dp"
+            android:entries="@array/lockCase" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="60dp"
+            android:minWidth="130dp"
+            android:text="末次出院时间：" />
+
+        <EditText
+            android:id="@+id/et_mccysj"
+            android:editable="false" 
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="180dp"
+            android:drawableRight="@drawable/icon_calendar" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="住院情况：" />
+
+        <Spinner
+            android:id="@+id/sn_zyqk" 
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="180dp"
+            android:entries="@array/hospitalization" />
+    </LinearLayout>
+
+</LinearLayout>

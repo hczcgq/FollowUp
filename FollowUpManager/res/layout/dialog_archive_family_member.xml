@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:minWidth="120dp"
+            android:text="姓名：" />
+
+        <EditText
+            android:id="@+id/nameEditText"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:imeOptions="actionNext"
+            android:inputType="text" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="性别：" />
+
+        <Spinner
+            android:id="@+id/genderSpinner"
+            style="@style/PersonalInfoSpinnerStyle"
+            android:entries="@array/gender" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="出生日期：" />
+
+        <EditText
+            android:id="@+id/familyMemberBirthday"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="200dp"
+            android:drawableRight="@drawable/icon_calendar" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:minWidth="120dp"
+            android:text="与户主关系：" />
+
+        <Spinner
+            android:id="@+id/relationship"
+            style="@style/PersonalInfoSpinnerStyle"
+            android:layout_width="220dp"
+            android:entries="@array/relationship" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="文化程度：" />
+
+        <Spinner
+            android:id="@+id/education"
+            style="@style/PersonalInfoSpinnerStyle"
+            android:entries="@array/education" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="职业：" />
+
+        <Spinner
+            android:id="@+id/job"
+            style="@style/PersonalInfoSpinnerStyle"
+            android:entries="@array/job" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:minWidth="120dp"
+            android:text="身份证号码：" />
+
+        <EditText
+            android:id="@+id/idCardNoEditText"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:imeOptions="actionNext"
+            android:inputType="text" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="婚姻状况：" />
+
+        <Spinner
+            android:id="@+id/marriage"
+            style="@style/PersonalInfoSpinnerStyle"
+            android:entries="@array/marriage" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="个人状况：" />
+
+        <Spinner
+            android:id="@+id/archiveStatus"
+            style="@style/PersonalInfoSpinnerStyle"
+            android:entries="@array/archiveStatus" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:minWidth="120dp"
+            android:text="备注：" />
+
+        <EditText
+            android:id="@+id/bzEditText"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="860dp"
+            android:gravity="left|top"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:minHeight="80dp" />
+    </LinearLayout>
+
+</LinearLayout>

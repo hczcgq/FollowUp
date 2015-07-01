@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="20dp"
+    android:orientation="vertical" >
+
+    <RadioGroup
+        android:id="@+id/rg_fwtt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="180dp"
+            android:text="会有意识交爸爸、妈妈：" />
+
+        <RadioButton
+            android:id="@+id/rb_fwtt_s"
+            style="@style/RadioButtonStyle"
+            android:checked="true"
+            android:text="是" />
+
+        <RadioButton
+            android:id="@+id/rb_fwtt_f"
+            style="@style/RadioButtonStyle"
+            android:layout_marginLeft="20dp"
+            android:text="否" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/rg_dyshwx"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="180dp"
+            android:text="会用手指认东西或图片：" />
+
+        <RadioButton
+            android:id="@+id/rb_dyshwx_s"
+            style="@style/RadioButtonStyle"
+            android:checked="true"
+            android:text="是" />
+
+        <RadioButton
+            android:id="@+id/rb_dyshwx_f"
+            style="@style/RadioButtonStyle"
+            android:layout_marginLeft="20dp"
+            android:text="否" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/rg_sbsnzjkzt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="180dp"
+            android:text="自己独走稳：" />
+
+        <RadioButton
+            android:id="@+id/rb_sbsnzjkzt_s"
+            style="@style/RadioButtonStyle"
+            android:checked="true"
+            android:text="是" />
+
+        <RadioButton
+            android:id="@+id/rb_sbsnzjkzt_f"
+            style="@style/RadioButtonStyle"
+            android:layout_marginLeft="20dp"
+            android:text="否" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/rg_szk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="180dp"
+            android:text="会将玩具放到杯子或碗里：" />
+
+        <RadioButton
+            android:id="@+id/rb_szk_s"
+            style="@style/RadioButtonStyle"
+            android:checked="true"
+            android:text="是" />
+
+        <RadioButton
+            android:id="@+id/rb_szk_f"
+            style="@style/RadioButtonStyle"
+            android:layout_marginLeft="20dp"
+            android:text="否" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/rg_xcs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="180dp"
+            android:text="会自己蹲下、并站起来：" />
+
+        <RadioButton
+            android:id="@+id/rb_xcs_s"
+            style="@style/RadioButtonStyle"
+            android:checked="true"
+            android:text="是" />
+
+        <RadioButton
+            android:id="@+id/rb_xcs_f"
+            style="@style/RadioButtonStyle"
+            android:layout_marginLeft="20dp"
+            android:text="否" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/rg_sszwj"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="180dp"
+            android:text="会说4个以上的单词：" />
+
+        <RadioButton
+            android:id="@+id/rb_sszwj_s"
+            style="@style/RadioButtonStyle"
+            android:checked="true"
+            android:text="是" />
+
+        <RadioButton
+            android:id="@+id/rb_sszwj_f"
+            style="@style/RadioButtonStyle"
+            android:layout_marginLeft="20dp"
+            android:text="否" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/rg_hfs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="180dp"
+            android:text="会指认自己五官或身体部位：" />
+
+        <RadioButton
+            android:id="@+id/rb_hfs_s"
+            style="@style/RadioButtonStyle"
+            android:checked="true"
+            android:text="是" />
+
+        <RadioButton
+            android:id="@+id/rb_hfs_f"
+            style="@style/RadioButtonStyle"
+            android:layout_marginLeft="20dp"
+            android:text="否" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/rg_zjzsdzjwx"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="180dp"
+            android:text="能完成简单指令，如“把球放桌上”：" />
+
+        <RadioButton
+            android:id="@+id/rb_zjzsdzjwx_s"
+            style="@style/RadioButtonStyle"
+            android:checked="true"
+            android:text="是" />
+
+        <RadioButton
+            android:id="@+id/rb_zjzsdzjwx_f"
+            style="@style/RadioButtonStyle"
+            android:layout_marginLeft="20dp"
+            android:text="否" />
+    </RadioGroup>
+
+    <RadioGroup
+         android:id="@+id/rg_rs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="180dp"
+            android:text="会自己跑：" />
+
+        <RadioButton
+            android:id="@+id/rb_rs_s"
+            style="@style/RadioButtonStyle"
+            android:checked="true"
+            android:text="是" />
+
+        <RadioButton
+            android:id="@+id/rb_rs_f"
+            style="@style/RadioButtonStyle"
+            android:layout_marginLeft="20dp"
+            android:text="否" />
+    </RadioGroup>
+
+    <RadioGroup
+         android:id="@+id/rg_yszcz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="180dp"
+            android:text="会搭高3-7块积木或玩具：" />
+
+        <RadioButton
+            android:id="@+id/rb_yszcz_s"
+            style="@style/RadioButtonStyle"
+            android:checked="true"
+            android:text="是" />
+
+        <RadioButton
+            android:id="@+id/rb_yszcz_f"
+            style="@style/RadioButtonStyle"
+            android:layout_marginLeft="20dp"
+            android:text="否" />
+    </RadioGroup>
+
+</LinearLayout>

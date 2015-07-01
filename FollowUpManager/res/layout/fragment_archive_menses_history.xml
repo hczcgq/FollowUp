@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ContentLayoutStyle" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:minWidth="130dp"
+            android:text="初潮年龄：" />
+
+        <EditText
+            android:id="@+id/ccnl"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="180dp" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:minWidth="30dp"
+            android:text="岁" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:minWidth="130dp"
+            android:text="绝经年龄：" />
+
+        <EditText
+            android:id="@+id/jjnl"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="180dp" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:minWidth="30dp"
+            android:text="岁" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:minWidth="130dp"
+            android:text="月经周期：" />
+
+        <EditText
+            android:id="@+id/yjzq"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="180dp" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:minWidth="30dp"
+            android:text="天" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:minWidth="130dp"
+            android:text="月经持续时间：" />
+
+        <EditText
+            android:id="@+id/yjcxsj"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="180dp" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:minWidth="30dp"
+            android:text="天" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/yjlRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/menstrualQuantityLabel"
+            style="@style/PersonalInfoLabelStyle"
+            android:layout_alignBaseline="@+id/menstrualQuantityRadioButton0"
+            android:minWidth="130dp"
+            android:text="月经量：" />
+
+        <RadioButton
+            android:id="@+id/menstrualQuantityRadioButton0"
+            style="@style/RadioButtonStyle"
+            android:layout_toRightOf="@id/menstrualQuantityLabel"
+            android:checked="true"
+            android:minWidth="120dp"
+            android:text="多" />
+
+        <RadioButton
+            android:id="@+id/menstrualQuantityRadioButton1"
+            style="@style/RadioButtonStyle"
+            android:layout_toRightOf="@id/menstrualQuantityRadioButton0"
+            android:minWidth="120dp"
+            android:text="中" />
+
+        <RadioButton
+            android:id="@+id/menstrualQuantityRadioButton2"
+            style="@style/RadioButtonStyle"
+            android:layout_toRightOf="@id/menstrualQuantityRadioButton1"
+            android:minWidth="120dp"
+            android:text="少" />
+        
+        <RadioButton
+            android:id="@+id/menstrualQuantityRadioButton3"
+            style="@style/RadioButtonStyle"
+            android:layout_toRightOf="@id/menstrualQuantityRadioButton2"
+            android:minWidth="120dp"
+            android:text="不稳定" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/tjRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/menalgiaLabel"
+            style="@style/PersonalInfoLabelStyle"
+            android:layout_alignBaseline="@+id/menalgiaRadioButton0"
+            android:minWidth="130dp"
+            android:text="痛经：" />
+
+        <RadioButton
+            android:id="@+id/menalgiaRadioButton0"
+            style="@style/RadioButtonStyle"
+            android:layout_toRightOf="@id/menalgiaLabel"
+            android:checked="true"
+            android:minWidth="120dp"
+            android:text="有" />
+
+        <RadioButton
+            android:id="@+id/menalgiaRadioButton1"
+            style="@style/RadioButtonStyle"
+            android:layout_toRightOf="@id/menalgiaRadioButton0"
+            android:minWidth="120dp"
+            android:text="无" />
+
+        <RadioButton
+            android:id="@+id/menalgiaRadioButton2"
+            style="@style/RadioButtonStyle"
+            android:layout_toRightOf="@id/menalgiaRadioButton1"
+            android:minWidth="120dp"
+            android:text="不详" />
+    </RelativeLayout>
+
+</LinearLayout>

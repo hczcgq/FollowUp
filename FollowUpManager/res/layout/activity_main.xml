@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context="com.shbestwin.followupmanager.activity.MainActivity" >
+
+    <fragment
+        android:id="@+id/topFragment"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_bar_height"
+        class="com.shbestwin.followupmanager.fragment.TopBarFragment"
+        tools:layout="@layout/fragment_top_bar" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shadow_bottom" />
+
+    <FrameLayout
+        android:id="@+id/mainlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

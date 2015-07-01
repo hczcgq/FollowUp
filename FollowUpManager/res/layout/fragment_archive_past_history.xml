@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ContentLayoutStyle"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="20dp"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/white_label_bg"
+                android:text="疾病"
+                android:textColor="@color/light_blue"
+                android:textSize="@dimen/global_font_size_xlarge" />
+
+            <FrameLayout
+                android:id="@+id/diseaseButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/button_blue_selector"
+                android:clickable="true"
+                android:paddingBottom="8dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="8dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/icon_add"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="新增"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/global_font_size_middle" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/diseaseListViewHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/diseaseButton"
+                android:layout_marginTop="10dp"
+                android:background="@color/light_blue"
+                android:gravity="center_vertical"
+                android:minHeight="50dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="疾病名称"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/global_font_size_large" />
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/divider" />
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="确诊时间"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/global_font_size_large" />
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/divider" />
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="操作"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/global_font_size_large" />
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/diseaseListView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/diseaseListViewHeader"
+                android:cacheColorHint="@android:color/transparent"
+                android:divider="@null"
+                android:dividerHeight="0dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/white_label_bg"
+                android:text="手术"
+                android:textColor="@color/light_blue"
+                android:textSize="@dimen/global_font_size_xlarge" />
+
+            <FrameLayout
+                android:id="@+id/operationButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/button_blue_selector"
+                android:clickable="true"
+                android:paddingBottom="8dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="8dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/icon_add"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="新增"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/global_font_size_middle" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/operationListViewHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/operationButton"
+                android:layout_marginTop="10dp"
+                android:background="@color/light_blue"
+                android:gravity="center_vertical"
+                android:minHeight="50dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="手术名称"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/global_font_size_large" />
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/divider" />
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="手术时间"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/global_font_size_large" />
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/divider" />
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="操作"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/global_font_size_large" />
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/operationListView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/operationListViewHeader"
+                android:cacheColorHint="@android:color/transparent"
+                android:divider="@null"
+                android:dividerHeight="0dp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/white_label_bg"
+                android:text="外伤"
+                android:textColor="@color/light_blue"
+                android:textSize="@dimen/global_font_size_xlarge" />
+
+            <FrameLayout
+                android:id="@+id/injuryButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/button_blue_selector"
+                android:clickable="true"
+                android:paddingBottom="8dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="8dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/icon_add"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="新增"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/global_font_size_middle" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/injuryListViewHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/injuryButton"
+                android:layout_marginTop="10dp"
+                android:background="@color/light_blue"
+                android:gravity="center_vertical"
+                android:minHeight="50dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="外伤名称"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/global_font_size_large" />
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/divider" />
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="手术时间"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/global_font_size_large" />
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/divider" />
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="操作"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/global_font_size_large" />
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/injuryListView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/injuryListViewHeader"
+                android:cacheColorHint="@android:color/transparent"
+                android:divider="@null"
+                android:dividerHeight="0dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/white_label_bg"
+                android:text="输血"
+                android:textColor="@color/light_blue"
+                android:textSize="@dimen/global_font_size_xlarge" />
+
+            <FrameLayout
+                android:id="@+id/transfusionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/button_blue_selector"
+                android:clickable="true"
+                android:paddingBottom="8dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="8dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/icon_add"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="新增"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/global_font_size_middle" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/transfusionListViewHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/transfusionButton"
+                android:layout_marginTop="10dp"
+                android:background="@color/light_blue"
+                android:gravity="center_vertical"
+                android:minHeight="50dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="输血名称"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/global_font_size_large" />
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/divider" />
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="手术时间"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/global_font_size_large" />
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/divider" />
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="操作"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/global_font_size_large" />
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/transfusionListView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/transfusionListViewHeader"
+                android:cacheColorHint="@android:color/transparent"
+                android:divider="@null"
+                android:dividerHeight="0dp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

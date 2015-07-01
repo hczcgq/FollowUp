@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="20dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="填表日期：" />
+
+        <EditText
+            android:id="@+id/et_tbrq"
+            android:clickable="true"
+            android:editable="false"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:drawableRight="@drawable/icon_calendar" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:minWidth="130dp"
+            android:text="孕周(周)：" />
+
+        <EditText
+            android:id="@+id/et_yz"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:minWidth="130dp"
+            android:text="孕次(次)：" />
+
+        <EditText
+            android:id="@+id/et_yc"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="阴道分娩次数(产次)：" />
+
+        <EditText
+            android:id="@+id/et_ydfmcs"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="50dp"
+            android:minWidth="130dp"
+            android:text="剖宫产次数(产次)：" />
+
+        <EditText
+            android:id="@+id/et_pgccs"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+    </LinearLayout>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/rg_mcyj"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="末次月经：" />
+
+        <RadioButton
+            android:id="@+id/rb_bx"
+            style="@style/RadioButtonStyle"
+            android:checked="true"
+            android:text="不祥" />
+
+        <RadioButton
+            android:id="@+id/rb_txrq"
+            
+            style="@style/RadioButtonStyle"
+            android:layout_marginLeft="20dp"
+            android:text="填写日期" />
+
+        <EditText
+            android:id="@+id/et_txrq"
+            android:clickable="true"
+            android:editable="false"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:layout_marginLeft="10dp"
+            android:drawableRight="@drawable/icon_calendar" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="预产期：" />
+
+        <EditText
+             android:id="@+id/et_ycq"
+            android:clickable="true"
+            android:editable="false"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:drawableRight="@drawable/icon_calendar" />
+    </RadioGroup>
+
+</LinearLayout>

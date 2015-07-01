@@ -1,0 +1,33 @@
+1、HC201发送Hello-regularData包，等待上位机回复。
+	请求的数据为：0xaa,0x01,0x01,0x55
+	
+	上位机回复ACK-Hello-regularData包
+	发送数据为：0x55,0x01,0x01,0xaa,0x0a
+
+2、HC201发送TotalLength包，等待上位机回复
+	请求的数据为：0xaa,0x02,LowByte(总长度的低8bit),HighByte(总长度的高8bit)
+	
+	上位机回复ACKTotalLength包
+	发送数据为：0x55,0x02,0x00,0x00,0x0a
+	
+3、HC201发送Data-Regular包（重复）
+	（其中包含：这是第几条心电数据，这条心电数据有多少个数据包，此次发送是第几个数据包，这个数据包的长度是多少byte）
+	0xaa
+	0x03(结构体)或者0x04(数据)
+	
+	第几条心电数据低8bit
+	第几条心电数据高8bit
+	
+	本条数据有多少数据包低8bit
+	本条数据有多少数据包高8bit
+	
+	本次是第几个数据包低8bit
+	本次是第几个数据包高8bit
+	
+	本次数据传输长度length低8bit
+	本次数据传输长度length高8bit
+	
+	PlayLoad....
+	
+	上位机回复ACK-Data，返回“此次发送是第几个数据包”字段
+	0x55,0x03（结构体）或0x04（数据）,接收第几个数据包的低8bit,接收第几个数据包的高8bit,0x0a

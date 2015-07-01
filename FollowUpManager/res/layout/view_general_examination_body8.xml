@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="20dp" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/white_label_bg"
+        android:text="脑血管疾病"
+        android:textColor="@color/light_blue"
+        android:textSize="@dimen/global_font_size_xlarge" />
+
+    <RelativeLayout
+        android:id="@+id/cerebrokidneyLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp" >
+
+        <CheckBox
+            android:id="@+id/cerebrokidney0"
+            style="@style/CheckBoxStyle"
+            android:minWidth="105dp"
+             android:checked="true"
+            android:text="未发现" />
+
+        <CheckBox
+            android:id="@+id/cerebrokidney1"
+            style="@style/CheckBoxStyle"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/cerebrokidney0"
+            android:text="缺血性卒中" />
+
+        <CheckBox
+            android:id="@+id/cerebrokidney2"
+            style="@style/CheckBoxStyle"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/cerebrokidney1"
+            android:text="脑出血" />
+
+        <CheckBox
+            android:id="@+id/cerebrokidney3"
+            style="@style/CheckBoxStyle"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/cerebrokidney2"
+            android:text="蛛网膜下腔出血" />
+
+        <CheckBox
+            android:id="@+id/cerebrokidney4"
+            style="@style/CheckBoxStyle"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/cerebrokidney3"
+            android:text="短暂性脑缺" />
+
+        <CheckBox
+            android:id="@+id/cerebrokidney5"
+            style="@style/CheckBoxStyle"
+            android:layout_below="@id/cerebrokidney0"
+            android:layout_marginTop="10dp"
+            android:text="其他" />
+
+        <EditText
+            android:id="@+id/cerebrokidneyEidtText"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:layout_below="@id/cerebrokidney0"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/cerebrokidney5" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/white_label_bg"
+        android:text="肾脏疾病"
+        android:textColor="@color/light_blue"
+        android:textSize="@dimen/global_font_size_xlarge" />
+
+    <RelativeLayout
+        android:id="@+id/kidneyLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp" >
+
+        <CheckBox
+            android:id="@+id/kidney0"
+            style="@style/CheckBoxStyle"
+            android:minWidth="105dp"
+             android:checked="true"
+            android:text="未发现" />
+
+        <CheckBox
+            android:id="@+id/kidney1"
+            style="@style/CheckBoxStyle"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/kidney0"
+            android:text="糖尿病肾病" />
+
+        <CheckBox
+            android:id="@+id/kidney2"
+            style="@style/CheckBoxStyle"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/kidney1"
+            android:text="肾功能衰竭" />
+
+        <CheckBox
+            android:id="@+id/kidney3"
+            style="@style/CheckBoxStyle"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/kidney2"
+            android:text="急性肾炎" />
+
+        <CheckBox
+            android:id="@+id/kidney4"
+            style="@style/CheckBoxStyle"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/kidney3"
+            android:text="慢性肾炎" />
+
+        <CheckBox
+            android:id="@+id/kidney5"
+            style="@style/CheckBoxStyle"
+            android:layout_below="@id/kidney0"
+            android:layout_marginTop="10dp"
+            android:text="其他" />
+
+        <EditText
+            android:id="@+id/kidneyeditText"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:layout_below="@id/kidney0"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/kidney5" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/white_label_bg"
+        android:text="心脏疾病"
+        android:textColor="@color/light_blue"
+        android:textSize="@dimen/global_font_size_xlarge" />
+
+    <RelativeLayout
+        android:id="@+id/heartLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp" >
+
+        <CheckBox
+            android:id="@+id/heart0"
+            style="@style/CheckBoxStyle"
+            android:minWidth="105dp"
+            android:checked="true"
+            android:text="未发现" />
+
+        <CheckBox
+            android:id="@+id/heart1"
+            style="@style/CheckBoxStyle"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/heart0"
+            android:text="心肌梗死" />
+
+        <CheckBox
+            android:id="@+id/heart2"
+            style="@style/CheckBoxStyle"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/heart1"
+            android:text="心绞痛" />
+
+        <CheckBox
+            android:id="@+id/heart3"
+            style="@style/CheckBoxStyle"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/heart2"
+            android:text="冠状动脉血运重建" />
+
+        <CheckBox
+            android:id="@+id/heart4"
+            style="@style/CheckBoxStyle"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/heart3"
+            android:text="充血性心" />
+
+        <CheckBox
+            android:id="@+id/heart5"
+            style="@style/CheckBoxStyle"
+            android:layout_below="@id/heart0"
+            android:layout_marginTop="10dp"
+            android:text="心前区疼痛" />
+
+        <CheckBox
+            android:id="@+id/heart6"
+            style="@style/CheckBoxStyle"
+            android:layout_below="@id/heart0"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/heart5"
+            android:text="其他" />
+
+        <EditText
+            android:id="@+id/hearteditText"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:layout_below="@id/heart0"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/heart6" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/white_label_bg"
+        android:text="血管疾病"
+        android:textColor="@color/light_blue"
+        android:textSize="@dimen/global_font_size_xlarge" />
+
+    <RelativeLayout
+        android:id="@+id/vascularLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp" >
+
+        <CheckBox
+            android:id="@+id/vascular0"
+            style="@style/CheckBoxStyle"
+            android:minWidth="105dp"
+             android:checked="true"
+            android:text="未发现" />
+
+        <CheckBox
+            android:id="@+id/vascular1"
+            style="@style/CheckBoxStyle"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/vascular0"
+            android:text="夹层动脉瘤" />
+
+        <CheckBox
+            android:id="@+id/vascular2"
+            style="@style/CheckBoxStyle"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/vascular1"
+            android:text="动脉闭塞性疾病" />
+
+        <CheckBox
+            android:id="@+id/vascular3"
+            style="@style/CheckBoxStyle"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/vascular2"
+            android:text="其他" />
+
+        <EditText
+            android:id="@+id/vasculareditText"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/vascular3" />
+    </RelativeLayout>
+
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/white_label_bg"
+        android:text="眼部疾病"
+        android:textColor="@color/light_blue"
+        android:textSize="@dimen/global_font_size_xlarge" />
+
+    <RelativeLayout
+        android:id="@+id/eyeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp" >
+
+        <CheckBox
+            android:id="@+id/eye0"
+            style="@style/CheckBoxStyle"
+            android:minWidth="105dp"
+             android:checked="true"
+            android:text="未发现" />
+
+        <CheckBox
+            android:id="@+id/eye1"
+            style="@style/CheckBoxStyle"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/eye0"
+            android:text="视网膜出血或渗出" />
+
+        <CheckBox
+            android:id="@+id/eye2"
+            style="@style/CheckBoxStyle"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/eye1"
+            android:text="视乳头水肿" />
+
+        <CheckBox
+            android:id="@+id/eye3"
+            style="@style/CheckBoxStyle"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/eye2"
+            android:text="白内障" />
+
+        <CheckBox
+            android:id="@+id/eye4"
+            style="@style/CheckBoxStyle"
+            android:layout_below="@id/eye0"
+            android:layout_marginTop="10dp"
+            android:text="其他" />
+
+        <EditText
+            android:id="@+id/eyeeditText"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:layout_below="@id/eye0"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/eye4" />
+    </RelativeLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="神经系统疾病：" />
+
+        <RadioGroup
+            android:id="@+id/rg_sjxtjb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/rb_sjxtjb_wfx"
+                style="@style/RadioButtonStyle"
+                android:checked="true"
+                android:text="未发现" />
+
+            <RadioButton
+                android:id="@+id/rb_sjxtjb_y"
+                style="@style/RadioButtonStyle"
+                android:layout_marginLeft="20dp"
+                android:text="有" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/et_sjxtjb"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:layout_marginLeft="20dp" />
+    </LinearLayout>
+    
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="其他系统疾病：" />
+
+        <RadioGroup
+            android:id="@+id/rg_qtxijb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/rb_qtxijb_wfx"
+                style="@style/RadioButtonStyle"
+                android:checked="true"
+                android:text="未发现" />
+
+            <RadioButton
+                android:id="@+id/rb_qtxijb_y"
+                style="@style/RadioButtonStyle"
+                android:layout_marginLeft="20dp"
+                android:text="有" />
+        </RadioGroup>
+
+        <EditText
+             android:id="@+id/et_qtxijb"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:layout_marginLeft="20dp" />
+    </LinearLayout>
+</LinearLayout>

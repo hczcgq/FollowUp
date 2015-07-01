@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:minWidth="120dp"
+            android:text="检查项目：" />
+
+        <EditText
+            android:id="@+id/inspectionItemEditText"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:imeOptions="actionNext"
+            android:inputType="text" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="发病时间：" />
+
+        <EditText
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="200dp"
+            android:drawableRight="@drawable/icon_calendar" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:minWidth="120dp"
+            android:text="发病原因：" />
+
+        <EditText
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="540dp"
+            android:gravity="left|top"
+            android:imeOptions="actionDone"
+            android:inputType="text" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:minWidth="120dp"
+            android:text="检查结果：" />
+
+        <EditText
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="540dp"
+            android:gravity="left|top"
+            android:imeOptions="actionDone"
+            android:inputType="text" />
+    </LinearLayout>
+
+</LinearLayout>

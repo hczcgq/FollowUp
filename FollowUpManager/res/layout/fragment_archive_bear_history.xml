@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ContentLayoutStyle" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:minWidth="130dp"
+            android:text="现有子女人数：" />
+
+        <EditText
+            android:id="@+id/childrenNumEditText"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="胎次：" />
+
+        <EditText
+            android:id="@+id/fetusNumEditText"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="180dp" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="产次：" />
+
+        <EditText
+            android:id="@+id/birthNumEditText"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="180dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:minWidth="130dp"
+            android:text="人流：" />
+
+        <EditText
+            android:id="@+id/streamNumEditText"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="190dp" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:minWidth="30dp"
+            android:text="次" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="引产：" />
+
+        <EditText
+            android:id="@+id/odinopoeiaNumEditText"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="180dp" />
+
+        <TextView
+            style="@style/PersonalInfoLabelStyle"
+            android:minWidth="30dp"
+            android:text="次" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/bearHistoryRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/contraceptiveLabel"
+            style="@style/PersonalInfoLabelStyle"
+            android:layout_alignBaseline="@+id/contraceptiveRadioButton0"
+            android:minWidth="130dp"
+            android:text="避孕措施：" />
+
+        <RadioButton
+            android:id="@+id/contraceptiveRadioButton0"
+            style="@style/RadioButtonStyle"
+            android:layout_toRightOf="@id/contraceptiveLabel"
+            android:checked="true"
+            android:minWidth="160dp"
+            android:text="无" />
+
+        <RadioButton
+            android:id="@+id/contraceptiveRadioButton1"
+            style="@style/RadioButtonStyle"
+            android:layout_toRightOf="@id/contraceptiveRadioButton0"
+            android:minWidth="160dp"
+            android:text="绝育" />
+
+        <RadioButton
+            android:id="@+id/contraceptiveRadioButton2"
+            style="@style/RadioButtonStyle"
+            android:layout_toRightOf="@id/contraceptiveRadioButton1"
+            android:minWidth="160dp"
+            android:text="放环" />
+
+        <RadioButton
+            android:id="@+id/contraceptiveRadioButton3"
+            style="@style/RadioButtonStyle"
+            android:layout_toRightOf="@id/contraceptiveRadioButton2"
+            android:minWidth="160dp"
+            android:text="药物" />
+
+        <RadioButton
+            android:id="@+id/contraceptiveRadioButton4"
+            style="@style/RadioButtonStyle"
+            android:layout_below="@id/contraceptiveRadioButton0"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/contraceptiveLabel"
+            android:minWidth="160dp"
+            android:text="皮埋" />
+
+        <RadioButton
+            android:id="@+id/contraceptiveRadioButton5"
+            style="@style/RadioButtonStyle"
+            android:layout_below="@id/contraceptiveRadioButton0"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/contraceptiveRadioButton4"
+            android:minWidth="160dp"
+            android:text="男方落实" />
+
+        <RadioButton
+            android:id="@+id/contraceptiveRadioButton6"
+            style="@style/RadioButtonStyle"
+            android:layout_below="@id/contraceptiveRadioButton0"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/contraceptiveRadioButton5"
+            android:minWidth="160dp"
+            android:text="其他" />
+    </RelativeLayout>
+
+</LinearLayout>

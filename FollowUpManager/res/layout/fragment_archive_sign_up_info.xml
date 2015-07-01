@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ContentLayoutStyle" >
+
+    <RadioGroup
+        android:id="@+id/signUpRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <RadioButton
+            android:id="@+id/signUpNoRadioButton"
+            style="@style/RadioButtonStyle"
+            android:checked="true"
+            android:text="否" />
+
+        <RadioButton
+            android:id="@+id/signUpYesRadioButton"
+            style="@style/RadioButtonStyle"
+            android:layout_marginTop="15dp"
+            android:text="是" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/signUpDateTextView"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/signUpRadioGroup"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/signUpRadioGroup"
+        android:background="@drawable/edit_text_with_padding_selector"
+        android:cursorVisible="false"
+        android:drawablePadding="5dp"
+        android:drawableRight="@drawable/icon_calendar"
+        android:editable="false"
+        android:enabled="false"
+        android:clickable="true"
+        android:focusableInTouchMode="false"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/global_font_size_large" />
+
+</RelativeLayout>

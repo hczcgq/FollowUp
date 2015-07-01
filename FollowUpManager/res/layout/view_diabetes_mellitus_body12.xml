@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    android:gravity="center_vertical"
+    android:id="@+id/rg_check"
+    android:orientation="horizontal" >
+
+    <TextView
+        style="@style/GeneralExaminationLabelStyle"
+        android:text="转诊：" />
+
+    <RadioButton
+        android:id="@+id/rb_w"
+        style="@style/RadioButtonStyle"
+        android:checked="true"
+        android:text="无" />
+
+    <RadioButton
+        android:id="@+id/rb_y"
+        style="@style/RadioButtonStyle"
+        android:layout_marginLeft="20dp"
+        android:text="有" />
+
+    <TextView
+        style="@style/GeneralExaminationLabelStyle"
+        android:text="原因：" />
+
+    <EditText
+        android:id="@+id/et_reason"
+        style="@style/GeneralExaminationEditTextStyle"
+        android:layout_width="220dp"
+        android:layout_marginLeft="20dp" />
+
+    <TextView
+        style="@style/GeneralExaminationLabelStyle"
+        android:layout_marginLeft="20dp"
+        android:text="机构及科室：" />
+
+    <EditText
+        android:id="@+id/et_jgjks"
+        style="@style/GeneralExaminationEditTextStyle"
+        android:layout_width="220dp"
+        android:layout_marginLeft="20dp" />
+
+</RadioGroup>

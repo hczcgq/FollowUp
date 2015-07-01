@@ -1,0 +1,1132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="MedicationMenuItem">
+        <item>药理学</item>
+        <item>适用症</item>
+        <item>禁忌症</item>
+        <item>不良反应</item>
+        <item>注意事项</item>
+        <item>相互作用</item>
+    </string-array>
+    <string-array name="DietGuidanceMenuItem">
+        <item>0&#8211;6个月婴儿</item>
+        <item>6&#8211;12个月婴儿</item>
+        <item>1&#8211;3岁幼儿</item>
+        <item>学龄前儿童</item>
+        <item>孕前期</item>
+        <item>孕早期</item>
+        <item>孕中、晚期</item>
+        <item>哺乳期妇女</item>
+        <item>成人</item>
+    </string-array>
+    <string-array name="HealthKnowledgeThemes">
+        <item>超重肥胖的防治</item>
+        <item>高血压的防治</item>
+        <item>高血脂的防治</item>
+        <item>糖尿病的防治</item>
+    </string-array>
+    <string-array name="PhysiqueOptions">
+        <item>没有</item>
+        <item>很少</item>
+        <item>有时</item>
+        <item>经常</item>
+        <item>总是</item>
+    </string-array>
+
+    <!-- 舒适状况 -->
+    <string-array name="GCQOptions">
+        <item>非常不同意</item>
+        <item>不同意</item>
+        <item>同意</item>
+        <item>非常同意</item>
+    </string-array>
+
+    <!-- 少儿生活质量（未定） -->
+    <string-array name="QLSCAOptions">
+        <item>没有</item>
+        <item>很少</item>
+        <item>有时</item>
+        <item>经常</item>
+        <item>总是</item>
+    </string-array>
+
+    <!-- 自杀指数（未定） -->
+    <string-array name="SAQOptions">
+        <item>非常不符合</item>
+        <item>不太符合</item>
+        <item>有点符合</item>
+        <item>非常符合</item>
+    </string-array>
+
+    <!-- 焦虑自测 -->
+    <string-array name="SASOptions">
+        <item>是</item>
+        <item>否</item>
+    </string-array>
+
+    <!-- 90项自测 -->
+    <string-array name="SCL90Options">
+        <item>没有</item>
+        <item>很轻</item>
+        <item>中等</item>
+        <item>偏重</item>
+        <item>严重</item>
+    </string-array>
+
+    <!-- 抑郁自测 -->
+    <string-array name="SDSOptions">
+        <item>是</item>
+        <item>否</item>
+    </string-array>
+
+    <!-- 孤独量表 -->
+    <string-array name="UCLAOptions">
+        <item>从不</item>
+        <item>很少</item>
+        <item>有时</item>
+        <item>一直</item>
+    </string-array>
+
+    <!-- 老年人评估-自理评估 -->
+    <string-array name="AgednessSelfCareOptions">
+        <item>可自理</item>
+        <item>轻度依赖</item>
+        <item>中度依赖</item>
+        <item>不能自理</item>
+    </string-array>
+
+    <!-- 老年人评估-抑郁评估 -->
+    <string-array name="AgednessDepressionOptions">
+        <item>是</item>
+        <item>否</item>
+    </string-array>
+
+    <!-- 老年人评估-智力评估 -->
+    <string-array name="AgednessIntelligenceOptions">
+        <item>正确</item>
+        <item>错误</item>
+        <item>拒绝回答</item>
+        <item>说不会做</item>
+        <item>文盲</item>
+    </string-array>
+    <string-array name="relationship">
+        <item>户主</item>
+        <item>配偶</item>
+        <item>儿子</item>
+        <item>女儿</item>
+        <item>孙子、孙女 、外孙、外孙女</item>
+        <item>父</item>
+        <item>母</item>
+        <item>祖父母、外祖父母</item>
+        <item>兄</item>
+        <item>弟</item>
+        <item>姐</item>
+        <item>妹</item>
+        <item>其他情况</item>
+        <item>夫</item>
+        <item>妻</item>
+        <item>儿子 儿媳</item>
+        <item>养子</item>
+        <item>养女</item>
+        <item>女婿</item>
+        <item>孙媳妇</item>
+        <item>孙女婿</item>
+        <item>曾孙、曾孙女</item>
+        <item>公公</item>
+        <item>婆婆</item>
+        <item>岳父</item>
+        <item>岳母</item>
+        <item>继父</item>
+        <item>继母</item>
+        <item>曾祖父</item>
+        <item>曾祖母</item>
+        <item>嫂 弟媳</item>
+        <item>姐夫</item>
+        <item>妹夫</item>
+        <item>伯父</item>
+        <item>伯母</item>
+        <item>叔父</item>
+        <item>婶母</item>
+        <item>舅舅</item>
+        <item>舅母</item>
+        <item>姨父</item>
+        <item>姨母</item>
+        <item>姑父</item>
+        <item>姑母</item>
+        <item>堂兄弟</item>
+        <item>表兄弟</item>
+        <item>侄子</item>
+        <item>侄女</item>
+        <item>外甥</item>
+        <item>外甥女</item>
+        <item>其他亲属</item>
+        <item>保姆</item>
+        <item>非亲属</item>
+    </string-array>
+    <string-array name="gender">
+        <item>未知</item>
+        <item>男</item>
+        <item>女</item>
+    </string-array>
+    <string-array name="residentType">
+        <item>户籍</item>
+        <item>非户籍</item>
+        <item>其他</item>
+    </string-array>
+    <string-array name="registeredResidence">
+        <item>农业户口</item>
+        <item>非农业户口</item>
+        <item>农转非</item>
+    </string-array>
+    <string-array name="ethnic">
+        <item>汉族</item>
+        <item>阿昌族</item>
+        <item>白族</item>
+        <item>保安族</item>
+        <item>布朗族</item>
+        <item>布依族</item>
+        <item>朝鲜族</item>
+        <item>达斡尔族</item>
+        <item>傣族</item>
+        <item>德昂族</item>
+        <item>侗族</item>
+        <item>东乡族</item>
+        <item>独龙族</item>
+        <item>鄂伦春族</item>
+        <item>俄罗斯族</item>
+        <item>鄂温克族</item>
+        <item>高山族</item>
+        <item>仡佬族</item>
+        <item>哈尼族</item>
+        <item>哈萨克族</item>
+        <item>赫哲族</item>
+        <item>回族</item>
+        <item>基诺族</item>
+        <item>京族</item>
+        <item>景颇族</item>
+        <item>柯尔克孜族</item>
+        <item>拉祜族</item>
+        <item>黎族</item>
+        <item>僳僳族</item>
+        <item>珞巴族</item>
+        <item>满族</item>
+        <item>毛南族</item>
+        <item>门巴族</item>
+        <item>蒙古族</item>
+        <item>苗 族</item>
+        <item>仫佬族</item>
+        <item>纳西族</item>
+        <item>怒族</item>
+        <item>普米族</item>
+        <item>羌族</item>
+        <item>撒拉族</item>
+        <item>畲族</item>
+        <item>水族</item>
+        <item>塔吉克族</item>
+        <item>塔塔尔族</item>
+        <item>土族</item>
+        <item>土家族</item>
+        <item>佤族</item>
+        <item>维吾尔族</item>
+        <item>乌兹别克族</item>
+        <item>锡伯族</item>
+        <item>瑶族</item>
+        <item>彝族</item>
+        <item>裕固族</item>
+        <item>藏族</item>
+        <item>壮族</item>
+    </string-array>
+    <string-array name="nationality">
+        <item>中国</item>
+        <item>美国</item>
+        <item>日本</item>
+        <item>韩国</item>
+        <item>英国</item>
+        <item>法国</item>
+        <item>德国</item>
+        <item>意大利</item>
+        <item>新加坡</item>
+        <item>澳大利亚</item>
+        <item>加拿大</item>
+        <item>其他</item>
+    </string-array>
+    <string-array name="certificateType">
+        <item>居民身份证</item>
+        <item>居民户口薄</item>
+        <item>护照</item>
+        <item>军官证</item>
+        <item>港澳居民来往内地通行证</item>
+        <item>台湾居民来往内地通行证</item>
+    </string-array>
+    <string-array name="bloodType">
+        <item>A型</item>
+        <item>B型</item>
+        <item>O型</item>
+        <item>AB型</item>
+        <item>不详</item>
+    </string-array>
+    <string-array name="RHNegative">
+        <item>否</item>
+        <item>是</item>
+        <item>不详</item>
+    </string-array>
+    <string-array name="education">
+        <item>文盲及半文盲</item>
+        <item>小学</item>
+        <item>初中</item>
+        <item>高中/技校/中专 </item>
+        <item>大学专科及以上 </item>
+        <item>不详</item>
+        <item>学龄前儿童</item>
+    </string-array>
+    <string-array name="job">
+        <item>工人</item>
+        <item>农民</item>
+        <item>学生</item>
+        <item>教师</item>
+        <item>幼托儿童</item>
+        <item>散居儿童</item>
+        <item>保育员及保姆</item>
+        <item>餐饮食品业</item>
+        <item>商业服务</item>
+        <item>医务人员</item>
+        <item>民工</item>
+        <item>牧民</item>
+        <item>渔〔船〕民</item>
+        <item>干部职员</item>
+        <item>离退人员</item>
+        <item>家务及待业</item>
+        <item>其他</item>
+        <item>保安</item>
+        <item>长途驾驶员</item>
+        <item>美容足浴业</item>
+        <item>自由职业</item>
+        <item>建筑工人</item>
+        <item>个体</item>
+        <item>军人</item>
+        <item>科技</item>
+    </string-array>
+    <string-array name="marriage">
+        <item>未婚 </item>
+        <item>已婚 </item>
+        <item>丧偶 </item>
+        <item>离婚 </item>
+        <item>未说明的婚姻状况</item>
+    </string-array>
+    <string-array name="personalStatus">
+        <item>正常 </item>
+        <item>注销 </item>
+        <item>死忙 </item>
+        <item>迁出（区域\外地） </item>
+        <item>挂起</item>
+        <item>临时</item>
+    </string-array>
+    <string-array name="assistType">
+        <item>低保对象</item>
+        <item>五保对象</item>
+        <item>特困残疾</item>
+        <item>非援助对象</item>
+        <item>其他</item>
+    </string-array>
+    <string-array name="insuranceType">
+        <item>城镇职工基本医疗保险</item>
+        <item>城镇居民基本医疗保险</item>
+        <item>新型农村合作医疗</item>
+        <item>贫困救助</item>
+        <item>商业医疗保险</item>
+        <item>全公费</item>
+        <item>全自费</item>
+        <item>其他</item>
+        <item>职工家属医保</item>
+        <item>半劳保</item>
+        <item>学生医疗基金或保险</item>
+        <item>市职工医疗保险</item>
+        <item>省职工医疗保险</item>
+        <item>铁路医疗保险</item>
+    </string-array>
+    <string-array name="diseaseType">
+        <item>高血压</item>
+        <item>糖尿病</item>
+        <item>冠心病</item>
+        <item>慢性阻塞性肺疾病</item>
+        <item>恶性肿瘤</item>
+        <item>脑卒中</item>
+        <item>重性精神疾病</item>
+        <item>结核病</item>
+        <item>肝炎</item>
+        <item>其他法定传染病</item>
+        <item>职业病</item>
+        <item>其他</item>
+    </string-array>
+    <string-array name="treatResult">
+        <item>治愈</item>
+        <item>未愈</item>
+        <item>好转</item>
+        <item>死亡</item>
+        <item>其他</item>
+    </string-array>
+    <string-array name="treatResult1">
+        <item>治愈</item>
+        <item>好转</item>
+        <item>稳定</item>
+        <item>恶化</item>
+        <item>死亡</item>
+        <item>其他</item>
+    </string-array>
+    <string-array name="disabilityLevel">
+        <item>一级</item>
+        <item>二级</item>
+        <item>三级</item>
+        <item>四级</item>
+        <item>未评定</item>
+    </string-array>
+    <string-array name="homestyle">
+        <item>单亲家庭</item>
+        <item>主干家庭</item>
+        <item>单人家庭</item>
+        <item>核心家庭</item>
+        <item>联合家庭</item>
+    </string-array>
+    <string-array name="economy">
+        <item>好</item>
+        <item>一般</item>
+        <item>差</item>
+    </string-array>
+    <string-array name="exhaustingSystem">
+        <item>无</item>
+        <item>油烟机</item>
+        <item>换气扇</item>
+        <item>烟囱</item>
+    </string-array>
+    <string-array name="smokeExtraction">
+        <item>好</item>
+        <item>一般</item>
+        <item>差</item>
+    </string-array>
+    <string-array name="kitchenUsage">
+        <item>无</item>
+        <item>独用</item>
+        <item>合用</item>
+    </string-array>
+    <string-array name="fuelType">
+        <item>液化气</item>
+        <item>煤</item>
+        <item>天然气</item>
+        <item>沼气</item>
+        <item>柴火</item>
+        <item>管道天然气</item>
+        <item>管道煤气</item>
+        <item>其他</item>
+    </string-array>
+    <string-array name="waterSource">
+        <item>自来水</item>
+        <item>经净化过滤的水</item>
+        <item>井水</item>
+        <item>河湖水</item>
+        <item>塘水</item>
+        <item>水厂自来水</item>
+        <item>溪水</item>
+        <item>消毒井水</item>
+        <item>水站自来水</item>
+        <item>纯水或桶装水</item>
+        <item>其他</item>
+    </string-array>
+    <string-array name="avianCorral">
+        <item>无</item>
+        <item>单设</item>
+        <item>室内</item>
+        <item>室外</item>
+    </string-array>
+    <string-array name="healthyToiletType">
+        <item>无</item>
+        <item>三格式粪池</item>
+        <item>双翁漏斗式</item>
+        <item>三联沼气池式</item>
+        <item>粪尿分集式</item>
+        <item>完整下水道式</item>
+        <item>水冲式</item>
+        <item>双坑交换式</item>
+        <item>公共厕所</item>
+    </string-array>
+    <string-array name="notHealthyToiletType">
+        <item>无</item>
+        <item>一格或二格粪池式</item>
+        <item>马桶</item>
+        <item>露天粪坑</item>
+        <item>简易棚厕</item>
+        <item>公共厕所</item>
+    </string-array>
+    <string-array name="rubbishHandler">
+        <item>自行处理</item>
+        <item>垃圾箱</item>
+        <item>塑料袋</item>
+        <item>其他</item>
+    </string-array>
+    <string-array name="sanitaryConditions">
+        <item>好</item>
+        <item>一般</item>
+        <item>差</item>
+    </string-array>
+    <string-array name="sewageDisposal">
+        <item>无处理</item>
+        <item>下水道</item>
+        <item>深水坑</item>
+    </string-array>
+    <string-array name="houseType">
+        <item>土屋</item>
+        <item>茅屋</item>
+        <item>木屋砖</item>
+        <item>瓦平房</item>
+        <item>砖瓦楼房</item>
+        <item>钢筋混凝土</item>
+        <item>砖混结构</item>
+        <item>框架结构</item>
+        <item>砖木结构</item>
+        <item>土木结构</item>
+        <item>其他</item>
+    </string-array>
+    <string-array name="houseProperty">
+        <item>自有</item>
+        <item>租房</item>
+    </string-array>
+    <string-array name="houseLighting">
+        <item>好</item>
+        <item>一般</item>
+        <item>差</item>
+    </string-array>
+    <string-array name="houseVentilation">
+        <item>好</item>
+        <item>一般</item>
+        <item>差</item>
+    </string-array>
+    <string-array name="houseWarm">
+        <item>好</item>
+        <item>一般</item>
+        <item>差</item>
+    </string-array>
+    <string-array name="airHumidity">
+        <item>好</item>
+        <item>一般</item>
+        <item>差</item>
+    </string-array>
+    <string-array name="archiveStatus">
+        <item>正常</item>
+        <item>注销</item>
+        <item>死忙</item>
+        <item>迁出（区域地）</item>
+        <item>挂起</item>
+        <item>临时</item>
+    </string-array>
+    <string-array name="drugAllergy">
+        <item>青霉素</item>
+        <item>磺胺</item>
+        <item>链霉素</item>
+        <item>镇静麻醉过敏</item>
+        <item>其他</item>
+    </string-array>
+    <string-array name="exposure">
+        <item>化学品</item>
+        <item>毒物</item>
+        <item>射线</item>
+    </string-array>
+    <string-array name="jktjQuickExaminationTabMenu">
+        <item>常规体检</item>
+        <item>血压</item>
+        <item>血糖</item>
+        <item>血脂</item>
+        <item>血氧</item>
+        <item>心电分析</item>
+        <item>人体成分</item>
+        <!-- <item>体液</item> -->
+    </string-array>
+    <string-array name="jktjAgednessAssessmentTabMenu">
+        <item>自理评估</item>
+        <item>抑郁评估</item>
+        <item>智力评估</item>
+    </string-array>
+    <string-array name="bloodGlucoseType">
+
+        <!-- <item>随机血糖</item> -->
+        <item>空腹血糖</item>
+        <item>餐后2小时血糖</item>
+    </string-array>
+    <string-array name="healthCondition">
+        <item>满意</item>
+        <item>基本满意</item>
+        <item>说不清楚</item>
+        <item>不太清楚</item>
+        <item>不满意</item>
+    </string-array>
+    <string-array name="selfCareAbility">
+        <item>可自理</item>
+        <item>轻度依赖</item>
+        <item>中度依赖</item>
+        <item>不能自理</item>
+    </string-array>
+    <string-array name="exerciseFrequency">
+        <item>每天</item>
+        <item>每周一次以上</item>
+        <item>偶尔</item>
+        <item>不运动</item>
+    </string-array>
+    <string-array name="drinkingFrequency">
+        <item>从不</item>
+        <item>偶尔</item>
+        <item>经常</item>
+        <item>每天</item>
+    </string-array>
+    <string-array name="drinkingType">
+        <item>白酒</item>
+        <item>啤酒</item>
+        <item>红酒</item>
+        <item>黄酒</item>
+        <item>其他</item>
+    </string-array>
+    <string-array name="hearing">
+        <item>听见</item>
+        <item>听不清</item>
+        <item>无法听见</item>
+    </string-array>
+    <string-array name="motorFunction">
+        <item>可顺利完成</item>
+        <item>无法独立完成其中任何一个动作</item>
+    </string-array>
+    <string-array name="heartRhythm">
+        <item>心率齐</item>
+        <item>心率不齐</item>
+        <item>心率绝对不齐</item>
+    </string-array>
+    <string-array name="urineProtein">
+        <item>-</item>
+        <item>±</item>
+        <item>+</item>
+        <item>+ +</item>
+        <item>+ + +</item>
+        <item>+ + + +</item>
+        <item>+ + + +以上</item>
+    </string-array>
+    <string-array name="negativePositive">
+        <item>阴性</item>
+        <item>阳性</item>
+    </string-array>
+    <string-array name="Yes">
+        <item>是</item>
+        <item>基本是</item>
+        <item>倾向是</item>
+    </string-array>
+    <string-array name="followupType">
+        <item>门诊</item>
+        <item>家庭</item>
+        <item>电话</item>
+        <item>集体</item>
+    </string-array>
+    <string-array name="hypertensionType">
+        <item>原发</item>
+        <item>继发</item>
+        <item>不详</item>
+    </string-array>
+    <string-array name="saltCondition">
+        <item>轻</item>
+        <item>中</item>
+        <item>重</item>
+    </string-array>
+    <string-array name="heartAdjustment">
+        <item>良好</item>
+        <item>一般</item>
+        <item>差</item>
+    </string-array>
+    <string-array name="complianceBehavior">
+        <item>良好</item>
+        <item>一般</item>
+        <item>差</item>
+    </string-array>
+    <string-array name="medicationCompliance">
+        <item>规律</item>
+        <item>间断</item>
+        <item>不服药</item>
+    </string-array>
+    <string-array name="fllowUpCategory">
+        <item>控制满意</item>
+        <item>控制不满意</item>
+        <item>不良反应</item>
+        <item>并发症</item>
+    </string-array>
+    <string-array name="dorsalisPedis">
+        <item>未触及</item>
+        <item>触及双侧对称</item>
+        <item>触及左侧弱或消失</item>
+        <item>触及右侧弱或消失</item>
+    </string-array>
+    <string-array name="hypoglycemiaReaction">
+        <item>无</item>
+        <item>偶尔</item>
+        <item>频繁</item>
+    </string-array>
+    <string-array name="dangerLevel">
+        <item>0级</item>
+        <item>1级</item>
+        <item>2级</item>
+        <item>3级</item>
+        <item>4级</item>
+        <item>5级</item>
+    </string-array>
+    <string-array name="sleepQuality">
+        <item>良好</item>
+        <item>一般</item>
+        <item>较差</item>
+    </string-array>
+    <string-array name="dietQuality">
+        <item>良好</item>
+        <item>一般</item>
+        <item>较差</item>
+    </string-array>
+    <string-array name="lifeQuality">
+        <item>良好</item>
+        <item>一般</item>
+        <item>较差</item>
+    </string-array>
+    <string-array name="houseworkActivity">
+        <item>良好</item>
+        <item>一般</item>
+        <item>较差</item>
+    </string-array>
+    <string-array name="learningAbility">
+        <item>良好</item>
+        <item>一般</item>
+        <item>较差</item>
+    </string-array>
+    <string-array name="wrokingAbility">
+        <item>良好</item>
+        <item>一般</item>
+        <item>较差</item>
+    </string-array>
+    <string-array name="communicationAbility">
+        <item>良好</item>
+        <item>一般</item>
+        <item>较差</item>
+    </string-array>
+    <string-array name="lockCase">
+        <item>无关锁</item>
+        <item>关锁</item>
+        <item>关锁已解除</item>
+    </string-array>
+    <string-array name="hospitalization">
+        <item>从未住院</item>
+        <item>目前正在住院</item>
+        <item>既往住院</item>
+        <item>现未住院</item>
+    </string-array>
+    <string-array name="followupCategory">
+        <item>不稳定</item>
+        <item>基本稳定</item>
+        <item>稳定</item>
+        <item>未访到</item>
+    </string-array>
+    <string-array name="medicineType">
+        <item>西药</item>
+        <item>中成药</item>
+        <item>中草药</item>
+        <item>其他中药</item>
+        <item>未使用</item>
+    </string-array>
+    <string-array name="medicineUnit">
+        <item>升</item>
+        <item>毫升</item>
+        <item>微升</item>
+        <item>卡</item>
+        <item>人次</item>
+        <item>胎</item>
+        <item>根</item>
+        <item>次</item>
+        <item>支</item>
+        <item>组</item>
+        <item>粒</item>
+        <item>例</item>
+        <item>项</item>
+        <item>片</item>
+        <item>张</item>
+        <item>盒</item>
+        <item>包</item>
+        <item>瓶</item>
+        <item>袋</item>
+        <item>板</item>
+        <item>把</item>
+        <item>本</item>
+        <item>尺</item>
+        <item>打</item>
+        <item>刀</item>
+        <item>对</item>
+        <item>份</item>
+        <item>副</item>
+        <item>付</item>
+        <item>个</item>
+        <item>件</item>
+        <item>斤</item>
+        <item>具</item>
+        <item>卷</item>
+        <item>块</item>
+        <item>捆</item>
+        <item>辆</item>
+        <item>枚</item>
+        <item>批</item>
+        <item>束</item>
+        <item>双</item>
+        <item>台</item>
+        <item>套</item>
+        <item>条</item>
+        <item>贴</item>
+        <item>桶</item>
+        <item>丸</item>
+        <item>箱</item>
+        <item>只</item>
+        <item>千克</item>
+        <item>克</item>
+        <item>毫克</item>
+        <item>微克</item>
+    </string-array>
+    <string-array name="medicineUsage">
+        <item>一日1次</item>
+        <item>一日2次</item>
+        <item>一日3次</item>
+        <item>一日4次</item>
+        <item>必要时</item>
+        <item>临时</item>
+        <item>8小时1次</item>
+        <item>6小时1次</item>
+        <item>12小时1次</item>
+        <item>4小时1次</item>
+        <item>早上1次</item>
+        <item>晚上1次</item>
+        <item>2小时1次</item>
+        <item>隔日1次</item>
+        <item>每周2次</item>
+        <item>每周1次</item>
+        <item>一周2次</item>
+        <item>10am</item>
+        <item>4pm</item>
+        <item>12n</item>
+        <item>q12h</item>
+        <item>bid餐前</item>
+        <item>qd餐前</item>
+        <item>tid餐前</item>
+        <item>LS</item>
+        <item>tiw</item>
+        <item>遵嘱</item>
+        <item>2pm</item>
+        <item>6am</item>
+        <item>2am</item>
+        <item>3小时1次</item>
+        <item>5小时1次</item>
+        <item>1小时1次</item>
+        <item>一周3次</item>
+        <item>一日1次静推</item>
+        <item>一日2次静推</item>
+        <item>6小时1次静推</item>
+        <item>8小时1次静推</item>
+        <item>12小时1次静推</item>
+        <item>qd餐后</item>
+        <item>bid餐后</item>
+        <item>tid餐后</item>
+    </string-array>
+    <string-array name="medicineMethod">
+        <item>静滴</item>
+        <item>口服</item>
+        <item>肌注</item>
+        <item>外用</item>
+        <item>静推</item>
+        <item>滴眼</item>
+        <item>jz</item>
+        <item>皮下注射</item>
+        <item>局封</item>
+        <item>灌肠</item>
+        <item>雾化吸入</item>
+        <item>纳肛</item>
+        <item>其他</item>
+        <item>鞘内注射</item>
+        <item>腔内注射</item>
+        <item>肠外营养</item>
+        <item>舌下含服</item>
+        <item>鼻饲</item>
+        <item>漱口</item>
+        <item>造影用</item>
+        <item>上颌窦冲洗</item>
+        <item>吸痰</item>
+        <item>滴鼻</item>
+        <item>滴耳</item>
+        <item>带手术室</item>
+        <item>局部麻醉</item>
+        <item>小儿静滴</item>
+        <item>微泵注射</item>
+        <item>结膜下注射</item>
+        <item>气管内滴入</item>
+        <item>口含</item>
+        <item>纳阴</item>
+        <item>手术用</item>
+        <item>皮试</item>
+        <item>喷雾</item>
+        <item>球后注射</item>
+        <item>必要时吸痰</item>
+        <item>球旁注射</item>
+        <item>泪道冲洗</item>
+        <item>冲服</item>
+    </string-array>
+    <string-array name="MaternalInterviewMenuItem">
+        <item>第1次产前</item>
+        <item>第2&#8211;5次产前</item>
+        <item>产后访视</item>
+        <item>42天检查</item>
+    </string-array>
+    <string-array name="ChildrenInterviewMenuItem">
+        <item>新生儿</item>
+        <item>1岁内</item>
+        <item>1&#8211;2岁</item>
+        <item>3&#8211;6岁</item>
+    </string-array>
+    <string-array name="difficultiesGroup">
+        <item>低保对象</item>
+        <item>五保对象</item>
+        <item>特困残疾人</item>
+        <item>否</item>
+    </string-array>
+    <string-array name="rehabilitationRequire">
+        <item>有</item>
+        <item>无</item>
+    </string-array>
+    <string-array name="disabilityType">
+        <item>视力残疾</item>
+        <item>听力残疾</item>
+        <item>言语残疾</item>
+        <item>肢体残疾</item>
+        <item>智力残疾</item>
+        <item>精神残疾</item>
+        <item>其他残疾</item>
+    </string-array>
+    <string-array name="disabilityReason">
+        <item>遗传、先天异常或发育障碍</item>
+        <item>白内障</item>
+        <item>青光眼</item>
+        <item>沙眼</item>
+        <item>角膜病</item>
+        <item>视神经病变</item>
+        <item>屈光不正</item>
+        <item>弱视</item>
+        <item>外伤</item>
+        <item>中毒</item>
+        <item>其他</item>
+        <item>原因不明</item>
+    </string-array>
+    <string-array name="trainingPlace">
+        <item>专业机构</item>
+        <item>家庭</item>
+        <item>社区</item>
+    </string-array>
+    <string-array name="trainingEvaluation">
+        <item>满意</item>
+        <item>一般</item>
+        <item>不满意</item>
+    </string-array>
+    <string-array name="wineType">
+        <item>白酒</item>
+        <item>啤酒</item>
+        <item>红酒</item>
+        <item>黄酒</item>
+        <item>其他</item>
+    </string-array>
+    <string-array name="psychologicalRecovery">
+        <item>良好</item>
+        <item>一般</item>
+        <item>差</item>
+    </string-array>
+    <string-array name="followupEvaluate">
+        <item>满意</item>
+        <item>一般</item>
+        <item>不满意</item>
+    </string-array>
+    <string-array name="psychology">
+        <item>正常</item>
+        <item>紧张</item>
+        <item>抑郁</item>
+        <item>焦虑</item>
+        <item>其他</item>
+    </string-array>
+    <string-array name="followupProperty">
+        <item>一般人群</item>
+        <item>重点管理疾病的高危人群</item>
+        <item>患者</item>
+    </string-array>
+    <string-array name="followupCycleAdvise">
+        <item>无需</item>
+        <item>每2年</item>
+        <item>每年</item>
+        <item>每3个月</item>
+        <item>半年</item>
+    </string-array>
+    <string-array name="interviewCount">
+        <item>第一次</item>
+        <item>第二次</item>
+        <item>第三次（高危新生儿）</item>
+    </string-array>
+    <string-array name="feedingPatterns">
+        <item>纯母乳</item>
+        <item>混合</item>
+        <item>人工</item>
+    </string-array>
+    <string-array name="moonAge">
+        <item>满月</item>
+        <item>3月龄</item>
+        <item>6月龄</item>
+        <item>8月龄</item>
+    </string-array>
+    <string-array name="isAdd">
+        <item>未加</item>
+        <item>已加</item>
+    </string-array>
+    <string-array name="appetite">
+        <item>好</item>
+        <item>一般</item>
+        <item>差</item>
+    </string-array>
+    <string-array name="nutritionalEvaluation">
+        <item>正常</item>
+        <item>超重</item>
+        <item>肥胖（轻、中、重）</item>
+        <item>低体重</item>
+        <item>消瘦</item>
+        <item>生长迟缓</item>
+    </string-array>
+    <string-array name="moonAge1">
+        <item>12月龄</item>
+        <item>18月龄</item>
+        <item>24月龄</item>
+        <item>30月龄</item>
+    </string-array>
+    <string-array name="isEat">
+        <item>吃</item>
+        <item>未吃</item>
+    </string-array>
+
+    <!-- 出牙结论，1-2岁，暂时没有确定 -->
+    <string-array name="odontiasisConclusion">
+        <item>正常</item>
+    </string-array>
+    <string-array name="moonAge2">
+        <item>3岁</item>
+        <item>4岁</item>
+        <item>5岁</item>
+        <item>6岁</item>
+    </string-array>
+    <string-array name="growthEvaluation">
+        <item>正常</item>
+        <item>低体重</item>
+        <item>消瘦</item>
+        <item>发育迟缓</item>
+        <item>超重</item>
+        <item>肥胖</item>
+    </string-array>
+    <string-array name="pregnancyHistory">
+        <item>流产</item>
+        <item>死胎</item>
+        <item>死产</item>
+        <item>新生儿死亡</item>
+    </string-array>
+    <string-array name="urineAcetoneBodies">
+        <item>-</item>
+        <item>±</item>
+        <item>+</item>
+        <item>+ +</item>
+        <item>+ + +</item>
+        <item>+ + + +</item>
+        <item>+ + + +以上</item>
+    </string-array>
+    <string-array name="urineOccultBlood">
+        <item>-</item>
+        <item>±</item>
+        <item>+</item>
+        <item>+ +</item>
+        <item>+ + +</item>
+        <item>+ + + +</item>
+        <item>+ + + +以上</item>
+    </string-array>
+    <string-array name="syphilisSerum">
+        <item>阴性</item>
+        <item>阳性</item>
+    </string-array>
+    <string-array name="HIVDetection">
+        <item>阴性</item>
+        <item>阳性</item>
+    </string-array>
+    <string-array name="woundHealing">
+        <item>良好</item>
+        <item>较差</item>
+    </string-array>
+    <string-array name="waterRource">
+        <item>自来水</item>
+        <item>经净化过滤的水</item>
+        <item>井水</item>
+        <item>河湖水</item>
+        <item>塘水</item>
+        <item>水厂自来水</item>
+        <item>溪水</item>
+        <item>消毒井水</item>
+        <item>水站自来水</item>
+        <item>纯水或桶装水</item>
+        <item>其他</item>
+    </string-array>
+    
+    <!-- 阶段 -->
+    <string-array name="problemPhase">
+        <item>新婚</item>
+        <item>第一个孩子出生</item>
+        <item>有学龄前儿童</item>
+        <item>有青少年</item>
+        <item>孩子离家创业</item>
+        <item>父母独处</item>
+        <item>退休</item>
+        <item>二代同生</item>
+        <item>三代同生</item>
+        <item>其他</item>
+    </string-array>
+    
+    <string-array name="bloodCellsCategory">
+        <item>环氧合酶抑制剂</item>
+        <item>二磷酸腺苷（ADP）受体抑制剂</item>
+        <item>磷酸二酯酶抑制剂</item>
+        <item>糖蛋白II b/III a抑制剂</item>
+        <item>血栓素抑制剂</item>
+        <item>其他</item>
+    </string-array>
+    
+    
+    
+    <string-array name="healthExamination">
+        <item>健康体检</item>
+        <item>随访管理</item>
+    </string-array>
+    <string-array name="quickExamination">
+        <item>快速体检</item>
+        <item>体质辨识</item>
+        <item>心理评估</item>
+        <item>老年评估</item>
+        <item>普通体检</item>
+    </string-array>
+    <string-array name="followupExamination">
+        <item>高血压</item>
+        <item>糖尿病</item>
+        <item>脑卒中</item>
+        <item>精神病</item>
+        <item>孕产访视</item>
+        <item>儿童访视</item>
+        <item>老年随访</item>
+        <item>残疾随访</item>
+    </string-array>
+    
+    <string-array name="SearchExamination">
+        <item>血压</item>
+        <item>血糖</item>
+        <item>血脂</item>
+        <item>血氧</item>
+        <item>体重</item>
+        <item>腰围</item>
+    </string-array>
+</resources>

@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rg_check"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/rb_w"
+            style="@style/RadioButtonStyle"
+            android:checked="true"
+            android:text="无" />
+
+        <RadioButton
+            android:id="@+id/rb_y"
+            style="@style/RadioButtonStyle"
+            android:layout_marginLeft="20dp"
+            android:text="有" />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/white_label_bg"
+        android:text="新发卒中事件诊断"
+        android:textColor="@color/light_blue"
+        android:textSize="@dimen/global_font_size_xlarge" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <CheckBox
+            android:id="@+id/ck_zz_cx"
+            style="@style/CheckBoxStyle"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="10dp"
+            android:minWidth="0dp"
+            android:text="出血" />
+
+        <EditText
+            android:id="@+id/et_zz_cx_sj"
+            android:clickable="true"
+             android:editable="false"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:drawableRight="@drawable/icon_calendar" />
+
+        <CheckBox
+            android:id="@+id/ck_zz_ngs"
+            style="@style/CheckBoxStyle"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            android:minWidth="0dp"
+            android:text="脑梗死" />
+
+        <EditText
+            android:id="@+id/et_zz_ngs_sj"
+            android:clickable="true"
+             android:editable="false"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:drawableRight="@drawable/icon_calendar" />
+
+        <CheckBox
+            android:id="@+id/ck_zz_tia"
+            style="@style/CheckBoxStyle"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            android:minWidth="0dp"
+            android:text="TIA" />
+
+        <EditText
+            android:id="@+id/et_zz_tia_sj"
+            android:clickable="true"
+             android:editable="false"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="0dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:drawableRight="@drawable/icon_calendar" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/white_label_bg"
+        android:text="其他血管事件"
+        android:textColor="@color/light_blue"
+        android:textSize="@dimen/global_font_size_xlarge" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="30dp"
+            android:minWidth="120dp"
+            android:text="心脏病：" />
+
+        <CheckBox
+            android:id="@+id/ck_xzb_cx"
+            style="@style/CheckBoxStyle"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            android:minWidth="0dp"
+            android:text="出血" />
+
+        <EditText
+            android:id="@+id/et_xzb_cx_sj"
+            android:clickable="true"
+             android:editable="false"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:drawableRight="@drawable/icon_calendar" />
+
+        <CheckBox
+            android:id="@+id/ck_xzb_ngs"
+            style="@style/CheckBoxStyle"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            android:minWidth="0dp"
+            android:text="脑梗死" />
+
+        <EditText
+            android:id="@+id/et_xzb_ngs_sj"
+            android:clickable="true"
+             android:editable="false"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:drawableRight="@drawable/icon_calendar" />
+
+        <CheckBox
+            android:id="@+id/ck_xzb_tia"
+            style="@style/CheckBoxStyle"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            android:minWidth="0dp"
+            android:text="TIA" />
+
+        <EditText
+            android:id="@+id/et_xzb_tia_sj"
+            android:clickable="true"
+             android:editable="false"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="0dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:drawableRight="@drawable/icon_calendar" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="200dp"
+            android:text="PAD：" />
+
+        <EditText
+            android:id="@+id/et_pad"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="300dp" />
+
+        <EditText
+             android:id="@+id/et_pad_sj"
+             android:clickable="true"
+             android:editable="false"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="200dp"
+            android:layout_marginLeft="20dp"
+            android:drawableRight="@drawable/icon_calendar" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="200dp"
+            android:text="其他重大疾病或死忙：" />
+
+        <EditText
+             android:id="@+id/et_qt"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="300dp" />
+
+        <EditText
+             android:id="@+id/et_qt_sj"
+             android:clickable="true"
+             android:editable="false"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="200dp"
+            android:layout_marginLeft="20dp"
+            android:drawableRight="@drawable/icon_calendar" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/white_label_bg"
+        android:text="评分"
+        android:textColor="@color/light_blue"
+        android:textSize="@dimen/global_font_size_xlarge" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="200dp"
+            android:text="MRS：" />
+
+        <EditText
+             android:id="@+id/et_mrs"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="80dp" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="30dp"
+            android:text="分" />
+
+        <EditText
+             android:id="@+id/et_mrs_jg"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="400dp"
+            android:layout_marginLeft="20dp"
+            android:hint="MRS评分结果" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="200dp"
+            android:text="BI：" />
+
+        <EditText android:id="@+id/et_bi"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="80dp" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="30dp"
+            android:text="分" />
+
+        <EditText
+             android:id="@+id/et_bi_jg"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="400dp"
+            android:layout_marginLeft="20dp"
+            android:hint="BI评分结果" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="200dp"
+            android:text="膳食评分：" />
+
+        <EditText
+             android:id="@+id/et_ss"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="80dp" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="30dp"
+            android:text="分" />
+
+        <EditText android:id="@+id/et_ss_jg"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="400dp"
+            android:layout_marginLeft="20dp"
+            android:hint="膳食评分评分结果" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="200dp"
+            android:text="随访医生签名：" />
+
+        <EditText
+             android:id="@+id/et_sfysqm"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+    </LinearLayout>
+
+</LinearLayout>

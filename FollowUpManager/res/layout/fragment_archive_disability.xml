@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ContentLayoutStyle" >
+
+    <RadioGroup
+        android:id="@+id/disabilityRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <RadioButton
+            android:id="@+id/disabilityRadioButtonNo"
+            style="@style/RadioButtonStyle"
+            android:checked="true"
+            android:text="无" />
+
+        <RadioButton
+            android:id="@+id/disabilityRadioButtonYes"
+            style="@style/RadioButtonStyle"
+            android:layout_marginTop="15dp"
+            android:text="有" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="20dp"
+            android:text="残疾证号：" />
+
+        <EditText
+            android:id="@+id/disabilityNoEditText"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="20dp"
+            android:text="残疾等级：" />
+
+        <Spinner
+            android:id="@+id/disabilityLevelSpinner"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:entries="@array/disabilityLevel" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/disabilityRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp" >
+
+        <CheckBox
+            android:id="@+id/disabilityType0"
+            style="@style/CheckBoxStyle"
+            android:minWidth="220dp"
+            android:text="视力残疾" />
+
+        <CheckBox
+            android:id="@+id/disabilityType1"
+            style="@style/CheckBoxStyle"
+            android:layout_toRightOf="@id/disabilityType0"
+            android:minWidth="220dp"
+            android:text="听力残疾" />
+
+        <CheckBox
+            android:id="@+id/disabilityType2"
+            style="@style/CheckBoxStyle"
+            android:layout_toRightOf="@id/disabilityType1"
+            android:minWidth="220dp"
+            android:text="言语残疾" />
+
+        <CheckBox
+            android:id="@+id/disabilityType3"
+            style="@style/CheckBoxStyle"
+            android:layout_below="@id/disabilityType0"
+            android:layout_marginTop="10dp"
+            android:minWidth="220dp"
+            android:text="肢体残疾" />
+
+        <CheckBox
+            android:id="@+id/disabilityType4"
+            style="@style/CheckBoxStyle"
+            android:layout_below="@id/disabilityType0"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/disabilityType3"
+            android:minWidth="220dp"
+            android:text="智力残疾" />
+
+        <CheckBox
+            android:id="@+id/disabilityType5"
+            style="@style/CheckBoxStyle"
+            android:layout_below="@id/disabilityType0"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/disabilityType4"
+            android:minWidth="220dp"
+            android:text="精神残疾" />
+
+        <CheckBox
+            android:id="@+id/disabilityType6"
+            style="@style/CheckBoxStyle"
+            android:layout_alignBaseline="@+id/disabilityTypeEditText"
+            android:layout_below="@id/disabilityType3"
+            android:layout_marginTop="10dp"
+            android:minWidth="80dp"
+            android:text="其他" />
+
+        <EditText
+            android:id="@+id/disabilityTypeEditText"
+            style="@style/PersonalInfoEditTextStyle"
+            android:layout_below="@id/disabilityType3"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/disabilityType6"
+            android:hint="其他" />
+    </RelativeLayout>
+
+</LinearLayout>

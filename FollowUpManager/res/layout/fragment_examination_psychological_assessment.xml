@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:flipInterval="1000"
+    android:persistentDrawingCache="animation" >
+    <LinearLayout
+        style="@style/ContentLayoutStyle"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/sdsImageView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@null"
+                android:scaleType="centerInside"
+                android:src="@drawable/jktj_xlpg_icon_sds"
+                android:tag="sds" />
+
+            <ImageView
+                android:id="@+id/sasImageView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@null"
+                android:scaleType="centerInside"
+                android:src="@drawable/jktj_xlpg_icon_sas"
+                android:tag="sas" />
+
+            <ImageView
+                android:id="@+id/psqiImageView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@null"
+                android:scaleType="centerInside"
+                android:src="@drawable/jktj_xlpg_icon_psqi"
+                android:tag="psqi" />
+
+            <ImageView
+                android:id="@+id/saqImageView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@null"
+                android:scaleType="centerInside"
+                android:src="@drawable/jktj_xlpg_icon_saq"
+                android:tag="saq" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/uclaImageView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@null"
+                android:scaleType="centerInside"
+                android:src="@drawable/jktj_xlpg_icon_ucla"
+                android:tag="ucla" />
+
+            <ImageView
+                android:id="@+id/gcqImageView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@null"
+                android:scaleType="centerInside"
+                android:src="@drawable/jktj_xlpg_icon_gcq"
+                android:tag="gcq" />
+
+            <ImageView
+                android:id="@+id/scl90ImageView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@null"
+                android:scaleType="centerInside"
+                android:src="@drawable/jktj_xlpg_icon_scl_90"
+                android:tag="scl90" />
+
+            <ImageView
+                android:id="@+id/qlscaImageView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@null"
+                android:scaleType="centerInside"
+                android:src="@drawable/jktj_xlpg_icon_qlsca"
+                android:tag="qlsca" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.shbestwin.followupmanager.view.widget.ExaminationLayout
+        android:id="@+id/examinationLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="25dp"
+        android:paddingLeft="60dp"
+        android:paddingRight="60dp"
+        android:paddingTop="25dp" >
+
+        <TextView
+            android:id="@+id/resultTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text=" - 测试结果："
+            android:textColor="@color/light_blue"
+            android:textSize="25sp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+			    <LinearLayout
+			        android:id="@+id/contentLayout"
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:orientation="vertical"
+			        android:visibility="gone" >
+			
+			       
+			    </LinearLayout>
+                
+                <TextView
+                    android:id="@+id/featureTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/black"
+                    android:textSize="21sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="分析与建议"
+                    android:textColor="@color/black"
+                    android:textSize="21sp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/guidanceTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/black"
+                    android:textSize="21sp"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/returnButton"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:background="@drawable/button_blue_selector"
+            android:text="返回"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+</ViewFlipper>

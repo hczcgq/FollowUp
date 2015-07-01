@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ContentLayoutStyle" >
+
+    <RadioGroup
+        android:id="@+id/heredopathiaRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <RadioButton
+            android:id="@+id/heredopathiaRadioButton0"
+            style="@style/RadioButtonStyle"
+            android:checked="true"
+            android:text="无" />
+
+        <RadioButton
+            android:id="@+id/heredopathiaRadioButton1"
+            style="@style/RadioButtonStyle"
+            android:layout_marginTop="15dp"
+            android:text="有" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/heredopathiaNameTextView"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:layout_alignBottom="@id/heredopathiaRadioGroup"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/heredopathiaRadioGroup"
+        android:background="@drawable/edit_text_with_padding_selector"
+        android:gravity="center_vertical"
+        android:hint="请输入疾病名称"
+        android:textSize="@dimen/global_font_size_large" />
+
+</RelativeLayout>

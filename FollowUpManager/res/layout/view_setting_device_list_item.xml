@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/device_item_selector"
+    android:padding="15dp" >
+
+    <TextView
+        android:id="@+id/orderTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="10dp"
+        android:text="1."
+        android:textColor="@color/black"
+        android:textSize="@dimen/global_font_size_large" />
+
+    <TextView
+        android:id="@+id/deviceNameTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/orderTextView"
+        android:text="平板电脑"
+        android:textColor="@color/black"
+        android:textSize="@dimen/global_font_size_large" />
+
+    <TextView
+        android:id="@+id/deviceTypeTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/deviceNameTextView"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/orderTextView"
+        android:text="仪器类型：平板电脑"
+        android:textColor="@color/black"
+        android:textSize="@dimen/global_font_size_middle" />
+
+    <TextView
+        android:id="@+id/brandTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/deviceTypeTextView"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/orderTextView"
+        android:text="品牌：三星"
+        android:textColor="@color/black"
+        android:textSize="@dimen/global_font_size_middle" />
+
+    <TextView
+        android:id="@+id/modelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/brandTextView"
+        android:layout_marginLeft="50dp"
+        android:layout_toRightOf="@id/brandTextView"
+        android:text="型号：SM-T520"
+        android:textColor="@color/black"
+        android:textSize="@dimen/global_font_size_middle" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/arrow_selector" />
+
+</RelativeLayout>

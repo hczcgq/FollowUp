@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="20dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="130dp"
+            android:text="日期：" />
+
+        <EditText
+            android:id="@+id/et_rq"
+            android:editable="false"
+            android:clickable="true"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:drawableRight="@drawable/icon_calendar" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bqgRelativeLayout"
+        android:layout_marginTop="20dp" >
+
+        <TextView
+            android:id="@+id/TODTextView"
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_centerVertical="true"
+            android:minWidth="130dp"
+            android:text="靶器官损害：" />
+
+        <CheckBox
+            android:id="@+id/TOD0"
+            style="@style/CheckBoxStyle"
+            android:layout_width="145dp"
+            android:layout_toRightOf="@id/TODTextView"
+            android:text="心脏" />
+
+        <CheckBox
+            android:id="@+id/TOD1"
+            style="@style/CheckBoxStyle"
+            android:layout_width="135dp"
+            android:layout_toRightOf="@id/TOD0"
+            android:text="脑" />
+
+        <CheckBox
+            android:id="@+id/TOD2"
+            style="@style/CheckBoxStyle"
+            android:layout_width="135dp"
+            android:layout_toRightOf="@id/TOD1"
+            android:text="肾脏" />
+
+        <CheckBox
+            android:id="@+id/TOD3"
+            style="@style/CheckBoxStyle"
+            android:layout_width="135dp"
+            android:layout_toRightOf="@id/TOD2"
+            android:text="周围血管" />
+
+        <CheckBox
+            android:id="@+id/TOD4"
+            style="@style/CheckBoxStyle"
+            android:layout_width="135dp"
+            android:layout_toRightOf="@id/TOD3"
+            android:text="眼底" />
+
+        <CheckBox
+            android:id="@+id/TOD5"
+            style="@style/CheckBoxStyle"
+            android:layout_width="135dp"
+            android:layout_toRightOf="@id/TOD4"
+            android:text="其他" />
+    </RelativeLayout>
+
+    <RelativeLayout
+         android:id="@+id/hbzRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp" >
+
+        <TextView
+            android:id="@+id/complaintTextView"
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_centerVertical="true"
+            android:minWidth="130dp"
+            android:text="合并症：" />
+
+        <CheckBox
+            android:id="@+id/complaint0"
+            style="@style/CheckBoxStyle"
+            android:layout_width="145dp"
+            android:layout_toRightOf="@id/complaintTextView"
+            android:text="左室肥厚" />
+
+        <CheckBox
+            android:id="@+id/complaint1"
+            style="@style/CheckBoxStyle"
+            android:layout_width="135dp"
+            android:layout_toRightOf="@id/complaint0"
+            android:text="心力衰竭" />
+
+        <CheckBox
+            android:id="@+id/complaint2"
+            style="@style/CheckBoxStyle"
+            android:layout_width="135dp"
+            android:layout_toRightOf="@id/complaint1"
+            android:text="冠心病" />
+
+        <CheckBox
+            android:id="@+id/complaint3"
+            style="@style/CheckBoxStyle"
+            android:layout_width="135dp"
+            android:layout_toRightOf="@id/complaint2"
+            android:text="心率失常" />
+
+        <CheckBox
+            android:id="@+id/complaint4"
+            style="@style/CheckBoxStyle"
+            android:layout_width="135dp"
+            android:layout_toRightOf="@id/complaint3"
+            android:text="脑卒中" />
+
+        <CheckBox
+            android:id="@+id/complaint5"
+            style="@style/CheckBoxStyle"
+            android:layout_width="180dp"
+            android:layout_toRightOf="@id/complaint4"
+            android:text="主动脉夹层动脉瘤" />
+
+        <CheckBox
+            android:id="@+id/complaint6"
+            style="@style/CheckBoxStyle"
+            android:layout_width="145dp"
+            android:layout_below="@id/complaint0"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/complaintTextView"
+            android:text="动脉粥样硬化" />
+
+        <CheckBox
+            android:id="@+id/complaint7"
+            style="@style/CheckBoxStyle"
+            android:layout_width="135dp"
+            android:layout_below="@id/complaint0"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/complaint6"
+            android:text="视网膜病变" />
+
+        <CheckBox
+            android:id="@+id/complaint8"
+            style="@style/CheckBoxStyle"
+            android:layout_width="135dp"
+            android:layout_below="@id/complaint0"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/complaint7"
+            android:text="其他" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="130dp"
+            android:text="其他疾病：" />
+
+        <EditText
+            android:id="@+id/et_qtjb"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="130dp"
+            android:text="下次随访日期：" />
+
+        <EditText
+            android:id="@+id/et_xcsfrq"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:clickable="true"
+            android:editable="false"
+            android:drawableRight="@drawable/icon_calendar" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:minWidth="130dp"
+            android:text="随访医生签名：" />
+
+        <EditText
+            android:id="@+id/et_sfysqm"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:text="管理员" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal" >
+
+    <TextView
+        style="@style/GeneralExaminationLabelStyle"
+        android:text="丈夫姓名：" />
+
+    <EditText
+        android:id="@+id/et_zfxm"
+        style="@style/GeneralExaminationEditTextStyle"
+        android:layout_width="220dp" />
+
+    <TextView
+        style="@style/GeneralExaminationLabelStyle"
+        android:layout_marginLeft="20dp"
+        android:minWidth="130dp"
+        android:text="丈夫年龄：" />
+
+    <EditText
+          android:id="@+id/et_zfnl"
+        style="@style/GeneralExaminationEditTextStyle"
+        android:layout_width="220dp"
+        android:inputType="number" />
+
+    <TextView
+        style="@style/GeneralExaminationLabelStyle"
+        android:layout_marginLeft="20dp"
+        android:minWidth="130dp"
+        android:text="丈夫电话：" />
+
+    <EditText
+          android:id="@+id/et_zfdh"
+        style="@style/GeneralExaminationEditTextStyle"
+        android:layout_width="220dp"
+        android:inputType="textPhonetic" />
+
+</LinearLayout>

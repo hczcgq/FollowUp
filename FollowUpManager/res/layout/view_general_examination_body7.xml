@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="20dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="120dp"
+            android:text="平和质：" />
+
+        <Spinner
+            android:id="@+id/sn_phz"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="150dp"
+            android:entries="@array/Yes" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="50dp"
+            android:text="气虚质：" />
+
+        <Spinner
+            android:id="@+id/sn_qxz"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="150dp"
+            android:entries="@array/Yes" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="50dp"
+            android:text="阳虚质：" />
+
+        <Spinner
+            android:id="@+id/sn_yangxz"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="150dp"
+            android:entries="@array/Yes" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="120dp"
+            android:text="阴虚质：" />
+
+        <Spinner
+            android:id="@+id/sn_yinxz"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="150dp"
+            android:entries="@array/Yes" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="50dp"
+            android:text="痰湿质：" />
+
+        <Spinner
+            android:id="@+id/sn_tsz"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="150dp"
+            android:entries="@array/Yes" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="50dp"
+            android:text="湿热质：" />
+
+        <Spinner
+            android:id="@+id/sn_srz"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="150dp"
+            android:entries="@array/Yes" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="120dp"
+            android:text="血瘀质：" />
+
+        <Spinner
+            android:id="@+id/sn_xyz"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="150dp"
+            android:entries="@array/Yes" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="50dp"
+            android:text="气郁质：" />
+
+        <Spinner
+            android:id="@+id/sn_qyz"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="150dp"
+            android:entries="@array/Yes" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="50dp"
+            android:text="特秉质：" />
+
+        <Spinner
+            android:id="@+id/sn_tbz"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="150dp"
+            android:entries="@array/Yes" />
+    </LinearLayout>
+
+</LinearLayout>

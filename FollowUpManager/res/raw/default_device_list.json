@@ -1,0 +1,233 @@
+[
+  {
+	  "selected":{
+	    "code": "0101",
+	    "name": "平板电脑",
+	    "bluetoothName": "",
+	    "brand": "三星",
+	    "isUsing": "true",
+	    "model": "SM-T520",
+	    "typeName": "硬件平台",
+	    "typeId":"01"
+	  },
+	  "all":[{
+	    "code": "0101",
+	    "name": "平板电脑",
+	    "bluetoothName": "",
+	    "brand": "三星",
+	    "isUsing": "true",
+	    "model": "SM-T520",
+	    "typeName": "硬件平台",
+	    "typeId":"01"
+	  }]
+  },
+  {
+	  "selected":{
+	    "code": "0201",
+	    "name": "身份证阅读器",
+	    "bluetoothName": "CVR-100B",
+	    "brand": "华视电子",
+	    "isUsing": "true",
+	    "model": "CVR-100B",
+	    "typeName": "身份识别",
+	    "typeId":"02"
+	  },
+	  "all":[{
+	    "code": "0201",
+	    "name": "身份证阅读器",
+	    "bluetoothName": "CVR-100B",
+	    "brand": "华视电子",
+	    "isUsing": "true",
+	    "model": "CVR-100B",
+	    "typeName": "身份识别",
+	    "typeId":"02"
+	  }]
+  },{
+	  "selected":{
+	    "code": "0301",
+	    "name": "腰围尺",
+	    "bluetoothName": "MB_YWC_1441120016",
+	    "brand": "",
+	    "isUsing": "true",
+	    "model": "",
+	    "typeName": "测量三围",
+	    "typeId":"03"
+	  },
+	  "all":[{
+ 		"code": "0301",
+	    "name": "腰围尺",
+	    "bluetoothName": "MB_YWC_1441120016",
+	    "brand": "",
+	    "isUsing": "true",
+	    "model": "",
+	    "typeName": "测量三围",
+	    "typeId":"03"
+	  }]
+  },
+  {
+	  "selected":{
+	    "code": "0401",
+	    "name": "血压计",
+	    "bluetoothName": "BP",
+	    "brand": "倍泰",
+	    "isUsing": "true",
+	    "model": "ePW-19B",
+	    "typeName": "血压测量",
+	    "typeId":"04"
+	  },
+	  "all":[{
+	    "code": "0401",
+	    "name": "血压计",
+	    "bluetoothName": "BP",
+	    "brand": "倍泰",
+	    "isUsing": "true",
+	    "model": "ePW-19B",
+	    "typeName": "血压测量",
+	    "typeId":"04"
+	  },{
+	    "code": "0402",
+	    "name": "血压计",
+	    "bluetoothName": "HEM-7081-IT",
+	    "brand": "欧姆龙",
+	    "isUsing": "false",
+	    "model": "HEM-7081-IT",
+	    "typeName": "血压测量",
+	    "typeId":"04"
+	  }]
+  },{
+	  "selected":{
+	    "code": "0501",
+	    "name": "血糖仪",
+	    "bluetoothName": "101A0000047",
+	    "brand": "",
+	    "isUsing": "true",
+	    "model": "",
+	    "typeName": "测量血糖",
+	    "typeId":"05"
+	  },
+	  "all":[{
+	    "code": "0501",
+	    "name": "血糖仪",
+	    "bluetoothName": "101A0000047",
+	    "brand": "",
+	    "isUsing": "true",
+	    "model": "",
+	    "typeName": "测量血糖",
+	    "typeId":"05"
+	  },{
+	    "code": "0502",
+	    "name": "血糖仪",
+	    "bluetoothName": "Hihol",
+	    "brand": "BU-34",
+	    "isUsing": "false",
+	    "model": "",
+	    "typeName": "测量血糖",
+	    "typeId":"05"
+	  }]
+  },{
+	  "selected":{
+	    "code": "0601",
+	    "name": "干式血尿生化分析仪",
+	    "bluetoothName": "Hihol",
+	    "brand": "",
+	    "isUsing": "true",
+	    "model": "BU-34",
+	    "typeName": "测量血脂",
+	    "typeId":"06"
+	  },
+	  "all":[{
+	    "code": "0601",
+	    "name": "干式血尿生化分析仪",
+	    "bluetoothName": "Hihol",
+	    "brand": "",
+	    "isUsing": "true",
+	    "model": "BU-34",
+	    "typeName": "测量血脂",
+	    "typeId":"06"
+	  }]
+  },{
+	  "selected":{
+	    "code": "0701",
+	    "name": "手指血氧仪",
+	    "bluetoothName": "PC-60NW-1",
+	    "brand": "",
+	    "isUsing": "true",
+	    "model": "PC-60NW-1",
+	    "typeName": "测量血氧",
+	    "typeId":"07"
+	  },
+	  "all":[{
+	    "code": "0701",
+	    "name": "手指血氧仪",
+	    "bluetoothName": "PC-60NW-1",
+	    "brand": "",
+	    "isUsing": "true",
+	    "model": "PC-60NW-1",
+	    "typeName": "测量血氧",
+	    "typeId":"07"
+	  }]
+  },{
+	  "selected":{
+	    "code": "0801",
+	    "name": "心电仪",
+	    "bluetoothName": "ECG:HC-201B",
+	    "brand": "",
+	    "isUsing": "true",
+	    "model": "HC201",
+	    "typeName": "测量心电数据",
+	    "typeId":"08"
+	  },
+	  "all":[{
+ 		"code": "0801",
+	    "name": "心电仪",
+	    "bluetoothName": "ECG:HC-201B",
+	    "brand": "",
+	    "isUsing": "true",
+	    "model": "HC201",
+	    "typeName": "测量心电数据",
+	    "typeId":"08"
+	  }]
+  },{
+	  "selected":{
+	    "code": "0901",
+	    "name": "脂肪秤",
+	    "bluetoothName": "Belter",
+	    "brand": "",
+	    "isUsing": "true",
+	    "model": "Belter",
+	    "typeName": "测量人体成分",
+	    "typeId":"09"
+	  },
+	  "all":[{
+ 		  "code": "0901",
+	    "name": "脂肪秤",
+	    "bluetoothName": "Belter",
+	    "brand": "",
+	    "isUsing": "true",
+	    "model": "Belter",
+	    "typeName": "测量人体成分",
+	    "typeId":"09"
+	  }]
+  },{
+	  "selected":{
+	    "code": "1001",
+	    "name": "蓝牙打印机",
+	    "bluetoothName": "RPP-02",
+	    "brand": "北京明曦智远无线打印机",
+	    "isUsing": "true",
+	    "model": "RPP-02",
+	    "typeName": "蓝牙打印机",
+	    "typeId":"10"
+	  },
+	  "all":[{
+	    "code": "1001",
+	    "name": "蓝牙打印机",
+	    "bluetoothName": "RPP-02",
+	    "brand": "北京明曦智远无线打印机",
+	    "isUsing": "true",
+	    "model": "RPP-02",
+	    "typeName": "蓝牙打印机",
+	    "typeId":"10"
+	  }]
+  }
+]

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/selfHistoryLayout"
+    android:layout_marginBottom="20dp" >
+
+    <CheckBox
+        android:id="@+id/selfHistoryCategory0"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:text="吸烟" />
+
+    <CheckBox
+        android:id="@+id/selfHistoryCategory1"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_toRightOf="@id/selfHistoryCategory0"
+        android:text="饮酒" />
+
+    <CheckBox
+        android:id="@+id/selfHistoryCategory2"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_toRightOf="@id/selfHistoryCategory1"
+        android:text="服用药物" />
+
+    <CheckBox
+        android:id="@+id/selfHistoryCategory3"
+        style="@style/CheckBoxStyle"
+        android:layout_width="200dp"
+        android:layout_toRightOf="@id/selfHistoryCategory2"
+        android:text="接触有毒有害物质" />
+
+    <CheckBox
+        android:id="@+id/selfHistoryCategory4"
+        style="@style/CheckBoxStyle"
+        android:layout_toRightOf="@id/selfHistoryCategory3"
+        android:text="接触放射线" />
+
+    <CheckBox
+        android:id="@+id/selfHistoryOther"
+        style="@style/CheckBoxStyle"
+        android:layout_width="90dp"
+        android:layout_below="@id/selfHistoryCategory0"
+        android:layout_marginTop="10dp"
+        android:text="其他" />
+
+    <EditText
+        android:id="@+id/selfHistoryEdittext"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/selfHistoryOther"
+        android:layout_below="@id/selfHistoryCategory0"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/selfHistoryOther"
+        android:background="@drawable/edit_text_with_padding_selector"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/global_font_size_large" />
+
+</RelativeLayout>

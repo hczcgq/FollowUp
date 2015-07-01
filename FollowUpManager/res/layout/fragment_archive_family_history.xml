@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/familyHistoryLayout" 
+        style="@style/ContentLayoutStyle" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_label_bg"
+            android:text="父亲"
+            android:textColor="@color/light_blue"
+            android:textSize="@dimen/global_font_size_xlarge" />
+
+        <RelativeLayout
+            android:id="@+id/familyHistoryByFather"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <CheckBox
+                android:id="@+id/familyHistoryByFather0"
+                style="@style/CheckBoxStyle"
+                android:minWidth="150dp"
+                android:checked="true"
+                android:text="无" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByFather1"
+                style="@style/CheckBoxStyle"
+                android:layout_toRightOf="@id/familyHistoryByFather0"
+                android:minWidth="150dp"
+                android:text="高血压" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByFather2"
+                style="@style/CheckBoxStyle"
+                android:layout_toRightOf="@id/familyHistoryByFather1"
+                android:minWidth="150dp"
+                android:text="糖尿病" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByFather3"
+                style="@style/CheckBoxStyle"
+                android:layout_toRightOf="@id/familyHistoryByFather2"
+                android:minWidth="150dp"
+                android:text="冠心病" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByFather4"
+                style="@style/CheckBoxStyle"
+                android:layout_toRightOf="@id/familyHistoryByFather3"
+                android:minWidth="150dp"
+                android:text="恶性肿瘤" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByFather5"
+                style="@style/CheckBoxStyle"
+                android:layout_toRightOf="@id/familyHistoryByFather4"
+                android:minWidth="150dp"
+                android:text="慢性阻塞性疾病" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByFather6"
+                style="@style/CheckBoxStyle"
+                android:layout_alignBaseline="@+id/familyHistoryByFatherEditText"
+                android:layout_below="@id/familyHistoryByFather0"
+                android:layout_marginTop="10dp"
+                android:minWidth="150dp"
+                android:text="脑卒中" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByFather7"
+                style="@style/CheckBoxStyle"
+                android:layout_alignBaseline="@+id/familyHistoryByFatherEditText"
+                android:layout_below="@id/familyHistoryByFather0"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/familyHistoryByFather6"
+                android:minWidth="150dp"
+                android:text="重性精神疾病" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByFather8"
+                style="@style/CheckBoxStyle"
+                android:layout_alignBaseline="@+id/familyHistoryByFatherEditText"
+                android:layout_below="@id/familyHistoryByFather0"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/familyHistoryByFather7"
+                android:minWidth="150dp"
+                android:text="结核病" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByFather9"
+                style="@style/CheckBoxStyle"
+                android:layout_alignBaseline="@+id/familyHistoryByFatherEditText"
+                android:layout_below="@id/familyHistoryByFather0"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/familyHistoryByFather8"
+                android:minWidth="150dp"
+                android:text="肝炎" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByFather10"
+                style="@style/CheckBoxStyle"
+                android:layout_alignBaseline="@+id/familyHistoryByFatherEditText"
+                android:layout_below="@id/familyHistoryByFather0"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/familyHistoryByFather9"
+                android:minWidth="150dp"
+                android:text="先天畸形" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByFather11"
+                style="@style/CheckBoxStyle"
+                android:layout_alignBaseline="@+id/familyHistoryByFatherEditText"
+                android:layout_below="@id/familyHistoryByFather0"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/familyHistoryByFather10"
+                android:minWidth="80dp"
+                android:text="其他" />
+
+            <EditText
+                android:id="@+id/familyHistoryByFatherEditText"
+                style="@style/PersonalInfoEditTextStyle"
+                android:layout_below="@id/familyHistoryByFather0"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/familyHistoryByFather11"
+                android:hint="请输入其他疾病" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/white_label_bg"
+            android:text="母亲"
+            android:textColor="@color/light_blue"
+            android:textSize="@dimen/global_font_size_xlarge" />
+
+        <RelativeLayout
+            android:id="@+id/familyHistoryByMother"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <CheckBox
+                android:id="@+id/familyHistoryByMother0"
+                style="@style/CheckBoxStyle"
+                android:minWidth="150dp"
+                android:checked="true"
+                android:text="无" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByMother1"
+                style="@style/CheckBoxStyle"
+                android:layout_toRightOf="@id/familyHistoryByMother0"
+                android:minWidth="150dp"
+                android:text="高血压" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByMother2"
+                style="@style/CheckBoxStyle"
+                android:layout_toRightOf="@id/familyHistoryByMother1"
+                android:minWidth="150dp"
+                android:text="糖尿病" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByMother3"
+                style="@style/CheckBoxStyle"
+                android:layout_toRightOf="@id/familyHistoryByMother2"
+                android:minWidth="150dp"
+                android:text="冠心病" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByMother4"
+                style="@style/CheckBoxStyle"
+                android:layout_toRightOf="@id/familyHistoryByMother3"
+                android:minWidth="150dp"
+                android:text="恶性肿瘤" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByMother5"
+                style="@style/CheckBoxStyle"
+                android:layout_toRightOf="@id/familyHistoryByMother4"
+                android:minWidth="150dp"
+                android:text="慢性阻塞性疾病" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByMother6"
+                style="@style/CheckBoxStyle"
+                android:layout_alignBaseline="@+id/familyHistoryByMotherEditText"
+                android:layout_below="@id/familyHistoryByMother0"
+                android:layout_marginTop="10dp"
+                android:minWidth="150dp"
+                android:text="脑卒中" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByMother7"
+                style="@style/CheckBoxStyle"
+                android:layout_alignBaseline="@+id/familyHistoryByMotherEditText"
+                android:layout_below="@id/familyHistoryByMother0"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/familyHistoryByMother6"
+                android:minWidth="150dp"
+                android:text="重性精神疾病" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByMother8"
+                style="@style/CheckBoxStyle"
+                android:layout_alignBaseline="@+id/familyHistoryByMotherEditText"
+                android:layout_below="@id/familyHistoryByMother0"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/familyHistoryByMother7"
+                android:minWidth="150dp"
+                android:text="结核病" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByMother9"
+                style="@style/CheckBoxStyle"
+                android:layout_alignBaseline="@+id/familyHistoryByMotherEditText"
+                android:layout_below="@id/familyHistoryByMother0"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/familyHistoryByMother8"
+                android:minWidth="150dp"
+                android:text="肝炎" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByMother10"
+                style="@style/CheckBoxStyle"
+                android:layout_alignBaseline="@+id/familyHistoryByMotherEditText"
+                android:layout_below="@id/familyHistoryByMother0"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/familyHistoryByMother9"
+                android:minWidth="150dp"
+                android:text="先天畸形" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByMother11"
+                style="@style/CheckBoxStyle"
+                android:layout_alignBaseline="@+id/familyHistoryByMotherEditText"
+                android:layout_below="@id/familyHistoryByMother0"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/familyHistoryByMother10"
+                android:minWidth="80dp"
+                android:text="其他" />
+
+            <EditText
+                android:id="@+id/familyHistoryByMotherEditText"
+                style="@style/PersonalInfoEditTextStyle"
+                android:layout_below="@id/familyHistoryByMother0"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/familyHistoryByMother11"
+                android:hint="请输入其他疾病" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/white_label_bg"
+            android:text="兄弟姐妹"
+            android:textColor="@color/light_blue"
+            android:textSize="@dimen/global_font_size_xlarge" />
+
+        <RelativeLayout
+            android:id="@+id/familyHistoryByBrother"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <CheckBox
+                android:id="@+id/familyHistoryByBrother0"
+                style="@style/CheckBoxStyle"
+                android:minWidth="150dp"
+                android:checked="true"
+                android:text="无" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByBrother1"
+                style="@style/CheckBoxStyle"
+                android:layout_toRightOf="@id/familyHistoryByBrother0"
+                android:minWidth="150dp"
+                android:text="高血压" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByBrother2"
+                style="@style/CheckBoxStyle"
+                android:layout_toRightOf="@id/familyHistoryByBrother1"
+                android:minWidth="150dp"
+                android:text="糖尿病" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByBrother3"
+                style="@style/CheckBoxStyle"
+                android:layout_toRightOf="@id/familyHistoryByBrother2"
+                android:minWidth="150dp"
+                android:text="冠心病" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByBrother4"
+                style="@style/CheckBoxStyle"
+                android:layout_toRightOf="@id/familyHistoryByBrother3"
+                android:minWidth="150dp"
+                android:text="恶性肿瘤" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByBrother5"
+                style="@style/CheckBoxStyle"
+                android:layout_toRightOf="@id/familyHistoryByBrother4"
+                android:minWidth="150dp"
+                android:text="慢性阻塞性疾病" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByBrother6"
+                style="@style/CheckBoxStyle"
+                android:layout_alignBaseline="@+id/familyHistoryByBrotherEditText"
+                android:layout_below="@id/familyHistoryByBrother0"
+                android:layout_marginTop="10dp"
+                android:minWidth="150dp"
+                android:text="脑卒中" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByBrother7"
+                style="@style/CheckBoxStyle"
+                android:layout_alignBaseline="@+id/familyHistoryByBrotherEditText"
+                android:layout_below="@id/familyHistoryByBrother0"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/familyHistoryByBrother6"
+                android:minWidth="150dp"
+                android:text="重性精神疾病" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByBrother8"
+                style="@style/CheckBoxStyle"
+                android:layout_alignBaseline="@+id/familyHistoryByBrotherEditText"
+                android:layout_below="@id/familyHistoryByBrother0"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/familyHistoryByBrother7"
+                android:minWidth="150dp"
+                android:text="结核病" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByBrother9"
+                style="@style/CheckBoxStyle"
+                android:layout_alignBaseline="@+id/familyHistoryByBrotherEditText"
+                android:layout_below="@id/familyHistoryByBrother0"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/familyHistoryByBrother8"
+                android:minWidth="150dp"
+                android:text="肝炎" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByBrother10"
+                style="@style/CheckBoxStyle"
+                android:layout_alignBaseline="@+id/familyHistoryByBrotherEditText"
+                android:layout_below="@id/familyHistoryByBrother0"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/familyHistoryByBrother9"
+                android:minWidth="150dp"
+                android:text="先天畸形" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByBrother11"
+                style="@style/CheckBoxStyle"
+                android:layout_alignBaseline="@+id/familyHistoryByBrotherEditText"
+                android:layout_below="@id/familyHistoryByBrother0"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/familyHistoryByBrother10"
+                android:minWidth="80dp"
+                android:text="其他" />
+
+            <EditText
+                android:id="@+id/familyHistoryByBrotherEditText"
+                style="@style/PersonalInfoEditTextStyle"
+                android:layout_below="@id/familyHistoryByBrother0"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/familyHistoryByBrother11"
+                android:hint="请输入其他疾病" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/white_label_bg"
+            android:text="子女"
+            android:textColor="@color/light_blue"
+            android:textSize="@dimen/global_font_size_xlarge" />
+
+        <RelativeLayout
+            android:id="@+id/familyHistoryByChild"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <CheckBox
+                android:id="@+id/familyHistoryByChild0"
+                style="@style/CheckBoxStyle"
+                android:minWidth="150dp"
+                android:checked="true"
+                android:text="无" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByChild1"
+                style="@style/CheckBoxStyle"
+                android:layout_toRightOf="@id/familyHistoryByChild0"
+                android:minWidth="150dp"
+                android:text="高血压" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByChild2"
+                style="@style/CheckBoxStyle"
+                android:layout_toRightOf="@id/familyHistoryByChild1"
+                android:minWidth="150dp"
+                android:text="糖尿病" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByChild3"
+                style="@style/CheckBoxStyle"
+                android:layout_toRightOf="@id/familyHistoryByChild2"
+                android:minWidth="150dp"
+                android:text="冠心病" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByChild4"
+                style="@style/CheckBoxStyle"
+                android:layout_toRightOf="@id/familyHistoryByChild3"
+                android:minWidth="150dp"
+                android:text="恶性肿瘤" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByChild5"
+                style="@style/CheckBoxStyle"
+                android:layout_toRightOf="@id/familyHistoryByChild4"
+                android:minWidth="150dp"
+                android:text="慢性阻塞性疾病" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByChild6"
+                style="@style/CheckBoxStyle"
+                android:layout_alignBaseline="@+id/familyHistoryByChildEditText"
+                android:layout_below="@id/familyHistoryByChild0"
+                android:layout_marginTop="10dp"
+                android:minWidth="150dp"
+                android:text="脑卒中" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByChild7"
+                style="@style/CheckBoxStyle"
+                android:layout_alignBaseline="@+id/familyHistoryByChildEditText"
+                android:layout_below="@id/familyHistoryByChild0"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/familyHistoryByChild6"
+                android:minWidth="150dp"
+                android:text="重性精神疾病" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByChild8"
+                style="@style/CheckBoxStyle"
+                android:layout_alignBaseline="@+id/familyHistoryByChildEditText"
+                android:layout_below="@id/familyHistoryByChild0"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/familyHistoryByChild7"
+                android:minWidth="150dp"
+                android:text="结核病" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByChild9"
+                style="@style/CheckBoxStyle"
+                android:layout_alignBaseline="@+id/familyHistoryByChildEditText"
+                android:layout_below="@id/familyHistoryByChild0"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/familyHistoryByChild8"
+                android:minWidth="150dp"
+                android:text="肝炎" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByChild10"
+                style="@style/CheckBoxStyle"
+                android:layout_alignBaseline="@+id/familyHistoryByChildEditText"
+                android:layout_below="@id/familyHistoryByChild0"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/familyHistoryByChild9"
+                android:minWidth="150dp"
+                android:text="先天畸形" />
+
+            <CheckBox
+                android:id="@+id/familyHistoryByChild11"
+                style="@style/CheckBoxStyle"
+                android:layout_alignBaseline="@+id/familyHistoryByChildEditText"
+                android:layout_below="@id/familyHistoryByChild0"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/familyHistoryByChild10"
+                android:minWidth="80dp"
+                android:text="其他" />
+
+            <EditText
+                android:id="@+id/familyHistoryByChildEditText"
+                style="@style/PersonalInfoEditTextStyle"
+                android:layout_below="@id/familyHistoryByChild0"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/familyHistoryByChild11"
+                android:hint="请输入其他疾病" />
+        </RelativeLayout>
+        
+        
+    </LinearLayout>
+
+</ScrollView>

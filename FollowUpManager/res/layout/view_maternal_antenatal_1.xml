@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.shbestwin.followupmanager"
+    style="@style/ContentLayoutStyle"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <com.shbestwin.followupmanager.view.widget.CardLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="个人信息" />
+
+                <com.shbestwin.followupmanager.view.widget.Antenatal1Body1
+                    android:id="@+id/antenatal1Body1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="配偶信息" />
+
+                <com.shbestwin.followupmanager.view.widget.Antenatal1Body2
+                    android:id="@+id/antenatal1Body2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="体征" />
+
+                <com.shbestwin.followupmanager.view.widget.Antenatal1Body3
+                    android:id="@+id/antenatal1Body3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="既往史" />
+
+                <com.shbestwin.followupmanager.view.widget.Antenatal1Body4
+                    android:id="@+id/antenatal1Body4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="家族史（类别）" />
+
+                <com.shbestwin.followupmanager.view.widget.Antenatal1Body5
+                    android:id="@+id/antenatal1Body5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="家族史（种类）" />
+
+                <com.shbestwin.followupmanager.view.widget.Antenatal1Body6
+                    android:id="@+id/antenatal1Body6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="个人史" />
+
+                <com.shbestwin.followupmanager.view.widget.Antenatal1Body7
+                    android:id="@+id/antenatal1Body7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="妇科手术史" />
+
+                <com.shbestwin.followupmanager.view.widget.Antenatal1Body8
+                    android:id="@+id/antenatal1Body8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="孕产史" />
+
+                <com.shbestwin.followupmanager.view.widget.Antenatal1Body9
+                    android:id="@+id/antenatal1Body9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="听诊" />
+
+                <com.shbestwin.followupmanager.view.widget.Antenatal1Body10
+                    android:id="@+id/antenatal1Body10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="妇科检查" />
+
+                <com.shbestwin.followupmanager.view.widget.Antenatal1Body11
+                    android:id="@+id/antenatal1Body11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="辅助检查" />
+
+                <com.shbestwin.followupmanager.view.widget.Antenatal1Body12
+                    android:id="@+id/antenatal1Body12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="总体评估" />
+
+                <com.shbestwin.followupmanager.view.widget.Antenatal1Body13
+                    android:id="@+id/antenatal1Body13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical" >
+
+                <com.shbestwin.followupmanager.view.widget.CardHeaderLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleText="转诊" />
+
+                <com.shbestwin.followupmanager.view.widget.Antenatal1Body14
+                    android:id="@+id/antenatal1Body14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </com.shbestwin.followupmanager.view.widget.CardLayout>
+    </ScrollView>
+
+</LinearLayout>

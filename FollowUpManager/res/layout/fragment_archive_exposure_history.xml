@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ContentLayoutStyle" >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <RadioGroup
+            android:id="@+id/exposureHistoryRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <RadioButton
+                android:id="@+id/exposureHistoryNoRadioButton"
+                style="@style/RadioButtonStyle"
+                android:checked="true"
+                android:text="无" />
+
+            <RadioButton
+                android:id="@+id/exposureHistoryYesRadioButton"
+                style="@style/RadioButtonStyle"
+                android:layout_marginTop="15dp"
+                android:text="有" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:id="@+id/exposureLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/exposureHistoryRadioGroup"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/exposureHistoryRadioGroup"
+            android:orientation="horizontal" >
+
+            <CheckBox
+                android:id="@+id/exposure0"
+                style="@style/CheckBoxStyle"
+                android:text="化学品" />
+
+            <CheckBox
+                android:id="@+id/exposure1"
+                style="@style/CheckBoxStyle"
+                android:layout_marginLeft="20dp"
+                android:text="毒物" />
+
+            <CheckBox
+                android:id="@+id/exposure2"
+                style="@style/CheckBoxStyle"
+                android:layout_marginLeft="20dp"
+                android:text="射线" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

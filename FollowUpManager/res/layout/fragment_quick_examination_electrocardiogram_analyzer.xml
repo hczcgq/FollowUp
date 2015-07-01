@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="15dp" >
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:minWidth="100dp"
+                android:text="心电分析："
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <Button
+                android:id="@+id/getDataButton"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:background="@drawable/button_blue_selector"
+                android:text="心电采集"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:gravity="right"
+                android:minWidth="100dp"
+                android:text="心电分析："
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <Button
+                android:id="@+id/showWaveformButton"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:background="@drawable/button_blue_selector"
+                android:enabled="true"
+                android:text="查看波形"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:minWidth="100dp"
+                android:text="检查时间："
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <EditText
+                android:id="@+id/checkTimeEditText"
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_with_padding_selector"
+                android:clickable="true"
+                android:cursorVisible="false"
+                android:drawableRight="@drawable/icon_calendar"
+                android:editable="false"
+                android:focusableInTouchMode="false"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:minWidth="120dp"
+                android:text="心率："
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <EditText
+                android:id="@+id/heartRateEditText"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_with_padding_selector"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <TextView
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="次/分"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:gravity="right"
+                android:minWidth="120dp"
+                android:text="全局PR间期："
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <EditText
+                android:id="@+id/PROfAVREditText"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_with_padding_selector"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="ms"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:minWidth="120dp"
+                android:text="平均QT间期："
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <EditText
+                android:id="@+id/QTOfAVREditText"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_with_padding_selector"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <TextView
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="ms"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:gravity="right"
+                android:minWidth="120dp"
+                android:text="平均R波电压："
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <EditText
+                android:id="@+id/RvoltOfAVREditText"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_with_padding_selector"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="μv"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:minWidth="120dp"
+                android:text="平均P波电压："
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <EditText
+                android:id="@+id/PvoltOfAVREditText"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_with_padding_selector"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <TextView
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="μv"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:gravity="right"
+                android:minWidth="120dp"
+                android:text="平均T波电压："
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <EditText
+                android:id="@+id/TvoltOfAVREditText"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_with_padding_selector"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="μv"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:minWidth="120dp"
+                android:text="ST段平均电压："
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <EditText
+                android:id="@+id/STvoltOfAVREditText"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_with_padding_selector"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <TextView
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="μv"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="top"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:minWidth="120dp"
+                android:text="心电图结果："
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+
+            <EditText
+                android:id="@+id/conclusionEditText"
+                android:layout_width="500dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_with_padding_selector"
+                android:enabled="false"
+                android:gravity="top|left"
+                android:inputType="number"
+                android:minHeight="100dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_font_size_middle" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.shbestwin.followupmanager.view.widget.MeasureTipsLayout
+        android:id="@+id/measureTipsLayuout"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp" />
+
+</LinearLayout>

@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="20dp" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/white_label_bg"
+        android:text="体育锻炼"
+        android:textColor="@color/light_blue"
+        android:textSize="@dimen/global_font_size_xlarge" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="锻炼频率：" />
+
+        <Spinner
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="150dp"
+            android:entries="@array/exerciseFrequency" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="每次锻炼时间：" />
+
+        <EditText style="@style/GeneralExaminationEditTextStyle" />
+
+        <TextView
+            style="@style/GeneralExaminationTipsStyle"
+            android:text="分钟" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="坚持锻炼时间：" />
+
+        <EditText style="@style/GeneralExaminationEditTextStyle" />
+
+        <TextView
+            style="@style/GeneralExaminationTipsStyle"
+            android:text="年" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="锻炼方式：" />
+
+        <EditText
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="300dp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/white_label_bg"
+        android:text="饮食习惯"
+        android:textColor="@color/light_blue"
+        android:textSize="@dimen/global_font_size_xlarge" />
+
+    <LinearLayout
+        android:id="@+id/dietLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <CheckBox
+            android:id="@+id/diet0"
+            style="@style/CheckBoxStyle"
+            android:text="荤素均衡" />
+
+        <CheckBox
+            android:id="@+id/diet1"
+            style="@style/CheckBoxStyle"
+            android:layout_marginLeft="20dp"
+            android:text="荤食为主" />
+
+        <CheckBox
+            android:id="@+id/diet2"
+            style="@style/CheckBoxStyle"
+            android:layout_marginLeft="20dp"
+            android:text="素食为主" />
+
+        <CheckBox
+            android:id="@+id/diet3"
+            style="@style/CheckBoxStyle"
+            android:layout_marginLeft="20dp"
+            android:text="嗜盐" />
+
+        <CheckBox
+            android:id="@+id/diet4"
+            style="@style/CheckBoxStyle"
+            android:layout_marginLeft="20dp"
+            android:text="嗜油" />
+
+        <CheckBox
+            android:id="@+id/diet5"
+            style="@style/CheckBoxStyle"
+            android:layout_marginLeft="20dp"
+            android:text="嗜糖" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/white_label_bg"
+        android:text="吸烟习惯"
+        android:textColor="@color/light_blue"
+        android:textSize="@dimen/global_font_size_xlarge" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="吸烟状况：" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/smokingRadioButton1"
+                style="@style/RadioButtonStyle"
+                android:checked="true"
+                android:text="1.从不吸烟" />
+
+            <RadioButton
+                android:id="@+id/smokingRadioButton2"
+                style="@style/RadioButtonStyle"
+                android:layout_marginLeft="20dp"
+                android:text="2.过去吸，已戒烟" />
+
+            <RadioButton
+                android:id="@+id/smokingRadioButton3"
+                style="@style/RadioButtonStyle"
+                android:layout_marginLeft="20dp"
+                android:text="3.吸烟" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="日吸烟量：" />
+
+        <EditText style="@style/GeneralExaminationEditTextStyle" />
+
+        <TextView
+            style="@style/GeneralExaminationTipsStyle"
+            android:text="支" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="开始吸烟年龄：" />
+
+        <EditText style="@style/GeneralExaminationEditTextStyle" />
+
+        <TextView
+            style="@style/GeneralExaminationTipsStyle"
+            android:text="岁" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="戒烟年龄：" />
+
+        <EditText style="@style/GeneralExaminationEditTextStyle" />
+
+        <TextView
+            style="@style/GeneralExaminationTipsStyle"
+            android:text="岁" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/white_label_bg"
+        android:text="饮酒情况"
+        android:textColor="@color/light_blue"
+        android:textSize="@dimen/global_font_size_xlarge" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="饮酒频率：" />
+
+        <Spinner
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="150dp"
+            android:entries="@array/drinkingFrequency" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="日饮酒量：" />
+
+        <EditText style="@style/GeneralExaminationEditTextStyle" />
+
+        <TextView
+            style="@style/GeneralExaminationTipsStyle"
+            android:text="两" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="是否戒酒：" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/temperanceRadioButton0"
+                style="@style/RadioButtonStyle"
+                android:checked="true"
+                android:text="未戒酒" />
+
+            <RadioButton
+                android:id="@+id/temperanceRadioButton1"
+                style="@style/RadioButtonStyle"
+                android:layout_marginLeft="20dp"
+                android:text="已戒酒" />
+        </RadioGroup>
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="开始饮酒年龄：" />
+
+        <EditText style="@style/GeneralExaminationEditTextStyle" />
+
+        <TextView
+            style="@style/GeneralExaminationTipsStyle"
+            android:text="岁" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="戒酒年龄：" />
+
+        <EditText style="@style/GeneralExaminationEditTextStyle" />
+
+        <TextView
+            style="@style/GeneralExaminationTipsStyle"
+            android:text="岁" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="近一年内是否曾醉酒：" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/drunkennessRadioButton0"
+                style="@style/RadioButtonStyle"
+                android:checked="true"
+                android:text="是" />
+
+            <RadioButton
+                android:id="@+id/drunkennessRadioButton1"
+                style="@style/RadioButtonStyle"
+                android:layout_marginLeft="20dp"
+                android:text="否" />
+        </RadioGroup>
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="饮酒种类：" />
+
+        <Spinner
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="150dp"
+            android:entries="@array/drinkingType" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/white_label_bg"
+        android:text="职业病危害因素接触史"
+        android:textColor="@color/light_blue"
+        android:textSize="@dimen/global_font_size_xlarge" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/diseaseRadioButton0"
+                style="@style/RadioButtonStyle"
+                android:checked="true"
+                android:text="无" />
+
+            <RadioButton
+                android:id="@+id/diseaseRadioButton1"
+                style="@style/RadioButtonStyle"
+                android:layout_marginLeft="20dp"
+                android:text="有" />
+        </RadioGroup>
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="工种：" />
+
+        <EditText
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="从业时间：" />
+
+        <EditText
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp"
+            android:drawableRight="@drawable/icon_calendar" />
+    </LinearLayout>
+
+    <TextView
+        style="@style/GeneralExaminationLabelStyle"
+        android:layout_marginTop="20dp"
+        android:text="毒物种类：" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="粉尘：" />
+
+        <EditText
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="防护措施：" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/dustRadioButton0"
+                style="@style/RadioButtonStyle"
+                android:checked="true"
+                android:text="无" />
+
+            <RadioButton
+                android:id="@+id/dustRadioButton1"
+                style="@style/RadioButtonStyle"
+                android:layout_marginLeft="20dp"
+                android:text="有" />
+
+            <EditText
+                style="@style/GeneralExaminationEditTextStyle"
+                android:layout_width="220dp"
+                android:layout_marginLeft="20dp" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="放射物质：" />
+
+        <EditText
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="防护措施：" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/radiogenRadioButton0"
+                style="@style/RadioButtonStyle"
+                android:checked="true"
+                android:text="无" />
+
+            <RadioButton
+                android:id="@+id/radiogenRadioButton1"
+                style="@style/RadioButtonStyle"
+                android:layout_marginLeft="20dp"
+                android:text="有" />
+
+            <EditText
+                style="@style/GeneralExaminationEditTextStyle"
+                android:layout_width="220dp"
+                android:layout_marginLeft="20dp" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="物理因素：" />
+
+        <EditText
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="防护措施：" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/physicalFactorRadioButton0"
+                style="@style/RadioButtonStyle"
+                android:checked="true"
+                android:text="无" />
+
+            <RadioButton
+                android:id="@+id/physicalFactorRadioButton1"
+                style="@style/RadioButtonStyle"
+                android:layout_marginLeft="20dp"
+                android:text="有" />
+
+            <EditText
+                style="@style/GeneralExaminationEditTextStyle"
+                android:layout_width="220dp"
+                android:layout_marginLeft="20dp" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="化学物质：" />
+
+        <EditText
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="防护措施：" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/chemicalRadioButton0"
+                style="@style/RadioButtonStyle"
+                android:checked="true"
+                android:text="无" />
+
+            <RadioButton
+                android:id="@+id/chemicalRadioButton1"
+                style="@style/RadioButtonStyle"
+                android:layout_marginLeft="20dp"
+                android:text="有" />
+
+            <EditText
+                style="@style/GeneralExaminationEditTextStyle"
+                android:layout_width="220dp"
+                android:layout_marginLeft="20dp" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="其他：" />
+
+        <EditText
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="防护措施：" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/otherRadioButton0"
+                style="@style/RadioButtonStyle"
+                android:checked="true"
+                android:text="无" />
+
+            <RadioButton
+                android:id="@+id/otherRadioButton1"
+                style="@style/RadioButtonStyle"
+                android:layout_marginLeft="20dp"
+                android:text="有" />
+
+            <EditText
+                style="@style/GeneralExaminationEditTextStyle"
+                android:layout_width="220dp"
+                android:layout_marginLeft="20dp" />
+        </RadioGroup>
+    </LinearLayout>
+
+</LinearLayout>

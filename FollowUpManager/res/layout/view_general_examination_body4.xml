@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="20dp" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/white_label_bg"
+        android:text="口腔"
+        android:textColor="@color/light_blue"
+        android:textSize="@dimen/global_font_size_xlarge" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="口唇：" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/lipRadioButton0"
+                style="@style/RadioButtonStyle"
+                android:checked="true"
+                android:text="红润" />
+
+            <RadioButton
+                android:id="@+id/lipRadioButton1"
+                style="@style/RadioButtonStyle"
+                android:layout_marginLeft="20dp"
+                android:text="苍白" />
+
+            <RadioButton
+                android:id="@+id/lipRadioButton2"
+                style="@style/RadioButtonStyle"
+                android:layout_marginLeft="20dp"
+                android:text="发绀" />
+
+            <RadioButton
+                android:id="@+id/lipRadioButton3"
+                style="@style/RadioButtonStyle"
+                android:layout_marginLeft="20dp"
+                android:text="皲裂" />
+
+            <RadioButton
+                android:id="@+id/lipRadioButton4"
+                style="@style/RadioButtonStyle"
+                android:layout_marginLeft="20dp"
+                android:text="疱疹" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp" >
+
+        <TextView
+            android:id="@+id/dentitionTextView"
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="齿列：" />
+
+        <CheckBox
+            android:id="@+id/dentition0"
+            style="@style/CheckBoxStyle"
+            android:layout_toRightOf="@id/dentitionTextView"
+            android:text="正常" />
+
+        <CheckBox
+            android:id="@+id/dentition1"
+            style="@style/CheckBoxStyle"
+            android:layout_marginLeft="190dp"
+            android:layout_toRightOf="@id/dentition0"
+            android:text="缺齿" />
+
+        <EditText
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/dentition1" />
+
+        <CheckBox
+            android:id="@+id/dentition2"
+            style="@style/CheckBoxStyle"
+            android:layout_below="@id/dentition0"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/dentitionTextView"
+            android:text="龋齿" />
+
+        <EditText
+            android:id="@+id/dentition2EditText"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_below="@id/dentition0"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/dentition2" />
+
+        <CheckBox
+            android:id="@+id/dentition3"
+            style="@style/CheckBoxStyle"
+            android:layout_below="@id/dentition0"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/dentition2EditText"
+            android:text="义齿" />
+
+        <EditText
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_below="@id/dentition0"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/dentition3" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="咽部：" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/pharynxRadioButton0"
+                style="@style/RadioButtonStyle"
+                android:checked="true"
+                android:text="无充血" />
+
+            <RadioButton
+                android:id="@+id/pharynxRadioButton1"
+                style="@style/RadioButtonStyle"
+                android:layout_marginLeft="20dp"
+                android:text="充血" />
+
+            <RadioButton
+                android:id="@+id/pharynxRadioButton2"
+                style="@style/RadioButtonStyle"
+                android:layout_marginLeft="20dp"
+                android:text="淋巴滤泡增生" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/white_label_bg"
+        android:text="视力"
+        android:textColor="@color/light_blue"
+        android:textSize="@dimen/global_font_size_xlarge" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="裸眼视力：" />
+
+        <EditText
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="80dp"
+            android:hint="左眼" />
+
+        <TextView
+            style="@style/GeneralExaminationTipsStyle"
+            android:layout_marginRight="10dp"
+            android:text="/" />
+
+        <EditText
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="80dp"
+            android:hint="右眼" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="50dp"
+            android:text="矫正视力：" />
+
+        <EditText
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="80dp"
+            android:hint="左眼" />
+
+        <TextView
+            style="@style/GeneralExaminationTipsStyle"
+            android:layout_marginRight="10dp"
+            android:text="/" />
+
+        <EditText
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="80dp"
+            android:hint="右眼" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/white_label_bg"
+        android:text="听力"
+        android:textColor="@color/light_blue"
+        android:textSize="@dimen/global_font_size_xlarge" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="听力：" />
+
+        <Spinner
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="150dp"
+            android:entries="@array/hearing" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/white_label_bg"
+        android:text="运动能力"
+        android:textColor="@color/light_blue"
+        android:textSize="@dimen/global_font_size_xlarge" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="运动能力：" />
+
+        <Spinner
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="300dp"
+            android:entries="@array/motorFunction" />
+    </LinearLayout>
+
+</LinearLayout>

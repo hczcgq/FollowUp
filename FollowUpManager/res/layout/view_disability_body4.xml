@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="20dp" >
+
+    <RelativeLayout
+        android:id="@+id/rehabilitationLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/rehabilitationLabel"
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_alignBaseline="@+id/rehabilitation0"
+            android:text="康复项目：" />
+
+        <CheckBox
+            android:id="@+id/rehabilitation0"
+            style="@style/CheckBoxStyle"
+            android:layout_width="160dp"
+            android:layout_toRightOf="@id/rehabilitationLabel"
+            android:text="功能训练" />
+
+        <CheckBox
+            android:id="@+id/rehabilitation1"
+            style="@style/CheckBoxStyle"
+            android:layout_width="160dp"
+            android:layout_toRightOf="@id/rehabilitation0"
+            android:text="辅助器具" />
+
+        <CheckBox
+            android:id="@+id/rehabilitation2"
+            style="@style/CheckBoxStyle"
+            android:layout_width="160dp"
+            android:layout_toRightOf="@id/rehabilitation1"
+            android:text="心理服务" />
+
+        <CheckBox
+            android:id="@+id/rehabilitation3"
+            style="@style/CheckBoxStyle"
+            android:layout_width="160dp"
+            android:layout_toRightOf="@id/rehabilitation2"
+            android:text="知识普及" />
+
+        <CheckBox
+            android:id="@+id/rehabilitation4"
+            style="@style/CheckBoxStyle"
+            android:layout_width="160dp"
+            android:layout_toRightOf="@id/rehabilitation3"
+            android:text="用药指导" />
+
+        <CheckBox
+            android:id="@+id/rehabilitation5"
+            style="@style/CheckBoxStyle"
+            android:layout_width="160dp"
+            android:layout_alignBaseline="@+id/otherRehabilitationTextView"
+            android:layout_below="@id/rehabilitation0"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/rehabilitationLabel"
+            android:text="鼻衄出血不止" />
+
+        <CheckBox
+            android:id="@+id/rehabilitationOther"
+            style="@style/CheckBoxStyle"
+            android:layout_width="90dp"
+            android:layout_alignBaseline="@+id/otherRehabilitationTextView"
+            android:layout_below="@id/rehabilitation0"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/rehabilitation5"
+            android:text="其他" />
+
+        <EditText
+            android:id="@+id/rehabilitationEdittext"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rehabilitation0"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/rehabilitationOther"
+            android:background="@drawable/edit_text_with_padding_selector"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/global_font_size_large" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rehabilitationGoalLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp" >
+
+        <TextView
+            android:id="@+id/rehabilitationGoalLabel"
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_alignBaseline="@+id/rehabilitationGoal0"
+            android:text="康复目标：" />
+
+        <CheckBox
+            android:id="@+id/rehabilitationGoal0"
+            style="@style/CheckBoxStyle"
+            android:layout_width="160dp"
+            android:layout_toRightOf="@id/rehabilitationGoalLabel"
+            android:text="运动能力改善" />
+
+        <CheckBox
+            android:id="@+id/rehabilitationGoal1"
+            style="@style/CheckBoxStyle"
+            android:layout_width="160dp"
+            android:layout_toRightOf="@id/rehabilitationGoal0"
+            android:text="感知能力提高" />
+
+        <CheckBox
+            android:id="@+id/rehabilitationGoal2"
+            style="@style/CheckBoxStyle"
+            android:layout_width="160dp"
+            android:layout_toRightOf="@id/rehabilitationGoal1"
+            android:text="认知能力提高" />
+
+        <CheckBox
+            android:id="@+id/rehabilitationGoal3"
+            style="@style/CheckBoxStyle"
+            android:layout_width="160dp"
+            android:layout_toRightOf="@id/rehabilitationGoal2"
+            android:text="交往能力提高" />
+
+        <CheckBox
+            android:id="@+id/rehabilitationGoal4"
+            style="@style/CheckBoxStyle"
+            android:layout_width="160dp"
+            android:layout_alignBaseline="@+id/otherRehabilitationGoalTextView"
+            android:layout_below="@id/rehabilitationGoal0"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/rehabilitationGoalLabel"
+            android:text="自理能力提高" />
+
+        <CheckBox
+            android:id="@+id/rehabilitationGoal5"
+            style="@style/CheckBoxStyle"
+            android:layout_width="160dp"
+            android:layout_alignBaseline="@+id/otherRehabilitationGoalTextView"
+            android:layout_below="@id/rehabilitationGoal0"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/rehabilitationGoal4"
+            android:text="适应能力提高" />
+
+        <CheckBox
+            android:id="@+id/rehabilitationGoalOther"
+            style="@style/CheckBoxStyle"
+            android:layout_width="90dp"
+            android:layout_alignBaseline="@+id/otherRehabilitationGoalTextView"
+            android:layout_below="@id/rehabilitationGoal0"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/rehabilitationGoal5"
+            android:text="其他" />
+
+        <EditText
+            android:id="@+id/rehabilitationGoalEdittext"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rehabilitationGoal0"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/rehabilitationGoalOther"
+            android:background="@drawable/edit_text_with_padding_selector"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/global_font_size_large" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="功能训练：" />
+
+        <EditText 
+            android:id="@+id/et_gnxl_cy"
+            style="@style/GeneralExaminationEditTextStyle" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_width="wrap_content"
+            android:minWidth="55dp"
+            android:text="次/月" />
+
+        <EditText
+            android:id="@+id/et_gnxl_fc"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_marginLeft="10dp" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_width="wrap_content"
+            android:minWidth="70dp"
+            android:text="分钟/次" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="训练地点：" />
+
+        <Spinner
+            android:id="@+id/sn_xldd"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="220dp"
+            android:entries="@array/trainingPlace" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="训练评估：" />
+
+        <Spinner
+            android:id="@+id/sn_xlpg"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="150dp"
+            android:entries="@array/trainingEvaluation" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="原因：" />
+
+        <EditText
+            android:id="@+id/et_yy"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="转介去向：" />
+
+        <EditText
+            android:id="@+id/et_zjqx"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+    </LinearLayout>
+
+</LinearLayout>

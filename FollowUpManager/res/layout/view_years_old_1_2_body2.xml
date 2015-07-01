@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="20dp"
+    android:orientation="vertical" >
+
+    <RadioGroup
+        android:id="@+id/rg_mrwy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="母乳喂养：" />
+
+        <RadioButton
+            android:id="@+id/rb_f"
+            style="@style/RadioButtonStyle"
+            android:checked="true"
+            android:text="否" />
+
+        <RadioButton
+            android:id="@+id/rb_s"
+            style="@style/RadioButtonStyle"
+            android:layout_marginLeft="20dp"
+            android:text="是" />
+
+        <EditText
+            android:id="@+id/et_mrwy"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_marginLeft="10dp" />
+
+        <TextView
+            style="@style/GeneralExaminationTipsStyle"
+            android:text="次/日" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="主餐次数：" />
+
+        <EditText
+            android:id="@+id/et_zccs" 
+            style="@style/GeneralExaminationEditTextStyle" />
+
+        <TextView
+            style="@style/GeneralExaminationTipsStyle"
+            android:text="次/日" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="牛奶/奶粉：" />
+
+        <EditText
+            android:id="@+id/et_nnnf"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="150dp" />
+
+        <TextView
+            style="@style/GeneralExaminationTipsStyle"
+            android:layout_width="60dp"
+            android:text="ml/日" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:minWidth="130dp"
+            android:text="蛋：" />
+
+        <EditText
+            android:id="@+id/et_d"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="150dp" />
+
+        <TextView
+            style="@style/GeneralExaminationTipsStyle"
+            android:layout_width="60dp"
+            android:text="个/周" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="肉类或鱼虾：" />
+
+        <Spinner
+            android:id="@+id/sn_rlhyx"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="220dp"
+            android:entries="@array/isEat" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:minWidth="130dp"
+            android:text="水果和蔬菜：" />
+
+        <Spinner
+            android:id="@+id/sn_sghsc"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="220dp"
+            android:entries="@array/isEat" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="食欲：" />
+
+        <Spinner
+            android:id="@+id/sn_sy"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="220dp"
+            android:entries="@array/appetite" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:minWidth="130dp"
+            android:text="服用维生素D：" />
+
+        <EditText
+            android:id="@+id/et_fywssd"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="150dp" />
+
+        <TextView
+            style="@style/GeneralExaminationTipsStyle"
+            android:layout_width="60dp"
+            android:text="IU/日" />
+    </LinearLayout>
+
+</LinearLayout>

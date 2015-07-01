@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    android:gravity="center_vertical"
+    android:id="@+id/rg_zd"
+    android:orientation="horizontal" >
+
+    <TextView
+        style="@style/GeneralExaminationLabelStyle"
+        android:text="指导：" />
+
+    <RadioButton
+        android:id="@+id/rb_xbj"
+        style="@style/RadioButtonStyle"
+        android:checked="true"
+        android:text="性保健" />
+
+    <RadioButton
+        android:id="@+id/rb_by"
+        style="@style/RadioButtonStyle"
+        android:layout_marginLeft="20dp"
+        android:text="避孕" />
+
+    <RadioButton
+        android:id="@+id/rb_cmrwy"
+        style="@style/RadioButtonStyle"
+        android:layout_marginLeft="20dp"
+        android:text="纯母乳喂养6个月" />
+
+    <RadioButton
+        android:id="@+id/rb_qt"
+        style="@style/RadioButtonStyle"
+        android:layout_marginLeft="20dp"
+        android:text="其他" />
+
+    <EditText
+        android:id="@+id/et_qt"
+        style="@style/GeneralExaminationEditTextStyle"
+        android:layout_width="220dp"
+        android:layout_marginLeft="10dp" />
+
+</RadioGroup>

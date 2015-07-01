@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/pastHistoryLayout"
+    android:layout_marginBottom="20dp" >
+
+    <CheckBox
+        android:id="@+id/pastHistoryNone"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:checked="true"
+        android:text="无" />
+
+    <CheckBox
+        android:id="@+id/pastHistory1"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_toRightOf="@id/pastHistoryNone"
+        android:text="心脏病" />
+
+    <CheckBox
+        android:id="@+id/pastHistory2"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_toRightOf="@id/pastHistory1"
+        android:text="肾脏疾病" />
+
+    <CheckBox
+        android:id="@+id/pastHistory3"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_toRightOf="@id/pastHistory2"
+        android:text="肝脏疾病" />
+
+    <CheckBox
+        android:id="@+id/pastHistory4"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_toRightOf="@id/pastHistory3"
+        android:text="高血压" />
+
+    <CheckBox
+        android:id="@+id/pastHistory5"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_below="@id/pastHistoryNone"
+        android:layout_marginTop="10dp"
+        android:text="贫血" />
+
+    <CheckBox
+        android:id="@+id/pastHistory6"
+        style="@style/CheckBoxStyle"
+        android:layout_width="160dp"
+        android:layout_below="@id/pastHistoryNone"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/pastHistory5"
+        android:text="糖尿病" />
+
+    <CheckBox
+        android:id="@+id/pastHistoryOther"
+        style="@style/CheckBoxStyle"
+        android:layout_width="90dp"
+        android:layout_below="@id/pastHistoryNone"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/pastHistory6"
+        android:text="其他" />
+
+    <EditText
+        android:id="@+id/pastHistoryEditTextOther"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pastHistoryNone"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/pastHistoryOther"
+        android:background="@drawable/edit_text_with_padding_selector"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/global_font_size_large" />
+
+</RelativeLayout>

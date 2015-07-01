@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/top_tab_item_width"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/tvTabItem"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:drawablePadding="0dp"
+        android:gravity="center"
+        android:padding="3dp"
+        android:tag="0"
+        android:textColor="#000000"
+        android:textSize="13sp" />
+
+</FrameLayout>

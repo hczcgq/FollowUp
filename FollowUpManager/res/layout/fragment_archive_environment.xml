@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout style="@style/ContentLayoutStyle" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:minWidth="130dp"
+                    android:text="厨房排风设施：" />
+
+                <Spinner
+                    android:id="@+id/exhaustingSystem"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/exhaustingSystem" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:minWidth="120dp"
+                    android:text="排烟：" />
+
+                <Spinner
+                    android:id="@+id/smokeExtraction"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/smokeExtraction" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:minWidth="130dp"
+                    android:text="厨房使用方式：" />
+
+                <Spinner
+                    android:id="@+id/kitchenUsage"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/kitchenUsage" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal" >
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:minWidth="130dp"
+                    android:text="燃料类型：" />
+
+                <Spinner
+                    android:id="@+id/fuelType"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/fuelType" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:minWidth="120dp"
+                    android:text="饮水：" />
+
+                <Spinner
+                    android:id="@+id/waterSource"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/waterSource" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:minWidth="130dp"
+                    android:text="禽畜栏：" />
+
+                <Spinner
+                    android:id="@+id/avianCorral"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/avianCorral" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal" >
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:minWidth="130dp"
+                    android:text="卫生厕所：" />
+
+                <Spinner
+                    android:id="@+id/healthyToiletType"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/healthyToiletType" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:minWidth="120dp"
+                    android:text="非卫生厕所：" />
+
+                <Spinner
+                    android:id="@+id/notHealthyToiletType"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/notHealthyToiletType" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:minWidth="130dp"
+                    android:text="垃圾处理：" />
+
+                <Spinner
+                    android:id="@+id/rubbishHandler"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/rubbishHandler" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal" >
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:minWidth="130dp"
+                    android:text="卫生：" />
+
+                <Spinner
+                    android:id="@+id/sanitaryConditions"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/sanitaryConditions" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:minWidth="120dp"
+                    android:text="污水处理：" />
+
+                <Spinner
+                    android:id="@+id/sewageDisposal"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/sewageDisposal" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:minWidth="130dp"
+                    android:text="房屋类型：" />
+
+                <Spinner
+                    android:id="@+id/houseType"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/houseType" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal" >
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:minWidth="130dp"
+                    android:text="住房性质：" />
+
+                <Spinner
+                    android:id="@+id/houseProperty"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/houseProperty" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:minWidth="120dp"
+                    android:text="住房间数：" />
+
+                <EditText
+                    android:id="@+id/houseNum" 
+                    android:inputType="number"
+                    style="@style/PersonalInfoEditTextStyle" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:minWidth="130dp"
+                    android:text="住房采光：" />
+
+                <Spinner
+                    android:id="@+id/houseLighting"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/houseLighting" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal" >
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:minWidth="130dp"
+                    android:text="住房通风：" />
+
+                <Spinner
+                    android:id="@+id/houseVentilation"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/houseVentilation" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:minWidth="120dp"
+                    android:text="住房保暖：" />
+
+                <Spinner
+                    android:id="@+id/houseWarm"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/houseWarm" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:minWidth="130dp"
+                    android:text="空气湿度：" />
+
+                <Spinner
+                    android:id="@+id/airHumidity"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/airHumidity" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal" >
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:minWidth="130dp"
+                    android:text="家用电器：" />
+
+                <EditText
+                    android:id="@+id/appliances" 
+                    style="@style/PersonalInfoEditTextStyle" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:minWidth="120dp"
+                    android:text="交通工具：" />
+
+                <EditText
+                    android:id="@+id/transportation"  
+                    style="@style/PersonalInfoEditTextStyle" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:minWidth="130dp"
+                    android:text="文体设备：" />
+
+                <EditText
+                    android:id="@+id/vehicle" 
+                    style="@style/PersonalInfoEditTextStyle" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                style="@style/PersonalInfoItemStyle"
+                android:layout_weight="2" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:minWidth="130dp"
+                    android:text="总/人均面积(m²)：" />
+
+                <EditText
+                    android:id="@+id/sumArea"
+                    android:inputType="number"
+                    style="@style/PersonalInfoEditTextStyle"
+                    android:layout_width="220dp" />
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:layout_width="30dp"
+                    android:gravity="center"
+                    android:text="/" />
+
+                <EditText
+                    android:id="@+id/averageArea"
+                    android:inputType="number"
+                    style="@style/PersonalInfoEditTextStyle"
+                    android:layout_width="220dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/PersonalInfoItemStyle"
+                android:layout_weight="1" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:minWidth="130dp"
+                    android:text="个人档案状态：" />
+
+                <Spinner
+                    android:id="@+id/archiveStatus"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/archiveStatus" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

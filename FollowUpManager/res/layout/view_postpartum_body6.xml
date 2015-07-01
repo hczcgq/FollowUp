@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    android:gravity="center_vertical"
+    android:id="@+id/rg_zd"
+    android:orientation="horizontal" >
+
+    <TextView
+        style="@style/GeneralExaminationLabelStyle"
+        android:text="指导：" />
+
+    <RadioButton
+        android:id="@+id/rb_grws"
+        style="@style/RadioButtonStyle"
+        android:checked="true"
+        android:text="个人卫生" />
+
+    <RadioButton
+        android:id="@+id/rb_xl"
+        style="@style/RadioButtonStyle"
+        android:layout_marginLeft="20dp"
+        android:text="心理" />
+
+    <RadioButton
+        android:id="@+id/rb_yy"
+        style="@style/RadioButtonStyle"
+        android:layout_marginLeft="20dp"
+        android:text="营养" />
+
+    <RadioButton
+        android:id="@+id/rb_mrwy"
+        style="@style/RadioButtonStyle"
+        android:layout_marginLeft="20dp"
+        android:text="母乳喂养" />
+
+    <RadioButton
+        android:id="@+id/rb_xsethl"
+        style="@style/RadioButtonStyle"
+        android:layout_marginLeft="20dp"
+        android:text="新生儿护理与喂养" />
+
+</RadioGroup>

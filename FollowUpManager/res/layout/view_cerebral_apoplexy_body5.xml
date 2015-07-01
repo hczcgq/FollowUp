@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="20dp"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="130dp"
+            android:text="复查日期：" />
+
+        <EditText
+            android:id="@+id/et_fcrq"
+            android:enabled="false"
+            android:clickable="true"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:drawableRight="@drawable/icon_calendar" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:minWidth="130dp"
+            android:text="TG(mmol/L)：" />
+
+        <EditText
+             android:id="@+id/et_tg"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:hint="甘油三酯" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:minWidth="130dp"
+            android:text="TC(mmol/L)：" />
+
+        <EditText
+             android:id="@+id/et_tc"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:hint="总胆固醇" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="130dp"
+            android:text="LDL(mmol/L)：" />
+
+        <EditText
+             android:id="@+id/et_ldl"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:hint="低密度脂蛋白" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:minWidth="130dp"
+            android:text="HDL(mmol/L)：" />
+
+        <EditText
+             android:id="@+id/et_hdl"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:hint="高密度脂蛋白" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:minWidth="130dp"
+            android:text="LP(a)(mmol/L)：" />
+
+        <EditText
+             android:id="@+id/et_lp"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="0dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/white_label_bg"
+        android:text="用药情况"
+        android:textColor="@color/light_blue"
+        android:textSize="@dimen/global_font_size_xlarge" />
+
+    <FrameLayout
+        android:id="@+id/medicationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:background="@drawable/button_blue_selector"
+        android:clickable="true"
+        android:paddingBottom="8dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="8dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/icon_add"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:text="新增"
+            android:textColor="@color/white"
+            android:textSize="@dimen/global_font_size_middle" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/medicationListViewHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/light_blue"
+        android:gravity="center_vertical"
+        android:minHeight="50dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="序号"
+            android:textColor="@color/white"
+            android:textSize="@dimen/global_font_size_large" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/divider" />
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="药物名称"
+            android:textColor="@color/white"
+            android:textSize="@dimen/global_font_size_large" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/divider" />
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="药物类型"
+            android:textColor="@color/white"
+            android:textSize="@dimen/global_font_size_large" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/divider" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="用量"
+            android:textColor="@color/white"
+            android:textSize="@dimen/global_font_size_large" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/divider" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="单位"
+            android:textColor="@color/white"
+            android:textSize="@dimen/global_font_size_large" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/divider" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="用法"
+            android:textColor="@color/white"
+            android:textSize="@dimen/global_font_size_large" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/divider" />
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="使用总剂量"
+            android:textColor="@color/white"
+            android:textSize="@dimen/global_font_size_large" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/divider" />
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="给药方式"
+            android:textColor="@color/white"
+            android:textSize="@dimen/global_font_size_large" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/divider" />
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="操作"
+            android:textColor="@color/white"
+            android:textSize="@dimen/global_font_size_large" />
+    </LinearLayout>
+
+    <com.shbestwin.followupmanager.view.widget.ExpandListView
+        android:id="@+id/medicationListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@null"
+        android:dividerHeight="0dp" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="30dp"
+            android:text="抗血小板药物：" />
+
+        <RadioButton
+            android:id="@+id/bloodCellsRadioButton1"
+            style="@style/RadioButtonStyle"
+            android:checked="true"
+            android:text="无" />
+
+        <RadioButton
+            android:id="@+id/bloodCellsRadioButton2"
+            style="@style/RadioButtonStyle"
+            android:layout_marginLeft="20dp"
+            android:text="有" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="种类：" />
+
+        <Spinner
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="200dp"
+            android:entries="@array/bloodCellsCategory" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:text="用法：" />
+
+        <Spinner
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="200dp"
+            android:entries="@array/medicineUsage" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="30dp"
+            android:text="其他合并药物：" />
+
+        <EditText
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+    </LinearLayout>
+
+</LinearLayout>

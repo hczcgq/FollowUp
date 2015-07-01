@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:paddingTop="10dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" >
+
+        <View
+            android:id="@+id/marginView"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/shadow_right"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="40dp"
+            android:orientation="vertical" >
+
+            <include layout="@layout/fragment_health_education_operate_layout" />
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/contentViewPager"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:flipInterval="30"
+                android:persistentDrawingCache="animation" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.shbestwin.followupmanager.view.widget.LeftMenuLayout
+        android:id="@+id/leftMenuLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+
+</FrameLayout>

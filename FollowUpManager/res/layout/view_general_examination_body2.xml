@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="20dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+            <TextView
+                style="@style/GeneralExaminationLabelStyle"
+                android:text="体温：" />
+
+            <EditText
+               	 android:id="@+id/et_tw"
+                 style="@style/GeneralExaminationEditTextStyle" />
+
+            <TextView
+                style="@style/GeneralExaminationTipsStyle"
+                android:text="°C" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+            <TextView
+                style="@style/GeneralExaminationLabelStyle"
+                android:text="脉搏：" />
+
+            <EditText
+                android:id="@+id/et_mb"
+                 style="@style/GeneralExaminationEditTextStyle" />
+
+            <TextView
+                style="@style/GeneralExaminationTipsStyle"
+                android:text="次/分钟" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+            <TextView
+                style="@style/GeneralExaminationLabelStyle"
+                android:text="呼吸频率：" />
+
+            <EditText
+                android:id="@+id/et_hxpl"
+                 style="@style/GeneralExaminationEditTextStyle" />
+
+            <TextView
+                style="@style/GeneralExaminationTipsStyle"
+                android:text="次/分钟" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+            <TextView
+                style="@style/GeneralExaminationLabelStyle"
+                android:text="左侧血压：" />
+
+            <EditText
+                android:id="@+id/et_zcxy_1"
+                style="@style/GeneralExaminationEditTextStyle"
+                android:layout_width="60dp" />
+
+            <TextView
+                style="@style/GeneralExaminationTipsStyle"
+                android:layout_marginRight="10dp"
+                android:text="/" />
+
+            <EditText
+                android:id="@+id/et_zcxy_2"
+                style="@style/GeneralExaminationEditTextStyle"
+                android:layout_width="60dp" />
+
+            <TextView
+                style="@style/GeneralExaminationTipsStyle"
+                android:text="mmHg" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+            <TextView
+                style="@style/GeneralExaminationLabelStyle"
+                android:text="身高：" />
+
+            <EditText 
+                android:id="@+id/et_sg"
+                style="@style/GeneralExaminationEditTextStyle" />
+
+            <TextView
+                style="@style/GeneralExaminationTipsStyle"
+                android:text="cm" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+            <TextView
+                style="@style/GeneralExaminationLabelStyle"
+                android:text="BMI：" />
+
+            <EditText 
+                android:id="@+id/et_bmi"
+                style="@style/GeneralExaminationEditTextStyle" />
+
+            <TextView
+                style="@style/GeneralExaminationTipsStyle"
+                android:text="kg/m²" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+            <TextView
+                style="@style/GeneralExaminationLabelStyle"
+                android:text="右侧血压：" />
+
+            <EditText
+                android:id="@+id/et_ycxy_1"
+                style="@style/GeneralExaminationEditTextStyle"
+                android:layout_width="60dp" />
+
+            <TextView
+                style="@style/GeneralExaminationTipsStyle"
+                android:layout_marginRight="10dp"
+                android:text="/" />
+
+            <EditText
+                android:id="@+id/et_ycxy_2"
+                style="@style/GeneralExaminationEditTextStyle"
+                android:layout_width="60dp" />
+
+            <TextView
+                style="@style/GeneralExaminationTipsStyle"
+                android:text="mmHg" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+            <TextView
+                style="@style/GeneralExaminationLabelStyle"
+                android:text="体重：" />
+
+            <EditText 
+                android:id="@+id/et_tz"
+                style="@style/GeneralExaminationEditTextStyle" />
+
+            <TextView
+                style="@style/GeneralExaminationTipsStyle"
+                android:text="kg" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+            <TextView
+                style="@style/GeneralExaminationLabelStyle"
+                android:text="腰围：" />
+
+            <EditText 
+                android:id="@+id/et_yw"
+                style="@style/GeneralExaminationEditTextStyle" />
+
+            <TextView
+                style="@style/GeneralExaminationTipsStyle"
+                android:text="cm" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+            <TextView
+                style="@style/GeneralExaminationLabelStyle"
+                android:text="老年人健康状况自我评估：" />
+
+            <Spinner
+                android:id="@+id/sn_lnrjkzkzwpg"
+                style="@style/GeneralExaminationSpinnerStyle"
+                android:entries="@array/healthCondition" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+            <TextView
+                style="@style/GeneralExaminationLabelStyle"
+                android:text="老年人生活自理能力自我评估：" />
+
+            <Spinner
+                
+                 android:id="@+id/sn_lnrshzlnl"
+                style="@style/GeneralExaminationSpinnerStyle"
+                android:entries="@array/selfCareAbility" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="老年人认知功能：" />
+
+        <RadioGroup
+            android:id="@+id/rg_lnrrzgn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/rb_lnrrzgn_csyinx"
+                style="@style/RadioButtonStyle"
+                android:checked="true"
+                android:text="粗筛阴性" />
+
+            <RadioButton
+                android:id="@+id/rb_lnrrzgn_csyangx"
+                style="@style/RadioButtonStyle"
+                android:layout_marginLeft="20dp"
+                android:text="粗筛阳性" />
+        </RadioGroup>
+
+        <TextView
+            
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="30dp"
+            android:text="简易智力状态检查，总分：" />
+
+        <EditText
+            android:id="@+id/et_lnrrzgn_zf"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="100dp"
+            android:imeOptions="actionNext"
+            android:inputType="number" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:text="老年人情感状态：" />
+
+        <RadioGroup
+            android:id="@+id/rg_lnrqgzt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/rb_lnrqgzt_csyinx"
+                style="@style/RadioButtonStyle"
+                android:checked="true"
+                android:text="粗筛阴性" />
+
+            <RadioButton
+                android:id="@+id/rb_lnrqgzt_csyangx"
+                style="@style/RadioButtonStyle"
+                android:layout_marginLeft="20dp"
+                android:text="粗筛阳性" />
+        </RadioGroup>
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="30dp"
+            android:text="简易抑郁状态检查，总分：" />
+
+        <EditText
+            android:id="@+id/et_lnrqgzt_zf"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="100dp"
+            android:imeOptions="actionNext"
+            android:inputType="number" />
+    </LinearLayout>
+
+</LinearLayout>

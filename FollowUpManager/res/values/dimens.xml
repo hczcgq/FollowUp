@@ -1,0 +1,53 @@
+<resources>
+
+    <dimen name="global_padding">10dp</dimen>
+    <dimen name="top_bar_height">75dp</dimen>
+    <dimen name="top_bar_logo_width">240dp</dimen>
+    <dimen name="top_tab_item_width">95dp</dimen>
+    <dimen name="top_tab_width">475dp</dimen>
+    <dimen name="left_width">200dp</dimen>
+    <dimen name="left_menu_padding">12dp</dimen>
+    <dimen name="avatar_width">85dp</dimen>
+    <dimen name="avatar_height">95dp</dimen>
+
+    <!-- 缺省超大号字体 -->
+    <dimen name="global_font_size_xlarge">21sp</dimen>
+    <!-- 缺省大号字体 -->
+    <dimen name="global_font_size_large">18sp</dimen>
+    <!-- 缺省中号字体 -->
+    <dimen name="global_font_size_middle">16sp</dimen>
+    <!-- 缺省小号字体 -->
+    <dimen name="global_font_size_small">13sp</dimen>
+
+    <dimen name="dialog_mental_disease_inspection_width">800dp</dimen>
+    
+    <dimen name="dialog_date_picker_width">650dp</dimen>
+    
+    <dimen name="dp2">2.0dip</dimen>
+    <dimen name="dp3">3.0dip</dimen>
+    <dimen name="dp5">5.0dip</dimen>
+    <dimen name="dp6">6.0dip</dimen>
+    <dimen name="dp8">8.0dip</dimen>
+    <dimen name="dp10">10.0dip</dimen>
+    <dimen name="dp12">12.0dip</dimen>
+    <dimen name="dp14">14.0dip</dimen>
+    <dimen name="dp15">15.0dip</dimen>
+    <dimen name="dp16">16.0dip</dimen>
+    <dimen name="dp18">18.0dip</dimen>
+    <dimen name="dp20">20.0dip</dimen>
+    <dimen name="dp24">24.0dip</dimen>
+    <dimen name="dp30">30.0dip</dimen>
+    <dimen name="dp40">40.0dip</dimen>
+    <dimen name="dp50">50.0dip</dimen>
+    <dimen name="dp55">55.0dip</dimen>
+    <dimen name="dp60">60.0dip</dimen>
+    <dimen name="dp80">80.0dip</dimen>
+    <dimen name="dp100">100.0dip</dimen>
+    <dimen name="dp180">180.0dip</dimen>
+    <dimen name="padding5">5.0dip</dimen>
+    <dimen name="padding8">8.0dip</dimen>
+    <dimen name="padding10">10.0dip</dimen>
+    <dimen name="padding15">15.0dip</dimen>
+    <dimen name="padding20">20.0dip</dimen>
+    <dimen name="padding25">25.0dip</dimen>
+</resources>

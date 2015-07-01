@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="20dp"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/guideLabel"
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_centerVertical="true"
+            android:minWidth="130dp"
+            android:text="指导：" />
+
+        <CheckBox
+            android:id="@+id/guide0"
+            style="@style/CheckBoxStyle"
+            android:layout_width="160dp"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/guideLabel"
+            android:text="科学喂养" />
+
+        <CheckBox
+            android:id="@+id/guide1"
+            style="@style/CheckBoxStyle"
+            android:layout_width="160dp"
+            android:layout_toRightOf="@id/guide0"
+            android:text="生长发育" />
+
+        <CheckBox
+            android:id="@+id/guide2"
+            style="@style/CheckBoxStyle"
+            android:layout_width="160dp"
+            android:layout_toRightOf="@id/guide1"
+            android:text="疾病预防" />
+
+        <CheckBox
+            android:id="@+id/guide3"
+            style="@style/CheckBoxStyle"
+            android:layout_width="160dp"
+            android:layout_toRightOf="@id/guide2"
+            android:text="预防意外伤害" />
+
+        <CheckBox
+            android:id="@+id/guide4"
+            style="@style/CheckBoxStyle"
+            android:layout_width="160dp"
+            android:layout_toRightOf="@id/guide3"
+            android:text="口腔保健" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="130dp"
+            android:text="医嘱和建议：" />
+
+        <EditText
+            android:id="@+id/et_yzjjy"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="500dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="130dp"
+            android:text="下次随访日期：" />
+
+        <EditText
+            android:id="@+id/et_xcsfrq"
+            android:clickable="true"
+            android:editable="false"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="180dp"
+            android:drawableRight="@drawable/icon_calendar" />
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:layout_marginLeft="20dp"
+            android:minWidth="130dp"
+            android:text="随访医生签名：" />
+
+        <EditText
+            android:id="@+id/et_sfysqm"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="180dp" />
+    </LinearLayout>
+
+</LinearLayout>

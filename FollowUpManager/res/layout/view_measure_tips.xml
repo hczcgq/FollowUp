@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/white_border_bg"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="40dp"
+            android:background="#D3D1D7" />
+
+        <TextView
+            android:id="@+id/tipsTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:lineSpacingMultiplier="1.2"
+            android:text="测量的正确方法测量的正确方法测量的正确方法测量的正确方法测量的正确方法测量的正确方法测量的正确方法测量的正确方法测量的正确方法测量的正确方法测量的正确方法测量的正确方法测量的正确方法测量的正确方法测量的正确方法测量的正确方法测量的正确方法测量的正确方法测量的正确方法测量的正确方法"
+            android:textColor="@color/black"
+            android:textSize="@dimen/global_font_size_middle" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/tips_title_bg"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:text="测量的正确方法"
+        android:textColor="@color/white"
+        android:textSize="@dimen/global_font_size_large" />
+
+</FrameLayout>

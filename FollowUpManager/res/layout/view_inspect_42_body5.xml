@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="20dp"
+    android:orientation="vertical" >
+
+    <RadioGroup
+        android:id="@+id/rg_el"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="140dp"
+            android:text="恶露：" />
+
+        <RadioButton
+            android:id="@+id/rb_el_w"
+            style="@style/RadioButtonStyle"
+            android:checked="true"
+            android:text="未见异常" />
+
+        <RadioButton
+            android:id="@+id/rb_el_y"
+            style="@style/RadioButtonStyle"
+            android:layout_marginLeft="20dp"
+            android:text="异常" />
+
+        <EditText
+            android:id="@+id/et_el"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/edit_text_with_padding_selector"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/global_font_size_large" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/rg_zg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="140dp"
+            android:text="子宫：" />
+
+        <RadioButton
+            android:id="@+id/rb_zg_w"
+            style="@style/RadioButtonStyle"
+            android:checked="true"
+            android:text="未见异常" />
+
+        <RadioButton
+            android:id="@+id/rb_zg_y"
+            style="@style/RadioButtonStyle"
+            android:layout_marginLeft="20dp"
+            android:text="异常" />
+
+        <EditText
+            android:id="@+id/et_zg"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/edit_text_with_padding_selector"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/global_font_size_large" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/rg_sk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="140dp"
+            android:text="伤口：" />
+
+        <RadioButton
+            android:id="@+id/rb_sk_w"
+            style="@style/RadioButtonStyle"
+            android:checked="true"
+            android:text="未见异常" />
+
+        <RadioButton
+            android:id="@+id/rb_sk_y"
+            style="@style/RadioButtonStyle"
+            android:layout_marginLeft="20dp"
+            android:text="异常" />
+
+        <EditText
+            android:id="@+id/et_sk"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/edit_text_with_padding_selector"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/global_font_size_large" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="140dp"
+            android:text="伤口愈合状况：" />
+
+        <Spinner
+            android:id="@+id/sn_skyhqk"
+            style="@style/GeneralExaminationSpinnerStyle"
+            android:layout_width="220dp"
+            android:entries="@array/woundHealing" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/GeneralExaminationLabelStyle"
+            android:minWidth="140dp"
+            android:text="其他：" />
+
+        <EditText
+            android:id="@+id/et_qt"
+            style="@style/GeneralExaminationEditTextStyle"
+            android:layout_width="220dp" />
+    </LinearLayout>
+
+</LinearLayout>
