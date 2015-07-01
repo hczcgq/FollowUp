@@ -73,8 +73,14 @@ public class AgednessBody1 extends LinearLayout implements IBaseAgednessBody {
 
 	@Override
 	public void setData(FollowUpAged followUpAged) {
-		// TODO Auto-generated method stub
-
+		if(followUpAged!=null){
+			et_zrys.setText(followUpAged.getGrxx_zrys());
+			et_sfrq.setText(followUpAged.getGrxx_sfrq());
+			ViewDataUtil.setSpinnerData(sn_sfzqjy, followUpAged.getGrxx_sfzqjy());
+			ViewDataUtil.setSpinnerData(sn_sffs, followUpAged.getGrxx_sffs());
+			ViewDataUtil.setSpinnerData(sn_sfxz, followUpAged.getGrxx_sfxz());
+			ViewDataUtil.setSpinnerData(sn_xlzt, followUpAged.getGrxx_xlzt());
+		}
 	}
 
 	@Override

@@ -59,8 +59,32 @@ public class AgednessBody3 extends LinearLayout implements IBaseAgednessBody {
 
 	@Override
 	public void setData(FollowUpAged followUpAged) {
-		// TODO Auto-generated method stub
-
+		if(followUpAged!=null){
+			String xy=followUpAged.getTz_xy();
+			if(xy.split("/").length!=0){
+				et_xy_ssy.setText(xy.split("/")[0]);
+				et_xy_szy.setText(xy.split("/")[1]);
+			}
+			et_xl.setText(followUpAged.getTz_xl());
+			et_yw.setText(followUpAged.getTz_yw());
+			et_sg.setText(followUpAged.getTz_sg());
+			String tz=followUpAged.getTz_tz();
+			if(tz.split("/").length!=0){
+				et_tz_dqz.setText(tz.split("/")[0]);
+				et_tz_mbz.setText(tz.split("/")[1]);
+			}
+			String tzzs=followUpAged.getTz_tzzs();
+			if(tzzs.split("/").length!=0){
+				et_tzzs_dqz.setText(tzzs.split("/")[0]);
+				et_tzzs_mbz.setText(tzzs.split("/")[1]);
+			}
+			et_xzdgc.setText(followUpAged.getTz_xzdgc());
+			et_gmdzdb.setText(followUpAged.getTz_gmddb());
+			et_xgysz.setText(followUpAged.getTz_xgysz());
+			et_dmdzdb.setText(followUpAged.getTz_dmddb());
+			et_kfxt.setText(followUpAged.getTz_kfxt());
+			et_qt.setText(followUpAged.getTz_qt());
+		}
 	}
 
 	@Override

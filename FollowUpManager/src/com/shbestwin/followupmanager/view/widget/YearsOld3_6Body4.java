@@ -86,8 +86,15 @@ public class YearsOld3_6Body4 extends LinearLayout  implements IBaseYearsOld3_6B
 
 	@Override
 	public void setData(FollowUpThreeSixNewborn followUpThreeSixNewborn) {
-		// TODO Auto-generated method stub
-		
+		if(followUpThreeSixNewborn!=null){
+			try {
+				inspectionList.addAll(JsonUtil.jsonToObjects(followUpThreeSixNewborn.getSysjc(), LabInspection.class));
+				inspectionListAdapter.notifyDataSetChanged();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}
 	}
 
 	@Override

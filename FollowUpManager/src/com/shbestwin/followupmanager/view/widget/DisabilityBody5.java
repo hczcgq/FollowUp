@@ -168,9 +168,10 @@ public class DisabilityBody5 extends LinearLayout implements
         if (followUpDisabledPerson != null) {
             et_smoking.setText(followUpDisabledPerson.getShfszd_sfxyms());
             String yj=followUpDisabledPerson.getShfszd_sfyjms();
+            System.out.println(yj);
             if(yj.split("/").length!=0) {
-//                ViewDataUtil.setSpinnerData(sn_drinking, yj.split("/")[0]);
-//                et_drinking.setText(yj.split("/")[1]);
+                ViewDataUtil.setSpinnerData(sn_drinking, yj.split("/")[0]);
+                et_drinking.setText(yj.split("/")[1]);
             }
             String yd=followUpDisabledPerson.getShfszd_sfydms();
             if(yd.split("/").length!=0) {

@@ -33,19 +33,18 @@ public class YearsOld3_6Body3 extends LinearLayout  implements IBaseYearsOld3_6B
 
 	@Override
 	public void setData(FollowUpThreeSixNewborn followUpThreeSixNewborn) {
-		// TODO Auto-generated method stub
-		
+		if(followUpThreeSixNewborn!=null){
+			et_xhdb.setText(followUpThreeSixNewborn.getXhdbz());
+		}
 	}
 
 	@Override
 	public boolean validate() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public void setFragment(FragmentManager fragmentManager) {
-		// TODO Auto-generated method stub
 		
 	}
 

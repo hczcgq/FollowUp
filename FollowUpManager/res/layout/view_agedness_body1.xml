@@ -18,32 +18,32 @@
         <EditText
             android:id="@+id/et_zrys"
             style="@style/GeneralExaminationEditTextStyle"
-            android:layout_width="220dp" />
+            android:layout_width="200dp" />
 
         <TextView
             style="@style/GeneralExaminationLabelStyle"
-            android:layout_marginLeft="50dp"
-            android:minWidth="130dp"
+            android:layout_marginLeft="20dp"
+            android:minWidth="110dp"
             android:text="随访日期：" />
 
         <EditText
             android:id="@+id/et_sfrq"
-            android:editable="true"
+            android:editable="false"
             android:clickable="true"
             style="@style/GeneralExaminationEditTextStyle"
-            android:layout_width="220dp"
+            android:layout_width="200dp"
             android:drawableRight="@drawable/icon_calendar" />
 
         <TextView
             style="@style/GeneralExaminationLabelStyle"
-            android:layout_marginLeft="50dp"
-            android:minWidth="130dp"
+            android:layout_marginLeft="20dp"
+            android:minWidth="110dp"
             android:text="随访周期建议：" />
 
         <Spinner
             android:id="@+id/sn_sfzqjy"
             style="@style/GeneralExaminationSpinnerStyle"
-            android:layout_width="220dp"
+            android:layout_width="200dp"
             android:entries="@array/followupCycleAdvise" />
     </LinearLayout>
 
@@ -61,31 +61,31 @@
         <Spinner
             android:id="@+id/sn_sffs"
             style="@style/GeneralExaminationSpinnerStyle"
-            android:layout_width="220dp"
+            android:layout_width="200dp"
             android:entries="@array/followupType" />
 
         <TextView
             style="@style/GeneralExaminationLabelStyle"
-            android:layout_marginLeft="50dp"
-            android:minWidth="130dp"
+            android:layout_marginLeft="20dp"
+            android:minWidth="110dp"
             android:text="随访性质：" />
 
         <Spinner
             android:id="@+id/sn_sfxz"
             style="@style/GeneralExaminationSpinnerStyle"
-            android:layout_width="220dp"
+            android:layout_width="200dp"
             android:entries="@array/followupProperty" />
 
         <TextView
             style="@style/GeneralExaminationLabelStyle"
-            android:layout_marginLeft="50dp"
-            android:minWidth="130dp"
+            android:layout_marginLeft="20dp"
+            android:minWidth="110dp"
             android:text="心理状态：" />
 
         <Spinner
             android:id="@+id/sn_xlzt"
             style="@style/GeneralExaminationSpinnerStyle"
-            android:layout_width="220dp"
+            android:layout_width="200dp"
             android:entries="@array/psychology" />
     </LinearLayout>
 

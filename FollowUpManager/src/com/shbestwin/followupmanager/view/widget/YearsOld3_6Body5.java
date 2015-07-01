@@ -17,6 +17,7 @@ import com.shbestwin.followupmanager.common.util.JsonUtil;
 import com.shbestwin.followupmanager.interfaces.ListItemClickHelp;
 import com.shbestwin.followupmanager.model.followup.FollowUpThreeSixNewborn;
 import com.shbestwin.followupmanager.model.followup.Inspection;
+import com.shbestwin.followupmanager.model.followup.LabInspection;
 import com.shbestwin.followupmanager.view.adapter.followup.InspectionListAdapter;
 import com.shbestwin.followupmanager.view.dialog.BaseDialogFragment.OnConfirmClickListener;
 import com.shbestwin.followupmanager.view.dialog.followup.InspectionDialog;
@@ -88,8 +89,15 @@ private InspectionListAdapter inspectionListAdapter;
 
 	@Override
 	public void setData(FollowUpThreeSixNewborn followUpThreeSixNewborn) {
-		// TODO Auto-generated method stub
-		
+		if(followUpThreeSixNewborn!=null){
+			try {
+				inspectionList.addAll(JsonUtil.jsonToObjects(followUpThreeSixNewborn.getFzjc(), Inspection.class));
+				inspectionListAdapter.notifyDataSetChanged();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}
 	}
 
 	@Override

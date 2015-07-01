@@ -71,8 +71,12 @@ public class NeonateBody1 extends LinearLayout implements IBaseNeonateBody {
 
 	@Override
 	public void setData(FollowUpNewborn followUpNewborn) {
-		// TODO Auto-generated method stub
-
+		if(followUpNewborn!=null){
+			et_fsrq.setText(followUpNewborn.getGrxx_fsrq());
+			et_csrl.setText(followUpNewborn.getGrxx_csrl());
+			et_zrys.setText(followUpNewborn.getGrxx_zrys());
+			ViewDataUtil.setSpinnerData(sn_fscs, followUpNewborn.getGrxx_fscs());
+		}
 	}
 
 	@Override

@@ -7,11 +7,9 @@ import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
-
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.DateUtils;
 import com.shbestwin.followupmanager.common.util.ViewDataUtil;
@@ -69,8 +67,12 @@ public class YearsOld3_6Body1 extends LinearLayout implements IBaseYearsOld3_6Bo
 
 	@Override
 	public void setData(FollowUpThreeSixNewborn followUpThreeSixNewborn) {
-		// TODO Auto-generated method stub
-		
+		if(followUpThreeSixNewborn!=null){
+			et_fsrq.setText(followUpThreeSixNewborn.getGrxx_fsrq());
+			et_zrys.setText(followUpThreeSixNewborn.getGrxx_zrys());
+			et_csrl.setText(followUpThreeSixNewborn.getGrxx_sjnl());
+			ViewDataUtil.setSpinnerData(sn_yn, followUpThreeSixNewborn.getGrxx_nl());
+		}
 	}
 
 	@Override

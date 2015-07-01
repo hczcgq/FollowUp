@@ -7,13 +7,12 @@ import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.RadioGroup.OnCheckedChangeListener;
-
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.DateUtils;
 import com.shbestwin.followupmanager.common.util.ViewDataUtil;
@@ -24,6 +23,7 @@ import com.shbestwin.followupmanager.view.dialog.DatePickerDialog.OnDatePickerLi
 public class AgednessBody4 extends LinearLayout implements IBaseAgednessBody {
 	private FragmentManager fragmentManager;
 	private RadioGroup rg_smoking,rg_drinking,rg_sporting;
+	 private RadioButton rb_smoking_w,rb_smoking_y,rb_drinking_w,rb_drinking_y,rb_sporting_w,rb_sporting_y;
 	private EditText et_smoking,et_drinking,et_sporting_cz,et_sporting_fc,et_ydxm,et_syqk_dqz,et_syqk_mbz,et_mqqk,et_sffwnr,et_xcsfrq,et_sfysqm;
 	private Spinner sn_drinking,sn_syqk_cd_1,sn_syqk_cd_2,sn_xltz,sn_zyxw,sn_sfpg;
 	private boolean isSmoking=false,isDrinking=false,isSporting=false;
@@ -41,6 +41,16 @@ public class AgednessBody4 extends LinearLayout implements IBaseAgednessBody {
 		rg_smoking=(RadioGroup) rootView.findViewById(R.id.rg_smoking);
 		rg_drinking=(RadioGroup) rootView.findViewById(R.id.rg_drinking);
 		rg_sporting=(RadioGroup) rootView.findViewById(R.id.rg_sporting);
+		
+		   rg_smoking = (RadioGroup) rootView.findViewById(R.id.rg_smoking);
+	        rg_drinking = (RadioGroup) rootView.findViewById(R.id.rg_drinking);
+	        rg_sporting = (RadioGroup) rootView.findViewById(R.id.rg_sporting);
+	        rb_smoking_w=(RadioButton) rootView.findViewById(R.id.rb_smoking_w);
+	        rb_smoking_y=(RadioButton) rootView.findViewById(R.id.rb_smoking_y);
+	        rb_drinking_w=(RadioButton) rootView.findViewById(R.id.rb_drinking_w);
+	        rb_drinking_y=(RadioButton) rootView.findViewById(R.id.rb_drinking_y);
+	        rb_sporting_w=(RadioButton) rootView.findViewById(R.id.rb_sporting_w);
+	        rb_sporting_y=(RadioButton) rootView.findViewById(R.id.rb_sporting_y);
 		
 		et_smoking=(EditText) rootView.findViewById(R.id.et_smoking);
 		et_drinking=(EditText) rootView.findViewById(R.id.et_drinking);
@@ -136,8 +146,61 @@ public class AgednessBody4 extends LinearLayout implements IBaseAgednessBody {
 
 	@Override
 	public void setData(FollowUpAged followUpAged) {
-		// TODO Auto-generated method stub
-
+		if(followUpAged!=null){
+			 et_smoking.setText(followUpAged.getShfszd_sfxyms());
+	            String yj=followUpAged.getShfszd_sfyjms();
+	            System.out.println(yj);
+	            if(yj.split("/").length!=0) {
+	                ViewDataUtil.setSpinnerData(sn_drinking, yj.split("/")[0]);
+	                et_drinking.setText(yj.split("/")[1]);
+	            }
+	            String yd=followUpAged.getShfszd_sfydms();
+	            if(yd.split("/").length!=0) {
+	                et_sporting_cz.setText(yj.split("/")[0]);
+	                et_sporting_fc.setText(yj.split("/")[1]);
+	            }
+	            et_ydxm.setText(followUpAged.getShfszd_ydxm());
+	            String sy=followUpAged.getShfszd_syqk();
+	            if(sy.split("/").length!=0) {
+	                et_syqk_dqz.setText(sy.split("/")[0]);
+	                et_syqk_mbz.setText(sy.split("/")[1]);
+	                ViewDataUtil.setSpinnerData(sn_syqk_cd_1, sy.split("/")[2]);
+	                ViewDataUtil.setSpinnerData(sn_syqk_cd_2, sy.split("/")[3]);
+	            }
+	            
+	            ViewDataUtil.setSpinnerData(sn_xltz, followUpAged.getShfszd_xltz());
+	            ViewDataUtil.setSpinnerData(sn_zyxw, followUpAged.getShfszd_zyxw());
+	            ViewDataUtil.setSpinnerData(sn_sfpg, followUpAged.getShfszd_sfpg());
+	            et_xcsfrq.setText(followUpAged.getShfszd_xcsfrq());
+	            et_sfysqm.setText(followUpAged.getShfszd_sfysqm());
+	            et_sffwnr.setText(followUpAged.getShfszd_sffwnr());
+	            et_mqqk.setText(followUpAged.getShfszd_mqqk());
+	            
+	            
+	            if(followUpAged.getShfszd_sfxy()) {
+	                rb_smoking_y.setChecked(true);
+	                rb_smoking_w.setChecked(false);
+	            }else {
+	                rb_smoking_w.setChecked(true);
+	                rb_smoking_y.setChecked(false);
+	            }
+	            
+	            if(followUpAged.getShfszd_sfyj()) {
+	                rb_drinking_y.setChecked(true);
+	                rb_drinking_w.setChecked(false);
+	            }else {
+	                rb_drinking_y.setChecked(false);
+	                rb_drinking_w.setChecked(true);
+	            }
+	            
+	            if(followUpAged.getShfszd_sfyd()) {
+	                rb_sporting_y.setChecked(true);
+	                rb_sporting_w.setChecked(false);
+	            }else {
+	                rb_sporting_y.setChecked(false);
+	                rb_sporting_w.setChecked(true);
+	            }
+		}
 	}
 
 	@Override

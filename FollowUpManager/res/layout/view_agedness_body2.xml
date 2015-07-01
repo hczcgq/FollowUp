@@ -2,10 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/symptomLayout"
     android:paddingBottom="20dp" >
 
     <CheckBox
-        android:id="@+id/symptom0"
+        android:id="@+id/symptomNone"
         style="@style/CheckBoxStyle"
         android:layout_width="160dp"
         android:text="无不适" />
@@ -14,7 +15,7 @@
         android:id="@+id/symptom1"
         style="@style/CheckBoxStyle"
         android:layout_width="160dp"
-        android:layout_toRightOf="@id/symptom0"
+        android:layout_toRightOf="@id/symptomNone"
         android:text="头痛头晕" />
 
     <CheckBox
@@ -49,7 +50,7 @@
         android:id="@+id/symptom6"
         style="@style/CheckBoxStyle"
         android:layout_width="160dp"
-        android:layout_below="@id/symptom0"
+        android:layout_below="@id/symptomNone"
         android:layout_marginTop="10dp"
         android:text="四肢发麻" />
 
@@ -57,7 +58,7 @@
         android:id="@+id/symptom7"
         style="@style/CheckBoxStyle"
         android:layout_width="160dp"
-        android:layout_below="@id/symptom0"
+        android:layout_below="@id/symptomNone"
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@id/symptom6"
         android:text="下肢水肿" />
@@ -66,28 +67,28 @@
         android:id="@+id/symptom8"
         style="@style/CheckBoxStyle"
         android:layout_width="160dp"
-        android:layout_below="@id/symptom0"
+        android:layout_below="@id/symptomNone"
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@id/symptom7"
         android:text="皮肤瘙痒" />
 
     <CheckBox
-        android:id="@+id/symptom9"
+        android:id="@+id/symptomOther"
         style="@style/CheckBoxStyle"
         android:layout_width="80dp"
-        android:layout_below="@id/symptom0"
+        android:layout_below="@id/symptomNone"
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@id/symptom8"
         android:text="其他" />
 
     <EditText
-        android:id="@+id/et_other"
+        android:id="@+id/symptomEdittext"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/symptom9"
-        android:layout_below="@id/symptom0"
+        android:layout_alignBaseline="@id/symptomOther"
+        android:layout_below="@id/symptomNone"
         android:layout_marginTop="10dp"
-        android:layout_toRightOf="@id/symptom9"
+        android:layout_toRightOf="@id/symptomOther"
         android:background="@drawable/edit_text_with_padding_selector"
         android:gravity="center_vertical"
         android:textSize="@dimen/global_font_size_large" />
