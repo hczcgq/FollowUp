@@ -97,6 +97,7 @@ public class DiabetesMellitusBody7 extends LinearLayout implements
                 List<Inspection> lists=JsonUtil.jsonToObjects(followUpDiabetesMellitus.getFzjc(), Inspection.class);
                 if(lists!=null&&lists.size()>0) {
                     inspectionList.addAll(lists);
+                    inspectionListAdapter.notifyDataSetChanged();
                 }
             } catch (Exception e) {
                 e.printStackTrace();

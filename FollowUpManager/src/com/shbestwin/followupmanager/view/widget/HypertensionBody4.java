@@ -55,7 +55,44 @@ public class HypertensionBody4 extends LinearLayout  implements IBaseHypertensio
 	@Override
 	public void setData(FollowUpHypertension followUpHypertension) {
 	    if(followUpHypertension!=null){
+	       String smoking=followUpHypertension.getShzdfs_rxyl();
+	       if(smoking.split("/").length>0) {
+	           et_rxyl_dqz.setText(smoking.split("/")[0]);
+	           et_rxyl_mbz.setText(smoking.split("/")[1]);
+	       }
 	       
+	       String drinking=followUpHypertension.getShzdfs_ryjl();
+           if(drinking.split("/").length==1) {
+               et_ryjl_dqz.setText(drinking.split("/")[0]);
+           }else if(drinking.split("/").length==2) {
+               et_ryjl_dqz.setText(drinking.split("/")[0]);
+               et_ryjl_mbz.setText(drinking.split("/")[1]);
+           }
+           
+           String sporting=followUpHypertension.getShzdfs_ydl();
+           if(sporting.split("/").length==1) {
+               et_ydl_cz.setText(sporting.split("/")[0]);
+               
+           }else if(sporting.split("/").length==2) {
+               et_ydl_cz.setText(sporting.split("/")[0]);
+               et_ydl_fc.setText(sporting.split("/")[1]);
+           }
+           
+           
+           String yan=followUpHypertension.getShzdfs_syqk();
+           if(yan.split("/").length==1) {
+               et_syqk_dqz.setText(yan.split("/")[0]);
+           }else if(yan.split("/").length==2) {
+               et_syqk_dqz.setText(yan.split("/")[0]);
+               et_syqk_mbz.setText(yan.split("/")[1]);
+           }else if(yan.split("/").length==3) {
+               et_syqk_dqz.setText(yan.split("/")[0]);
+               et_syqk_mbz.setText(yan.split("/")[1]);
+               ViewDataUtil.setSpinnerData(sn_syqk_l,yan.split("/")[2] );
+           }
+           
+           ViewDataUtil.setSpinnerData(sn_xltz, followUpHypertension.getShzdfs_xltz());
+//           ViewDataUtil.setSpinnerData(sn_zyxw, followUpHypertension.getShzdfs_z);
 	    }
 	}
 

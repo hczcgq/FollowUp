@@ -82,11 +82,6 @@ public class DiabetesMellitusBody2 extends LinearLayout implements  IBaseDiabete
 	
 	@Override
 	public boolean validate() {
-		if (!ViewDataUtil.validateOtherCheckbox(diabetesMellitus14,
-				diabetesMellitus_other)) {
-			ToastUtils.showToast(getContext(), "请输入其他症状信息！");
-			return false;
-		}
 		return true;
 	}
 

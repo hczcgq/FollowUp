@@ -22,7 +22,8 @@
 
     <EditText
         android:id="@+id/et_sfrq"
-        android:enabled="false"
+        android:editable="false"
+        android:clickable="true"
         style="@style/GeneralExaminationEditTextStyle"
         android:layout_width="220dp"
         android:drawableRight="@drawable/icon_calendar" />

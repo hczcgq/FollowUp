@@ -117,7 +117,7 @@ public class CerebralApoplexyBody4 extends LinearLayout implements
 
     @Override
     public void getData(FollowUpStroke followUpStroke) {
-
+        
         followUpStroke.setWxyskztnb_fcrq(et_fcrq.getText().toString());
         followUpStroke.setWxyskztnb_xtsp(et_xtsp.getText().toString());
         followUpStroke.setWxyskztnb_hbaic(et_hbaic.getText().toString());
@@ -129,6 +129,7 @@ public class CerebralApoplexyBody4 extends LinearLayout implements
         }
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public void setData(FollowUpStroke followUpStroke) {
         if (followUpStroke != null) {
@@ -141,6 +142,7 @@ public class CerebralApoplexyBody4 extends LinearLayout implements
                         followUpStroke.getWxyskztnb_yyqk(), Medication.class);
                 if (lists != null && lists.size() > 0) {
                     medicationList.addAll(lists);
+                    medicationListAdapter.notifyDataSetChanged();
                 }
             } catch (Exception e) {
                 e.printStackTrace();

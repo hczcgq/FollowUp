@@ -127,12 +127,14 @@
             android:text="服药依从性：" />
 
         <Spinner
+            android:id="@+id/sn_fyycx"
             style="@style/GeneralExaminationSpinnerStyle"
             android:layout_width="220dp"
             android:entries="@array/medicationCompliance" />
     </LinearLayout>
 
     <RadioGroup
+        android:id="@+id/rg_ywblfy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -145,18 +147,19 @@
             android:text="药物不良反应：" />
 
         <RadioButton
-            android:id="@+id/ADRRadioButton1"
+            android:id="@+id/rb_ywblfy_w"
             style="@style/RadioButtonStyle"
             android:checked="true"
             android:text="无" />
 
         <RadioButton
-            android:id="@+id/ADRRadioButton2"
+            android:id="@+id/rb_ywblfy_y"
             style="@style/RadioButtonStyle"
             android:layout_marginLeft="20dp"
             android:text="有" />
 
         <EditText
+            android:id="@+id/et_ywblfy"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp"
             android:layout_marginLeft="20dp" />
@@ -175,12 +178,14 @@
             android:text="治疗效果：" />
 
         <Spinner
+            android:id="@+id/sn_zlxg"
             style="@style/GeneralExaminationSpinnerStyle"
             android:layout_width="220dp"
             android:entries="@array/treatResult1" />
     </LinearLayout>
 
     <RadioGroup
+        android:id="@+id/rg_zz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -193,13 +198,13 @@
             android:text="转诊：" />
 
         <RadioButton
-            android:id="@+id/transferTreatmentRadioButton1"
+            android:id="@+id/rb_zz_w"
             style="@style/RadioButtonStyle"
             android:checked="true"
             android:text="无" />
 
         <RadioButton
-            android:id="@+id/transferTreatmentRadioButton2"
+            android:id="@+id/rb_zz_y"
             style="@style/RadioButtonStyle"
             android:layout_marginLeft="20dp"
             android:text="有" />
@@ -210,6 +215,7 @@
             android:text="原因：" />
 
         <EditText
+            android:id="@+id/et_yy"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
 
@@ -219,6 +225,7 @@
             android:text="机构其科室：" />
 
         <EditText
+            android:id="@+id/et_jgjks"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
     </RadioGroup>

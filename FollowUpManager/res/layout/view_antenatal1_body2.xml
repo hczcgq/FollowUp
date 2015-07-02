@@ -13,7 +13,7 @@
     <EditText
         android:id="@+id/et_zfxm"
         style="@style/GeneralExaminationEditTextStyle"
-        android:layout_width="220dp" />
+        android:layout_width="200dp" />
 
     <TextView
         style="@style/GeneralExaminationLabelStyle"
@@ -24,7 +24,7 @@
     <EditText
           android:id="@+id/et_zfnl"
         style="@style/GeneralExaminationEditTextStyle"
-        android:layout_width="220dp"
+        android:layout_width="200dp"
         android:inputType="number" />
 
     <TextView
@@ -36,7 +36,7 @@
     <EditText
           android:id="@+id/et_zfdh"
         style="@style/GeneralExaminationEditTextStyle"
-        android:layout_width="220dp"
+        android:layout_width="200dp"
         android:inputType="textPhonetic" />
 
 </LinearLayout>

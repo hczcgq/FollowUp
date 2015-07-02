@@ -61,23 +61,29 @@ public class AgednessBody3 extends LinearLayout implements IBaseAgednessBody {
 	public void setData(FollowUpAged followUpAged) {
 		if(followUpAged!=null){
 			String xy=followUpAged.getTz_xy();
-			if(xy.split("/").length!=0){
+			if(xy.split("/").length==1){
 				et_xy_ssy.setText(xy.split("/")[0]);
-				et_xy_szy.setText(xy.split("/")[1]);
-			}
+			}else if(xy.split("/").length==2){
+                et_xy_ssy.setText(xy.split("/")[0]);
+                et_xy_szy.setText(xy.split("/")[1]);
+            }
 			et_xl.setText(followUpAged.getTz_xl());
 			et_yw.setText(followUpAged.getTz_yw());
 			et_sg.setText(followUpAged.getTz_sg());
 			String tz=followUpAged.getTz_tz();
-			if(tz.split("/").length!=0){
+			if(tz.split("/").length==1){
 				et_tz_dqz.setText(tz.split("/")[0]);
-				et_tz_mbz.setText(tz.split("/")[1]);
-			}
+			}else if(tz.split("/").length==2){
+                et_tz_dqz.setText(tz.split("/")[0]);
+                et_tz_mbz.setText(tz.split("/")[1]);
+            }
 			String tzzs=followUpAged.getTz_tzzs();
-			if(tzzs.split("/").length!=0){
+			if(tzzs.split("/").length==1){
 				et_tzzs_dqz.setText(tzzs.split("/")[0]);
-				et_tzzs_mbz.setText(tzzs.split("/")[1]);
-			}
+			}else if(tzzs.split("/").length==2){
+                et_tzzs_dqz.setText(tzzs.split("/")[0]);
+                et_tzzs_mbz.setText(tzzs.split("/")[1]);
+            }
 			et_xzdgc.setText(followUpAged.getTz_xzdgc());
 			et_gmdzdb.setText(followUpAged.getTz_gmddb());
 			et_xgysz.setText(followUpAged.getTz_xgysz());

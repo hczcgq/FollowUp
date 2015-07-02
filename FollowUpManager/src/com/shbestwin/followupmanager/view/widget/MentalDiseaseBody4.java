@@ -43,8 +43,13 @@ public class MentalDiseaseBody4 extends LinearLayout  implements IBaseMentalDise
 
 	@Override
 	public void setData(FollowUpMentalDisease followUpMentalDisease) {
-		// TODO Auto-generated method stub
-		
+		if(followUpMentalDisease!=null) {
+		    ViewDataUtil.setSpinnerData(sn_grshll, followUpMentalDisease.getShgnqk_grshll());
+		    ViewDataUtil.setSpinnerData(sn_jwhd, followUpMentalDisease.getShgnqk_jwhd());
+		    ViewDataUtil.setSpinnerData(sn_xxnl, followUpMentalDisease.getShgnqk_xxnl());
+		    ViewDataUtil.setSpinnerData(sn_scndjgz, followUpMentalDisease.getShgnqk_shldjgz());
+		    ViewDataUtil.setSpinnerData(sn_shrjjw, followUpMentalDisease.getShgnqk_shrjjw());
+		}
 	}
 
 	@Override

@@ -13,7 +13,6 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import com.shbestwin.followupmanager.R;
-import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.common.util.ViewDataUtil;
 import com.shbestwin.followupmanager.model.followup.FollowUpHypertension;
 
@@ -71,11 +70,6 @@ public class HypertensionBody2 extends LinearLayout implements
 
 	@Override
 	public boolean validate() {
-		if (!ViewDataUtil.validateOtherCheckbox(hypertension13,
-				hypertension_other)) {
-			ToastUtils.showToast(getContext(), "请输入其他症状信息！");
-			return false;
-		}
 		return true;
 	}
 	

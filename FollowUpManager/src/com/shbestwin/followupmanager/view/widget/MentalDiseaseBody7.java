@@ -2,7 +2,6 @@ package com.shbestwin.followupmanager.view.widget;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import android.content.Context;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -11,19 +10,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-
 import com.shbestwin.followupmanager.R;
+import com.shbestwin.followupmanager.interfaces.ListItemClickHelp;
 import com.shbestwin.followupmanager.model.followup.FollowUpMentalDisease;
-import com.shbestwin.followupmanager.model.followup.MentalDiseaseMedicine;
-import com.shbestwin.followupmanager.view.adapter.followup.MentalDiseaseMedicineListAdapter;
-import com.shbestwin.followupmanager.view.dialog.followup.MentalDiseaseMedicineDialog;
+import com.shbestwin.followupmanager.model.followup.Medication;
+import com.shbestwin.followupmanager.view.adapter.followup.MedicationListAdapter;
+import com.shbestwin.followupmanager.view.dialog.BaseDialogFragment.OnConfirmClickListener;
+import com.shbestwin.followupmanager.view.dialog.followup.MedicationDialog;
 
-public class MentalDiseaseBody7 extends LinearLayout implements IBaseMentalDiseaseBody {
+public class MentalDiseaseBody7 extends LinearLayout implements IBaseMentalDiseaseBody ,ListItemClickHelp{
 
 	private View mentalDiseaseMedicineButton;
-	private ListView mentalDiseaseMedicineListView;
+	private ListView medicationListView;
 
-	private MentalDiseaseMedicineListAdapter medicineListAdapter;
+	 private MedicationListAdapter medicationListAdapter;
+
+	    private List<Medication> medicationList = new ArrayList<Medication>();
 
 	public MentalDiseaseBody7(Context context) {
 		this(context, null);
@@ -37,7 +39,7 @@ public class MentalDiseaseBody7 extends LinearLayout implements IBaseMentalDisea
 		super(context, attrs, defStyle);
 		View rootView = LayoutInflater.from(context).inflate(R.layout.view_mental_disease_body7, this, true);
 		mentalDiseaseMedicineButton = rootView.findViewById(R.id.mentalDiseaseMedicineButton);
-		mentalDiseaseMedicineListView = (ListView) rootView.findViewById(R.id.mentalDiseaseMedicineListView);
+		medicationListView = (ListView) rootView.findViewById(R.id.mentalDiseaseMedicineListView);
 
 		mentalDiseaseMedicineButton.setOnClickListener(new OnClickListener() {
 			@Override
@@ -46,29 +48,59 @@ public class MentalDiseaseBody7 extends LinearLayout implements IBaseMentalDisea
 			}
 		});
 
-		List<MentalDiseaseMedicine> diseaseList = new ArrayList<MentalDiseaseMedicine>();
-		for (int i = 0; i < 10; i++) {
-			diseaseList.add(new MentalDiseaseMedicine());
-		}
-		medicineListAdapter = new MentalDiseaseMedicineListAdapter(getContext(), diseaseList);
-		mentalDiseaseMedicineListView.setAdapter(medicineListAdapter);
+		 medicationListAdapter = new MedicationListAdapter(getContext(),
+	                medicationList);
+	        medicationListAdapter.setListItemClickHelp(this);
+	        medicationListView.setAdapter(medicationListAdapter);
 	}
 
 	private void showMentalDiseaseMedicineDialog() {
-		MentalDiseaseMedicineDialog mentalDiseaseMedicineDialog = MentalDiseaseMedicineDialog.newInstance();
-		mentalDiseaseMedicineDialog.show(((FragmentActivity) getContext()).getSupportFragmentManager(), "mentalDiseaseMedicineDialog");
-	}
+        final MedicationDialog medicationDialog = MedicationDialog
+                .newInstance();
+        medicationDialog.show(
+                ((FragmentActivity) getContext()).getSupportFragmentManager(),
+                "medicationDialog");
+
+        medicationDialog
+                .setOnConfirmClickListener(new OnConfirmClickListener() {
+
+                    @Override
+                    public void onConfirmClick() {
+                        Medication medication = medicationDialog
+                                .getMedication();
+                        medicationList.add(medication);
+                        medicationDialog.hide();
+                        medicationListAdapter.notifyDataSetChanged();
+                    }
+                });
+
+    }
 
 	@Override
 	public void getData(FollowUpMentalDisease followUpMentalDisease) {
-		// TODO Auto-generated method stub
-
+//	    try {
+//	        followUpMentalDisease.set(JsonUtil
+//                    .objectsToJson(medicationList));
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 	}
 
 	@Override
 	public void setData(FollowUpMentalDisease followUpMentalDisease) {
-		// TODO Auto-generated method stub
-
+//	    if (followUpMentalDisease != null) {
+//            try {
+//                List<Medication> lists=JsonUtil.jsonToObjects(followUpMentalDisease.getYyqk(), Medication.class);
+//                if(lists!=null&&lists.size()>0) {
+//                    medicationList.addAll(lists);
+//                    medicationListAdapter.notifyDataSetChanged();
+//                }
+//               
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//            
+//        }
 	}
 
 	@Override
@@ -82,4 +114,36 @@ public class MentalDiseaseBody7 extends LinearLayout implements IBaseMentalDisea
 		// TODO Auto-generated method stub
 		
 	}
+
+    @Override
+    public void onClick(final int position, int which) {
+        Medication medication = medicationList.get(position);
+        switch (which) {
+        case R.id.im_delete:
+            medicationList.remove(position);
+            medicationListAdapter.notifyDataSetChanged();
+            break;
+        case R.id.im_edit:
+            final MedicationDialog medicationDialog = new MedicationDialog(
+                    medication);
+            medicationDialog.show(((FragmentActivity) getContext())
+                    .getSupportFragmentManager(), "medicationDialog");
+            medicationDialog
+                    .setOnConfirmClickListener(new OnConfirmClickListener() {
+
+                        @Override
+                        public void onConfirmClick() {
+                            Medication item = medicationDialog.getMedication();
+                            medicationList.set(position, item);
+                            medicationDialog.hide();
+                            medicationListAdapter.notifyDataSetChanged();
+                        }
+                    });
+
+            break;
+
+        default:
+            break;
+        }
+    }
 }

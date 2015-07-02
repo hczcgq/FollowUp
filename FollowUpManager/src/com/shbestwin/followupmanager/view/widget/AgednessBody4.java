@@ -165,18 +165,32 @@ public class AgednessBody4 extends LinearLayout implements IBaseAgednessBody {
         if (followUpAged != null) {
             et_smoking.setText(followUpAged.getShfszd_sfxyms());
             String yj = followUpAged.getShfszd_sfyjms();
-            if (yj.split("/").length != 0) {
+            if (yj.split("/").length ==1) {
+                ViewDataUtil.setSpinnerData(sn_drinking, yj.split("/")[0]);
+                et_drinking.setText(yj.split("/")[1]);
+            }else if (yj.split("/").length == 2) {
                 ViewDataUtil.setSpinnerData(sn_drinking, yj.split("/")[0]);
                 et_drinking.setText(yj.split("/")[1]);
             }
             String yd = followUpAged.getShfszd_sfydms();
-            if (yd.split("/").length != 0) {
+            if (yd.split("/").length ==1) {
+                et_sporting_cz.setText(yj.split("/")[0]);
+            }else if (yd.split("/").length ==2) {
                 et_sporting_cz.setText(yj.split("/")[0]);
                 et_sporting_fc.setText(yj.split("/")[1]);
             }
             et_ydxm.setText(followUpAged.getShfszd_ydxm());
             String sy = followUpAged.getShfszd_syqk();
-            if (sy.split("/").length != 0) {
+            if (sy.split("/").length ==1) {
+                et_syqk_dqz.setText(sy.split("/")[0]);
+            }else  if (sy.split("/").length ==2) {
+                et_syqk_dqz.setText(sy.split("/")[0]);
+                et_syqk_mbz.setText(sy.split("/")[1]);
+            }else  if (sy.split("/").length == 3) {
+                et_syqk_dqz.setText(sy.split("/")[0]);
+                et_syqk_mbz.setText(sy.split("/")[1]);
+                ViewDataUtil.setSpinnerData(sn_syqk_cd_1, sy.split("/")[2]);
+            }else  if (sy.split("/").length == 0) {
                 et_syqk_dqz.setText(sy.split("/")[0]);
                 et_syqk_mbz.setText(sy.split("/")[1]);
                 ViewDataUtil.setSpinnerData(sn_syqk_cd_1, sy.split("/")[2]);

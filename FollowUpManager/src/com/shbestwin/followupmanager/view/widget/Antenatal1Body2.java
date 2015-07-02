@@ -37,8 +37,11 @@ public class Antenatal1Body2 extends LinearLayout  implements IBaseAntenatal1Bod
 
 	@Override
 	public void setData(FollowUpFirstPregnancy followUpFirstPregnancy) {
-		// TODO Auto-generated method stub
-
+		if(followUpFirstPregnancy!=null) {
+		    et_zfxm.setText(followUpFirstPregnancy.getPoxx_zfxm());
+		    et_zfnl.setText(followUpFirstPregnancy.getPoxx_zfnl());
+		    et_zfdh.setText(followUpFirstPregnancy.getPoxx_zfdh());
+		}
 	}
 
 	@Override

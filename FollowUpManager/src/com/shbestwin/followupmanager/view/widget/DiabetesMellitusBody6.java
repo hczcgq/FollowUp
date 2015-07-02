@@ -93,6 +93,7 @@ public class DiabetesMellitusBody6 extends LinearLayout implements
                 List<Insulin> lists=JsonUtil.jsonToObjects(followUpDiabetesMellitus.getYds(), Insulin.class);
                 if(lists!=null&&lists.size()>0) {
                     insulinList.addAll(lists);
+                    insulinListAdapter.notifyDataSetChanged();
                 }
             } catch (Exception e) {
                 e.printStackTrace();

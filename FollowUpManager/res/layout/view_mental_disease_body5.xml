@@ -97,7 +97,8 @@
 
         <EditText
             android:id="@+id/et_mccysj"
-            android:editable="false" 
+            android:editable="false"
+            android:clickable="true" 
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="180dp"
             android:drawableRight="@drawable/icon_calendar" />

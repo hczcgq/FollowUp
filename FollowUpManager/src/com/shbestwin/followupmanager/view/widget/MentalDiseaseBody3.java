@@ -8,87 +8,115 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
+
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ViewDataUtil;
 import com.shbestwin.followupmanager.model.followup.FollowUpMentalDisease;
 
-public class MentalDiseaseBody3 extends LinearLayout  implements IBaseMentalDiseaseBody{
-	private Spinner sn_smqk,sn_ysqk;
-	private RadioGroup rg_zzl;
-	private String zzl="自知力完全";
-	
-	private EditText symptom_other;
-	private RelativeLayout symptomRelativeLayout;
-	private CheckBox symptom11;
-	public MentalDiseaseBody3(Context context) {
-		this(context, null);
-	}
+public class MentalDiseaseBody3 extends LinearLayout implements
+        IBaseMentalDiseaseBody {
+    private Spinner sn_smqk, sn_ysqk;
 
-	public MentalDiseaseBody3(Context context, AttributeSet attrs) {
-		this(context, attrs, 0);
-	}
+    private RadioGroup rg_zzl;
 
-	public MentalDiseaseBody3(Context context, AttributeSet attrs, int defStyle) {
-		super(context, attrs, defStyle);
-		View rootView = LayoutInflater.from(context).inflate(R.layout.view_mental_disease_body3, this, true);
-		sn_smqk=(Spinner) rootView.findViewById(R.id.sn_smqk);
-		sn_ysqk=(Spinner) rootView.findViewById(R.id.sn_ysqk);
-		rg_zzl=(RadioGroup) rootView.findViewById(R.id.rg_zzl);
-		
-		rg_zzl.setOnCheckedChangeListener(new android.widget.RadioGroup.OnCheckedChangeListener() {
-			
-			@Override
-			public void onCheckedChanged(RadioGroup group, int checkedId) {
-				if(checkedId==R.id.rb_wq){
-						zzl="自知力完全";
-				}else if(checkedId==R.id.rb_bwq){
-					zzl="自知力不全";
-				}else if(checkedId==R.id.rb_qs){
-					zzl="自知力缺失";
-				}
-			}
-		});
-		
-		
-		symptomRelativeLayout=(RelativeLayout) rootView.findViewById(R.id.symptomRelativeLayout);
-		symptom_other=(EditText) rootView.findViewById(R.id.et_other);
-		symptom11 = (CheckBox) rootView.findViewById(R.id.symptom11);
-		ViewDataUtil.initOtherCheckboxConstraint(symptom11,
-				symptom_other);
+    private String zzl = "自知力完全";
 
-		
-		
-		
-	}
-	@Override
-	public void getData(FollowUpMentalDisease followUpMentalDisease) {
-		
-		followUpMentalDisease.setZz_zzmc(ViewDataUtil.getCheckboxData(symptomRelativeLayout,
-				symptom_other));
-		followUpMentalDisease.setZz_zzl(zzl);
-		followUpMentalDisease.setZz_smqk(ViewDataUtil.getSpinnerData(sn_smqk));
-		followUpMentalDisease.setZz_ysqk(ViewDataUtil.getSpinnerData(sn_ysqk));
-		
-	}
+    private EditText symptom_other;
 
-	@Override
-	public void setData(FollowUpMentalDisease followUpMentalDisease) {
-		// symptomO Auto-generated method stub
-		
-	}
+    private RelativeLayout symptomRelativeLayout;
 
-	@Override
-	public boolean validate() {
-		// symptomO Auto-generated method stub
-		return true;
-	}
+    private CheckBox symptom11;
 
-	@Override
-	public void setFragment(FragmentManager fragmentManager) {
-		// symptomO Auto-generated method stub
-		
-	}
+    private RadioButton rb_wq, rb_bwq, rb_qs;
+
+    public MentalDiseaseBody3(Context context) {
+        this(context, null);
+    }
+
+    public MentalDiseaseBody3(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
+
+    public MentalDiseaseBody3(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        View rootView = LayoutInflater.from(context).inflate(
+                R.layout.view_mental_disease_body3, this, true);
+        sn_smqk = (Spinner) rootView.findViewById(R.id.sn_smqk);
+        sn_ysqk = (Spinner) rootView.findViewById(R.id.sn_ysqk);
+        rg_zzl = (RadioGroup) rootView.findViewById(R.id.rg_zzl);
+        rb_wq = (RadioButton) rootView.findViewById(R.id.rb_wq);
+        rb_bwq = (RadioButton) rootView.findViewById(R.id.rb_bwq);
+        rb_qs = (RadioButton) rootView.findViewById(R.id.rb_qs);
+
+        rg_zzl.setOnCheckedChangeListener(new android.widget.RadioGroup.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.rb_wq) {
+                    zzl = "自知力完全";
+                } else if (checkedId == R.id.rb_bwq) {
+                    zzl = "自知力不全";
+                } else if (checkedId == R.id.rb_qs) {
+                    zzl = "自知力缺失";
+                }
+            }
+        });
+
+        symptomRelativeLayout = (RelativeLayout) rootView
+                .findViewById(R.id.symptomRelativeLayout);
+        symptom_other = (EditText) rootView.findViewById(R.id.et_other);
+        symptom11 = (CheckBox) rootView.findViewById(R.id.symptom11);
+        ViewDataUtil.initOtherCheckboxConstraint(symptom11, symptom_other);
+    }
+
+    @Override
+    public void getData(FollowUpMentalDisease followUpMentalDisease) {
+        followUpMentalDisease.setZz_zzmc(ViewDataUtil.getCheckboxData(
+                symptomRelativeLayout, symptom_other));
+        followUpMentalDisease.setZz_zzl(zzl);
+        followUpMentalDisease.setZz_smqk(ViewDataUtil.getSpinnerData(sn_smqk));
+        followUpMentalDisease.setZz_ysqk(ViewDataUtil.getSpinnerData(sn_ysqk));
+
+    }
+
+    @Override
+    public void setData(FollowUpMentalDisease followUpMentalDisease) {
+        if (followUpMentalDisease != null) {
+            if (followUpMentalDisease.getZz_zzl().equals("自知力缺失")) {
+                rb_qs.setChecked(true);
+                rb_bwq.setChecked(false);
+                rb_wq.setChecked(false);
+            } else if (followUpMentalDisease.getZz_zzl().equals("自知力不全")) {
+                rb_qs.setChecked(false);
+                rb_bwq.setChecked(true);
+                rb_wq.setChecked(false);
+            } else {
+                rb_qs.setChecked(false);
+                rb_bwq.setChecked(false);
+                rb_wq.setChecked(true);
+            }
+            ViewDataUtil.setSpinnerData(sn_smqk,
+                    followUpMentalDisease.getZz_smqk());
+            ViewDataUtil.setSpinnerData(sn_ysqk,
+                    followUpMentalDisease.getZz_ysqk());
+            ViewDataUtil.setCheckboxData(symptomRelativeLayout, symptom_other,
+                    followUpMentalDisease.getZz_zzmc());
+        }
+    }
+
+    @Override
+    public boolean validate() {
+        // symptomO Auto-generated method stub
+        return true;
+    }
+
+    @Override
+    public void setFragment(FragmentManager fragmentManager) {
+        // symptomO Auto-generated method stub
+
+    }
 }

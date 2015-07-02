@@ -17,7 +17,7 @@
 
         <EditText
             android:id="@+id/et_fcrq"
-            android:enabled="false"
+            android:editable="false"
             android:clickable="true"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="0dp"
@@ -269,6 +269,7 @@
         android:dividerHeight="0dp" />
 
     <RadioGroup
+        android:id="@+id/rg_kxxbyw"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -281,13 +282,13 @@
             android:text="抗血小板药物：" />
 
         <RadioButton
-            android:id="@+id/bloodCellsRadioButton1"
+            android:id="@+id/rb_w"
             style="@style/RadioButtonStyle"
             android:checked="true"
             android:text="无" />
 
         <RadioButton
-            android:id="@+id/bloodCellsRadioButton2"
+            android:id="@+id/rb_y"
             style="@style/RadioButtonStyle"
             android:layout_marginLeft="20dp"
             android:text="有" />
@@ -298,6 +299,7 @@
             android:text="种类：" />
 
         <Spinner
+            android:id="@+id/sn_zl"
             style="@style/GeneralExaminationSpinnerStyle"
             android:layout_width="200dp"
             android:entries="@array/bloodCellsCategory" />
@@ -308,6 +310,7 @@
             android:text="用法：" />
 
         <Spinner
+            android:id="@+id/sn_yf"
             style="@style/GeneralExaminationSpinnerStyle"
             android:layout_width="200dp"
             android:entries="@array/medicineUsage" />
@@ -326,6 +329,7 @@
             android:text="其他合并药物：" />
 
         <EditText
+            android:id="@+id/et_qthbyw"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
     </LinearLayout>

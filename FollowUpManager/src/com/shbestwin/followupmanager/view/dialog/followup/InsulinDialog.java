@@ -51,7 +51,7 @@ public class InsulinDialog extends BaseDialogFragment {
 	public Insulin getInsulin(){
 	    Insulin insulin=new Insulin();
 	    insulin.setYds_ywzl(et_ywlx.getText().toString());
-	    insulin.setYds_syjl(et_sypl.getText().toString());
+	    insulin.setYds_sypl(et_sypl.getText().toString());
 	    insulin.setYds_syjl(et_yyjl.getText().toString());
         return insulin;
     }

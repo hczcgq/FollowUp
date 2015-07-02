@@ -99,6 +99,8 @@ public class DisabilityBody4 extends LinearLayout implements
             String gnxl = followUpDisabledPerson.getKffw_gnxl();
             if (gnxl.split("/").length != 0) {
                 et_gnxl_cy.setText(gnxl.split("/")[0]);
+            }else if(gnxl.split("/").length ==2 ) {
+                et_gnxl_cy.setText(gnxl.split("/")[0]);
                 et_gnxl_fc.setText(gnxl.split("/")[1]);
             }
             try {

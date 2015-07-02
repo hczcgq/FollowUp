@@ -8,7 +8,6 @@
     <CheckBox
         android:id="@+id/familyHistoryCategoryNone"
         style="@style/CheckBoxStyle"
-        android:checked="true"
         android:layout_width="160dp"
         android:text="无" />
 

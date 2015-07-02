@@ -18,7 +18,7 @@
         android:text="无" />
 
     <RadioButton
-        android:id="@+id/rv_y"
+        android:id="@+id/rb_y"
         style="@style/RadioButtonStyle"
         android:layout_marginLeft="20dp"
         android:text="有" />

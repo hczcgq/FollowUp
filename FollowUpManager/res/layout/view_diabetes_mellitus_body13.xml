@@ -18,8 +18,8 @@
 
         <EditText
             android:id="@+id/et_rq"
-            android:editable="false"
             android:clickable="true"
+            android:enabled="true"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp"
             android:drawableRight="@drawable/icon_calendar" />

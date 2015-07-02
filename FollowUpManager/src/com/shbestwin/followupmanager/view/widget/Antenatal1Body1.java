@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.shbestwin.followupmanager.R;
@@ -22,6 +23,7 @@ public class Antenatal1Body1 extends LinearLayout implements IBaseAntenatal1Body
 	private RadioGroup rg_mcyj;
 	private FragmentManager fragmentManager;
 	private boolean isMoci=false;
+	private RadioButton rb_bx,rb_txrq;
 	public Antenatal1Body1(Context context) {
 		this(context, null);
 	}
@@ -41,7 +43,10 @@ public class Antenatal1Body1 extends LinearLayout implements IBaseAntenatal1Body
 		et_txrq=(EditText) rootView.findViewById(R.id.et_txrq);
 		et_ycq=(EditText) rootView.findViewById(R.id.et_ycq);
 		rg_mcyj=(RadioGroup) rootView.findViewById(R.id.rg_mcyj);
+		rb_bx=(RadioButton) rootView.findViewById(R.id.rb_bx);
+		rb_txrq=(RadioButton) rootView.findViewById(R.id.rb_txrq);
 		
+		et_tbrq.setText(DateUtils.formatDate(new Date(), "yyyy-MM-dd"));
 		et_tbrq.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -60,6 +65,7 @@ public class Antenatal1Body1 extends LinearLayout implements IBaseAntenatal1Body
 			}
 		});
 		
+		et_txrq.setText(DateUtils.formatDate(new Date(), "yyyy-MM-dd"));
 		et_txrq.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -77,6 +83,8 @@ public class Antenatal1Body1 extends LinearLayout implements IBaseAntenatal1Body
 						});
 			}
 		});
+		
+		et_ycq.setText(DateUtils.formatDate(new Date(), "yyyy-MM-dd"));
 		et_ycq.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -123,8 +131,22 @@ public class Antenatal1Body1 extends LinearLayout implements IBaseAntenatal1Body
 
 	@Override
 	public void setData(FollowUpFirstPregnancy followUpFirstPregnancy) {
-		// TODO Auto-generated method stub
-
+	    if(followUpFirstPregnancy!=null) {
+	        et_tbrq.setText(followUpFirstPregnancy.getGrxx_tbrq());
+	        et_yz.setText(followUpFirstPregnancy.getGrxx_yz());
+	        et_yc.setText(followUpFirstPregnancy.getGrxx_yc());
+	        et_ydfmcs.setText(followUpFirstPregnancy.getGrxx_ydfmcs());
+	        et_pgccs.setText(followUpFirstPregnancy.getGrxx_pgccs());
+	        et_txrq.setText(followUpFirstPregnancy.getGrxx_sfmcyjms());
+	        et_yc.setText(followUpFirstPregnancy.getGrxx_yc());
+	        if(followUpFirstPregnancy.getGrxx_sfmcyj()) {
+	            rb_bx.setChecked(false);
+	            rb_txrq.setChecked(true);
+	        }else {
+	            rb_bx.setChecked(true);
+                rb_txrq.setChecked(false);
+            }
+	    }
 	}
 
 	@Override

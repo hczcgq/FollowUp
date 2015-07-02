@@ -169,18 +169,31 @@ public class DisabilityBody5 extends LinearLayout implements
             et_smoking.setText(followUpDisabledPerson.getShfszd_sfxyms());
             String yj=followUpDisabledPerson.getShfszd_sfyjms();
             System.out.println(yj);
-            if(yj.split("/").length!=0) {
+            if(yj.split("/").length==1) {
+                ViewDataUtil.setSpinnerData(sn_drinking, yj.split("/")[0]);
+            }else  if(yj.split("/").length==2) {
                 ViewDataUtil.setSpinnerData(sn_drinking, yj.split("/")[0]);
                 et_drinking.setText(yj.split("/")[1]);
             }
             String yd=followUpDisabledPerson.getShfszd_sfydms();
-            if(yd.split("/").length!=0) {
+            if(yd.split("/").length==1) {
+                et_sporting_cz.setText(yj.split("/")[0]);
+            }else if(yd.split("/").length==2) {
                 et_sporting_cz.setText(yj.split("/")[0]);
                 et_sporting_fc.setText(yj.split("/")[1]);
             }
             et_ydxm.setText(followUpDisabledPerson.getShfszd_ydxm());
             String sy=followUpDisabledPerson.getShfszd_syqk();
-            if(sy.split("/").length!=0) {
+            if(sy.split("/").length==1) {
+                et_syqk_dqz.setText(sy.split("/")[0]);
+            }else if(sy.split("/").length==2) {
+                et_syqk_dqz.setText(sy.split("/")[0]);
+                et_syqk_mbz.setText(sy.split("/")[1]);
+            }else if(sy.split("/").length==3) {
+                et_syqk_dqz.setText(sy.split("/")[0]);
+                et_syqk_mbz.setText(sy.split("/")[1]);
+                ViewDataUtil.setSpinnerData(sn_syqk_cd_1, sy.split("/")[2]);
+            }else if(sy.split("/").length==4) {
                 et_syqk_dqz.setText(sy.split("/")[0]);
                 et_syqk_mbz.setText(sy.split("/")[1]);
                 ViewDataUtil.setSpinnerData(sn_syqk_cd_1, sy.split("/")[2]);
