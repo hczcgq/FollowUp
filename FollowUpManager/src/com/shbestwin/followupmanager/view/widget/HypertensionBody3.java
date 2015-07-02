@@ -47,7 +47,26 @@ public class HypertensionBody3 extends LinearLayout  implements IBaseHypertensio
 
 	@Override
 	public void setData(FollowUpHypertension followUpHypertension) {
-
+	    if(followUpHypertension!=null) {
+	        String xy=followUpHypertension.getTz_xy();
+	        if(xy.split("/").length!=0) {
+	            et_xy_ssy.setText(xy.split("/")[0]);
+	            et_xy_szy.setText(xy.split("/")[1]);
+	        }
+	        et_xl.setText(followUpHypertension.getTz_xl());
+	        String tz=followUpHypertension.getTz_tz();
+            if(tz.split("/").length!=0) {
+                et_tz_dqz.setText(tz.split("/")[0]);
+                et_tz_mbz.setText(tz.split("/")[1]);
+            }
+            et_sg.setText(followUpHypertension.getTz_sg());
+            String tzzs=followUpHypertension.getTz_tzzs();
+            if(tzzs.split("/").length!=0) {
+                et_tzzs_dqz.setText(tzzs.split("/")[0]);
+                et_tzzs_mbz.setText(tzzs.split("/")[1]);
+            }
+            et_qt.setText(followUpHypertension.getTz_qt());
+	    }
 	}
 
 	@Override
@@ -57,7 +76,5 @@ public class HypertensionBody3 extends LinearLayout  implements IBaseHypertensio
 	
 	@Override
 	public void setFragment(FragmentManager fragmentManager) {
-		// TODO Auto-generated method stub
-		
 	}
 }

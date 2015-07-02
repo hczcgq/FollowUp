@@ -90,9 +90,23 @@ public class HypertensionBody5 extends LinearLayout implements
         }
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public void setData(FollowUpHypertension followUpHypertension) {
+        if (followUpHypertension != null) {
+            List<Inspection> lists;
+            try {
+                lists = JsonUtil.jsonToObjects(followUpHypertension.getFzjc(),
+                        Inspection.class);
+                if (lists != null && lists.size() > 0) {
+                    inspectionList.addAll(lists);
+                }
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
 
+        }
     }
 
     @Override

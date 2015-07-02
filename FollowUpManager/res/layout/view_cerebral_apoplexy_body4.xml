@@ -17,7 +17,7 @@
         <EditText
             android:id="@+id/et_fcrq"
             android:clickable="true"
-            android:enabled="false"
+            android:editable="false"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="0dp"
             android:layout_weight="1"

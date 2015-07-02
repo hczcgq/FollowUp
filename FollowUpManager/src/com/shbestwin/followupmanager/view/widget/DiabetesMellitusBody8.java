@@ -34,8 +34,9 @@ public class DiabetesMellitusBody8 extends LinearLayout implements  IBaseDiabete
 
 	@Override
 	public void setData(FollowUpDiabetesMellitus followUpDiabetesMellitus) {
-		// TODO Auto-generated method stub
-		
+		if(followUpDiabetesMellitus!=null) {
+		    ViewDataUtil.setSpinnerData(sn_fyycx, followUpDiabetesMellitus.getFyycx());
+		}
 	}
 
 	@Override

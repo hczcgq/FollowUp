@@ -1,16 +1,13 @@
 package com.shbestwin.followupmanager.view.widget;
 
 import java.util.Date;
-
 import android.content.Context;
 import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.DateUtils;
 import com.shbestwin.followupmanager.model.followup.FollowUpStroke;
@@ -57,13 +54,14 @@ public class CerebralApoplexyBody1 extends LinearLayout implements IBaseCerebral
 	public void getData(FollowUpStroke followUpStroke) {
 		followUpStroke.setGrxx_zrys(et_zrys.getText().toString());
 		followUpStroke.setGrxx_sfrq(et_sfrq.getText().toString());
-		
 	}
 
 	@Override
 	public void setData(FollowUpStroke followUpStroke) {
-		// TODO Auto-generated method stub
-		
+		if(followUpStroke!=null) {
+		    et_sfrq.setText(followUpStroke.getGrxx_sfrq());
+		    et_zrys.setText(followUpStroke.getGrxx_zrys());
+		}
 	}
 
 	@Override

@@ -35,7 +35,9 @@ public class HypertensionBody6 extends LinearLayout  implements IBaseHypertensio
 
 	@Override
 	public void setData(FollowUpHypertension followUpHypertension) {
-
+	    if(followUpHypertension!=null) {
+	        ViewDataUtil.setSpinnerData(sn_fyycx, followUpHypertension.getFyycx());
+	    }
 	}
 
 	@Override

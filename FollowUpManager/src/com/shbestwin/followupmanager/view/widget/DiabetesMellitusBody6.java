@@ -2,7 +2,6 @@ package com.shbestwin.followupmanager.view.widget;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import android.content.Context;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -11,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.JsonUtil;
 import com.shbestwin.followupmanager.interfaces.ListItemClickHelp;
@@ -87,10 +85,20 @@ public class DiabetesMellitusBody6 extends LinearLayout implements
         }
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public void setData(FollowUpDiabetesMellitus followUpDiabetesMellitus) {
-        // TODO Auto-generated method stub
-
+        if (followUpDiabetesMellitus != null) {
+            try {
+                List<Insulin> lists=JsonUtil.jsonToObjects(followUpDiabetesMellitus.getYds(), Insulin.class);
+                if(lists!=null&&lists.size()>0) {
+                    insulinList.addAll(lists);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            
+        }
     }
 
     @Override

@@ -35,7 +35,9 @@ public class HypertensionBody10 extends LinearLayout implements IBaseHypertensio
 
 	@Override
 	public void setData(FollowUpHypertension followUpHypertension) {
-
+	    if(followUpHypertension!=null) {
+	        et_jyzl.setText(followUpHypertension.getZljy());
+	    }
 	}
 
 	@Override

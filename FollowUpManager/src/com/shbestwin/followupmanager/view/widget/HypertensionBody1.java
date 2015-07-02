@@ -11,7 +11,6 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.DateUtils;
-import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.common.util.ViewDataUtil;
 import com.shbestwin.followupmanager.model.followup.FollowUpHypertension;
 import com.shbestwin.followupmanager.view.dialog.DatePickerDialog;
@@ -75,7 +74,12 @@ public class HypertensionBody1 extends LinearLayout implements
 
 	@Override
 	public void setData(FollowUpHypertension followUpHypertension) {
-
+	    if(followUpHypertension!=null) {
+	        et_sfrq.setText(followUpHypertension.getGrxx_sfrq());;
+	        et_zrys.setText(followUpHypertension.getGrxx_zrys());
+	        ViewDataUtil.setSpinnerData(sn_gxylx, followUpHypertension.getGrxx_gxylx());
+	        ViewDataUtil.setSpinnerData(sn_sffs, followUpHypertension.getGrxx_sffs());
+	    }
 	}
 
 	@Override

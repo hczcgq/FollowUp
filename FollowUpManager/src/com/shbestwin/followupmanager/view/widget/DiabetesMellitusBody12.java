@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
@@ -16,6 +17,7 @@ import com.shbestwin.followupmanager.model.followup.FollowUpDiabetesMellitus;
 public class DiabetesMellitusBody12 extends LinearLayout  implements IBaseDiabetesMellitusBody{
 	private RadioGroup rg_check;
 	private EditText et_reason,et_jgjks;
+	private RadioButton rb_w,rb_y;
 	private boolean isHas=false;
 	public DiabetesMellitusBody12(Context context) {
 		this(context, null);
@@ -31,6 +33,8 @@ public class DiabetesMellitusBody12 extends LinearLayout  implements IBaseDiabet
 		rg_check=(RadioGroup) rootView.findViewById(R.id.rg_check);
 		et_reason=(EditText) rootView.findViewById(R.id.et_reason);
 		et_jgjks=(EditText) rootView.findViewById(R.id.et_jgjks);
+		rb_w=(RadioButton) rootView.findViewById(R.id.rb_w);
+        rb_y=(RadioButton) rootView.findViewById(R.id.rb_y);
 		rg_check.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
 			@Override
@@ -53,8 +57,17 @@ public class DiabetesMellitusBody12 extends LinearLayout  implements IBaseDiabet
 
 	@Override
 	public void setData(FollowUpDiabetesMellitus followUpDiabetesMellitus) {
-		// TODO Auto-generated method stub
-		
+	    if(followUpDiabetesMellitus!=null) {
+	        et_jgjks.setText(followUpDiabetesMellitus.getZz_jgjks());
+            et_reason.setText(followUpDiabetesMellitus.getZz_sfzzms());
+            if(followUpDiabetesMellitus.getZz_sfzz()) {
+                rb_w.setChecked(false);
+                rb_y.setChecked(true);
+            }else {
+                rb_w.setChecked(true);
+                rb_y.setChecked(false);
+            }
+        }
 	}
 
 	@Override

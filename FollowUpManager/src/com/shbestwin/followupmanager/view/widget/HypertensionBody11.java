@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
@@ -15,6 +16,7 @@ import com.shbestwin.followupmanager.model.followup.FollowUpHypertension;
 
 public class HypertensionBody11 extends LinearLayout  implements IBaseHypertensionBody{
 	private RadioGroup rg_check;
+	private RadioButton rb_w,rb_y;
 	private EditText et_reason,et_group;
 	private boolean isHas=false;
 	
@@ -32,7 +34,8 @@ public class HypertensionBody11 extends LinearLayout  implements IBaseHypertensi
 		rg_check=(RadioGroup) rootView.findViewById(R.id.rg_check);
 		et_reason=(EditText) rootView.findViewById(R.id.et_reason);
 		et_group=(EditText) rootView.findViewById(R.id.et_group);
-		
+		rb_w=(RadioButton) rootView.findViewById(R.id.rb_w);
+        rb_y=(RadioButton) rootView.findViewById(R.id.rb_y);
 		rg_check.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
 			@Override
@@ -54,7 +57,17 @@ public class HypertensionBody11 extends LinearLayout  implements IBaseHypertensi
 
 	@Override
 	public void setData(FollowUpHypertension followUpHypertension) {
-
+	    if(followUpHypertension!=null) {
+	        et_group.setText(followUpHypertension.getZz_jgjks());
+	        et_reason.setText(followUpHypertension.getZz_sfzzms());
+	        if(followUpHypertension.getZz_sfzz()) {
+	            rb_w.setChecked(false);
+                rb_y.setChecked(true);
+            }else {
+                rb_w.setChecked(true);
+                rb_y.setChecked(false);
+            }
+	    }
 	}
 
 	@Override

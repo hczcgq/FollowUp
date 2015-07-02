@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
@@ -14,7 +15,7 @@ import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.model.followup.FollowUpHypertension;
 
 public class HypertensionBody9 extends LinearLayout  implements IBaseHypertensionBody{
-	
+    private RadioButton rb_w,rb_y;
 	private RadioGroup rg_check;
 	private EditText et_other;
 	private boolean isHas=false;
@@ -32,6 +33,8 @@ public class HypertensionBody9 extends LinearLayout  implements IBaseHypertensio
 		View rootView = LayoutInflater.from(context).inflate(R.layout.view_hypertension_body9, this, true);
 		rg_check=(RadioGroup) rootView.findViewById(R.id.rg_check);
 		et_other=(EditText) rootView.findViewById(R.id.et_other);
+		rb_w=(RadioButton) rootView.findViewById(R.id.rb_w);
+        rb_y=(RadioButton) rootView.findViewById(R.id.rb_y);
 		rg_check.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
 			@Override
@@ -49,12 +52,20 @@ public class HypertensionBody9 extends LinearLayout  implements IBaseHypertensio
 	public void getData(FollowUpHypertension followUpHypertension) {
 		followUpHypertension.setYyqk_yy(isHas);
 		followUpHypertension.setYyqk_yyms(et_other.getText().toString());
-
 	}
 
 	@Override
 	public void setData(FollowUpHypertension followUpHypertension) {
-
+	    if(followUpHypertension!=null) {
+	        et_other.setText(followUpHypertension.getYyqk_yyms());
+	        if(followUpHypertension.getYyqk_yy()) {
+	            rb_w.setChecked(false);
+                rb_y.setChecked(true);
+            }else {
+                rb_w.setChecked(true);
+                rb_y.setChecked(false);
+            }
+	    }
 	}
 
 	@Override

@@ -12,20 +12,26 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
 import com.shbestwin.followupmanager.R;
+import com.shbestwin.followupmanager.common.util.JsonUtil;
+import com.shbestwin.followupmanager.interfaces.ListItemClickHelp;
 import com.shbestwin.followupmanager.model.followup.FollowUpStroke;
 import com.shbestwin.followupmanager.model.followup.Medication;
 import com.shbestwin.followupmanager.view.adapter.followup.MedicationListAdapter;
+import com.shbestwin.followupmanager.view.dialog.BaseDialogFragment.OnConfirmClickListener;
 import com.shbestwin.followupmanager.view.dialog.followup.MedicationDialog;
 
-public class CerebralApoplexyBody3 extends LinearLayout implements IBaseCerebralApoplexyBody {
+public class CerebralApoplexyBody3 extends LinearLayout implements IBaseCerebralApoplexyBody, ListItemClickHelp {
 	private View medicationButton;
 	private ListView medicationListView;
+	private RadioButton rb_w,rb_y;
+	  private MedicationListAdapter medicationListAdapter;
 
-	private MedicationListAdapter medicationListAdapter;
+	    private List<Medication> medicationList = new ArrayList<Medication>();
 	
 	private RadioGroup rg_check;
 	private EditText et_ssy,et_szy;
@@ -47,6 +53,8 @@ public class CerebralApoplexyBody3 extends LinearLayout implements IBaseCerebral
 		rg_check=(RadioGroup) rootView.findViewById(R.id.rg_check);
 		et_ssy=(EditText) rootView.findViewById(R.id.et_ssy);
 		et_szy=(EditText) rootView.findViewById(R.id.et_szy);
+		rb_w=(RadioButton) rootView.findViewById(R.id.rb_w);
+        rb_y=(RadioButton) rootView.findViewById(R.id.rb_y);
 		rg_check.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
 			@Override
@@ -66,34 +74,75 @@ public class CerebralApoplexyBody3 extends LinearLayout implements IBaseCerebral
 			}
 		});
 
-		List<Medication> medicationList = new ArrayList<Medication>();
-		for (int i = 0; i < 10; i++) {
-			medicationList.add(new Medication());
-		}
-		medicationListAdapter = new MedicationListAdapter(getContext(), medicationList);
-		medicationListView.setAdapter(medicationListAdapter);
+		  medicationListAdapter = new MedicationListAdapter(getContext(),
+	                medicationList);
+	        medicationListAdapter.setListItemClickHelp(this);
+	        medicationListView.setAdapter(medicationListAdapter);
 	}
 
 	private void showMedicationDialog() {
-		MedicationDialog medicationDialog = MedicationDialog.newInstance();
-		medicationDialog.show(((FragmentActivity) getContext()).getSupportFragmentManager(), "medicationDialog");
-	}
+	    final MedicationDialog medicationDialog = MedicationDialog
+                .newInstance();
+        medicationDialog.show(
+                ((FragmentActivity) getContext()).getSupportFragmentManager(),
+                "medicationDialog");
+
+        medicationDialog
+                .setOnConfirmClickListener(new OnConfirmClickListener() {
+
+                    @Override
+                    public void onConfirmClick() {
+                        Medication medication = medicationDialog
+                                .getMedication();
+                        medicationList.add(medication);
+                        medicationDialog.hide();
+                        medicationListAdapter.notifyDataSetChanged();
+                    }
+                });
+        }
 
 	@Override
 	public void getData(FollowUpStroke followUpStroke) {
 		followUpStroke.setWxyskzgxy_sfmzcxy(String.valueOf(isHas));
 		followUpStroke.setWxyskzgxy_sfmzcxyms(et_ssy.getText().toString()+"/"+et_szy.getText().toString());
+		try {
+		    followUpStroke.setWxyskzgxy_yyqk(JsonUtil
+                    .objectsToJson(medicationList));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 	}
 
-	@Override
+	@SuppressWarnings("unchecked")
+    @Override
 	public void setData(FollowUpStroke followUpStroke) {
-		// TODO Auto-generated method stub
-
+	    if(followUpStroke!=null) {
+	        if(Boolean.valueOf(followUpStroke.getWxyskzgxy_sfmzcxy())) {
+                rb_w.setChecked(false);
+                rb_y.setChecked(true);
+            }else {
+                rb_w.setChecked(true);
+                rb_y.setChecked(false);
+            }
+	        String xy=followUpStroke.getWxyskzgxy_sfmzcxyms();
+	        if(xy.split("/").length>0) {
+	            et_ssy.setText(xy.split("/")[0]);
+	            et_szy.setText(xy.split("/")[1]);
+	        }
+	        
+	        try {
+                List<Medication> lists=JsonUtil.jsonToObjects(followUpStroke.getWxyskzgxy_yyqk(), Medication.class);
+                if(lists!=null&&lists.size()>0) {
+                    medicationList.addAll(lists);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+	    }
 	}
 
 	@Override
 	public boolean validate() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
@@ -102,4 +151,36 @@ public class CerebralApoplexyBody3 extends LinearLayout implements IBaseCerebral
 		// TODO Auto-generated method stub
 		
 	}
+
+    @Override
+    public void onClick(final int position, int which) {
+        Medication medication = medicationList.get(position);
+        switch (which) {
+        case R.id.im_delete:
+            medicationList.remove(position);
+            medicationListAdapter.notifyDataSetChanged();
+            break;
+        case R.id.im_edit:
+            final MedicationDialog medicationDialog = new MedicationDialog(
+                    medication);
+            medicationDialog.show(((FragmentActivity) getContext())
+                    .getSupportFragmentManager(), "medicationDialog");
+            medicationDialog
+                    .setOnConfirmClickListener(new OnConfirmClickListener() {
+
+                        @Override
+                        public void onConfirmClick() {
+                            Medication item = medicationDialog.getMedication();
+                            medicationList.set(position, item);
+                            medicationDialog.hide();
+                            medicationListAdapter.notifyDataSetChanged();
+                        }
+                    });
+
+            break;
+
+        default:
+            break;
+        }
+    }
 }

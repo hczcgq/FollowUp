@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Spinner;
@@ -19,6 +20,7 @@ public class CerebralApoplexyBody2 extends LinearLayout  implements IBaseCerebra
 	private RadioGroup rg_smoking,rg_drinking;
 	private Spinner sn_ys;
 	private EditText et_bhj,et_pj,et_yd,et_yd_sj,et_kfdl,et_kfdl_sj;
+	private RadioButton rb_yj_w,rb_yj_y,rb_xy_w,rb_xy_y;
 	private boolean isSmoking=false,isDrinking=false;
 	public CerebralApoplexyBody2(Context context) {
 		this(context, null);
@@ -40,6 +42,11 @@ public class CerebralApoplexyBody2 extends LinearLayout  implements IBaseCerebra
 		et_yd_sj=(EditText) rootView.findViewById(R.id.et_yd_sj);
 		et_kfdl=(EditText) rootView.findViewById(R.id.et_kfdl);
 		et_kfdl_sj=(EditText) rootView.findViewById(R.id.et_kfdl_sj);
+		
+		rb_xy_w=(RadioButton) rootView.findViewById(R.id.rb_xy_w);
+		rb_xy_y=(RadioButton) rootView.findViewById(R.id.rb_xy_y);
+		rb_yj_w=(RadioButton) rootView.findViewById(R.id.rb_yj_w);
+		rb_yj_y=(RadioButton) rootView.findViewById(R.id.rb_yj_y);
 		
 		rg_drinking.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
@@ -79,8 +86,9 @@ public class CerebralApoplexyBody2 extends LinearLayout  implements IBaseCerebra
 
 	@Override
 	public void setData(FollowUpStroke followUpStroke) {
-		// TODO Auto-generated method stub
-		
+		if(followUpStroke!=null) {
+//		       ViewDataUtil.setSpinnerData(sn_ys, followUpStroke.getsh);
+		}
 	}
 
 	@Override

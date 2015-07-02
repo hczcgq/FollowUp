@@ -1,17 +1,14 @@
 package com.shbestwin.followupmanager.view.widget;
 
 import java.util.Date;
-
 import android.content.Context;
 import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
-
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.DateUtils;
 import com.shbestwin.followupmanager.common.util.ViewDataUtil;
@@ -67,8 +64,11 @@ public class DiabetesMellitusBody1 extends LinearLayout implements IBaseDiabetes
 
 	@Override
 	public void setData(FollowUpDiabetesMellitus followUpDiabetesMellitus) {
-		// TODO Auto-generated method stub
-		
+		if(followUpDiabetesMellitus!=null) {
+		    et_sfrq.setText(followUpDiabetesMellitus.getGrxx_sfrq());
+		    et_zrys.setText(followUpDiabetesMellitus.getGrxx_zrys());
+		    ViewDataUtil.setSpinnerData(sn_sffs, followUpDiabetesMellitus.getGrxx_sffs());
+		}
 	}
 
 	@Override

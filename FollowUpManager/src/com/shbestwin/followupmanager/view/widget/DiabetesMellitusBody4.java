@@ -1,7 +1,5 @@
 package com.shbestwin.followupmanager.view.widget;
 
-import org.w3c.dom.Text;
-
 import android.content.Context;
 import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
@@ -10,7 +8,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
-
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ViewDataUtil;
 import com.shbestwin.followupmanager.model.followup.FollowUpDiabetesMellitus;
@@ -55,8 +52,34 @@ public class DiabetesMellitusBody4 extends LinearLayout  implements IBaseDiabete
 
 	@Override
 	public void setData(FollowUpDiabetesMellitus followUpDiabetesMellitus) {
-		// TODO Auto-generated method stub
-		
+		if(followUpDiabetesMellitus!=null) {
+		    ViewDataUtil.setSpinnerData(sn_xltz, followUpDiabetesMellitus.getShzdfs_xltz());
+		    ViewDataUtil.setSpinnerData(sn_zyxw, followUpDiabetesMellitus.getShzdfs_zs());
+		    String smoking=followUpDiabetesMellitus.getShzdfs_rxyl();
+		    if(smoking.split("/").length>0) {
+		        et_rxyl_dqz.setText(smoking.split("/")[0]);
+		        et_rxyl_mbz.setText(smoking.split("/")[1]);
+		    }
+		    String drinking=followUpDiabetesMellitus.getShzdfs_ryjl();
+            if(drinking.split("/").length>0) {
+                et_ryjl_dqz.setText(drinking.split("/")[0]);
+                et_ryjl_mbz.setText(drinking.split("/")[1]);
+            }
+            
+            String food=followUpDiabetesMellitus.getShzdfs_zs();
+            if(food.split("/").length>0) {
+                et_zs_dqz.setText(food.split("/")[0]);
+                et_zs_mbz.setText(food.split("/")[1]);
+            }
+            
+            String sporting=followUpDiabetesMellitus.getShzdfs_ydl();
+            if(sporting.split("/").length>0) {
+                et_ydl_cz.setText(sporting.split("/")[0]);
+                et_ydl_fc.setText(sporting.split("/")[1]);
+                et_ydl_cz_s.setText(sporting.split("/")[2]);
+                et_ydl_fc_s.setText(sporting.split("/")[3]);
+            }
+		}
 	}
 
 	@Override

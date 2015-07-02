@@ -20,7 +20,6 @@ public class DiabetesMellitusBody2 extends LinearLayout implements  IBaseDiabete
 	private EditText diabetesMellitus_other;
 	private RelativeLayout diabetesMellitusRelativeLayout;
 	private CheckBox  diabetesMellitus0,diabetesMellitus14;
-	private boolean isDiabetesMellitus=false;
 
 	public DiabetesMellitusBody2(Context context) {
 		this(context, null);
@@ -48,7 +47,6 @@ public class DiabetesMellitusBody2 extends LinearLayout implements  IBaseDiabete
 					@Override
 					public void onCheckedChanged(CompoundButton buttonView,
 							boolean isChecked) {
-						isDiabetesMellitus = !isChecked;
 						setCheckBoxStatus(diabetesMellitusRelativeLayout, isChecked);
 					}
 				});
@@ -64,7 +62,9 @@ public class DiabetesMellitusBody2 extends LinearLayout implements  IBaseDiabete
 
 	@Override
 	public void setData(FollowUpDiabetesMellitus followUpDiabetesMellitus) {
-
+	    if(followUpDiabetesMellitus!=null) {
+	        ViewDataUtil.setCheckboxData(diabetesMellitusRelativeLayout, diabetesMellitus_other, followUpDiabetesMellitus.getZz());
+	    }
 	}
 
 	private void setCheckBoxStatus(RelativeLayout familyHistory,

@@ -22,7 +22,6 @@ public class HypertensionBody2 extends LinearLayout implements
 	private EditText hypertension_other;
 	private RelativeLayout hypertensionRelativeLayout;
 	private CheckBox  hypertension0,hypertension13;
-	private boolean isHypertension=false;
 	
 
 	public HypertensionBody2(Context context) {
@@ -51,7 +50,6 @@ public class HypertensionBody2 extends LinearLayout implements
 					@Override
 					public void onCheckedChanged(CompoundButton buttonView,
 							boolean isChecked) {
-						isHypertension = !isChecked;
 						setCheckBoxStatus(hypertensionRelativeLayout, isChecked);
 					}
 				});
@@ -66,7 +64,9 @@ public class HypertensionBody2 extends LinearLayout implements
 
 	@Override
 	public void setData(FollowUpHypertension followUpHypertension) {
-
+	    if(followUpHypertension!=null) {
+	        ViewDataUtil.setCheckboxData(hypertensionRelativeLayout, hypertension_other, followUpHypertension.getZz());
+	    }
 	}
 
 	@Override

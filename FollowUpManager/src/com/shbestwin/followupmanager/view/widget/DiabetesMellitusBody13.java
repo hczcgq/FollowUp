@@ -100,8 +100,15 @@ public class DiabetesMellitusBody13 extends LinearLayout implements
 
 	@Override
 	public void setData(FollowUpDiabetesMellitus followUpDiabetesMellitus) {
-		// complicationO Auto-generated method stub
-
+	    if(followUpDiabetesMellitus!=null) {
+            et_rq.setText(followUpDiabetesMellitus.getZzhf_rq());
+            et_qtjb.setText(followUpDiabetesMellitus.getZzhf_qtjb());
+            et_xcsfrq.setText(followUpDiabetesMellitus.getZzhf_xcsfrq());
+            et_sfysqm.setText(followUpDiabetesMellitus.getZzhf_sfysqm());
+            ViewDataUtil.setCheckboxData(hbzRelativeLayout, null, followUpDiabetesMellitus.getZzhf_hbz());
+            ViewDataUtil.setCheckboxData(bfzRelativeLayout, null, followUpDiabetesMellitus.getZzhf_bqgsh());
+            
+        }
 	}
 
 	@Override

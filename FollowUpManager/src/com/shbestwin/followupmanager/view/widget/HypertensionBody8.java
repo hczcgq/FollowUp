@@ -36,7 +36,9 @@ public class HypertensionBody8 extends LinearLayout  implements IBaseHypertensio
 
 	@Override
 	public void setData(FollowUpHypertension followUpHypertension) {
-
+	    if(followUpHypertension!=null) {
+	        ViewDataUtil.setSpinnerData(sn_ccsffl, followUpHypertension.getCcsffl());
+	    }
 	}
 
 	@Override

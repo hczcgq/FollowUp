@@ -54,7 +54,9 @@ public class HypertensionBody4 extends LinearLayout  implements IBaseHypertensio
 
 	@Override
 	public void setData(FollowUpHypertension followUpHypertension) {
-
+	    if(followUpHypertension!=null){
+	       
+	    }
 	}
 
 	@Override

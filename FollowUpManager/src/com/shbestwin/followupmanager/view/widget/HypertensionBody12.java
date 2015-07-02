@@ -96,7 +96,15 @@ public class HypertensionBody12 extends LinearLayout implements
 
 	@Override
 	public void setData(FollowUpHypertension followUpHypertension) {
-
+	    if(followUpHypertension!=null) {
+	        et_rq.setText(followUpHypertension.getZzhf_rq());
+	        et_qtjb.setText(followUpHypertension.getZzhf_qtjb());
+	        et_xcsfrq.setText(followUpHypertension.getZzhf_xcsfrq());
+	        et_sfysqm.setText(followUpHypertension.getZzhf_sfysqm());
+	        ViewDataUtil.setCheckboxData(hbzRelativeLayout, null, followUpHypertension.getZzhf_hbz());
+	        ViewDataUtil.setCheckboxData(bqgRelativeLayout, null, followUpHypertension.getZzhf_bqgsh());
+	        
+	    }
 	}
 
 	@Override

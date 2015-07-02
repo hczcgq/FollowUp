@@ -56,8 +56,34 @@ public class DiabetesMellitusBody3 extends LinearLayout  implements IBaseDiabete
 
 	@Override
 	public void setData(FollowUpDiabetesMellitus followUpDiabetesMellitus) {
-		// TODO Auto-generated method stub
-		
+		if(followUpDiabetesMellitus!=null) {
+		    String xy=followUpDiabetesMellitus.getTz_xy();
+            if(xy.split("/").length!=0) {
+                et_xy_ssy.setText(xy.split("/")[0]);
+                et_xy_szy.setText(xy.split("/")[1]);
+            }
+            et_xl.setText(followUpDiabetesMellitus.getTz_xl());
+            et_sg.setText(followUpDiabetesMellitus.getTz_sg());
+            String tz=followUpDiabetesMellitus.getTz_tz();
+            if(tz.split("/").length!=0) {
+                et_tz_dqz.setText(tz.split("/")[0]);
+                et_tz_mbz.setText(tz.split("/")[1]);
+            }
+            
+            String tzzs=followUpDiabetesMellitus.getTz_tzzs();
+            if(tzzs.split("/").length!=0) {
+                et_tzzs_dqz.setText(tzzs.split("/")[0]);
+                et_tzzs_mbz.setText(tzzs.split("/")[1]);
+            }
+            
+            String yd=followUpDiabetesMellitus.getTz_xy();
+            if(yd.split("/").length!=0) {
+                et_yw_dqz.setText(yd.split("/")[0]);
+                et_yw_mbz.setText(yd.split("/")[1]);
+            }
+            ViewDataUtil.setSpinnerData(sn_zbdmbd, followUpDiabetesMellitus.getTz_zbdmbd());
+            et_qt.setText(followUpDiabetesMellitus.getTz_qt());
+		}
 	}
 
 	@Override
