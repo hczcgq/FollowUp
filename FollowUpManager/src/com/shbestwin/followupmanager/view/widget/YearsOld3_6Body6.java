@@ -88,13 +88,11 @@ public class YearsOld3_6Body6 extends LinearLayout implements
 
 	@Override
 	public void setData(FollowUpThreeSixNewborn followUpThreeSixNewborn) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public boolean validate() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 

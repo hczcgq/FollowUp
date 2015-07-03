@@ -17,6 +17,7 @@ import com.shbestwin.followupmanager.common.util.JsonUtil;
 import com.shbestwin.followupmanager.interfaces.ListItemClickHelp;
 import com.shbestwin.followupmanager.model.followup.FollowUpOneNewborn;
 import com.shbestwin.followupmanager.model.followup.Inspection;
+import com.shbestwin.followupmanager.model.followup.LabInspection;
 import com.shbestwin.followupmanager.view.adapter.followup.InspectionListAdapter;
 import com.shbestwin.followupmanager.view.dialog.BaseDialogFragment.OnConfirmClickListener;
 import com.shbestwin.followupmanager.view.dialog.followup.InspectionDialog;
@@ -89,8 +90,17 @@ public class YearsOld0Body7 extends LinearLayout  implements IBaseYearsOld0Body,
 
 	@Override
 	public void setData(FollowUpOneNewborn followUpOneNewborn) {
-		// TODO Auto-generated method stub
-
+	    if(followUpOneNewborn!=null){
+            try {
+                List<Inspection> lists=JsonUtil.jsonToObjects(followUpOneNewborn.getFzjc(), Inspection.class);
+                if(lists!=null&&lists.size()>0) {
+                        inspectionList.addAll(lists);
+                inspectionListAdapter.notifyDataSetChanged();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 	}
 
 	@Override

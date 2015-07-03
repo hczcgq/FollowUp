@@ -34,8 +34,9 @@ public class YearsOld0Body8 extends LinearLayout  implements IBaseYearsOld0Body 
 
 	@Override
 	public void setData(FollowUpOneNewborn followUpOneNewborn) {
-		// TODO Auto-generated method stub
-
+		if(followUpOneNewborn!=null) {
+		    et_hwhd.setText(followUpOneNewborn.getHwhd());
+		}
 	}
 
 	@Override

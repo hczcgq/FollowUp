@@ -68,8 +68,11 @@ public class YearsOld0Body1 extends LinearLayout implements IBaseYearsOld0Body {
 
 	@Override
 	public void setData(FollowUpOneNewborn followUpOneNewborn) {
-		// TODO Auto-generated method stub
-
+		if(followUpOneNewborn!=null) {
+		    et_fsrq.setText(followUpOneNewborn.getGrxx_fsrq());
+		    et_zrys.setText(followUpOneNewborn.getGrxx_zrys());
+		    ViewDataUtil.setSpinnerData(sn_yn, followUpOneNewborn.getGrxx_yl());
+		}
 	}
 
 	@Override

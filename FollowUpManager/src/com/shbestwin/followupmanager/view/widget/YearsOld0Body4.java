@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
@@ -16,6 +17,8 @@ public class YearsOld0Body4 extends LinearLayout implements IBaseYearsOld0Body,
 		OnCheckedChangeListener {
 	private RadioGroup rg_fwtt, rg_dyshwx, rg_sbsnzjkzt, rg_szk, rg_xcs,
 			rg_sszwj, rg_hfs, rg_zjzsdzjwx, rg_rs, rg_yszcz;
+	
+	private RadioButton rb_fwtt_f,rb_fwtt_s;
 
 	private boolean is_fwtt = true, is_dyshwx = true, is_sbsnzjkzt = true,
 			is_szk = true, is_xcs = true, is_sszwj = true, is_hfs = true,
@@ -73,8 +76,15 @@ public class YearsOld0Body4 extends LinearLayout implements IBaseYearsOld0Body,
 
 	@Override
 	public void setData(FollowUpOneNewborn followUpOneNewborn) {
-		// TODO Auto-generated method stub
-
+		if(followUpOneNewborn!=null) {
+		    if(followUpOneNewborn.getFysc_sffwtt()) {
+		        
+		    }else {
+                
+            }
+		    
+		    
+		}
 	}
 
 	@Override
