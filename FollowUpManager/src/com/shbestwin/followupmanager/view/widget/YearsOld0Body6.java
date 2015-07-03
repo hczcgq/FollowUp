@@ -2,6 +2,7 @@ package com.shbestwin.followupmanager.view.widget;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import android.content.Context;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.JsonUtil;
 import com.shbestwin.followupmanager.interfaces.ListItemClickHelp;
@@ -19,44 +21,48 @@ import com.shbestwin.followupmanager.view.adapter.followup.LabInspectionListAdap
 import com.shbestwin.followupmanager.view.dialog.BaseDialogFragment.OnConfirmClickListener;
 import com.shbestwin.followupmanager.view.dialog.followup.LabInspectionDialog;
 
-public class YearsOld0Body6 extends LinearLayout  implements IBaseYearsOld0Body ,ListItemClickHelp{
-	private View labInspectionButton;
-	private ListView labInspectionListView;
-	
-	private LabInspectionListAdapter inspectionListAdapter;
-	
-	 List<LabInspection> inspectionList = new ArrayList<LabInspection>();
+public class YearsOld0Body6 extends LinearLayout implements IBaseYearsOld0Body,
+        ListItemClickHelp {
+    private View labInspectionButton;
 
-	public YearsOld0Body6(Context context) {
-		this(context, null);
-	}
+    private ListView labInspectionListView;
 
-	public YearsOld0Body6(Context context, AttributeSet attrs) {
-		this(context, attrs, 0);
-	}
+    private LabInspectionListAdapter inspectionListAdapter;
 
-	public YearsOld0Body6(Context context, AttributeSet attrs, int defStyle) {
-		super(context, attrs, defStyle);
-		View rootView = LayoutInflater.from(context).inflate(R.layout.view_years_old_0_body6, this, true);
-		labInspectionButton = rootView.findViewById(R.id.labInspectionButton);
-		labInspectionListView = (ListView) rootView.findViewById(R.id.labInspectionListView);
+    List<LabInspection> inspectionList = new ArrayList<LabInspection>();
 
-		labInspectionButton.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				showInspectionDialog();
-			}
-		});
+    public YearsOld0Body6(Context context) {
+        this(context, null);
+    }
 
-		
-		inspectionListAdapter = new LabInspectionListAdapter(getContext(), inspectionList);
-		inspectionListAdapter.setListItemClickHelp(this);
-		labInspectionListView.setAdapter(inspectionListAdapter);
-	}
+    public YearsOld0Body6(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
 
-	private void showInspectionDialog() {
-	
-	    final LabInspectionDialog hypertensionInspectionDialog = LabInspectionDialog
+    public YearsOld0Body6(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        View rootView = LayoutInflater.from(context).inflate(
+                R.layout.view_years_old_0_body6, this, true);
+        labInspectionButton = rootView.findViewById(R.id.labInspectionButton);
+        labInspectionListView = (ListView) rootView
+                .findViewById(R.id.labInspectionListView);
+
+        labInspectionButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showInspectionDialog();
+            }
+        });
+
+        inspectionListAdapter = new LabInspectionListAdapter(getContext(),
+                inspectionList);
+        inspectionListAdapter.setListItemClickHelp(this);
+        labInspectionListView.setAdapter(inspectionListAdapter);
+    }
+
+    private void showInspectionDialog() {
+
+        final LabInspectionDialog hypertensionInspectionDialog = LabInspectionDialog
                 .newInstance();
         hypertensionInspectionDialog.show(
                 ((FragmentActivity) getContext()).getSupportFragmentManager(),
@@ -73,35 +79,40 @@ public class YearsOld0Body6 extends LinearLayout  implements IBaseYearsOld0Body 
                         inspectionListAdapter.notifyDataSetChanged();
                     }
                 });
-	}
-	
-	@Override
-	public void getData(FollowUpOneNewborn followUpOneNewborn) {
-	    try {
-            followUpOneNewborn
-                    .setSysjc(JsonUtil.objectsToJson(inspectionList));
+    }
+
+    @Override
+    public void getData(FollowUpOneNewborn followUpOneNewborn) {
+        try {
+            followUpOneNewborn.setSysjc(JsonUtil.objectsToJson(inspectionList));
         } catch (Exception e) {
             e.printStackTrace();
         }
-	}
+    }
 
-	@Override
+    @Override
 	public void setData(FollowUpOneNewborn followUpOneNewborn) {
-		// TODO Auto-generated method stub
-
+	    if(followUpOneNewborn!=null){
+            try {
+                List<LabInspection> lists=JsonUtil.jsonToObjects(followUpOneNewborn.getSysjc(), LabInspection.class);
+                if(lists!=null&&lists.size()>0) {
+                        inspectionList.addAll(lists);
+                inspectionListAdapter.notifyDataSetChanged();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 	}
 
-	@Override
-	public boolean validate() {
-		// TODO Auto-generated method stub
-		return true;
-	}
+    @Override
+    public boolean validate() {
+        return true;
+    }
 
-	@Override
-	public void setFragment(FragmentManager fragmentManager) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void setFragment(FragmentManager fragmentManager) {
+    }
 
     @Override
     public void onClick(final int position, int which) {
@@ -137,6 +148,6 @@ public class YearsOld0Body6 extends LinearLayout  implements IBaseYearsOld0Body 
         default:
             break;
         }
-    
+
     }
 }

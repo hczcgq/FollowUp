@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
@@ -16,6 +17,7 @@ import com.shbestwin.followupmanager.model.followup.FollowUpThreeSixNewborn;
 public class YearsOld3_6Body9 extends LinearLayout  implements IBaseYearsOld3_6Body{
 	private RadioGroup rg_zz;
 	private EditText et_yy,et_jgjks;
+	private RadioButton rb_w,rb_y;
 	private boolean isHas=false;
 	public YearsOld3_6Body9(Context context) {
 		this(context, null);
@@ -31,6 +33,8 @@ public class YearsOld3_6Body9 extends LinearLayout  implements IBaseYearsOld3_6B
 		rg_zz=(RadioGroup) rootView.findViewById(R.id.rg_zz);
 		et_yy=(EditText) rootView.findViewById(R.id.et_yy);
 		et_jgjks=(EditText) rootView.findViewById(R.id.et_jgjks);
+		rb_w=(RadioButton) rootView.findViewById(R.id.rb_w);
+		rb_y=(RadioButton) rootView.findViewById(R.id.rb_y);
 		rg_zz.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
 			@Override
@@ -52,8 +56,17 @@ public class YearsOld3_6Body9 extends LinearLayout  implements IBaseYearsOld3_6B
 
 	@Override
 	public void setData(FollowUpThreeSixNewborn followUpThreeSixNewborn) {
-		// TODO Auto-generated method stub
-		
+	    if(followUpThreeSixNewborn!=null) {
+	        et_jgjks.setText(followUpThreeSixNewborn.getZz_jgjks());
+	        et_yy.setText(followUpThreeSixNewborn.getZz_yy());
+	        if(followUpThreeSixNewborn.getZz_sfzz()) {
+	            rb_y.setChecked(true);
+	            rb_w.setChecked(false);
+	        }else {
+	            rb_y.setChecked(false);
+                rb_w.setChecked(true);
+            }
+	    }
 	}
 
 	@Override

@@ -12,7 +12,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import com.shbestwin.followupmanager.R;
-import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.common.util.ViewDataUtil;
 import com.shbestwin.followupmanager.model.followup.FollowUpDiabetesMellitus;
 
@@ -50,7 +49,6 @@ public class DiabetesMellitusBody2 extends LinearLayout implements  IBaseDiabete
 						setCheckBoxStatus(diabetesMellitusRelativeLayout, isChecked);
 					}
 				});
-		setCheckBoxStatus(diabetesMellitusRelativeLayout, true);
 	}
 
 

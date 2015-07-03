@@ -122,15 +122,19 @@ public class YearsOld3_6Body2 extends LinearLayout implements
 			et_bmi.setText(followUpThreeSixNewborn.getTgjcqk_bmi());
 			ViewDataUtil.setSpinnerData(sn_tgfypj, followUpThreeSixNewborn.getTgjcqk_tgfypj());
 			String sl=followUpThreeSixNewborn.getTgjcqk_sl();
-			if(sl.split("/").length!=0){
+			if(sl.split("/").length==1){
 				et_sl_zy.setText(sl.split("/")[0]);
-				et_sl_yy.setText(sl.split("/")[1]);
-			}
+			}else if(sl.split("/").length==2){
+                et_sl_zy.setText(sl.split("/")[0]);
+                et_sl_yy.setText(sl.split("/")[1]);
+            }
 			
 			String cy=followUpThreeSixNewborn.getTgjcqk_cyqcs();
-			if(cy.split("/").length!=0){
-//				et_cyzzs_1.setText(cy.split("/")[0]);
-//				et_cyzzs_1.setText(cy.split("/")[1]);
+			if(cy.split("/").length==1){
+				et_cyzzs_1.setText(cy.split("/")[0]);
+			}else if(cy.split("/").length==2) {
+			    et_cyzzs_1.setText(cy.split("/")[0]);
+                et_cyzzs_1.setText(cy.split("/")[1]);
 			}
 			ViewDataUtil.setSpinnerData(sn_cyzzs_jl, followUpThreeSixNewborn.getTgjcqk_cyqcsjl());
 			

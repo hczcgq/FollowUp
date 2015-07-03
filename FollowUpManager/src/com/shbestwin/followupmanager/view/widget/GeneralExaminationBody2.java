@@ -95,8 +95,31 @@ public class GeneralExaminationBody2 extends LinearLayout implements IBaseGenera
 
 	@Override
 	public void setData(GeneralExamination generalExamination) {
-		// TODO Auto-generated method stub
-		
+		if(generalExamination!=null) {
+		    et_tw.setText(generalExamination.getYbqk_tw());
+		    et_mb.setText(generalExamination.getYbqk_mb());
+		    et_hxpl.setText(generalExamination.getYbqk_hxpl());
+		    String zcxy=generalExamination.getYbqk_zcxy();
+		    if(zcxy.split("/").length==1) {
+		        et_zcxy_1.setText(zcxy.split("/")[0]);
+		    }else if(zcxy.split("/").length==2) {
+		        et_zcxy_1.setText(zcxy.split("/")[0]);
+		        et_zcxy_2.setText(zcxy.split("/")[1]);
+            }
+		    String ycxy=generalExamination.getYbqk_ycxy();
+            if(ycxy.split("/").length==1) {
+                et_ycxy_1.setText(ycxy.split("/")[0]);
+            }else if(zcxy.split("/").length==2) {
+                et_ycxy_1.setText(ycxy.split("/")[0]);
+                et_ycxy_2.setText(ycxy.split("/")[1]);
+            }
+            et_sg.setText(generalExamination.getYbqk_sg());
+            et_bmi.setText(generalExamination.getYbqk_bmi());
+            et_tz.setText(generalExamination.getYbqk_tz());
+            et_yw.setText(generalExamination.getYbqk_yw());
+//            et_lnrrzgn_zf.setText(generalExamination.getYbqk_zljczf());
+//            et_lnrqgzt_zf.setText(generalExamination.getYbqk_qgzt());
+		}
 	}
 
 	@Override

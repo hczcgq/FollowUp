@@ -633,7 +633,7 @@ containing a value of this type.
         public static final int accountAttributeRadioButton7=0x7f0d00c5;
         public static final int accountAttributeRelativeLayout=0x7f0d00bc;
         public static final int accountPropertySpinner=0x7f0d0106;
-        public static final int action_settings=0x7f0d0646;
+        public static final int action_settings=0x7f0d0647;
         public static final int addTextView=0x7f0d0162;
         public static final int adnexaRadioButton0=0x7f0d0480;
         public static final int adnexaRadioButton1=0x7f0d0481;
@@ -881,6 +881,7 @@ containing a value of this type.
         public static final int diagnose2=0x7f0d05aa;
         public static final int diagnose3=0x7f0d05ab;
         public static final int diagnose4=0x7f0d05ac;
+        public static final int diagnoseLayout=0x7f0d0646;
         public static final int diastolicPressureEditText=0x7f0d0178;
         public static final int diet0=0x7f0d0412;
         public static final int diet1=0x7f0d0413;

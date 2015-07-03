@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="20dp"
     android:gravity="center_vertical"
+    android:id="@+id/diagnoseLayout"
     android:orientation="horizontal" >
 
     <TextView

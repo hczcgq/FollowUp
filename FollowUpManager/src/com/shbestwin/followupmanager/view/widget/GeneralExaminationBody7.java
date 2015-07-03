@@ -51,8 +51,17 @@ public class GeneralExaminationBody7 extends LinearLayout implements IBaseGenera
 
 	@Override
 	public void setData(GeneralExamination generalExamination) {
-		// TODO Auto-generated method stub
-		
+		if(generalExamination!=null) {
+		    ViewDataUtil.setSpinnerData(sn_phz,generalExamination.getZytzbs_phz());
+		    ViewDataUtil.setSpinnerData(sn_qxz,generalExamination.getZytzbs_qxz());
+		    ViewDataUtil.setSpinnerData(sn_yangxz,generalExamination.getZytzbs_yangxz());
+		    ViewDataUtil.setSpinnerData(sn_yinxz,generalExamination.getZytzbs_yinxz());
+		    ViewDataUtil.setSpinnerData(sn_tsz,generalExamination.getZytzbs_tsz());
+		    ViewDataUtil.setSpinnerData(sn_srz,generalExamination.getZytzbs_srz());
+		    ViewDataUtil.setSpinnerData(sn_xyz,generalExamination.getZytzbs_xyz());
+		    ViewDataUtil.setSpinnerData(sn_qyz,generalExamination.getZytzbs_qxz());
+		    ViewDataUtil.setSpinnerData(sn_tbz,generalExamination.getZytzbs_tbz());
+		}
 	}
 	
 	@Override

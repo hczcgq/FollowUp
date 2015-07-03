@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
@@ -14,6 +15,7 @@ import com.shbestwin.followupmanager.model.examination.GeneralExamination;
 
 public class GeneralExaminationBody12 extends LinearLayout implements IBaseGeneralExaminationBody{
 	private RadioGroup rg_jpkg;
+	private RadioButton rb_jpkg_tjwyc,rb_jpkg_yyc;
 	private EditText et_yc_1,et_yc_2,et_yc_3;
 	private boolean isYc=false;
 	public GeneralExaminationBody12(Context context) {
@@ -32,6 +34,8 @@ public class GeneralExaminationBody12 extends LinearLayout implements IBaseGener
 		et_yc_2=(EditText) rootView.findViewById(R.id.et_yc_2);
 		et_yc_3=(EditText) rootView.findViewById(R.id.et_yc_3);
 		rg_jpkg=(RadioGroup) rootView.findViewById(R.id.rg_jpkg);
+		rb_jpkg_tjwyc=(RadioButton) rootView.findViewById(R.id.rb_jpkg_tjwyc);
+		rb_jpkg_yyc=(RadioButton) rootView.findViewById(R.id.rb_jpkg_yyc);
 		et_yc_1.setEnabled(false);
 		et_yc_2.setEnabled(false);
 		et_yc_3.setEnabled(false);
@@ -65,8 +69,19 @@ public class GeneralExaminationBody12 extends LinearLayout implements IBaseGener
 
 	@Override
 	public void setData(GeneralExamination generalExamination) {
-		// TODO Auto-generated method stub
-		
+		if(generalExamination!=null) {
+		    et_yc_1.setText(generalExamination.getJkpj_yc1());
+		    et_yc_2.setText(generalExamination.getJkpj_yc2());
+		    et_yc_3.setText(generalExamination.getJkpj_yc3());
+		    
+		    if(generalExamination.getJkpj_sftjyc()) {
+		        rb_jpkg_tjwyc.setChecked(false);
+		        rb_jpkg_yyc.setChecked(true);
+		    }else {
+		        rb_jpkg_tjwyc.setChecked(true);
+                rb_jpkg_yyc.setChecked(false);
+            }
+		}
 	}
 
 	@Override

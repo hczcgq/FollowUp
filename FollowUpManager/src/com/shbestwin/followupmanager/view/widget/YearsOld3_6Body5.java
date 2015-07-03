@@ -17,47 +17,51 @@ import com.shbestwin.followupmanager.common.util.JsonUtil;
 import com.shbestwin.followupmanager.interfaces.ListItemClickHelp;
 import com.shbestwin.followupmanager.model.followup.FollowUpThreeSixNewborn;
 import com.shbestwin.followupmanager.model.followup.Inspection;
-import com.shbestwin.followupmanager.model.followup.LabInspection;
 import com.shbestwin.followupmanager.view.adapter.followup.InspectionListAdapter;
 import com.shbestwin.followupmanager.view.dialog.BaseDialogFragment.OnConfirmClickListener;
 import com.shbestwin.followupmanager.view.dialog.followup.InspectionDialog;
 
-public class YearsOld3_6Body5 extends LinearLayout  implements IBaseYearsOld3_6Body,ListItemClickHelp{
-	private View assistInspectionButton;
-	private ListView assistInspectionListView;
+public class YearsOld3_6Body5 extends LinearLayout implements
+        IBaseYearsOld3_6Body, ListItemClickHelp {
+    private View assistInspectionButton;
 
-private InspectionListAdapter inspectionListAdapter;
-    
+    private ListView assistInspectionListView;
+
+    private InspectionListAdapter inspectionListAdapter;
+
     List<Inspection> inspectionList = new ArrayList<Inspection>();
 
-	public YearsOld3_6Body5(Context context) {
-		this(context, null);
-	}
+    public YearsOld3_6Body5(Context context) {
+        this(context, null);
+    }
 
-	public YearsOld3_6Body5(Context context, AttributeSet attrs) {
-		this(context, attrs, 0);
-	}
+    public YearsOld3_6Body5(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
 
-	public YearsOld3_6Body5(Context context, AttributeSet attrs, int defStyle) {
-		super(context, attrs, defStyle);
-		View rootView = LayoutInflater.from(context).inflate(R.layout.view_years_old_3_6_body5, this, true);
-		assistInspectionButton = rootView.findViewById(R.id.assistInspectionButton);
-		assistInspectionListView = (ListView) rootView.findViewById(R.id.assistInspectionListView);
+    public YearsOld3_6Body5(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        View rootView = LayoutInflater.from(context).inflate(
+                R.layout.view_years_old_3_6_body5, this, true);
+        assistInspectionButton = rootView
+                .findViewById(R.id.assistInspectionButton);
+        assistInspectionListView = (ListView) rootView
+                .findViewById(R.id.assistInspectionListView);
 
-		assistInspectionButton.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				showInspectionDialog();
-			}
-		});
+        assistInspectionButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showInspectionDialog();
+            }
+        });
 
-		inspectionListAdapter = new InspectionListAdapter(getContext(),
+        inspectionListAdapter = new InspectionListAdapter(getContext(),
                 inspectionList);
         inspectionListAdapter.setListItemClickHelp(this);
         assistInspectionListView.setAdapter(inspectionListAdapter);
-	}
+    }
 
-	private void showInspectionDialog() {
+    private void showInspectionDialog() {
         final InspectionDialog hypertensionInspectionDialog = InspectionDialog
                 .newInstance();
         hypertensionInspectionDialog.show(
@@ -75,42 +79,44 @@ private InspectionListAdapter inspectionListAdapter;
                         inspectionListAdapter.notifyDataSetChanged();
                     }
                 });
-        }
-	
-	@Override
-	public void getData(FollowUpThreeSixNewborn followUpThreeSixNewborn) {
-	    try {
-	        followUpThreeSixNewborn
-                    .setFzjc(JsonUtil.objectsToJson(inspectionList));
+    }
+
+    @Override
+    public void getData(FollowUpThreeSixNewborn followUpThreeSixNewborn) {
+        try {
+            followUpThreeSixNewborn.setFzjc(JsonUtil
+                    .objectsToJson(inspectionList));
         } catch (Exception e) {
             e.printStackTrace();
         }
-	}
+    }
 
-	@Override
-	public void setData(FollowUpThreeSixNewborn followUpThreeSixNewborn) {
-		if(followUpThreeSixNewborn!=null){
-			try {
-				inspectionList.addAll(JsonUtil.jsonToObjects(followUpThreeSixNewborn.getFzjc(), Inspection.class));
-				inspectionListAdapter.notifyDataSetChanged();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			
-		}
-	}
+    @SuppressWarnings("unchecked")
+    @Override
+    public void setData(FollowUpThreeSixNewborn followUpThreeSixNewborn) {
+        if (followUpThreeSixNewborn != null) {
+            try {
+                inspectionList.addAll(JsonUtil.jsonToObjects(
+                        followUpThreeSixNewborn.getFzjc(), Inspection.class));
+                inspectionListAdapter.notifyDataSetChanged();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
-	@Override
-	public boolean validate() {
-		// TODO Auto-generated method stub
-		return true;
-	}
+        }
+    }
 
-	@Override
-	public void setFragment(FragmentManager fragmentManager) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public boolean validate() {
+        // TODO Auto-generated method stub
+        return true;
+    }
+
+    @Override
+    public void setFragment(FragmentManager fragmentManager) {
+        // TODO Auto-generated method stub
+
+    }
 
     @Override
     public void onClick(final int position, int which) {
@@ -146,7 +152,7 @@ private InspectionListAdapter inspectionListAdapter;
         default:
             break;
         }
-    
+
     }
 
 }
