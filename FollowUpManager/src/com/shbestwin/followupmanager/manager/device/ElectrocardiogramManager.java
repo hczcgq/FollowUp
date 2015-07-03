@@ -511,6 +511,10 @@ public class ElectrocardiogramManager {
 	private ByteArrayOutputStream cacheData = null;
 
 	private boolean readSectionData(int totalLen) {
+		if(totalLen<0){
+			return false; 
+		}
+		
 		byte[] buffer = new byte[totalLen];
 		cacheData = new ByteArrayOutputStream(totalLen);
 		int currentLen = 0;
