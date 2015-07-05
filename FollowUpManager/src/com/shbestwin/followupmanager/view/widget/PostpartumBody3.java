@@ -38,8 +38,11 @@ public class PostpartumBody3 extends LinearLayout  implements IBasePostpartumBod
 
 	@Override
 	public void setData(FollowUpPostpartum followUpPostpartum) {
-		// TODO Auto-generated method stub
-
+		if(followUpPostpartum!=null){
+			et_xlzk.setText(followUpPostpartum.getXljkzk_xlzk());
+			et_smzk.setText(followUpPostpartum.getXljkzk_smzk());
+			et_jkzk.setText(followUpPostpartum.getXljkzk_jkzk());
+		}
 	}
 
 	@Override

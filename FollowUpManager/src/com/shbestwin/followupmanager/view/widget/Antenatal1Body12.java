@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Spinner;
@@ -27,6 +28,7 @@ public class Antenatal1Body12 extends LinearLayout implements
 	private RadioGroup rg_ydfmw;
 	private String ydfmw_name = "未见异常";
 	private boolean isHas=false;
+	private RadioButton rb_wjyc,rb_dc,rb_mj,rb_qt;
 
 	public Antenatal1Body12(Context context) {
 		this(context, null);
@@ -62,6 +64,11 @@ public class Antenatal1Body12 extends LinearLayout implements
 		sn_mdxq = (Spinner) rootView.findViewById(R.id.sn_mdxq);
 		sn_hivktjc = (Spinner) rootView.findViewById(R.id.sn_hivktjc);
 		rg_ydfmw = (RadioGroup) rootView.findViewById(R.id.rg_ydfmw);
+		rb_wjyc = (RadioButton) rootView.findViewById(R.id.rb_wjyc);
+		rb_dc = (RadioButton) rootView.findViewById(R.id.rb_dc);
+		rb_mj = (RadioButton) rootView.findViewById(R.id.rb_mj);
+		rb_qt = (RadioButton) rootView.findViewById(R.id.rb_qt);
+		
 
 		rg_ydfmw.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
@@ -98,10 +105,19 @@ public class Antenatal1Body12 extends LinearLayout implements
 		followUpFirstPregnancy.setFzjc_nqx(ViewDataUtil.getSpinnerData(sn_ncg_nqx));
 		followUpFirstPregnancy.setFzjc_ncgqt(et_ncg_qt.getText().toString());
 		
+		
 		followUpFirstPregnancy.setFzjc_xqgbzam(et_ggn_xqgbzam.getText().toString());
 		followUpFirstPregnancy.setFzjc_bdb(et_ggn_bdb.getText().toString());
 		followUpFirstPregnancy.setFzjc_zdhs(et_ggn_zdhs.getText().toString());
 		followUpFirstPregnancy.setFzjc_jhdhs(et_ggn_jhdhs.getText().toString());
+		followUpFirstPregnancy.setFzjc_xqgczam(et_ggn_xqgczam.getText().toString());
+		
+		followUpFirstPregnancy.setFzjc_xqjg(et_sgn_xqjg.getText().toString());
+		followUpFirstPregnancy.setFzjc_xnsd(et_sgn_xnnd.getText().toString());
+		followUpFirstPregnancy.setFzjc_xjnd(et_sgn_xjnd.getText().toString());
+		followUpFirstPregnancy.setFzjc_xnnd(et_sgn_xnnd.getText().toString());
+		
+		
 		
 		followUpFirstPregnancy.setFzjc_sfydfmwyc(isHas);
 		followUpFirstPregnancy.setFzjc_sfydfmwycms(ydfmw_name);
@@ -112,8 +128,52 @@ public class Antenatal1Body12 extends LinearLayout implements
 
 	@Override
 	public void setData(FollowUpFirstPregnancy followUpFirstPregnancy) {
-		// TODO Auto-generated method stub
-
+		if(followUpFirstPregnancy!=null){
+			et_xcg_xhdbz.setText(followUpFirstPregnancy.getFzjc_xhdbz());
+			et_xcg_bxbjsz.setText(followUpFirstPregnancy.getFzjc_bxbjsz());
+			et_xcg_xxbjsz.setText(followUpFirstPregnancy.getFzjc_xxbjsz());
+			et_xcg_qt.setText(followUpFirstPregnancy.getFzjc_xcgqt());
+			et_ncg_ndb.setText(followUpFirstPregnancy.getFzjc_ndb());
+			et_ncg_nt.setText(followUpFirstPregnancy.getFzjc_nt());
+			et_ncg_qt.setText(followUpFirstPregnancy.getFzjc_ncgqt());
+			ViewDataUtil.setSpinnerData(sn_ncg_ntt, followUpFirstPregnancy.getFzjc_ntt());
+			ViewDataUtil.setSpinnerData(sn_ncg_nqx, followUpFirstPregnancy.getFzjc_nqx());
+			et_ggn_xqgbzam.setText(followUpFirstPregnancy.getFzjc_xqgbzam());
+			et_ggn_xqgczam.setText(followUpFirstPregnancy.getFzjc_xqgczam());
+			et_ggn_bdb.setText(followUpFirstPregnancy.getFzjc_bdb());
+			et_ggn_zdhs.setText(followUpFirstPregnancy.getFzjc_zdhs());
+			et_ggn_jhdhs.setText(followUpFirstPregnancy.getFzjc_jhdhs());
+			
+			et_sgn_xqjg.setText(followUpFirstPregnancy.getFzjc_xqjg());
+			et_sgn_xnnd.setText(followUpFirstPregnancy.getFzjc_xnsd());
+			et_sgn_xjnd.setText(followUpFirstPregnancy.getFzjc_xjnd());
+			et_sgn_xnnd.setText(followUpFirstPregnancy.getFzjc_xnnd());
+			
+			ViewDataUtil.setSpinnerData(sn_mdxq, followUpFirstPregnancy.getFzjc_mdxqxsy());
+			ViewDataUtil.setSpinnerData(sn_hivktjc, followUpFirstPregnancy.getFzjc_HIVktjc());
+			if(followUpFirstPregnancy.getFzjc_sfydfmwycms().equals("未见异常")){
+				rb_wjyc.setChecked(true);
+				rb_dc.setChecked(false);
+				rb_mj.setChecked(false);
+				rb_qt.setChecked(false);
+			}else if(followUpFirstPregnancy.getFzjc_sfydfmwycms().equals("滴虫")){
+				rb_wjyc.setChecked(false);
+				rb_dc.setChecked(true);
+				rb_mj.setChecked(false);
+				rb_qt.setChecked(false);
+			}else if(followUpFirstPregnancy.getFzjc_sfydfmwycms().equals("霉菌")){
+				rb_wjyc.setChecked(false);
+				rb_dc.setChecked(false);
+				rb_mj.setChecked(true);
+				rb_qt.setChecked(false);
+			}else {
+				rb_wjyc.setChecked(false);
+				rb_dc.setChecked(false);
+				rb_mj.setChecked(false);
+				rb_qt.setChecked(true);
+				et_ydfmw_qt.setText(followUpFirstPregnancy.getFzjc_sfydfmwycms());
+			}
+		}
 	}
 
 	@Override

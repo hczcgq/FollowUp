@@ -38,8 +38,19 @@ public class PostpartumBody2 extends LinearLayout implements IBasePostpartumBody
 
 	@Override
 	public void setData(FollowUpPostpartum followUpPostpartum) {
-		// TODO Auto-generated method stub
 
+		if(followUpPostpartum!=null){
+			et_tw.setText(followUpPostpartum.getJbjc_tw());
+			String xy=followUpPostpartum.getJbjc_xy();
+			if(xy.split("/").length==1){
+				et_xy_ssy.setText(xy.split("/")[0]);
+			}else if(xy.split("/").length==2){
+				et_xy_ssy.setText(xy.split("/")[0]);
+				et_xy_szy.setText(xy.split("/")[1]);
+			}
+			et_mb.setText(followUpPostpartum.getJbjc_mb());
+		}
+	
 	}
 
 	@Override

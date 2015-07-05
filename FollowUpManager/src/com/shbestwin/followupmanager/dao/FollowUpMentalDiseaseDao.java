@@ -54,6 +54,11 @@ public class FollowUpMentalDiseaseDao extends AbstractDao<FollowUpMentalDisease,
         public final static Property Shxggb_jgqks = new Property(28, String.class, "shxggb_jgqks", false, "SHXGGB_JGQKS");
         public final static Property CreateTime = new Property(29, String.class, "createTime", false, "CREATE_TIME");
         public final static Property UpdateTime = new Property(30, String.class, "updateTime", false, "UPDATE_TIME");
+        public final static Property Yyqk = new Property(31, String.class, "yyqk", false, "YYQK");
+        public final static Property Yyqk_kfcs = new Property(32, String.class, "yyqk_kfcs", false, "YYQK_KFCS");
+        public final static Property Yyqk_bcsffl = new Property(33, String.class, "yyqk_bcsffl", false, "YYQK_BCSFFL");
+        public final static Property Yyqk_xcsfrq = new Property(34, String.class, "yyqk_xcsfrq", false, "YYQK_XCSFRQ");
+        public final static Property Yyqk_sfysqm = new Property(35, String.class, "yyqk_sfysqm", false, "YYQK_SFYSQM");
     };
 
 
@@ -99,9 +104,15 @@ public class FollowUpMentalDiseaseDao extends AbstractDao<FollowUpMentalDisease,
                 "'SHXGGB_SFZZMS' TEXT," + // 27: shxggb_sfzzms
                 "'SHXGGB_JGQKS' TEXT," + // 28: shxggb_jgqks
                 "'CREATE_TIME' TEXT," + // 29: createTime
-                "'UPDATE_TIME' TEXT);"); // 30: updateTime
+                "'UPDATE_TIME' TEXT," + // 29: createTime
+                "'YYQK' TEXT," + // 29: createTime
+                "'YYQK_KFCS' TEXT," + // 29: createTime
+                "'YYQK_BCSFFL' TEXT," + // 29: createTime
+                "'YYQK_XCSFRQ' TEXT," + // 29: createTime
+                "'YYQK_SFYSQM' TEXT);"); // 30: updateTime
     }
 
+    
     /** Drops the underlying database table. */
     public static void dropTable(SQLiteDatabase db, boolean ifExists) {
         String sql = "DROP TABLE " + (ifExists ? "IF EXISTS " : "") + "'FOLLOW_UP_MENTAL_DISEASE'";
@@ -259,6 +270,27 @@ public class FollowUpMentalDiseaseDao extends AbstractDao<FollowUpMentalDisease,
         if (updateTime != null) {
             stmt.bindString(31, updateTime);
         }
+        
+        String yyqk = entity.getYyqk();
+        if (yyqk != null) {
+        	stmt.bindString(32, yyqk);
+        }
+        String yyqk_kfcs = entity.getYyqk_kfcs();
+        if (yyqk_kfcs != null) {
+        	stmt.bindString(33, yyqk_kfcs);
+        }
+        String yyqk_bcsffl = entity.getYyqk_bcsffl();
+        if (yyqk_bcsffl != null) {
+        	stmt.bindString(34, yyqk_bcsffl);
+        }
+        String yyqk_xcsfrq = entity.getYyqk_xcsfrq();
+        if (yyqk_xcsfrq != null) {
+        	stmt.bindString(35, yyqk_xcsfrq);
+        }
+        String yyqk_sfysqm = entity.getYyqk_sfysqm();
+        if (yyqk_sfysqm != null) {
+        	stmt.bindString(36, yyqk_sfysqm);
+        }
     }
 
     /** @inheritdoc */
@@ -301,7 +333,12 @@ public class FollowUpMentalDiseaseDao extends AbstractDao<FollowUpMentalDisease,
             cursor.isNull(offset + 27) ? null : cursor.getString(offset + 27), // shxggb_sfzzms
             cursor.isNull(offset + 28) ? null : cursor.getString(offset + 28), // shxggb_jgqks
             cursor.isNull(offset + 29) ? null : cursor.getString(offset + 29), // createTime
-            cursor.isNull(offset + 30) ? null : cursor.getString(offset + 30) // updateTime
+            cursor.isNull(offset + 30) ? null : cursor.getString(offset + 30), // updateTime
+            cursor.isNull(offset + 31) ? null : cursor.getString(offset + 31), // updateTime
+            cursor.isNull(offset + 32) ? null : cursor.getString(offset + 32), // updateTime
+            cursor.isNull(offset + 33) ? null : cursor.getString(offset + 33), // updateTime
+            cursor.isNull(offset + 34) ? null : cursor.getString(offset + 34), // updateTime
+            cursor.isNull(offset + 35) ? null : cursor.getString(offset + 35) // updateTime
         );
         return entity;
     }
@@ -340,6 +377,11 @@ public class FollowUpMentalDiseaseDao extends AbstractDao<FollowUpMentalDisease,
         entity.setShxggb_jgqks(cursor.isNull(offset + 28) ? null : cursor.getString(offset + 28));
         entity.setCreateTime(cursor.isNull(offset + 29) ? null : cursor.getString(offset + 29));
         entity.setUpdateTime(cursor.isNull(offset + 30) ? null : cursor.getString(offset + 30));
+        entity.setYyqk(cursor.isNull(offset + 31) ? null : cursor.getString(offset + 31));
+        entity.setYyqk_kfcs(cursor.isNull(offset + 32) ? null : cursor.getString(offset + 32));
+        entity.setYyqk_bcsffl(cursor.isNull(offset + 33) ? null : cursor.getString(offset + 33));
+        entity.setYyqk_xcsfrq(cursor.isNull(offset + 34) ? null : cursor.getString(offset + 34));
+        entity.setYyqk_sfysqm(cursor.isNull(offset + 35) ? null : cursor.getString(offset + 35));
      }
     
     /** @inheritdoc */

@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
@@ -15,6 +16,7 @@ import com.shbestwin.followupmanager.model.followup.FollowUpOneTwoNewborn;
 public class YearsOld1_2Body13 extends LinearLayout  implements IBaseYearsOld1_2Body{
 	private RadioGroup rg_gwegl;
 	private boolean isHas=false;
+	private RadioButton rb_s,rb_f;
 	public YearsOld1_2Body13(Context context) {
 		this(context, null);
 	}
@@ -27,6 +29,8 @@ public class YearsOld1_2Body13 extends LinearLayout  implements IBaseYearsOld1_2
 		super(context, attrs, defStyle);
 		View rootView = LayoutInflater.from(context).inflate(R.layout.view_years_old_1_2_body13, this, true);
 		rg_gwegl=(RadioGroup) rootView.findViewById(R.id.rg_gwegl);
+		rb_s=(RadioButton) rootView.findViewById(R.id.rb_s);
+		rb_f=(RadioButton) rootView.findViewById(R.id.rb_f);
 		rg_gwegl.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
 			@Override
@@ -46,8 +50,15 @@ public class YearsOld1_2Body13 extends LinearLayout  implements IBaseYearsOld1_2
 
 	@Override
 	public void setData(FollowUpOneTwoNewborn followUpOneTwoNewborn) {
-		// TODO Auto-generated method stub
-		
+		if(followUpOneTwoNewborn!=null){
+			if(followUpOneTwoNewborn.getYyxjbgl_sfgwe()){
+				rb_s.setChecked(true);
+				rb_f.setChecked(false);
+			}else {
+				rb_s.setChecked(false);
+				rb_f.setChecked(true);
+			}
+		}
 	}
 
 	@Override

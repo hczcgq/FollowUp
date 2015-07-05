@@ -47,7 +47,6 @@
             android:id="@+id/loginNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="hejunbin"
             android:textColor="@color/light_blue"
             android:textSize="16sp" />
 

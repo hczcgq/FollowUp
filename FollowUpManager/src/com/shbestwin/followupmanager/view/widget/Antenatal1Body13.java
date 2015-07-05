@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
@@ -16,7 +17,8 @@ import com.shbestwin.followupmanager.model.followup.FollowUpFirstPregnancy;
 public class Antenatal1Body13 extends LinearLayout  implements IBaseAntenatal1Body {
 	private RadioGroup rg_ztpg;
 	private EditText et_ztpg;
-	private boolean isHas=false;;
+	private boolean isHas=false;
+	private RadioButton rb_w,rb_y;
 	public Antenatal1Body13(Context context) {
 		this(context, null);
 	}
@@ -30,6 +32,8 @@ public class Antenatal1Body13 extends LinearLayout  implements IBaseAntenatal1Bo
 		View rootView = LayoutInflater.from(context).inflate(R.layout.view_antenatal1_body13, this, true);
 		rg_ztpg=(RadioGroup) rootView.findViewById(R.id.rg_ztpg);
 		et_ztpg=(EditText) rootView.findViewById(R.id.et_ztpg);
+		rb_w=(RadioButton) rootView.findViewById(R.id.rb_w);
+		rb_y=(RadioButton) rootView.findViewById(R.id.rb_y);
 		rg_ztpg.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
 			@Override
@@ -50,8 +54,16 @@ public class Antenatal1Body13 extends LinearLayout  implements IBaseAntenatal1Bo
 
 	@Override
 	public void setData(FollowUpFirstPregnancy followUpFirstPregnancy) {
-		// TODO Auto-generated method stub
-
+		if(followUpFirstPregnancy!=null){
+			et_ztpg.setText(followUpFirstPregnancy.getZtpg_sfztpgycms());
+			if(followUpFirstPregnancy.getZtpg_sfztpgyc()){
+				rb_y.setChecked(true);
+				rb_w.setChecked(false);
+			}else {
+				rb_y.setChecked(false);
+				rb_w.setChecked(true);
+			}
+		}
 	}
 
 	@Override

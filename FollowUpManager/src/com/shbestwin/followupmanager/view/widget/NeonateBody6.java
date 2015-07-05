@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
@@ -17,6 +18,7 @@ public class NeonateBody6 extends LinearLayout  implements IBaseNeonateBody{
 	private RadioGroup rg_zz;
 	private EditText et_yy,et_jkjks;
 	private boolean isHas=false;
+	private RadioButton rb_w,rb_y;
 	public NeonateBody6(Context context) {
 		this(context, null);
 	}
@@ -31,7 +33,8 @@ public class NeonateBody6 extends LinearLayout  implements IBaseNeonateBody{
 		rg_zz=(RadioGroup) rootView.findViewById(R.id.rg_zz);
 		et_yy=(EditText) rootView.findViewById(R.id.et_yy);
 		et_jkjks=(EditText) rootView.findViewById(R.id.et_jgjks);
-		
+		rb_y=(RadioButton) rootView.findViewById(R.id.rb_y);
+        rb_w=(RadioButton) rootView.findViewById(R.id.rb_w);
 		rg_zz.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
 			@Override
@@ -54,8 +57,17 @@ public class NeonateBody6 extends LinearLayout  implements IBaseNeonateBody{
 
 	@Override
 	public void setData(FollowUpNewborn followUpNewborn) {
-		// TODO Auto-generated method stub
-
+	    if(followUpNewborn!=null) {
+            if(followUpNewborn.getZzjy_sfzz()) {
+                rb_y.setChecked(true);
+                rb_w.setChecked(false);
+            }else {
+                rb_y.setChecked(false);
+                rb_w.setChecked(true);
+            }
+           et_jkjks.setText(followUpNewborn.getZzjy_jgjks());
+            et_yy.setText(followUpNewborn.getZzjy_yy());
+        }
 	}
 
 	@Override

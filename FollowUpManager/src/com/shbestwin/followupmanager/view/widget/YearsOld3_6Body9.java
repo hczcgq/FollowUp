@@ -71,13 +71,11 @@ public class YearsOld3_6Body9 extends LinearLayout  implements IBaseYearsOld3_6B
 
 	@Override
 	public boolean validate() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public void setFragment(FragmentManager fragmentManager) {
-		// TODO Auto-generated method stub
 		
 	}
 

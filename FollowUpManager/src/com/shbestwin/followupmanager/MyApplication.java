@@ -72,7 +72,7 @@ public class MyApplication extends Application {
 		mInstance = this;
 		initLog();
 		initCrash();
-		initTest();
+//		initTest();
 	}
 
 	private void initTest() {

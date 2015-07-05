@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Set;
 
+import android.R.integer;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -218,6 +219,15 @@ public class ElectrocardiogramManager {
 			return false;
 		}
 	}
+	
+	public void printHexString1(byte b) {
+		String hex = Integer.toHexString(b & 0xFF);
+		if (hex.length() == 1) {
+			hex = '0' + hex;
+		}
+		System.out.println(hex.toUpperCase() + "--->下行的参数---");
+
+	}
 
 	public Electrocardiogram readData() {
 		Electrocardiogram electrocardiogram = null;
@@ -231,6 +241,7 @@ public class ElectrocardiogramManager {
 
 			// 2、----------------------HC201发送TotalLength包，等待上位机回复----------------------
 			int recordCount = requestTotalLength();
+			System.out.println(recordCount+"--------ssss");
 			if (recordCount <= 0) {
 				showTips(R.string.device_connect_exception);
 				return electrocardiogram;
@@ -271,6 +282,11 @@ public class ElectrocardiogramManager {
 					}
 
 					byte[] headerData = cacheData.toByteArray();
+					System.out.println("返回数据：" + HexBinary.bytesToHexStringPrint(headerData, 0, headerData.length));
+				    for(int i=0;i<headerData.length;i++){
+				    	printHexString1(headerData[i]);
+				    }
+					
 					
 					// 第几条心电数据
 					recordIndex = getShort(headerData, 2);
@@ -547,7 +563,8 @@ public class ElectrocardiogramManager {
 	 * @return
 	 */
 	public short getShort(byte[] b, int index) {
-		return (short) (((b[index + 0] << 8) | b[index + 1] & 0xff));
+//		return (short) (((b[index + 0] << 8) | b[index + 1] & 0xff));
+		return (short)((b[index+0]&0xff)|((b[index + 1]<<8)&0xff00));
 	}
 
 	private void showTips(final int resId) {

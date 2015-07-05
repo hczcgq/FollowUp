@@ -1,6 +1,5 @@
 package com.shbestwin.followupmanager.view.widget;
 
-import android.R.bool;
 import android.content.Context;
 import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
@@ -8,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
@@ -18,6 +18,7 @@ public class Antenatal1Body11 extends LinearLayout  implements IBaseAntenatal1Bo
 	private RadioGroup rg_wy,rg_yd,rg_gj,rg_zg,rg_fj;
 	private EditText et_wy,et_yd,et_gj,et_zg,et_fj;
 	private boolean isWyYc=false,isYdYc=false,isGjYc=false,isZgYc=false,isFjYc=false;
+	private RadioButton rb_wy_w,rb_wy_y,rb_yd_w,rb_yd_y,rb_gj_w,rb_gj_y,rb_zg_w,rb_zg_y,rb_fj_w,rb_fj_y;
 	public Antenatal1Body11(Context context) {
 		this(context, null);
 	}
@@ -29,6 +30,17 @@ public class Antenatal1Body11 extends LinearLayout  implements IBaseAntenatal1Bo
 	public Antenatal1Body11(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		View rootView = LayoutInflater.from(context).inflate(R.layout.view_antenatal1_body11, this, true);
+		rb_wy_w=(RadioButton) rootView.findViewById(R.id.rb_wy_w);
+		rb_wy_y=(RadioButton) rootView.findViewById(R.id.rb_wy_y);
+		rb_yd_w=(RadioButton) rootView.findViewById(R.id.rb_yd_w);
+		rb_yd_y=(RadioButton) rootView.findViewById(R.id.rb_yd_y);
+		rb_gj_w=(RadioButton) rootView.findViewById(R.id.rb_gj_w);
+		rb_gj_y=(RadioButton) rootView.findViewById(R.id.rb_gj_y);
+		rb_zg_w=(RadioButton) rootView.findViewById(R.id.rb_zg_w);
+		rb_zg_y=(RadioButton) rootView.findViewById(R.id.rb_zg_y);
+		rb_fj_w=(RadioButton) rootView.findViewById(R.id.rb_fj_w);
+		rb_fj_y=(RadioButton) rootView.findViewById(R.id.rb_fj_y);
+		
 		rg_wy=(RadioGroup) rootView.findViewById(R.id.rg_wy);
 		rg_yd=(RadioGroup) rootView.findViewById(R.id.rg_yd);
 		rg_gj=(RadioGroup) rootView.findViewById(R.id.rg_gj);
@@ -111,8 +123,50 @@ public class Antenatal1Body11 extends LinearLayout  implements IBaseAntenatal1Bo
 
 	@Override
 	public void setData(FollowUpFirstPregnancy followUpFirstPregnancy) {
-		// TODO Auto-generated method stub
-
+		if(followUpFirstPregnancy!=null){
+			et_wy.setText(followUpFirstPregnancy.getTingz_sfwyycms());
+			et_yd.setText(followUpFirstPregnancy.getTingz_sfydycms());
+			et_gj.setText(followUpFirstPregnancy.getTingz_sfgjycms());
+			et_zg.setText(followUpFirstPregnancy.getTingz_sfzgycms());
+			et_fj.setText(followUpFirstPregnancy.getTingz_sffjycms());
+			
+			if(followUpFirstPregnancy.getFkjc_sfwyyc()){
+				rb_wy_y.setChecked(true);
+				rb_wy_w.setChecked(false);
+			}else {
+				rb_wy_y.setChecked(true);
+				rb_wy_w.setChecked(true);
+			}
+			
+			if(followUpFirstPregnancy.getFkjc_sfydyc()){
+				rb_yd_y.setChecked(true);
+				rb_yd_w.setChecked(false);
+			}else {
+				rb_yd_y.setChecked(true);
+				rb_yd_w.setChecked(true);
+			}
+			if(followUpFirstPregnancy.getFkjc_sfgjyc()){
+				rb_gj_y.setChecked(true);
+				rb_gj_w.setChecked(false);
+			}else {
+				rb_gj_y.setChecked(true);
+				rb_gj_w.setChecked(true);
+			}
+			if(followUpFirstPregnancy.getFkjc_sfzgyc()){
+				rb_zg_y.setChecked(true);
+				rb_zg_w.setChecked(false);
+			}else {
+				rb_zg_y.setChecked(true);
+				rb_zg_w.setChecked(true);
+			}
+			if(followUpFirstPregnancy.getFkjc_sffjyc()){
+				rb_fj_y.setChecked(true);
+				rb_fj_w.setChecked(false);
+			}else {
+				rb_fj_y.setChecked(true);
+				rb_fj_w.setChecked(true);
+			}
+		}
 	}
 
 	@Override

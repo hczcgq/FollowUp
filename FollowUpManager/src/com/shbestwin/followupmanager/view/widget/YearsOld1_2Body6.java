@@ -19,13 +19,14 @@ import com.shbestwin.followupmanager.view.adapter.followup.LabInspectionListAdap
 import com.shbestwin.followupmanager.view.dialog.BaseDialogFragment.OnConfirmClickListener;
 import com.shbestwin.followupmanager.view.dialog.followup.LabInspectionDialog;
 
-public class YearsOld1_2Body6 extends LinearLayout  implements IBaseYearsOld1_2Body ,ListItemClickHelp{
+public class YearsOld1_2Body6 extends LinearLayout implements
+		IBaseYearsOld1_2Body, ListItemClickHelp {
 	private View labInspectionButton;
 	private ListView labInspectionListView;
 
 	private LabInspectionListAdapter inspectionListAdapter;
-    
-    List<LabInspection> inspectionList = new ArrayList<LabInspection>();
+
+	List<LabInspection> inspectionList = new ArrayList<LabInspection>();
 
 	public YearsOld1_2Body6(Context context) {
 		this(context, null);
@@ -37,9 +38,11 @@ public class YearsOld1_2Body6 extends LinearLayout  implements IBaseYearsOld1_2B
 
 	public YearsOld1_2Body6(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		View rootView = LayoutInflater.from(context).inflate(R.layout.view_years_old_1_2_body6, this, true);
+		View rootView = LayoutInflater.from(context).inflate(
+				R.layout.view_years_old_1_2_body6, this, true);
 		labInspectionButton = rootView.findViewById(R.id.labInspectionButton);
-		labInspectionListView = (ListView) rootView.findViewById(R.id.labInspectionListView);
+		labInspectionListView = (ListView) rootView
+				.findViewById(R.id.labInspectionListView);
 
 		labInspectionButton.setOnClickListener(new OnClickListener() {
 			@Override
@@ -48,45 +51,61 @@ public class YearsOld1_2Body6 extends LinearLayout  implements IBaseYearsOld1_2B
 			}
 		});
 
-		inspectionListAdapter = new LabInspectionListAdapter(getContext(), inspectionList);
-        inspectionListAdapter.setListItemClickHelp(this);
-        labInspectionListView.setAdapter(inspectionListAdapter);
+		inspectionListAdapter = new LabInspectionListAdapter(getContext(),
+				inspectionList);
+		inspectionListAdapter.setListItemClickHelp(this);
+		labInspectionListView.setAdapter(inspectionListAdapter);
 	}
 
 	private void showInspectionDialog() {
-    
-        final LabInspectionDialog hypertensionInspectionDialog = LabInspectionDialog
-                .newInstance();
-        hypertensionInspectionDialog.show(
-                ((FragmentActivity) getContext()).getSupportFragmentManager(),
-                "hypertensionInspectionDialog");
-        hypertensionInspectionDialog
-                .setOnConfirmClickListener(new OnConfirmClickListener() {
 
-                    @Override
-                    public void onConfirmClick() {
-                        LabInspection inspection = hypertensionInspectionDialog
-                                .getInspection();
-                        inspectionList.add(inspection);
-                        hypertensionInspectionDialog.hide();
-                        inspectionListAdapter.notifyDataSetChanged();
-                    }
-                });
-    }
-	@Override
-	public void getData(FollowUpOneTwoNewborn followUpOneTwoNewborn) {
-	    try {
-	        followUpOneTwoNewborn
-                    .setSysjc(JsonUtil.objectsToJson(inspectionList));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+		final LabInspectionDialog hypertensionInspectionDialog = LabInspectionDialog
+				.newInstance();
+		hypertensionInspectionDialog.show(
+				((FragmentActivity) getContext()).getSupportFragmentManager(),
+				"hypertensionInspectionDialog");
+		hypertensionInspectionDialog
+				.setOnConfirmClickListener(new OnConfirmClickListener() {
+
+					@Override
+					public void onConfirmClick() {
+						LabInspection inspection = hypertensionInspectionDialog
+								.getInspection();
+						inspectionList.add(inspection);
+						hypertensionInspectionDialog.hide();
+						inspectionListAdapter.notifyDataSetChanged();
+					}
+				});
 	}
 
 	@Override
+	public void getData(FollowUpOneTwoNewborn followUpOneTwoNewborn) {
+		try {
+			followUpOneTwoNewborn.setSysjc(JsonUtil
+					.objectsToJson(inspectionList));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
 	public void setData(FollowUpOneTwoNewborn followUpOneTwoNewborn) {
-		// TODO Auto-generated method stub
-		
+		if (followUpOneTwoNewborn != null) {
+
+			try {
+				List<LabInspection> lists = JsonUtil
+						.jsonToObjects(followUpOneTwoNewborn.getSysjc(),
+								LabInspection.class);
+				if (lists != null && lists.size() > 0) {
+					inspectionList.addAll(lists);
+					inspectionListAdapter.notifyDataSetChanged();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}
 	}
 
 	@Override
@@ -98,43 +117,43 @@ public class YearsOld1_2Body6 extends LinearLayout  implements IBaseYearsOld1_2B
 	@Override
 	public void setFragment(FragmentManager fragmentManager) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-    @Override
-    public void onClick(final int position, int which) {
+	@Override
+	public void onClick(final int position, int which) {
 
-        LabInspection inspection = inspectionList.get(position);
-        switch (which) {
-        case R.id.im_delete:
-            inspectionList.remove(position);
-            inspectionListAdapter.notifyDataSetChanged();
-            break;
-        case R.id.im_edit:
-            final LabInspectionDialog inspectionDialog = new LabInspectionDialog(
-                    inspection);
-            inspectionDialog.show(((FragmentActivity) getContext())
-                    .getSupportFragmentManager(),
-                    "hypertensionInspectionDialog");
+		LabInspection inspection = inspectionList.get(position);
+		switch (which) {
+		case R.id.im_delete:
+			inspectionList.remove(position);
+			inspectionListAdapter.notifyDataSetChanged();
+			break;
+		case R.id.im_edit:
+			final LabInspectionDialog inspectionDialog = new LabInspectionDialog(
+					inspection);
+			inspectionDialog.show(((FragmentActivity) getContext())
+					.getSupportFragmentManager(),
+					"hypertensionInspectionDialog");
 
-            inspectionDialog
-                    .setOnConfirmClickListener(new OnConfirmClickListener() {
+			inspectionDialog
+					.setOnConfirmClickListener(new OnConfirmClickListener() {
 
-                        @Override
-                        public void onConfirmClick() {
-                            LabInspection inspection = inspectionDialog
-                                    .getInspection();
-                            inspectionList.set(position, inspection);
-                            inspectionDialog.hide();
-                            inspectionListAdapter.notifyDataSetChanged();
-                        }
-                    });
+						@Override
+						public void onConfirmClick() {
+							LabInspection inspection = inspectionDialog
+									.getInspection();
+							inspectionList.set(position, inspection);
+							inspectionDialog.hide();
+							inspectionListAdapter.notifyDataSetChanged();
+						}
+					});
 
-            break;
+			break;
 
-        default:
-            break;
-        }
-    
-    }
+		default:
+			break;
+		}
+
+	}
 }

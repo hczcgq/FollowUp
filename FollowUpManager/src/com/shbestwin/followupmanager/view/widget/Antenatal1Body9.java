@@ -34,8 +34,11 @@ public class Antenatal1Body9 extends LinearLayout implements IBaseAntenatal1Body
 
 	@Override
 	public void setData(FollowUpFirstPregnancy followUpFirstPregnancy) {
-		// TODO Auto-generated method stub
 
+		if(followUpFirstPregnancy!=null){
+			ViewDataUtil.setSpinnerData(sn_ycs, followUpFirstPregnancy.getYcs_ycs());
+		}
+	
 	}
 
 	@Override

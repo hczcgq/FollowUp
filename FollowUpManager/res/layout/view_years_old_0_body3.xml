@@ -87,6 +87,7 @@
         android:textSize="@dimen/global_font_size_xlarge" />
 
     <LinearLayout
+        android:id="@+id/complexionLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -147,13 +148,13 @@
             android:text="前囟：" />
 
         <RadioButton
-            android:id="@+id/rb_qc_b"
+            android:id="@+id/rb_qc_bh"
             style="@style/RadioButtonStyle"
             android:checked="true"
             android:text="闭合" />
 
         <RadioButton
-            android:id="@+id/rb_qc_w"
+            android:id="@+id/rb_qc_wbh"
             style="@style/RadioButtonStyle"
             android:layout_marginLeft="20dp"
             android:text="未闭合" />
@@ -245,13 +246,13 @@
             android:text="皮肤：" />
 
         <RadioButton
-            android:id="@+id/rb_pf_w"
+            android:id="@+id/rb_pf_wjyc"
             style="@style/RadioButtonStyle"
             android:checked="true"
             android:text="未见异常" />
 
         <RadioButton
-            android:id="@+id/rb_pf_y"
+            android:id="@+id/rb_pf_yc"
             style="@style/RadioButtonStyle"
             android:layout_marginLeft="20dp"
             android:text="异常" />
@@ -286,13 +287,13 @@
             android:text="眼外观：" />
 
         <RadioButton
-            android:id="@+id/rb_ywg_w"
+            android:id="@+id/rb_ywg_wjyc"
             style="@style/RadioButtonStyle"
             android:checked="true"
             android:text="未见异常" />
 
         <RadioButton
-            android:id="@+id/rb_ywg_y"
+            android:id="@+id/rb_ywg_yc"
             style="@style/RadioButtonStyle"
             android:layout_marginLeft="20dp"
             android:text="异常" />
@@ -317,13 +318,13 @@
             android:text="耳外观：" />
 
         <RadioButton
-            android:id="@+id/rb_ewg_w"
+            android:id="@+id/rb_ewg_wjyc"
             style="@style/RadioButtonStyle"
             android:checked="true"
             android:text="未见异常" />
 
         <RadioButton
-            android:id="@+id/rb_ewg_y"
+            android:id="@+id/rb_ewg_yc"
             style="@style/RadioButtonStyle"
             android:layout_marginLeft="20dp"
             android:text="异常" />
@@ -348,13 +349,13 @@
             android:text="鼻：" />
 
         <RadioButton
-            android:id="@+id/et_b_w"
+            android:id="@+id/rb_b_wjyc"
             style="@style/RadioButtonStyle"
             android:checked="true"
             android:text="未见异常" />
 
         <RadioButton
-            android:id="@+id/et_b_y"
+            android:id="@+id/rb_b_yc"
             style="@style/RadioButtonStyle"
             android:layout_marginLeft="20dp"
             android:text="异常" />
@@ -379,13 +380,13 @@
             android:text="口腔：" />
 
         <RadioButton
-            android:id="@+id/rb_kq_w"
+            android:id="@+id/rb_kq_wjyc"
             style="@style/RadioButtonStyle"
             android:checked="true"
             android:text="未见异常" />
 
         <RadioButton
-            android:id="@+id/rb_kq_y"
+            android:id="@+id/rb_kq_yc"
             style="@style/RadioButtonStyle"
             android:layout_marginLeft="20dp"
             android:text="异常" />
@@ -582,6 +583,7 @@
         android:textSize="@dimen/global_font_size_xlarge" />
 
     <LinearLayout
+        android:id="@+id/umbilicalRegionLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -642,6 +644,7 @@
         android:textSize="@dimen/global_font_size_xlarge" />
 
     <LinearLayout
+        android:id="@+id/ricketsSymptomLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -688,6 +691,7 @@
         android:textSize="@dimen/global_font_size_xlarge" />
 
     <LinearLayout
+        android:id="@+id/ricketsSignLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -816,6 +820,7 @@
         android:textSize="@dimen/global_font_size_xlarge" />
 
     <LinearLayout
+        android:id="@+id/hipActivityLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"

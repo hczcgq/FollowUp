@@ -5,17 +5,17 @@ import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
-
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.model.followup.FollowUpPostpartum;
 
 public class PostpartumBody6 extends LinearLayout  implements IBasePostpartumBody{
 	private RadioGroup rg_zd;
 	private String zd_name="个人卫生";
+	private RadioButton rb_grws,rb_xl,rb_yy,rb_mrwy,rb_xsethl;
 	public PostpartumBody6(Context context) {
 		this(context, null);
 	}
@@ -28,6 +28,11 @@ public class PostpartumBody6 extends LinearLayout  implements IBasePostpartumBod
 		super(context, attrs, defStyle);
 		View rootView = LayoutInflater.from(context).inflate(R.layout.view_postpartum_body6, this, true);
 		rg_zd=(RadioGroup) rootView.findViewById(R.id.rg_zd);
+		rb_grws=(RadioButton) rootView.findViewById(R.id.rb_grws);
+		rb_xl=(RadioButton) rootView.findViewById(R.id.rb_xl);
+		rb_yy=(RadioButton) rootView.findViewById(R.id.rb_yy);
+		rb_mrwy=(RadioButton) rootView.findViewById(R.id.rb_mrwy);
+		rb_xsethl=(RadioButton) rootView.findViewById(R.id.rb_xsethl);
 		
 		rg_zd.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
@@ -54,8 +59,39 @@ public class PostpartumBody6 extends LinearLayout  implements IBasePostpartumBod
 
 	@Override
 	public void setData(FollowUpPostpartum followUpPostpartum) {
-		// TODO Auto-generated method stub
-
+		if(followUpPostpartum!=null){
+			if(followUpPostpartum.getZd_name().equals("个人卫生")){
+				rb_grws.setChecked(true);
+				rb_xl.setChecked(false);
+				rb_yy.setChecked(false);
+				rb_mrwy.setChecked(false);
+				rb_xsethl.setChecked(false);
+			}else if(followUpPostpartum.getZd_name().equals("心理")){
+				rb_grws.setChecked(false);
+				rb_xl.setChecked(true);
+				rb_yy.setChecked(false);
+				rb_mrwy.setChecked(false);
+				rb_xsethl.setChecked(false);
+			}else if(followUpPostpartum.getZd_name().equals("营养")){
+				rb_grws.setChecked(false);
+				rb_xl.setChecked(false);
+				rb_yy.setChecked(true);
+				rb_mrwy.setChecked(false);
+				rb_xsethl.setChecked(false);
+			}else if(followUpPostpartum.getZd_name().equals("母乳喂养")){
+				rb_grws.setChecked(false);
+				rb_xl.setChecked(false);
+				rb_yy.setChecked(false);
+				rb_mrwy.setChecked(true);
+				rb_xsethl.setChecked(false);
+			}else {
+				rb_grws.setChecked(false);
+				rb_xl.setChecked(false);
+				rb_yy.setChecked(false);
+				rb_mrwy.setChecked(false);
+				rb_xsethl.setChecked(true);
+			}
+		}
 	}
 
 	@Override

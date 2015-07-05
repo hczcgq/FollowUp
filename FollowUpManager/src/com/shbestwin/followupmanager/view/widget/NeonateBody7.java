@@ -1,33 +1,28 @@
 package com.shbestwin.followupmanager.view.widget;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Map.Entry;
+import java.util.Date;
 
 import android.content.Context;
 import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
+import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.CompoundButton.OnCheckedChangeListener;
-
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
+import android.widget.RelativeLayout;
 import com.shbestwin.followupmanager.R;
+import com.shbestwin.followupmanager.common.util.DateUtils;
+import com.shbestwin.followupmanager.common.util.ViewDataUtil;
 import com.shbestwin.followupmanager.model.followup.FollowUpNewborn;
+import com.shbestwin.followupmanager.view.dialog.DatePickerDialog;
+import com.shbestwin.followupmanager.view.dialog.DatePickerDialog.OnDatePickerListener;
 
 public class NeonateBody7 extends LinearLayout  implements IBaseNeonateBody{
 	
 	private EditText et_tsyzjcl,et_xcsfrq,et_xcsfdd,et_sfysqm;
 	private FragmentManager fragmentManager;
-	private CheckBox rehabilitationGoal0, rehabilitationGoal1, rehabilitationGoal2, rehabilitationGoal3, rehabilitationGoal4;
-	private HashMap<Integer, String> map = new HashMap<Integer, String>();
-	
+	private RelativeLayout guideLabelLayout;
 	public NeonateBody7(Context context) {
 		this(context, null);
 	}
@@ -43,105 +38,54 @@ public class NeonateBody7 extends LinearLayout  implements IBaseNeonateBody{
 		et_xcsfrq=(EditText) rootView.findViewById(R.id.et_xcsfrq);
 		et_xcsfdd=(EditText) rootView.findViewById(R.id.et_tsyzjcl);
 		et_sfysqm=(EditText) rootView.findViewById(R.id.et_sfysqm);
+		guideLabelLayout = (RelativeLayout) rootView
+				.findViewById(R.id.guideLabelLayout);
 		
-		rehabilitationGoal0 = (CheckBox) rootView.findViewById(R.id.rehabilitationGoal0);
-		rehabilitationGoal1 = (CheckBox) rootView.findViewById(R.id.rehabilitationGoal1);
-		rehabilitationGoal2 = (CheckBox) rootView.findViewById(R.id.rehabilitationGoal2);
-		rehabilitationGoal3 = (CheckBox) rootView.findViewById(R.id.rehabilitationGoal3);
-		rehabilitationGoal4 = (CheckBox) rootView.findViewById(R.id.rehabilitationGoal4);
-
-		rehabilitationGoal0.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
+		et_xcsfrq.setText(DateUtils.formatDate(new Date(), "yyyy-MM-dd"));
+		et_xcsfrq.setOnClickListener(new OnClickListener() {
 			@Override
-			public void onCheckedChanged(CompoundButton buttonView,
-					boolean isChecked) {
-				if (isChecked) {
-					map.put(0, buttonView.getText().toString());
-				} else {
-					map.remove(0);
-				}
+			public void onClick(View v) {
+				final DatePickerDialog datePickerDialog = DatePickerDialog
+						.newInstance();
+				datePickerDialog.show(fragmentManager, "datePickerDialog");
+				datePickerDialog
+						.setOnDatePickerListener(new OnDatePickerListener() {
+							@Override
+							public void onConfirmClick(long timeInMillis,
+									String formatDate) {
+								et_xcsfrq.setText(formatDate);
+								datePickerDialog.hide();
+							}
+						});
 			}
 		});
-		rehabilitationGoal1.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView,
-					boolean isChecked) {
-				if (isChecked) {
-					map.put(1, buttonView.getText().toString());
-				} else {
-					map.remove(1);
-				}
-			}
-		});
-		rehabilitationGoal2.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView,
-					boolean isChecked) {
-				if (isChecked) {
-					map.put(2, buttonView.getText().toString());
-				} else {
-					map.remove(2);
-				}
-			}
-		});
-		rehabilitationGoal3.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView,
-					boolean isChecked) {
-				if (isChecked) {
-					map.put(3, buttonView.getText().toString());
-				} else {
-					map.remove(3);
-				}
-			}
-		});
-		rehabilitationGoal4.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView,
-					boolean isChecked) {
-				if (isChecked) {
-					map.put(4, buttonView.getText().toString());
-				} else {
-					map.remove(4);
-				}
-			}
-		});
+	
 	}
 	@Override
 	public void getData(FollowUpNewborn followUpNewborn) {
-		JsonObject jsonObject = new JsonObject();
-		JsonArray jsonArray = new JsonArray();
-		Iterator iterator = map.entrySet().iterator();
-		while (iterator.hasNext()) {
-			Map.Entry entry = (Entry) iterator.next();
-			JsonObject object = new JsonObject();
-			object.addProperty("zd_zdmc_num", String.valueOf(entry.getKey()));
-			object.addProperty("zd_zdmc_name",
-					String.valueOf(entry.getValue()));
-			jsonArray.add(object);
-		}
-		jsonObject.add("zd_zdmc", jsonArray);
 		
 		followUpNewborn.setZd_xcsfrq(et_xcsfrq.getText().toString());
 		followUpNewborn.setZd_xcfsdd(et_xcsfdd.getText().toString());
 		followUpNewborn.setZd_sfysqm(et_sfysqm.getText().toString());
 		followUpNewborn.setZd_tsyzjcl(et_tsyzjcl.getText().toString());
-		followUpNewborn.setZd_zdmc(jsonObject.toString());
+		followUpNewborn.setZd_zdmc(ViewDataUtil.getCheckboxData(
+				guideLabelLayout, null));
 	}
 
 	@Override
 	public void setData(FollowUpNewborn followUpNewborn) {
-		// TODO Auto-generated method stub
-
+		if (followUpNewborn != null) {
+			et_tsyzjcl.setText(followUpNewborn.getZd_tsyzjcl());
+			et_sfysqm.setText(followUpNewborn.getZd_sfysqm());
+			et_xcsfrq.setText(followUpNewborn.getZd_xcsfrq());
+			et_xcsfdd.setText(followUpNewborn.getZd_xcfsdd());
+			ViewDataUtil.setCheckboxData(guideLabelLayout, null,
+					followUpNewborn.getZd_zdmc());
+		}
 	}
 
 	@Override
 	public boolean validate() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 

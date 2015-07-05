@@ -50,13 +50,15 @@ public class YearsOld3_6Body7 extends LinearLayout  implements IBaseYearsOld3_6B
 
 	@Override
 	public void setData(FollowUpThreeSixNewborn followUpThreeSixNewborn) {
-		if(followUpThreeSixNewborn.getYyxjbgl_sfyyxjb()) {
-		    rb_s.setChecked(true);
-		    rb_f.setChecked(false);
-		}else {
-		    rb_s.setChecked(false);
-            rb_f.setChecked(true);
-        }
+		if(followUpThreeSixNewborn!=null){
+			if(followUpThreeSixNewborn.getYyxjbgl_sfyyxjb()) {
+			    rb_s.setChecked(true);
+			    rb_f.setChecked(false);
+			}else {
+			    rb_s.setChecked(false);
+	            rb_f.setChecked(true);
+	        }
+		}
 	}
 
 	@Override

@@ -38,7 +38,8 @@
 
     <TextView
         android:id="@+id/tv_ywlx"
-        android:layout_width="150dp"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="10dp"
@@ -53,7 +54,8 @@
 
     <TextView
         android:id="@+id/tv_yl"
-        android:layout_width="80dp"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="10dp"
@@ -68,7 +70,8 @@
 
     <TextView
         android:id="@+id/tv_dw"
-        android:layout_width="80dp"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="10dp"
@@ -83,9 +86,9 @@
 
     <TextView
         android:id="@+id/tv_yf"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+       android:layout_width="0dp"
         android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="10dp"
         android:text="用法"
@@ -99,7 +102,8 @@
 
     <TextView
         android:id="@+id/tv_syzjl"
-        android:layout_width="150dp"
+      android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="10dp"
@@ -114,7 +118,8 @@
 
     <TextView
         android:id="@+id/tv_jyfs"
-        android:layout_width="150dp"
+       android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="10dp"

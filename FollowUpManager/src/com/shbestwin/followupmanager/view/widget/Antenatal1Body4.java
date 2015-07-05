@@ -2,7 +2,6 @@ package com.shbestwin.followupmanager.view.widget;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import android.content.Context;
 import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
@@ -17,8 +16,8 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.JsonUtil;
 import com.shbestwin.followupmanager.common.util.ViewDataUtil;
+import com.shbestwin.followupmanager.model.followup.CheckBoxItem;
 import com.shbestwin.followupmanager.model.followup.FollowUpFirstPregnancy;
-import com.shbestwin.followupmanager.model.followup.PastHistory;
 
 public class Antenatal1Body4 extends LinearLayout implements
         IBaseAntenatal1Body {
@@ -71,19 +70,19 @@ public class Antenatal1Body4 extends LinearLayout implements
     }
 
     private String getCheckBoxText() {
-        List<PastHistory> allergyHistoriesList = new ArrayList<PastHistory>();
+        List<CheckBoxItem> allergyHistoriesList = new ArrayList<CheckBoxItem>();
         for (int i = 0; i < pastHistoryLayout.getChildCount(); i++) {
             View item = pastHistoryLayout.getChildAt(i);
-            PastHistory allergyHistories = new PastHistory();
+            CheckBoxItem allergyHistories = new CheckBoxItem();
             if (item instanceof CheckBox) {
                 CheckBox checkBox = (CheckBox) item;
                 if (checkBox.isChecked()) {
-                    allergyHistories.setJws_num(String.valueOf(i));
+                    allergyHistories.setItem_num(String.valueOf(i));
                     if ("其他".equals(checkBox.getText())) {
-                        allergyHistories.setJws_name(pastHistoryEditTextOther
+                        allergyHistories.setItem_name(pastHistoryEditTextOther
                                 .getText().toString());
                     } else {
-                        allergyHistories.setJws_name(checkBox.getText()
+                        allergyHistories.setItem_name(checkBox.getText()
                                 .toString());
                     }
                     allergyHistoriesList.add(allergyHistories);
@@ -106,17 +105,17 @@ public class Antenatal1Body4 extends LinearLayout implements
         if (followUpFirstPregnancy != null) {
             try {
                 setCheckBoxText(JsonUtil.jsonToObjects(
-                        followUpFirstPregnancy.getJws(), PastHistory.class));
+                        followUpFirstPregnancy.getJws(), CheckBoxItem.class));
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private void setCheckBoxText(List<PastHistory> mList) {
+    private void setCheckBoxText(List<CheckBoxItem> mList) {
         for (int i = 0; i < mList.size(); i++) {
-            int Num = Integer.parseInt(mList.get(i).getJws_num());
-            String name = mList.get(i).getJws_name();
+            int Num = Integer.parseInt(mList.get(i).getItem_num());
+            String name = mList.get(i).getItem_name();
             if (pastHistoryLayout.getChildAt(Num) instanceof CheckBox) {
                 CheckBox checkBox = (CheckBox) pastHistoryLayout
                         .getChildAt(Num);

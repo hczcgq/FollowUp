@@ -87,6 +87,7 @@
         android:textSize="@dimen/global_font_size_xlarge" />
 
     <LinearLayout
+        android:id="@+id/complexionLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -159,7 +160,7 @@
             android:text="未闭合" />
 
         <EditText
-             android:id="@+id/et_qc_1"
+            android:id="@+id/et_qc_1"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="80dp"
             android:layout_marginLeft="20dp" />
@@ -333,7 +334,7 @@
             android:text="通过" />
 
         <RadioButton
-            android:id="@+id/tb_tl_wtg"
+            android:id="@+id/rb_tl_wtg"
             style="@style/RadioButtonStyle"
             android:layout_marginLeft="20dp"
             android:text="未通过" />
@@ -518,47 +519,6 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/white_label_bg"
-        android:text="步态"
-        android:textColor="@color/light_blue"
-        android:textSize="@dimen/global_font_size_xlarge" />
-
-    <RadioGroup
-        android:id="@+id/rg_bt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal" >
-
-        <TextView
-            style="@style/GeneralExaminationLabelStyle"
-            android:text="步态：" />
-
-        <RadioButton
-            android:id="@+id/rb_bt_wjyc"
-            style="@style/RadioButtonStyle"
-            android:checked="true"
-            android:text="未见异常" />
-
-        <RadioButton
-            android:id="@+id/rb_bt_yc"
-            style="@style/RadioButtonStyle"
-            android:layout_marginLeft="20dp"
-            android:text="异常" />
-
-        <EditText
-            android:id="@+id/et_bt"
-            style="@style/GeneralExaminationEditTextStyle"
-            android:layout_width="220dp"
-            android:layout_marginLeft="20dp" />
-    </RadioGroup>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/white_label_bg"
         android:text="外生殖器"
         android:textColor="@color/light_blue"
         android:textSize="@dimen/global_font_size_xlarge" />
@@ -605,6 +565,7 @@
         android:textSize="@dimen/global_font_size_xlarge" />
 
     <LinearLayout
+        android:id="@+id/ricketsSignLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"

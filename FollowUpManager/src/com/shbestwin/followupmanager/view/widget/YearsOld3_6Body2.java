@@ -197,7 +197,6 @@ public class YearsOld3_6Body2 extends LinearLayout implements
 				rb_ggyctz_wjyc.setChecked(true);
 			}
 			
-			
 		}
 	}
 

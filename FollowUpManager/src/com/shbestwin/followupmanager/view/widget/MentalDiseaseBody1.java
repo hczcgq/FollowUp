@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
@@ -20,7 +21,7 @@ public class MentalDiseaseBody1 extends LinearLayout implements
         IBaseMentalDiseaseBody {
     private EditText et_zrys, et_sfrq;
 
-    private FragmentManager fragmentManager;
+    private FragmentManager fragment;
 
     public MentalDiseaseBody1(Context context) {
         this(context, null);
@@ -38,22 +39,22 @@ public class MentalDiseaseBody1 extends LinearLayout implements
         et_sfrq = (EditText) rootView.findViewById(R.id.et_sfrq);
         et_sfrq.setText(DateUtils.formatDate(new Date(), "yyyy-MM-dd"));
         et_sfrq.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final DatePickerDialog datePickerDialog = DatePickerDialog
-                        .newInstance();
-                datePickerDialog.show(fragmentManager, "datePickerDialog");
-                datePickerDialog
-                        .setOnDatePickerListener(new OnDatePickerListener() {
-                            @Override
-                            public void onConfirmClick(long timeInMillis,
-                                    String formatDate) {
-                                et_sfrq.setText(formatDate);
-                                datePickerDialog.hide();
-                            }
-                        });
-            }
-        });
+			@Override
+			public void onClick(View v) {
+				final DatePickerDialog datePickerDialog = DatePickerDialog
+						.newInstance();
+				datePickerDialog.show(fragment, "datePickerDialog");
+				datePickerDialog
+						.setOnDatePickerListener(new OnDatePickerListener() {
+							@Override
+							public void onConfirmClick(long timeInMillis,
+									String formatDate) {
+								et_sfrq.setText(formatDate);
+								datePickerDialog.hide();
+							}
+						});
+			}
+		});
     }
 
     @Override
@@ -76,8 +77,8 @@ public class MentalDiseaseBody1 extends LinearLayout implements
     }
 
     @Override
-    public void setFragment(FragmentManager fragmentManager) {
-        this.fragmentManager = fragmentManager;
+    public void setFragment(FragmentManager fragment) {
+    	this.fragment = fragment;
     }
 
 }

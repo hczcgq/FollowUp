@@ -28,6 +28,7 @@ import com.shbestwin.followupmanager.manager.ExaminationManager;
 import com.shbestwin.followupmanager.manager.device.ElectrocardiogramManager;
 import com.shbestwin.followupmanager.model.device.Electrocardiogram;
 import com.shbestwin.followupmanager.model.examination.ExaminationInfo;
+import com.shbestwin.followupmanager.view.dialog.BaseDialogFragment.OnConfirmClickListener;
 import com.shbestwin.followupmanager.view.dialog.DatePickerDialog;
 import com.shbestwin.followupmanager.view.dialog.DatePickerDialog.OnDatePickerListener;
 import com.shbestwin.followupmanager.view.dialog.examination.ElectrocardiogramChartDialog;
@@ -115,8 +116,15 @@ public class ElectrocardiogramAnalyzerFragment extends BaseQuickExaminationFragm
 	}
 
 	private void showWaveformDialog() {
-		ElectrocardiogramChartDialog electrocardiogramChartDialog = ElectrocardiogramChartDialog.newInstance(points);
+		  final ElectrocardiogramChartDialog electrocardiogramChartDialog = ElectrocardiogramChartDialog.newInstance(points);
 		electrocardiogramChartDialog.show(getChildFragmentManager(), "electrocardiogramChartDialog");
+		electrocardiogramChartDialog.setOnConfirmClickListener(new OnConfirmClickListener() {
+			
+			@Override
+			public void onConfirmClick() {
+				electrocardiogramChartDialog.hide();
+			}
+		});
 	}
 
 	private ArrayList<Integer> points = null;

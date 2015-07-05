@@ -42,6 +42,10 @@ public class FollowUpThreeSixNewborn {
     private String sysjc;
     private String fzjc;
     private String hbqk;
+    private String hbqk_fy;
+    private String hbqk_fx;
+    private String hbqk_ws;
+    private String hbqk_qt;
     private Boolean yyxjbgl_sfyyxjb;
     private String jbzd;
     private Boolean zz_sfzz;
@@ -64,52 +68,75 @@ public class FollowUpThreeSixNewborn {
         this.followUpNo = followUpNo;
     }
 
-    public FollowUpThreeSixNewborn(String followUpNo, String idcard, String grxx_fsrq, String grxx_nl, String grxx_sjnl, String grxx_zrys, String tgjcqk_tz, String tgjcqk_sc, String tgjcqk_bmi, String tgjcqk_tgfypj, String tgjcqk_sl, String tgjcqk_cyqcs, String tgjcqk_cyqcsjl, Boolean tgjcqk_sftlyc, String tgjcqk_sftlycms, Boolean tgjcqk_sfywgyc, String tgjcqk_sfywgycms, Boolean tgjcqk_sfebyc, String tgjcqk_sfebycms, Boolean tgjcqk_sfxftzyc, String tgjcqk_sfxftzycms, Boolean tgjcqk_sffbczyc, String tgjcqk_sffbczycms, Boolean tgjcqk_sfwszqyc, String tgjcqk_sfwszqycms, Boolean tgjcqk_sfggyctzyc, String tgjcqk_sfggyctzycms, String xhdbz, String sysjc, String fzjc, String hbqk, Boolean yyxjbgl_sfyyxjb, String jbzd, Boolean zz_sfzz, String zz_yy, String zz_jgjks, String zd_zd, String zd_yzhjy, String zd_xcsfrq, String zd_sfysqm, String createTime, String updateTime) {
-        this.followUpNo = followUpNo;
-        this.idcard = idcard;
-        this.grxx_fsrq = grxx_fsrq;
-        this.grxx_nl = grxx_nl;
-        this.grxx_sjnl = grxx_sjnl;
-        this.grxx_zrys = grxx_zrys;
-        this.tgjcqk_tz = tgjcqk_tz;
-        this.tgjcqk_sc = tgjcqk_sc;
-        this.tgjcqk_bmi = tgjcqk_bmi;
-        this.tgjcqk_tgfypj = tgjcqk_tgfypj;
-        this.tgjcqk_sl = tgjcqk_sl;
-        this.tgjcqk_cyqcs = tgjcqk_cyqcs;
-        this.tgjcqk_cyqcsjl = tgjcqk_cyqcsjl;
-        this.tgjcqk_sftlyc = tgjcqk_sftlyc;
-        this.tgjcqk_sftlycms = tgjcqk_sftlycms;
-        this.tgjcqk_sfywgyc = tgjcqk_sfywgyc;
-        this.tgjcqk_sfywgycms = tgjcqk_sfywgycms;
-        this.tgjcqk_sfebyc = tgjcqk_sfebyc;
-        this.tgjcqk_sfebycms = tgjcqk_sfebycms;
-        this.tgjcqk_sfxftzyc = tgjcqk_sfxftzyc;
-        this.tgjcqk_sfxftzycms = tgjcqk_sfxftzycms;
-        this.tgjcqk_sffbczyc = tgjcqk_sffbczyc;
-        this.tgjcqk_sffbczycms = tgjcqk_sffbczycms;
-        this.tgjcqk_sfwszqyc = tgjcqk_sfwszqyc;
-        this.tgjcqk_sfwszqycms = tgjcqk_sfwszqycms;
-        this.tgjcqk_sfggyctzyc = tgjcqk_sfggyctzyc;
-        this.tgjcqk_sfggyctzycms = tgjcqk_sfggyctzycms;
-        this.xhdbz = xhdbz;
-        this.sysjc = sysjc;
-        this.fzjc = fzjc;
-        this.hbqk = hbqk;
-        this.yyxjbgl_sfyyxjb = yyxjbgl_sfyyxjb;
-        this.jbzd = jbzd;
-        this.zz_sfzz = zz_sfzz;
-        this.zz_yy = zz_yy;
-        this.zz_jgjks = zz_jgjks;
-        this.zd_zd = zd_zd;
-        this.zd_yzhjy = zd_yzhjy;
-        this.zd_xcsfrq = zd_xcsfrq;
-        this.zd_sfysqm = zd_sfysqm;
-        this.createTime = createTime;
-        this.updateTime = updateTime;
-    }
+    
 
-    /** Not-null value. */
+    public FollowUpThreeSixNewborn(String followUpNo, String idcard,
+			String grxx_fsrq, String grxx_nl, String grxx_sjnl,
+			String grxx_zrys, String tgjcqk_tz, String tgjcqk_sc,
+			String tgjcqk_bmi, String tgjcqk_tgfypj, String tgjcqk_sl,
+			String tgjcqk_cyqcs, String tgjcqk_cyqcsjl, Boolean tgjcqk_sftlyc,
+			String tgjcqk_sftlycms, Boolean tgjcqk_sfywgyc,
+			String tgjcqk_sfywgycms, Boolean tgjcqk_sfebyc,
+			String tgjcqk_sfebycms, Boolean tgjcqk_sfxftzyc,
+			String tgjcqk_sfxftzycms, Boolean tgjcqk_sffbczyc,
+			String tgjcqk_sffbczycms, Boolean tgjcqk_sfwszqyc,
+			String tgjcqk_sfwszqycms, Boolean tgjcqk_sfggyctzyc,
+			String tgjcqk_sfggyctzycms, String xhdbz, String sysjc,
+			String fzjc, String hbqk, String hbqk_fy, String hbqk_fx,
+			String hbqk_ws, String hbqk_qt, Boolean yyxjbgl_sfyyxjb,
+			String jbzd, Boolean zz_sfzz, String zz_yy, String zz_jgjks,
+			String zd_zd, String zd_yzhjy, String zd_xcsfrq, String zd_sfysqm,
+			String createTime, String updateTime) {
+		super();
+		this.followUpNo = followUpNo;
+		this.idcard = idcard;
+		this.grxx_fsrq = grxx_fsrq;
+		this.grxx_nl = grxx_nl;
+		this.grxx_sjnl = grxx_sjnl;
+		this.grxx_zrys = grxx_zrys;
+		this.tgjcqk_tz = tgjcqk_tz;
+		this.tgjcqk_sc = tgjcqk_sc;
+		this.tgjcqk_bmi = tgjcqk_bmi;
+		this.tgjcqk_tgfypj = tgjcqk_tgfypj;
+		this.tgjcqk_sl = tgjcqk_sl;
+		this.tgjcqk_cyqcs = tgjcqk_cyqcs;
+		this.tgjcqk_cyqcsjl = tgjcqk_cyqcsjl;
+		this.tgjcqk_sftlyc = tgjcqk_sftlyc;
+		this.tgjcqk_sftlycms = tgjcqk_sftlycms;
+		this.tgjcqk_sfywgyc = tgjcqk_sfywgyc;
+		this.tgjcqk_sfywgycms = tgjcqk_sfywgycms;
+		this.tgjcqk_sfebyc = tgjcqk_sfebyc;
+		this.tgjcqk_sfebycms = tgjcqk_sfebycms;
+		this.tgjcqk_sfxftzyc = tgjcqk_sfxftzyc;
+		this.tgjcqk_sfxftzycms = tgjcqk_sfxftzycms;
+		this.tgjcqk_sffbczyc = tgjcqk_sffbczyc;
+		this.tgjcqk_sffbczycms = tgjcqk_sffbczycms;
+		this.tgjcqk_sfwszqyc = tgjcqk_sfwszqyc;
+		this.tgjcqk_sfwszqycms = tgjcqk_sfwszqycms;
+		this.tgjcqk_sfggyctzyc = tgjcqk_sfggyctzyc;
+		this.tgjcqk_sfggyctzycms = tgjcqk_sfggyctzycms;
+		this.xhdbz = xhdbz;
+		this.sysjc = sysjc;
+		this.fzjc = fzjc;
+		this.hbqk = hbqk;
+		this.hbqk_fy = hbqk_fy;
+		this.hbqk_fx = hbqk_fx;
+		this.hbqk_ws = hbqk_ws;
+		this.hbqk_qt = hbqk_qt;
+		this.yyxjbgl_sfyyxjb = yyxjbgl_sfyyxjb;
+		this.jbzd = jbzd;
+		this.zz_sfzz = zz_sfzz;
+		this.zz_yy = zz_yy;
+		this.zz_jgjks = zz_jgjks;
+		this.zd_zd = zd_zd;
+		this.zd_yzhjy = zd_yzhjy;
+		this.zd_xcsfrq = zd_xcsfrq;
+		this.zd_sfysqm = zd_sfysqm;
+		this.createTime = createTime;
+		this.updateTime = updateTime;
+	}
+
+	/** Not-null value. */
     public String getFollowUpNo() {
         return followUpNo;
     }
@@ -361,7 +388,39 @@ public class FollowUpThreeSixNewborn {
         this.hbqk = hbqk;
     }
 
-    public Boolean getYyxjbgl_sfyyxjb() {
+    public String getHbqk_fy() {
+		return hbqk_fy;
+	}
+
+	public void setHbqk_fy(String hbqk_fy) {
+		this.hbqk_fy = hbqk_fy;
+	}
+
+	public String getHbqk_fx() {
+		return hbqk_fx;
+	}
+
+	public void setHbqk_fx(String hbqk_fx) {
+		this.hbqk_fx = hbqk_fx;
+	}
+
+	public String getHbqk_ws() {
+		return hbqk_ws;
+	}
+
+	public void setHbqk_ws(String hbqk_ws) {
+		this.hbqk_ws = hbqk_ws;
+	}
+
+	public String getHbqk_qt() {
+		return hbqk_qt;
+	}
+
+	public void setHbqk_qt(String hbqk_qt) {
+		this.hbqk_qt = hbqk_qt;
+	}
+
+	public Boolean getYyxjbgl_sfyyxjb() {
         return yyxjbgl_sfyyxjb;
     }
 

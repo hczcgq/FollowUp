@@ -43,10 +43,20 @@ public class ViewDataUtil {
 	}
 
 	public static boolean validateOtherCheckbox(CheckBox otherCheckBox,EditText otherEditText) {
-		if (otherCheckBox.isChecked() && !TextUtils.isEmpty(otherEditText.getText().toString())) {
+//		if (otherCheckBox.isChecked() && !TextUtils.isEmpty(otherEditText.getText().toString())) {
+//			return false;
+//		}
+//		return true;
+		
+		if(otherCheckBox.isChecked()){
+			if(!TextUtils.isEmpty(otherEditText.getText().toString())){
+				return false;
+			}else {
+				return true;
+			}
+		}else {
 			return false;
 		}
-		return true;
 	}
 	
 	/**

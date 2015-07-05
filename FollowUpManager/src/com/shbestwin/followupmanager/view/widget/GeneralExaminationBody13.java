@@ -5,7 +5,6 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
-
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ViewDataUtil;
 import com.shbestwin.followupmanager.model.examination.GeneralExamination;
@@ -24,18 +23,22 @@ public class GeneralExaminationBody13 extends LinearLayout implements IBaseGener
 		super(context, attrs, defStyle);
 		View rootView = LayoutInflater.from(context).inflate(R.layout.view_general_examination_body13, this, true);
 		raleLayout=(LinearLayout) rootView.findViewById(R.id.raleLayout);
+		
+		
 	}
 
 	@Override
 	public void getData(GeneralExamination generalExamination) {
 		generalExamination.setJkzd(ViewDataUtil.getCheckboxData(raleLayout,
 				null));
+		
 	}
 
 	@Override
 	public void setData(GeneralExamination generalExamination) {
-		// TODO Auto-generated method stub
-		
+		if(generalExamination!=null){
+			ViewDataUtil.setCheckboxData(raleLayout, null, generalExamination.getJkzd());	
+		}
 	}
 
 	@Override

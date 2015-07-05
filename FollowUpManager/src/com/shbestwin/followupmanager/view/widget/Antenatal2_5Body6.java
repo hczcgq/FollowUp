@@ -7,12 +7,11 @@ import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
-
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.DateUtils;
 import com.shbestwin.followupmanager.model.followup.FollowUpTwoToFivePregnancy;
@@ -24,6 +23,7 @@ public class Antenatal2_5Body6 extends LinearLayout  implements IBaseAntenatal2_
 	private RadioGroup rg_zz;
 	private EditText et_yy,et_jgjks,et_xcsfrq,et_sfysqm;
 	private boolean isHas=false;
+	private RadioButton rb_w,rb_y;
 	public Antenatal2_5Body6(Context context) {
 		this(context, null);
 	}
@@ -40,6 +40,8 @@ public class Antenatal2_5Body6 extends LinearLayout  implements IBaseAntenatal2_
 		et_jgjks=(EditText) rootView.findViewById(R.id.et_jgjks);
 		et_xcsfrq=(EditText) rootView.findViewById(R.id.et_xcsfrq);
 		et_sfysqm=(EditText) rootView.findViewById(R.id.et_sfysqm);
+		rb_w=(RadioButton) rootView.findViewById(R.id.rb_w);
+		rb_y=(RadioButton) rootView.findViewById(R.id.rb_y);
 		
 		rg_zz.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
@@ -84,8 +86,20 @@ public class Antenatal2_5Body6 extends LinearLayout  implements IBaseAntenatal2_
 
 	@Override
 	public void setData(FollowUpTwoToFivePregnancy followUpTwoToFivePregnancy) {
-		// TODO Auto-generated method stub
-
+		if(followUpTwoToFivePregnancy!=null){
+			et_jgjks.setText(followUpTwoToFivePregnancy.getZz_jgjks());
+			et_yy.setText(followUpTwoToFivePregnancy.getZz_yy());
+			et_xcsfrq.setText(followUpTwoToFivePregnancy.getZz_xcsfrq());
+			et_sfysqm.setText(followUpTwoToFivePregnancy.getZtpg_sfysqm());
+			
+			if(followUpTwoToFivePregnancy.getZz_sfygzz()){
+				rb_y.setChecked(true);
+				rb_w.setChecked(false);
+			}else {
+				rb_y.setChecked(false);
+				rb_w.setChecked(true);
+			}
+		}
 	}
 
 	@Override

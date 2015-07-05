@@ -48,7 +48,9 @@ public class DisabilityBody3 extends LinearLayout  implements IBaseDisabilityBod
 		    et_xl.setText(followUpDisabledPerson.getYbqk_xl());
 		    et_qt.setText(followUpDisabledPerson.getYbqk_qt());
 		    String xy=followUpDisabledPerson.getYbqk_xy();
-		    if(xy.split("/").length!=0) {
+		    if(xy.split("/").length==1) {
+		        et_xy_ssy.setText(xy.split("/")[0]);
+		    }else if(xy.split("/").length==2) {
 		        et_xy_ssy.setText(xy.split("/")[0]);
 	            et_xy_szy.setText(xy.split("/")[1]);
 		    }

@@ -62,7 +62,6 @@ public class NeonateBody1 extends LinearLayout implements IBaseNeonateBody {
 
 	@Override
 	public void getData(FollowUpNewborn followUpNewborn) {
-
 		followUpNewborn.setGrxx_fsrq(et_fsrq.getText().toString());
 		followUpNewborn.setGrxx_fscs(ViewDataUtil.getSpinnerData(sn_fscs));
 		followUpNewborn.setGrxx_csrl(et_csrl.getText().toString());

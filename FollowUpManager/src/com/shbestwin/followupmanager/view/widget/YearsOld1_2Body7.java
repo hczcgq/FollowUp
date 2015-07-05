@@ -88,8 +88,19 @@ public class YearsOld1_2Body7 extends LinearLayout  implements IBaseYearsOld1_2B
 
 	@Override
 	public void setData(FollowUpOneTwoNewborn followUpOneTwoNewborn) {
-		// TODO Auto-generated method stub
-		
+		if (followUpOneTwoNewborn != null) {
+			try {
+				List<Inspection> lists=JsonUtil.jsonToObjects(
+						followUpOneTwoNewborn.getFzjc(), Inspection.class);
+				if(lists!=null&&lists.size()>0){
+				inspectionList.addAll(lists);
+				inspectionListAdapter.notifyDataSetChanged();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}
 	}
 
 	@Override

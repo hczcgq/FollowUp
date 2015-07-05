@@ -42,6 +42,12 @@ public class FollowUpMentalDisease {
     private String shxggb_jgqks;
     private String createTime;
     private String updateTime;
+    
+    private String yyqk;
+    private String yyqk_kfcs;
+    private String yyqk_bcsffl;
+    private String yyqk_xcsfrq;
+    private String yyqk_sfysqm;
 
     // KEEP FIELDS - put your custom fields here
     // KEEP FIELDS END
@@ -53,41 +59,66 @@ public class FollowUpMentalDisease {
         this.followUpNo = followUpNo;
     }
 
-    public FollowUpMentalDisease(String followUpNo, String idcard, String grxx_zrys, String grxx_sfrq, String wxx, String zz_zzmc, String zz_zzl, String zz_smqk, String zz_ysqk, String shgnqk_grshll, String shgnqk_jwhd, String shgnqk_xxnl, String shgnqk_shldjgz, String shgnqk_shrjjw, String hzdjtshdyx_qdzs, String hzdjtshdyx_zhaos, String hzdjtshdyx_zs, String hzdjtshdyx_zsws, String hzdjtshdyx_gsqk, String hzdjtshdyx_mccysj, String hzdjtshdyx_zyqk, String sysfzjc_jcx, String sysfzjc_fyycx, Boolean shxggb_sfywblfy, String shxggb_sfywblfyms, String shxggb_zlxg, Boolean shxggb_sfzz, String shxggb_sfzzms, String shxggb_jgqks, String createTime, String updateTime) {
-        this.followUpNo = followUpNo;
-        this.idcard = idcard;
-        this.grxx_zrys = grxx_zrys;
-        this.grxx_sfrq = grxx_sfrq;
-        this.wxx = wxx;
-        this.zz_zzmc = zz_zzmc;
-        this.zz_zzl = zz_zzl;
-        this.zz_smqk = zz_smqk;
-        this.zz_ysqk = zz_ysqk;
-        this.shgnqk_grshll = shgnqk_grshll;
-        this.shgnqk_jwhd = shgnqk_jwhd;
-        this.shgnqk_xxnl = shgnqk_xxnl;
-        this.shgnqk_shldjgz = shgnqk_shldjgz;
-        this.shgnqk_shrjjw = shgnqk_shrjjw;
-        this.hzdjtshdyx_qdzs = hzdjtshdyx_qdzs;
-        this.hzdjtshdyx_zhaos = hzdjtshdyx_zhaos;
-        this.hzdjtshdyx_zs = hzdjtshdyx_zs;
-        this.hzdjtshdyx_zsws = hzdjtshdyx_zsws;
-        this.hzdjtshdyx_gsqk = hzdjtshdyx_gsqk;
-        this.hzdjtshdyx_mccysj = hzdjtshdyx_mccysj;
-        this.hzdjtshdyx_zyqk = hzdjtshdyx_zyqk;
-        this.sysfzjc_jcx = sysfzjc_jcx;
-        this.sysfzjc_fyycx = sysfzjc_fyycx;
-        this.shxggb_sfywblfy = shxggb_sfywblfy;
-        this.shxggb_sfywblfyms = shxggb_sfywblfyms;
-        this.shxggb_zlxg = shxggb_zlxg;
-        this.shxggb_sfzz = shxggb_sfzz;
-        this.shxggb_sfzzms = shxggb_sfzzms;
-        this.shxggb_jgqks = shxggb_jgqks;
-        this.createTime = createTime;
-        this.updateTime = updateTime;
-    }
+ 
+    
+    
+    
+    
 
-    /** Not-null value. */
+    public FollowUpMentalDisease(String followUpNo, String idcard,
+			String grxx_zrys, String grxx_sfrq, String wxx, String zz_zzmc,
+			String zz_zzl, String zz_smqk, String zz_ysqk,
+			String shgnqk_grshll, String shgnqk_jwhd, String shgnqk_xxnl,
+			String shgnqk_shldjgz, String shgnqk_shrjjw,
+			String hzdjtshdyx_qdzs, String hzdjtshdyx_zhaos,
+			String hzdjtshdyx_zs, String hzdjtshdyx_zsws,
+			String hzdjtshdyx_gsqk, String hzdjtshdyx_mccysj,
+			String hzdjtshdyx_zyqk, String sysfzjc_jcx, String sysfzjc_fyycx,
+			Boolean shxggb_sfywblfy, String shxggb_sfywblfyms,
+			String shxggb_zlxg, Boolean shxggb_sfzz, String shxggb_sfzzms,
+			String shxggb_jgqks, String createTime, String updateTime,
+			String yyqk, String yyqk_kfcs, String yyqk_bcsffl,
+			String yyqk_xcsfrq, String yyqk_sfysqm) {
+		super();
+		this.followUpNo = followUpNo;
+		this.idcard = idcard;
+		this.grxx_zrys = grxx_zrys;
+		this.grxx_sfrq = grxx_sfrq;
+		this.wxx = wxx;
+		this.zz_zzmc = zz_zzmc;
+		this.zz_zzl = zz_zzl;
+		this.zz_smqk = zz_smqk;
+		this.zz_ysqk = zz_ysqk;
+		this.shgnqk_grshll = shgnqk_grshll;
+		this.shgnqk_jwhd = shgnqk_jwhd;
+		this.shgnqk_xxnl = shgnqk_xxnl;
+		this.shgnqk_shldjgz = shgnqk_shldjgz;
+		this.shgnqk_shrjjw = shgnqk_shrjjw;
+		this.hzdjtshdyx_qdzs = hzdjtshdyx_qdzs;
+		this.hzdjtshdyx_zhaos = hzdjtshdyx_zhaos;
+		this.hzdjtshdyx_zs = hzdjtshdyx_zs;
+		this.hzdjtshdyx_zsws = hzdjtshdyx_zsws;
+		this.hzdjtshdyx_gsqk = hzdjtshdyx_gsqk;
+		this.hzdjtshdyx_mccysj = hzdjtshdyx_mccysj;
+		this.hzdjtshdyx_zyqk = hzdjtshdyx_zyqk;
+		this.sysfzjc_jcx = sysfzjc_jcx;
+		this.sysfzjc_fyycx = sysfzjc_fyycx;
+		this.shxggb_sfywblfy = shxggb_sfywblfy;
+		this.shxggb_sfywblfyms = shxggb_sfywblfyms;
+		this.shxggb_zlxg = shxggb_zlxg;
+		this.shxggb_sfzz = shxggb_sfzz;
+		this.shxggb_sfzzms = shxggb_sfzzms;
+		this.shxggb_jgqks = shxggb_jgqks;
+		this.createTime = createTime;
+		this.updateTime = updateTime;
+		this.yyqk = yyqk;
+		this.yyqk_kfcs = yyqk_kfcs;
+		this.yyqk_bcsffl = yyqk_bcsffl;
+		this.yyqk_xcsfrq = yyqk_xcsfrq;
+		this.yyqk_sfysqm = yyqk_sfysqm;
+	}
+
+	/** Not-null value. */
     public String getFollowUpNo() {
         return followUpNo;
     }
@@ -339,6 +370,48 @@ public class FollowUpMentalDisease {
         this.updateTime = updateTime;
     }
 
+	public String getYyqk() {
+		return yyqk;
+	}
+
+	public void setYyqk(String yyqk) {
+		this.yyqk = yyqk;
+	}
+
+	public String getYyqk_kfcs() {
+		return yyqk_kfcs;
+	}
+
+	public void setYyqk_kfcs(String yyqk_kfcs) {
+		this.yyqk_kfcs = yyqk_kfcs;
+	}
+
+	public String getYyqk_bcsffl() {
+		return yyqk_bcsffl;
+	}
+
+	public void setYyqk_bcsffl(String yyqk_bcsffl) {
+		this.yyqk_bcsffl = yyqk_bcsffl;
+	}
+
+	public String getYyqk_xcsfrq() {
+		return yyqk_xcsfrq;
+	}
+
+	public void setYyqk_xcsfrq(String yyqk_xcsfrq) {
+		this.yyqk_xcsfrq = yyqk_xcsfrq;
+	}
+
+	public String getYyqk_sfysqm() {
+		return yyqk_sfysqm;
+	}
+
+	public void setYyqk_sfysqm(String yyqk_sfysqm) {
+		this.yyqk_sfysqm = yyqk_sfysqm;
+	}
+
+    
+    
     // KEEP METHODS - put your custom methods here
     // KEEP METHODS END
 

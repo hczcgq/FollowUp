@@ -1,5 +1,10 @@
 package com.shbestwin.followupmanager.model.followup;
 
+/**
+ * 实验室检查
+ * @author chenguoquan
+ *
+ */
 public class LabInspection {
 
     private String sysjc_sysjcxm;
@@ -9,14 +14,10 @@ public class LabInspection {
     private String sysjc_jcr;
 
     private String sysjc_jcsj;
-    
-   
 
     public LabInspection() {
         super();
     }
-
-
 
     public LabInspection(String sysjc_sysjcxm, String sysjc_jcjg,
             String sysjc_jcr, String sysjc_jcsj) {

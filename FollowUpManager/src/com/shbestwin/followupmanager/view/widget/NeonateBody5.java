@@ -1,7 +1,9 @@
 package com.shbestwin.followupmanager.view.widget;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -14,12 +16,16 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.shbestwin.followupmanager.R;
+import com.shbestwin.followupmanager.common.util.JsonUtil;
+import com.shbestwin.followupmanager.common.util.ViewDataUtil;
+import com.shbestwin.followupmanager.model.followup.CheckBoxItem;
 import com.shbestwin.followupmanager.model.followup.FollowUpNewborn;
 
 public class NeonateBody5 extends LinearLayout implements IBaseNeonateBody {
@@ -28,19 +34,19 @@ public class NeonateBody5 extends LinearLayout implements IBaseNeonateBody {
 			et_szhdd, et_jbbk, et_pf, et_gm, et_wszq, et_jz, et_qd;
 	private RadioGroup rg_ywg, rg_ewg, rg_b, rg_kq, rg_xftz, rg_fbcz, rg_szhdd,
 			rg_jbbk, rg_gm, rg_wszq, rg_jz, rg_qd;
-	private CheckBox complexion0, complexion1, complexion2;
-	private CheckBox aurigo0, aurigo1, aurigo2, aurigo3, aurigo4;
-	private CheckBox bregma0, bregma1, bregma2, bregma3;
-	private CheckBox skin0, skin1, skin2, skin3;
+	private CheckBox complexion2;
+	private CheckBox aurigo0;
+	private CheckBox bregma3;
+	private CheckBox skin3;
 	private boolean isYwg = false, isEwg = false, isB = false, isKq = false,
 			isXftz = false, isFbcz = false, isSzhdd = false, isJbbk = false,
 			isGm = false, isWszq = false, isJz = false, isQd = false;
-
-	private HashMap<Integer, String> map_ms = new HashMap<Integer, String>();
-	private HashMap<Integer, String> map_hdbw = new HashMap<Integer, String>();
-	private HashMap<Integer, String> map_qc = new HashMap<Integer, String>();
-	private HashMap<Integer, String> map_pf = new HashMap<Integer, String>();
-
+	private LinearLayout complexionLayout,aurigoLayout,bregmaLayout,skinLayout;
+	
+	private RadioButton rb_ywg_w,rb_ywg_y,rb_ewg_w,rb_ewg_y,rb_b_w,rb_b_y,rb_kq_w,rb_kq_y,rb_xftz_w,rb_xftz_y,
+	rb_fbcz_w,rb_fbcz_y,rb_szhdd_w,rb_szhdd_y,rb_jbbk_w,rb_jbbk_y,rb_gm_w,rb_gm_y,rb_wszq_w,rb_wszq_y,rb_jz_w,rb_jz_y,
+	rb_qd_w,rb_qd_y;
+	
 	public NeonateBody5(Context context) {
 		this(context, null);
 	}
@@ -53,6 +59,30 @@ public class NeonateBody5 extends LinearLayout implements IBaseNeonateBody {
 		super(context, attrs, defStyle);
 		View rootView = LayoutInflater.from(context).inflate(
 				R.layout.view_neonate_body5, this, true);
+		rb_ywg_w = (RadioButton) rootView.findViewById(R.id.rb_ywg_w);
+		rb_ywg_y = (RadioButton) rootView.findViewById(R.id.rb_ywg_y);
+		rb_ewg_w = (RadioButton) rootView.findViewById(R.id.rb_ewg_w);
+		rb_ewg_y = (RadioButton) rootView.findViewById(R.id.rb_ewg_y);
+		rb_b_w = (RadioButton) rootView.findViewById(R.id.rb_b_w);
+		rb_b_y = (RadioButton) rootView.findViewById(R.id.rb_b_y);
+		rb_kq_w = (RadioButton) rootView.findViewById(R.id.rb_kq_w);
+		rb_kq_y = (RadioButton) rootView.findViewById(R.id.rb_kq_y);
+		rb_xftz_w = (RadioButton) rootView.findViewById(R.id.rb_xftz_w);
+		rb_xftz_y = (RadioButton) rootView.findViewById(R.id.rb_xftz_y);
+		rb_fbcz_w = (RadioButton) rootView.findViewById(R.id.rb_fbcz_w);
+		rb_fbcz_y = (RadioButton) rootView.findViewById(R.id.rb_fbcz_y);
+		rb_szhdd_w = (RadioButton) rootView.findViewById(R.id.rb_szhdd_w);
+		rb_szhdd_y = (RadioButton) rootView.findViewById(R.id.rb_szhdd_y);
+		rb_jbbk_w = (RadioButton) rootView.findViewById(R.id.rb_jbbk_w);
+		rb_jbbk_y = (RadioButton) rootView.findViewById(R.id.rb_jbbk_y);
+		rb_gm_w = (RadioButton) rootView.findViewById(R.id.rb_gm_w);
+		rb_gm_y = (RadioButton) rootView.findViewById(R.id.rb_gm_y);
+		rb_wszq_w = (RadioButton) rootView.findViewById(R.id.rb_wszq_w);
+		rb_wszq_y = (RadioButton) rootView.findViewById(R.id.rb_wszq_y);
+		rb_jz_w = (RadioButton) rootView.findViewById(R.id.rb_jz_w);
+		rb_jz_y = (RadioButton) rootView.findViewById(R.id.rb_jz_y);
+		rb_qd_w = (RadioButton) rootView.findViewById(R.id.rb_qd_w);
+		rb_qd_y = (RadioButton) rootView.findViewById(R.id.rb_qd_y);
 
 		et_mqtz = (EditText) rootView.findViewById(R.id.et_mqtz);
 		et_tw = (EditText) rootView.findViewById(R.id.et_tw);
@@ -226,253 +256,32 @@ public class NeonateBody5 extends LinearLayout implements IBaseNeonateBody {
 		
 		
 
-		complexion0 = (CheckBox) rootView.findViewById(R.id.complexion0);
-		complexion1 = (CheckBox) rootView.findViewById(R.id.complexion1);
 		complexion2 = (CheckBox) rootView.findViewById(R.id.complexion2);
-
-		complexion0.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView,
-					boolean isChecked) {
-				if (isChecked) {
-					map_ms.put(0, buttonView.getText().toString());
-				} else {
-					map_ms.remove(0);
-				}
-			}
-		});
-		complexion1.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView,
-					boolean isChecked) {
-				if (isChecked) {
-					map_ms.put(1, buttonView.getText().toString());
-				} else {
-					map_ms.remove(1);
-				}
-			}
-		});
-
 		aurigo0 = (CheckBox) rootView.findViewById(R.id.aurigo0);
-		aurigo1 = (CheckBox) rootView.findViewById(R.id.aurigo1);
-		aurigo2 = (CheckBox) rootView.findViewById(R.id.aurigo2);
-		aurigo3 = (CheckBox) rootView.findViewById(R.id.aurigo3);
-		aurigo4 = (CheckBox) rootView.findViewById(R.id.aurigo4);
-
-		aurigo0.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView,
-					boolean isChecked) {
-				if (isChecked) {
-					map_hdbw.put(0, buttonView.getText().toString());
-				} else {
-					map_hdbw.remove(0);
-				}
-			}
-		});
-		aurigo1.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView,
-					boolean isChecked) {
-				if (isChecked) {
-					map_hdbw.put(1, buttonView.getText().toString());
-				} else {
-					map_hdbw.remove(1);
-				}
-			}
-		});
-		aurigo2.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView,
-					boolean isChecked) {
-				if (isChecked) {
-					map_hdbw.put(2, buttonView.getText().toString());
-				} else {
-					map_hdbw.remove(2);
-				}
-			}
-		});
-		aurigo3.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView,
-					boolean isChecked) {
-				if (isChecked) {
-					map_hdbw.put(3, buttonView.getText().toString());
-				} else {
-					map_hdbw.remove(3);
-				}
-			}
-		});
-		aurigo4.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView,
-					boolean isChecked) {
-				if (isChecked) {
-					map_hdbw.put(4, buttonView.getText().toString());
-				} else {
-					map_hdbw.remove(4);
-				}
-			}
-		});
-
-		bregma0 = (CheckBox) rootView.findViewById(R.id.bregma0);
-		bregma1 = (CheckBox) rootView.findViewById(R.id.bregma1);
-		bregma2 = (CheckBox) rootView.findViewById(R.id.bregma2);
 		bregma3 = (CheckBox) rootView.findViewById(R.id.bregma3);
-
-		bregma0.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView,
-					boolean isChecked) {
-				if (isChecked) {
-					map_qc.put(0, buttonView.getText().toString());
-				} else {
-					map_qc.remove(0);
-				}
-			}
-		});
-		bregma1.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView,
-					boolean isChecked) {
-				if (isChecked) {
-					map_qc.put(1, buttonView.getText().toString());
-				} else {
-					map_qc.remove(1);
-				}
-			}
-		});
-		bregma2.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView,
-					boolean isChecked) {
-				if (isChecked) {
-					map_qc.put(2, buttonView.getText().toString());
-				} else {
-					map_qc.remove(2);
-				}
-			}
-		});
-
-		skin0 = (CheckBox) rootView.findViewById(R.id.skin0);
-		skin1 = (CheckBox) rootView.findViewById(R.id.skin1);
-		skin2 = (CheckBox) rootView.findViewById(R.id.skin2);
 		skin3 = (CheckBox) rootView.findViewById(R.id.skin3);
+		complexionLayout = (LinearLayout) rootView.findViewById(R.id.complexionLayout);
+		aurigoLayout = (LinearLayout) rootView.findViewById(R.id.aurigoLayout);
+		bregmaLayout = (LinearLayout) rootView.findViewById(R.id.bregmaLayout);
+		skinLayout = (LinearLayout) rootView.findViewById(R.id.skinLayout);
 
-		skin0.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView,
-					boolean isChecked) {
-				if (isChecked) {
-					map_pf.put(0, buttonView.getText().toString());
-				} else {
-					map_pf.remove(0);
-				}
-			}
-		});
-		skin1.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+		ViewDataUtil.initOtherCheckboxConstraint(complexion2, et_ms);
+		ViewDataUtil.initOtherCheckboxConstraint(bregma3, et_qc_qt);
+		ViewDataUtil.initOtherCheckboxConstraint(skin3, et_pf);
+		aurigo0
+		.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView,
 					boolean isChecked) {
-				if (isChecked) {
-					map_pf.put(1, buttonView.getText().toString());
-				} else {
-					map_pf.remove(1);
-				}
-			}
-		});
-		skin2.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView,
-					boolean isChecked) {
-				if (isChecked) {
-					map_pf.put(2, buttonView.getText().toString());
-				} else {
-					map_pf.remove(2);
-				}
+				setCheckBoxStatus(aurigoLayout, isChecked);
 			}
 		});
 	}
 
 	@Override
 	public void getData(FollowUpNewborn followUpNewborn) {
-		if (complexion2.isChecked()) {
-			map_ms.put(2, et_ms.getText().toString());
-		}
-
-		JsonObject jsonObject_ms = new JsonObject();
-		JsonArray jsonArray_ms = new JsonArray();
-		Iterator iterator_ms = map_ms.entrySet().iterator();
-		while (iterator_ms.hasNext()) {
-			Map.Entry entry = (Entry) iterator_ms.next();
-			JsonObject object = new JsonObject();
-			object.addProperty("tgjcqk_ms_num", String.valueOf(entry.getKey()));
-			object.addProperty("tgjcqk_ms_name",
-					String.valueOf(entry.getValue()));
-			jsonArray_ms.add(object);
-		}
-		jsonObject_ms.add("tgjcqk_ms", jsonArray_ms);
-
-		JsonObject jsonObject_hdbw = new JsonObject();
-		JsonArray jsonArray_hdbw = new JsonArray();
-		Iterator iterator_hdbw = map_hdbw.entrySet().iterator();
-		while (iterator_hdbw.hasNext()) {
-			Map.Entry entry = (Entry) iterator_hdbw.next();
-			JsonObject object = new JsonObject();
-			object.addProperty("tgjcqk_hdbw_num",
-					String.valueOf(entry.getKey()));
-			object.addProperty("tgjcqk_hdbw_name",
-					String.valueOf(entry.getValue()));
-			jsonArray_hdbw.add(object);
-		}
-		jsonObject_hdbw.add("tgjcqk_hdbw", jsonArray_hdbw);
-
-		if (bregma3.isChecked()) {
-			map_qc.put(3, et_qc_qt.getText().toString());
-		}
-		JsonObject jsonObject_qc = new JsonObject();
-		JsonArray jsonArray_qc = new JsonArray();
-		Iterator iterator_qc = map_qc.entrySet().iterator();
-		while (iterator_qc.hasNext()) {
-			Map.Entry entry = (Entry) iterator_qc.next();
-			JsonObject object = new JsonObject();
-			object.addProperty("tgjcqk_qxjl_num",
-					String.valueOf(entry.getKey()));
-			object.addProperty("tgjcqk_qxjl_name",
-					String.valueOf(entry.getValue()));
-			jsonArray_qc.add(object);
-		}
-		jsonObject_qc.add("tgjcqk_qxjl", jsonArray_qc);
-
-		if (skin3.isChecked()) {
-			map_pf.put(3, et_pf.getText().toString());
-		}
-
-		JsonObject jsonObject_pf = new JsonObject();
-		JsonArray jsonArray_pf = new JsonArray();
-		Iterator iterator_pf = map_pf.entrySet().iterator();
-		while (iterator_pf.hasNext()) {
-			Map.Entry entry = (Entry) iterator_pf.next();
-			JsonObject object = new JsonObject();
-			object.addProperty("tgjcqk_pf_num", String.valueOf(entry.getKey()));
-			object.addProperty("tgjcqk_pf_name",
-					String.valueOf(entry.getValue()));
-			jsonArray_pf.add(object);
-		}
-		jsonObject_pf.add("tgjcqk_pf", jsonArray_pf);
+		
 
 		
 		followUpNewborn.setTgjcqk_mqtz(et_mqtz.getText().toString());
@@ -480,10 +289,7 @@ public class NeonateBody5 extends LinearLayout implements IBaseNeonateBody {
 		followUpNewborn.setTgjcqk_sc(et_sc.getText().toString());
 		followUpNewborn.setTgjcqk_hxpl(et_hxpl.getText().toString());
 		followUpNewborn.setTgjcqk_ml(et_ml.getText().toString());
-		followUpNewborn.setTgjcqk_ms(jsonObject_ms.toString());
-		followUpNewborn.setTgjcqk_hdbw(jsonObject_hdbw.toString());
-		followUpNewborn.setTgjcqk_qx(et_qc_1.getText().toString()+"*"+et_qc_2.getText().toString());
-		followUpNewborn.setTgjcqk_qxjl(jsonObject_qc.toString());
+		followUpNewborn.setTgjcqk_qx(et_qc_1.getText().toString()+"/"+et_qc_2.getText().toString());
 		followUpNewborn.setTgjcqk_sfywgyc(isYwg);
 		followUpNewborn.setTgjcqk_sfywgycms(et_ywg.getText().toString());
 		followUpNewborn.setTgjcqk_sfewgyc(isEwg);
@@ -508,11 +314,152 @@ public class NeonateBody5 extends LinearLayout implements IBaseNeonateBody {
 		followUpNewborn.setTgjcqk_sfjzycms(et_jz.getText().toString());
 		followUpNewborn.setTgjcqk_sfqdyc(isQd);
 		followUpNewborn.setTgjcqk_sfqdycms(et_qd.getText().toString());
+		
+		followUpNewborn.setTgjcqk_ms(getCheckBoxText(complexionLayout, et_ms));
+		followUpNewborn.setTgjcqk_hdbw(getCheckBoxText(aurigoLayout, null));
+		followUpNewborn.setTgjcqk_qxjl(getCheckBoxText(bregmaLayout, et_qc_qt));
+		followUpNewborn.setTgjcqk_pf(getCheckBoxText(skinLayout, et_pf));
 	}
 
 	@Override
 	public void setData(FollowUpNewborn followUpNewborn) {
-		// TODO Auto-generated method stub
+
+		if (followUpNewborn != null) {
+			et_mqtz.setText(followUpNewborn.getTgjcqk_mqtz());
+			et_sc.setText(followUpNewborn.getTgjcqk_sc());
+			et_tw.setText(followUpNewborn.getTgjcqk_tw());
+			et_hxpl.setText(followUpNewborn.getTgjcqk_hxpl());
+			et_ml.setText(followUpNewborn.getTgjcqk_ml());
+			try {
+				setCheckBoxText(complexionLayout, et_ms,
+						JsonUtil.jsonToObjects(
+								followUpNewborn.getTgjcqk_ms(),
+								CheckBoxItem.class));
+				setCheckBoxText(aurigoLayout, null,
+						JsonUtil.jsonToObjects(
+								followUpNewborn.getTgjcqk_hdbw(),
+								CheckBoxItem.class));
+				setCheckBoxText(bregmaLayout, et_qc_qt,
+						JsonUtil.jsonToObjects(
+								followUpNewborn.getTgjcqk_qxjl(),
+								CheckBoxItem.class));
+				setCheckBoxText(skinLayout, et_pf,
+						JsonUtil.jsonToObjects(
+								followUpNewborn.getTgjcqk_pf(),
+								CheckBoxItem.class));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			String qc = followUpNewborn.getTgjcqk_qx();
+			if (qc.split("/").length == 1) {
+				et_qc_1.setText(qc.split("/")[0]);
+			} else if (qc.split("/").length == 2) {
+				et_qc_1.setText(qc.split("/")[0]);
+				et_qc_2.setText(qc.split("/")[1]);
+			}
+			et_jbbk.setText(followUpNewborn.getTgjcqk_sfjbbkycms());
+			et_ywg.setText(followUpNewborn.getTgjcqk_sfwszqycms());
+			et_ewg.setText(followUpNewborn.getTgjcqk_sfewgycms());
+			et_b.setText(followUpNewborn.getTgjcqk_sfbycms());
+			et_kq.setText(followUpNewborn.getTgjcqk_sfkqycms());
+			et_xftz.setText(followUpNewborn.getTgjcqk_sfxftzycms());
+			et_fbcz.setText(followUpNewborn.getTgjcqk_sffbczycms());
+			et_szhdd.setText(followUpNewborn.getTgjcqk_sfszhddycms());
+			et_gm.setText(followUpNewborn.getTgjcqk_sfgmycms());
+			et_wszq.setText(followUpNewborn.getTgjcqk_sfwszqycms());
+			et_qd.setText(followUpNewborn.getTgjcqk_sfqdycms());
+			et_jz.setText(followUpNewborn.getTgjcqk_sfjzycms());
+			
+			if (followUpNewborn.getTgjcqk_sfywgyc()) {
+				rb_ywg_y.setChecked(true);
+				rb_ywg_w.setChecked(false);
+			} else {
+				rb_ywg_y.setChecked(false);
+				rb_ywg_w.setChecked(true);
+			}
+
+			if (followUpNewborn.getTgjcqk_sfewgyc()) {
+				rb_wszq_y.setChecked(true);
+				rb_wszq_w.setChecked(false);
+			} else {
+				rb_wszq_y.setChecked(false);
+				rb_wszq_w.setChecked(true);
+			}
+
+			if (followUpNewborn.getTgjcqk_sfbyc()) {
+				rb_b_y.setChecked(true);
+				rb_b_w.setChecked(false);
+			} else {
+				rb_b_y.setChecked(false);
+				rb_b_w.setChecked(true);
+			}
+
+			if (followUpNewborn.getTgjcqk_sfkqyc()) {
+				rb_kq_y.setChecked(true);
+				rb_kq_w.setChecked(false);
+			} else {
+				rb_kq_y.setChecked(false);
+				rb_kq_w.setChecked(true);
+			}
+
+			if (followUpNewborn.getTgjcqk_sfxftzyc()) {
+				rb_xftz_y.setChecked(true);
+				rb_xftz_w.setChecked(false);
+			} else {
+				rb_xftz_y.setChecked(false);
+				rb_xftz_w.setChecked(true);
+			}
+
+			if (followUpNewborn.getTgjcqk_sffbczyc()) {
+				rb_fbcz_y.setChecked(true);
+				rb_fbcz_w.setChecked(false);
+			} else {
+				rb_fbcz_y.setChecked(false);
+				rb_fbcz_w.setChecked(true);
+			}
+			if (followUpNewborn.getTgjcqk_sfszhddyc()) {
+				rb_szhdd_y.setChecked(true);
+				rb_szhdd_w.setChecked(false);
+			} else {
+				rb_szhdd_y.setChecked(false);
+				rb_szhdd_w.setChecked(true);
+			}
+			if (followUpNewborn.getTgjcqk_sfjbbkyc()) {
+				rb_jbbk_w.setChecked(true);
+				rb_jbbk_y.setChecked(false);
+			} else {
+				rb_jbbk_w.setChecked(false);
+				rb_jbbk_y.setChecked(true);
+			}
+			if (followUpNewborn.getTgjcqk_sfgmyc()) {
+				rb_gm_y.setChecked(true);
+				rb_gm_w.setChecked(false);
+			} else {
+				rb_gm_y.setChecked(false);
+				rb_gm_w.setChecked(true);
+			}
+			if (followUpNewborn.getTgjcqk_sfwszqyc()) {
+				rb_wszq_y.setChecked(true);
+				rb_wszq_w.setChecked(false);
+			} else {
+				rb_wszq_y.setChecked(false);
+				rb_wszq_w.setChecked(true);
+			}
+			if (followUpNewborn.getTgjcqk_sfjzyc()) {
+				rb_jz_y.setChecked(true);
+				rb_jz_y.setChecked(false);
+			} else {
+				rb_jz_y.setChecked(false);
+				rb_jz_w.setChecked(true);
+			}
+			if (followUpNewborn.getTgjcqk_sfqdyc()) {
+				rb_qd_y.setChecked(true);
+				rb_qd_w.setChecked(false);
+			} else {
+				rb_qd_y.setChecked(false);
+				rb_qd_w.setChecked(true);
+			}
+		}
 
 	}
 
@@ -526,6 +473,64 @@ public class NeonateBody5 extends LinearLayout implements IBaseNeonateBody {
 	public void setFragment(FragmentManager fragmentManager) {
 		// TODO Auto-generated method stub
 
+	}
+	
+	private String getCheckBoxText(View layout, EditText editText) {
+		LinearLayout linearLayout = (LinearLayout) layout;
+		List<CheckBoxItem> mArrayList = new ArrayList<CheckBoxItem>();
+		for (int i = 0; i < linearLayout.getChildCount(); i++) {
+			View item = linearLayout.getChildAt(i);
+			if (item instanceof CheckBox) {
+				CheckBox checkBox = (CheckBox) item;
+				if (checkBox.isChecked()) {
+					CheckBoxItem entity = new CheckBoxItem();
+					entity.setItem_num(String.valueOf(i));
+					if ("其他".equals(checkBox.getText()) && editText != null) {
+						entity.setItem_name(editText.getText().toString());
+					} else {
+						entity.setItem_name(checkBox.getText().toString());
+					}
+					mArrayList.add(entity);
+				}
+			}
+		}
+		try {
+			return JsonUtil.objectsToJson(mArrayList);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "";
+	}
+
+	private void setCheckBoxText(View layout, EditText textview,
+			List<CheckBoxItem> mList) {
+		LinearLayout myLayout = (LinearLayout) layout;
+		for (int i = 0; i < mList.size(); i++) {
+			int Num = Integer.valueOf(mList.get(i).getItem_num());
+			String name = mList.get(i).getItem_name();
+			if ((View) (myLayout).getChildAt(Num) instanceof CheckBox) {
+				CheckBox checkBox = (CheckBox) (View) (myLayout)
+						.getChildAt(Num);
+				checkBox.setChecked(true);
+				if (textview != null) {
+					if (Num == myLayout.getChildCount() - 2) {
+						textview.setText(name);
+					}
+				}
+			}
+		}
+	}
+
+	private void setCheckBoxStatus(LinearLayout familyHistory, boolean isChecked) {
+		for (int i = 2; i < familyHistory.getChildCount(); i++) {
+			View item = familyHistory.getChildAt(i);
+			if (item instanceof CheckBox) {
+				((CheckBox) item).setEnabled(!isChecked);
+				if (isChecked) {
+					((CheckBox) item).setChecked(!isChecked);
+				}
+			}
+		}
 	}
 
 }

@@ -37,7 +37,6 @@ public class BaseIDCardInfoFragment extends BaseFragment {
 	public void onRenderPage() {
 		super.onRenderPage();
 		ArchiveInfo archiveInfo = MyApplication.getInstance().getArchiveInfo();
-		System.out.println(archiveInfo.getName()+"-----");
 		if (archiveInfo != null) {
 			nameTextView.setText(archiveInfo.getName());
 			idcardTextView.setText(archiveInfo.getIdcard());

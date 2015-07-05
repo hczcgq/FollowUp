@@ -1,10 +1,7 @@
 package com.shbestwin.followupmanager.view.widget;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Map.Entry;
-
+import java.util.ArrayList;
+import java.util.List;
 import android.content.Context;
 import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
@@ -15,16 +12,16 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.CompoundButton.OnCheckedChangeListener;
-
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import com.shbestwin.followupmanager.R;
+import com.shbestwin.followupmanager.common.util.JsonUtil;
+import com.shbestwin.followupmanager.common.util.ViewDataUtil;
+import com.shbestwin.followupmanager.model.followup.CheckBoxItem;
 import com.shbestwin.followupmanager.model.followup.FollowUpOneNewborn;
 
 public class YearsOld0Body11 extends LinearLayout implements IBaseYearsOld0Body {
-	private HashMap<Integer, String> map = new HashMap<Integer, String>();
 	private EditText et_other;
-	private CheckBox diagnose0, diagnose1, diagnose2, diagnose3, diagnose4;
+	private CheckBox diagnose0, diagnose4;
+	private LinearLayout diagnoseLayout;
 
 	public YearsOld0Body11(Context context) {
 		this(context, null);
@@ -40,86 +37,40 @@ public class YearsOld0Body11 extends LinearLayout implements IBaseYearsOld0Body 
 				R.layout.view_years_old_0_body11, this, true);
 		et_other = (EditText) rootView.findViewById(R.id.et_other);
 
+		et_other = (EditText) rootView.findViewById(R.id.et_other);
 		diagnose0 = (CheckBox) rootView.findViewById(R.id.diagnose0);
-		diagnose1 = (CheckBox) rootView.findViewById(R.id.diagnose1);
-		diagnose2 = (CheckBox) rootView.findViewById(R.id.diagnose2);
-		diagnose3 = (CheckBox) rootView.findViewById(R.id.diagnose3);
+		diagnoseLayout = (LinearLayout) rootView
+				.findViewById(R.id.diagnoseLayout);
 		diagnose4 = (CheckBox) rootView.findViewById(R.id.diagnose4);
+		ViewDataUtil.initOtherCheckboxConstraint(diagnose4, et_other);
 		diagnose0.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView,
 					boolean isChecked) {
-				if (isChecked) {
-					map.put(0, buttonView.getText().toString());
-				} else {
-					map.remove(0);
-				}
-			}
-		});
-		diagnose1.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView,
-					boolean isChecked) {
-				if (isChecked) {
-					map.put(1, buttonView.getText().toString());
-				} else {
-					map.remove(1);
-				}
-			}
-		});
-		diagnose2.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView,
-					boolean isChecked) {
-				if (isChecked) {
-					map.put(2, buttonView.getText().toString());
-				} else {
-					map.remove(2);
-				}
-			}
-		});
-		diagnose3.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView,
-					boolean isChecked) {
-				if (isChecked) {
-					map.put(3, buttonView.getText().toString());
-				} else {
-					map.remove(3);
-				}
+				setCheckBoxStatus(diagnoseLayout, isChecked);
 			}
 		});
 	}
 
 	@Override
 	public void getData(FollowUpOneNewborn followUpOneNewborn) {
-		if(diagnose4.isChecked()){
-			map.put(4, et_other.getText().toString());
-		}
-		
-		JsonObject jsonObject=new JsonObject();
-		JsonArray jsonArray=new JsonArray();
-		Iterator iterator = map.entrySet().iterator();
-		while (iterator.hasNext()) {
-			Map.Entry entry = (Entry) iterator.next();
-			JsonObject object=new JsonObject();
-			object.addProperty("jbzd_num", String.valueOf(entry.getKey()));
-			object.addProperty("jbzd_name", String.valueOf(entry.getValue()));
-			jsonArray.add(object);
-		}
-		jsonObject.add("jbzd", jsonArray);
-		
-		followUpOneNewborn.setJbzd(jsonObject.toString());
+		followUpOneNewborn.setJbzd(getCheckBoxText(diagnoseLayout,
+				et_other));
 	}
 
 	@Override
 	public void setData(FollowUpOneNewborn followUpOneNewborn) {
-		// TODO Auto-generated method stub
-
+		if (followUpOneNewborn != null) {
+			try {
+				setCheckBoxText(diagnoseLayout, et_other,
+						JsonUtil.jsonToObjects(
+								followUpOneNewborn.getJbzd(),
+								CheckBoxItem.class));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	@Override
@@ -132,5 +83,60 @@ public class YearsOld0Body11 extends LinearLayout implements IBaseYearsOld0Body 
 	public void setFragment(FragmentManager fragmentManager) {
 		// TODO Auto-generated method stub
 
+	}
+	private String getCheckBoxText(View layout, EditText editText) {
+		LinearLayout linearLayout = (LinearLayout) layout;
+		List<CheckBoxItem> mArrayList = new ArrayList<CheckBoxItem>();
+		for (int i = 0; i < linearLayout.getChildCount(); i++) {
+			View item = linearLayout.getChildAt(i);
+			if (item instanceof CheckBox) {
+				CheckBox checkBox = (CheckBox) item;
+				if (checkBox.isChecked()) {
+					CheckBoxItem entity = new CheckBoxItem();
+					entity.setItem_num(String.valueOf(i));
+					if ("其他".equals(checkBox.getText()) && editText != null) {
+						entity.setItem_name(editText.getText().toString());
+					} else {
+						entity.setItem_name(checkBox.getText().toString());
+					}
+					mArrayList.add(entity);
+				}
+			}
+		}
+		try {
+			return JsonUtil.objectsToJson(mArrayList);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "";
+	}
+
+	private void setCheckBoxText(View layout, EditText textview,
+			List<CheckBoxItem> mList) {
+		LinearLayout myLayout = (LinearLayout) layout;
+		for (int i = 0; i < mList.size(); i++) {
+			int Num = Integer.valueOf(mList.get(i).getItem_num());
+			String name = mList.get(i).getItem_name();
+			if ((View) (myLayout).getChildAt(Num) instanceof CheckBox) {
+				CheckBox checkBox = (CheckBox) (View) (myLayout)
+						.getChildAt(Num);
+				checkBox.setChecked(true);
+				if (Num == myLayout.getChildCount() - 2) {
+					textview.setText(name);
+				}
+			}
+		}
+	}
+
+	private void setCheckBoxStatus(LinearLayout familyHistory, boolean isChecked) {
+		for (int i = 2; i < familyHistory.getChildCount(); i++) {
+			View item = familyHistory.getChildAt(i);
+			if (item instanceof CheckBox) {
+				((CheckBox) item).setEnabled(!isChecked);
+				if (isChecked) {
+					((CheckBox) item).setChecked(!isChecked);
+				}
+			}
+		}
 	}
 }

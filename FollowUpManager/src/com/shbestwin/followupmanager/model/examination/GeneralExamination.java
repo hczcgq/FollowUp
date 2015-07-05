@@ -163,6 +163,9 @@ public class GeneralExamination {
     private String jkpj_yc3;
     private String jkzd;
     private String wxyskz;
+    private String wxyskz_mb;
+    private String wxyskz_jyjzym;
+    private String wxyskz_qt;
     private String createTime;
     private String updateTime;
 
@@ -176,164 +179,217 @@ public class GeneralExamination {
         this.examinationNo = examinationNo;
     }
 
-    public GeneralExamination(String examinationNo, String idcard, String zrys, String tjrq, String zz, String ybqk_tw, String ybqk_mb, String ybqk_hxpl, String ybqk_zcxy, String ybqk_ycxy, String ybqk_sg, String ybqk_tz, String ybqk_bmi, String ybqk_yw, String ybqk_jkzk, String ybqk_shzlnl, String ybqk_rzgn, String ybqk_zljczf, String ybqk_qgzt, String ybqk_yyztjczf, String shfs_dlpl, String shfs_mcdlsj, String shfs_jcdlsj, String shfs_dlfs, String shfs_ysxg, String shfs_xyzk, String shfs_rxyl, String shfs_ksxynl, String shfs_jynl, String shfs_yjpl, String shfs_ryjl, Boolean shfs_sfjy, String shfs_ksyjnl, String shfs_jjnl, Boolean shfs_sfzj, String shfs_yjzl, Boolean shfs_zybwhysjcs, String shfs_gz, String shfs_cysj, String shfs_dwzl, String zqgn_kc, Boolean zqgn_sfcl, String zqgn_clms, String zqgn_yb, String zqgn_lysl, String zqgn_jzsl, String zqgn_tl, String zqgn_ydnl, Boolean ct_sfydyc, String ct_ydycms, String ct_pf, String ct_gm, String ct_lbj, Boolean ct_sftzx, Boolean ct_sfhxy, String ct_hxyms, String ct_ly, String ct_rate, String ct_rhythm, Boolean ct_sfzy, String ct_zyms, Boolean ct_sfyt, String ct_ytms, Boolean ct_sfbk, String ct_bkms, Boolean ct_sfgd, String ct_gdms, Boolean ct_sfpd, String ct_pdms, Boolean ct_sfydxzy, String ct_ydxzyms, String ct_xzsz, String ct_zbdmbd, String ct_kmzz, String ct_rx, String ct_wy, String ct_yd, String ct_gt, String ct_, String ct_fj, String ct_qt, String fzjc_xhdb, String fzjc_bxb, String fzjc_xxb, String fzjc_xcgqt, String fzjc_ndb, String fzjc_ndbxz, String fzjc_nt, String fzjc_ntxz, String fzjc_nttxz, String fzjc_nqxxz, String fzjc_nbz, String fzjc_nysjd, String fzjc_ncgqt, String fzjc_kfxt, Boolean fzjc_sfxdtzc, String fzjc_xdtycxx, String fzjc_nwlbdb, Boolean fzjc_sfdbqx, String fzjc_thxhdb, String fzjc_bmky, String fzjc_hxkt, String fzjc_eky, String fzjc_ekt, String fzjc_xqgbzam, String fzjc_xqgczam, String fzjc_bdb, String fzjc_zdhs, String fzjc_jhdhs, String fzjc_xqjg, String fzjc_xnsd, String fzjc_xjnd, String fzjc_xnnd, String fzjc_zdgc, String fzjc_dmdzdb, String fzjc_gysz, String fzjc_gmdzdb, String fzjc_apky, Boolean fzjc_sfxbxxpzc, String fzjc_xbxxpycms, Boolean fzjc_sfbczc, String fzjc_bcycms, Boolean fzjc_sfgjpzc, String fzjc_gjpycms, String fzjc_qt, String zytzbs_phz, String zytzbs_qxz, String zytzbs_yangxz, String zytzbs_yinxz, String zytzbs_tsz, String zytzbs_srz, String zytzbs_xyz, String zytzbs_qyz, String zytzbs_tbz, String jkwt_nxgjb, String jkwt_szjb, String jkwt_xzjb, String jkwt_xgjb, String jkwt_ybjb, Boolean jkwt_sfsjxtjb, String jkwt_sjxtjbms, Boolean jkwt_sfqtxtjb, String jkwt_qtxtjbms, String zyylqk, String zyyyqk, String fmyghfyjzs, Boolean jkpj_sftjyc, String jkpj_yc1, String jkpj_yc2, String jkpj_yc3, String jkzd, String wxyskz, String createTime, String updateTime) {
-        this.examinationNo = examinationNo;
-        this.idcard = idcard;
-        this.zrys = zrys;
-        this.tjrq = tjrq;
-        this.zz = zz;
-        this.ybqk_tw = ybqk_tw;
-        this.ybqk_mb = ybqk_mb;
-        this.ybqk_hxpl = ybqk_hxpl;
-        this.ybqk_zcxy = ybqk_zcxy;
-        this.ybqk_ycxy = ybqk_ycxy;
-        this.ybqk_sg = ybqk_sg;
-        this.ybqk_tz = ybqk_tz;
-        this.ybqk_bmi = ybqk_bmi;
-        this.ybqk_yw = ybqk_yw;
-        this.ybqk_jkzk = ybqk_jkzk;
-        this.ybqk_shzlnl = ybqk_shzlnl;
-        this.ybqk_rzgn = ybqk_rzgn;
-        this.ybqk_zljczf = ybqk_zljczf;
-        this.ybqk_qgzt = ybqk_qgzt;
-        this.ybqk_yyztjczf = ybqk_yyztjczf;
-        this.shfs_dlpl = shfs_dlpl;
-        this.shfs_mcdlsj = shfs_mcdlsj;
-        this.shfs_jcdlsj = shfs_jcdlsj;
-        this.shfs_dlfs = shfs_dlfs;
-        this.shfs_ysxg = shfs_ysxg;
-        this.shfs_xyzk = shfs_xyzk;
-        this.shfs_rxyl = shfs_rxyl;
-        this.shfs_ksxynl = shfs_ksxynl;
-        this.shfs_jynl = shfs_jynl;
-        this.shfs_yjpl = shfs_yjpl;
-        this.shfs_ryjl = shfs_ryjl;
-        this.shfs_sfjy = shfs_sfjy;
-        this.shfs_ksyjnl = shfs_ksyjnl;
-        this.shfs_jjnl = shfs_jjnl;
-        this.shfs_sfzj = shfs_sfzj;
-        this.shfs_yjzl = shfs_yjzl;
-        this.shfs_zybwhysjcs = shfs_zybwhysjcs;
-        this.shfs_gz = shfs_gz;
-        this.shfs_cysj = shfs_cysj;
-        this.shfs_dwzl = shfs_dwzl;
-        this.zqgn_kc = zqgn_kc;
-        this.zqgn_sfcl = zqgn_sfcl;
-        this.zqgn_clms = zqgn_clms;
-        this.zqgn_yb = zqgn_yb;
-        this.zqgn_lysl = zqgn_lysl;
-        this.zqgn_jzsl = zqgn_jzsl;
-        this.zqgn_tl = zqgn_tl;
-        this.zqgn_ydnl = zqgn_ydnl;
-        this.ct_sfydyc = ct_sfydyc;
-        this.ct_ydycms = ct_ydycms;
-        this.ct_pf = ct_pf;
-        this.ct_gm = ct_gm;
-        this.ct_lbj = ct_lbj;
-        this.ct_sftzx = ct_sftzx;
-        this.ct_sfhxy = ct_sfhxy;
-        this.ct_hxyms = ct_hxyms;
-        this.ct_ly = ct_ly;
-        this.ct_rate = ct_rate;
-        this.ct_rhythm = ct_rhythm;
-        this.ct_sfzy = ct_sfzy;
-        this.ct_zyms = ct_zyms;
-        this.ct_sfyt = ct_sfyt;
-        this.ct_ytms = ct_ytms;
-        this.ct_sfbk = ct_sfbk;
-        this.ct_bkms = ct_bkms;
-        this.ct_sfgd = ct_sfgd;
-        this.ct_gdms = ct_gdms;
-        this.ct_sfpd = ct_sfpd;
-        this.ct_pdms = ct_pdms;
-        this.ct_sfydxzy = ct_sfydxzy;
-        this.ct_ydxzyms = ct_ydxzyms;
-        this.ct_xzsz = ct_xzsz;
-        this.ct_zbdmbd = ct_zbdmbd;
-        this.ct_kmzz = ct_kmzz;
-        this.ct_rx = ct_rx;
-        this.ct_wy = ct_wy;
-        this.ct_yd = ct_yd;
-        this.ct_gt = ct_gt;
-        this.ct_ = ct_;
-        this.ct_fj = ct_fj;
-        this.ct_qt = ct_qt;
-        this.fzjc_xhdb = fzjc_xhdb;
-        this.fzjc_bxb = fzjc_bxb;
-        this.fzjc_xxb = fzjc_xxb;
-        this.fzjc_xcgqt = fzjc_xcgqt;
-        this.fzjc_ndb = fzjc_ndb;
-        this.fzjc_ndbxz = fzjc_ndbxz;
-        this.fzjc_nt = fzjc_nt;
-        this.fzjc_ntxz = fzjc_ntxz;
-        this.fzjc_nttxz = fzjc_nttxz;
-        this.fzjc_nqxxz = fzjc_nqxxz;
-        this.fzjc_nbz = fzjc_nbz;
-        this.fzjc_nysjd = fzjc_nysjd;
-        this.fzjc_ncgqt = fzjc_ncgqt;
-        this.fzjc_kfxt = fzjc_kfxt;
-        this.fzjc_sfxdtzc = fzjc_sfxdtzc;
-        this.fzjc_xdtycxx = fzjc_xdtycxx;
-        this.fzjc_nwlbdb = fzjc_nwlbdb;
-        this.fzjc_sfdbqx = fzjc_sfdbqx;
-        this.fzjc_thxhdb = fzjc_thxhdb;
-        this.fzjc_bmky = fzjc_bmky;
-        this.fzjc_hxkt = fzjc_hxkt;
-        this.fzjc_eky = fzjc_eky;
-        this.fzjc_ekt = fzjc_ekt;
-        this.fzjc_xqgbzam = fzjc_xqgbzam;
-        this.fzjc_xqgczam = fzjc_xqgczam;
-        this.fzjc_bdb = fzjc_bdb;
-        this.fzjc_zdhs = fzjc_zdhs;
-        this.fzjc_jhdhs = fzjc_jhdhs;
-        this.fzjc_xqjg = fzjc_xqjg;
-        this.fzjc_xnsd = fzjc_xnsd;
-        this.fzjc_xjnd = fzjc_xjnd;
-        this.fzjc_xnnd = fzjc_xnnd;
-        this.fzjc_zdgc = fzjc_zdgc;
-        this.fzjc_dmdzdb = fzjc_dmdzdb;
-        this.fzjc_gysz = fzjc_gysz;
-        this.fzjc_gmdzdb = fzjc_gmdzdb;
-        this.fzjc_apky = fzjc_apky;
-        this.fzjc_sfxbxxpzc = fzjc_sfxbxxpzc;
-        this.fzjc_xbxxpycms = fzjc_xbxxpycms;
-        this.fzjc_sfbczc = fzjc_sfbczc;
-        this.fzjc_bcycms = fzjc_bcycms;
-        this.fzjc_sfgjpzc = fzjc_sfgjpzc;
-        this.fzjc_gjpycms = fzjc_gjpycms;
-        this.fzjc_qt = fzjc_qt;
-        this.zytzbs_phz = zytzbs_phz;
-        this.zytzbs_qxz = zytzbs_qxz;
-        this.zytzbs_yangxz = zytzbs_yangxz;
-        this.zytzbs_yinxz = zytzbs_yinxz;
-        this.zytzbs_tsz = zytzbs_tsz;
-        this.zytzbs_srz = zytzbs_srz;
-        this.zytzbs_xyz = zytzbs_xyz;
-        this.zytzbs_qyz = zytzbs_qyz;
-        this.zytzbs_tbz = zytzbs_tbz;
-        this.jkwt_nxgjb = jkwt_nxgjb;
-        this.jkwt_szjb = jkwt_szjb;
-        this.jkwt_xzjb = jkwt_xzjb;
-        this.jkwt_xgjb = jkwt_xgjb;
-        this.jkwt_ybjb = jkwt_ybjb;
-        this.jkwt_sfsjxtjb = jkwt_sfsjxtjb;
-        this.jkwt_sjxtjbms = jkwt_sjxtjbms;
-        this.jkwt_sfqtxtjb = jkwt_sfqtxtjb;
-        this.jkwt_qtxtjbms = jkwt_qtxtjbms;
-        this.zyylqk = zyylqk;
-        this.zyyyqk = zyyyqk;
-        this.fmyghfyjzs = fmyghfyjzs;
-        this.jkpj_sftjyc = jkpj_sftjyc;
-        this.jkpj_yc1 = jkpj_yc1;
-        this.jkpj_yc2 = jkpj_yc2;
-        this.jkpj_yc3 = jkpj_yc3;
-        this.jkzd = jkzd;
-        this.wxyskz = wxyskz;
-        this.createTime = createTime;
-        this.updateTime = updateTime;
-    }
 
-    /** Not-null value. */
+    public GeneralExamination(String examinationNo, String idcard, String zrys,
+			String tjrq, String zz, String ybqk_tw, String ybqk_mb,
+			String ybqk_hxpl, String ybqk_zcxy, String ybqk_ycxy,
+			String ybqk_sg, String ybqk_tz, String ybqk_bmi, String ybqk_yw,
+			String ybqk_jkzk, String ybqk_shzlnl, String ybqk_rzgn,
+			String ybqk_zljczf, String ybqk_qgzt, String ybqk_yyztjczf,
+			String shfs_dlpl, String shfs_mcdlsj, String shfs_jcdlsj,
+			String shfs_dlfs, String shfs_ysxg, String shfs_xyzk,
+			String shfs_rxyl, String shfs_ksxynl, String shfs_jynl,
+			String shfs_yjpl, String shfs_ryjl, Boolean shfs_sfjy,
+			String shfs_ksyjnl, String shfs_jjnl, Boolean shfs_sfzj,
+			String shfs_yjzl, Boolean shfs_zybwhysjcs, String shfs_gz,
+			String shfs_cysj, String shfs_dwzl, String zqgn_kc,
+			Boolean zqgn_sfcl, String zqgn_clms, String zqgn_yb,
+			String zqgn_lysl, String zqgn_jzsl, String zqgn_tl,
+			String zqgn_ydnl, Boolean ct_sfydyc, String ct_ydycms,
+			String ct_pf, String ct_gm, String ct_lbj, Boolean ct_sftzx,
+			Boolean ct_sfhxy, String ct_hxyms, String ct_ly, String ct_rate,
+			String ct_rhythm, Boolean ct_sfzy, String ct_zyms, Boolean ct_sfyt,
+			String ct_ytms, Boolean ct_sfbk, String ct_bkms, Boolean ct_sfgd,
+			String ct_gdms, Boolean ct_sfpd, String ct_pdms,
+			Boolean ct_sfydxzy, String ct_ydxzyms, String ct_xzsz,
+			String ct_zbdmbd, String ct_kmzz, String ct_rx, String ct_wy,
+			String ct_yd, String ct_gt, String ct_, String ct_fj, String ct_qt,
+			String fzjc_xhdb, String fzjc_bxb, String fzjc_xxb,
+			String fzjc_xcgqt, String fzjc_ndb, String fzjc_ndbxz,
+			String fzjc_nt, String fzjc_ntxz, String fzjc_nttxz,
+			String fzjc_nqxxz, String fzjc_nbz, String fzjc_nysjd,
+			String fzjc_ncgqt, String fzjc_kfxt, Boolean fzjc_sfxdtzc,
+			String fzjc_xdtycxx, String fzjc_nwlbdb, Boolean fzjc_sfdbqx,
+			String fzjc_thxhdb, String fzjc_bmky, String fzjc_hxkt,
+			String fzjc_eky, String fzjc_ekt, String fzjc_xqgbzam,
+			String fzjc_xqgczam, String fzjc_bdb, String fzjc_zdhs,
+			String fzjc_jhdhs, String fzjc_xqjg, String fzjc_xnsd,
+			String fzjc_xjnd, String fzjc_xnnd, String fzjc_zdgc,
+			String fzjc_dmdzdb, String fzjc_gysz, String fzjc_gmdzdb,
+			String fzjc_apky, Boolean fzjc_sfxbxxpzc, String fzjc_xbxxpycms,
+			Boolean fzjc_sfbczc, String fzjc_bcycms, Boolean fzjc_sfgjpzc,
+			String fzjc_gjpycms, String fzjc_qt, String zytzbs_phz,
+			String zytzbs_qxz, String zytzbs_yangxz, String zytzbs_yinxz,
+			String zytzbs_tsz, String zytzbs_srz, String zytzbs_xyz,
+			String zytzbs_qyz, String zytzbs_tbz, String jkwt_nxgjb,
+			String jkwt_szjb, String jkwt_xzjb, String jkwt_xgjb,
+			String jkwt_ybjb, Boolean jkwt_sfsjxtjb, String jkwt_sjxtjbms,
+			Boolean jkwt_sfqtxtjb, String jkwt_qtxtjbms, String zyylqk,
+			String zyyyqk, String fmyghfyjzs, Boolean jkpj_sftjyc,
+			String jkpj_yc1, String jkpj_yc2, String jkpj_yc3, String jkzd,
+			String wxyskz, String wxyskz_mb, String wxyskz_jyjzym,
+			String wxyskz_qt, String createTime, String updateTime) {
+		super();
+		this.examinationNo = examinationNo;
+		this.idcard = idcard;
+		this.zrys = zrys;
+		this.tjrq = tjrq;
+		this.zz = zz;
+		this.ybqk_tw = ybqk_tw;
+		this.ybqk_mb = ybqk_mb;
+		this.ybqk_hxpl = ybqk_hxpl;
+		this.ybqk_zcxy = ybqk_zcxy;
+		this.ybqk_ycxy = ybqk_ycxy;
+		this.ybqk_sg = ybqk_sg;
+		this.ybqk_tz = ybqk_tz;
+		this.ybqk_bmi = ybqk_bmi;
+		this.ybqk_yw = ybqk_yw;
+		this.ybqk_jkzk = ybqk_jkzk;
+		this.ybqk_shzlnl = ybqk_shzlnl;
+		this.ybqk_rzgn = ybqk_rzgn;
+		this.ybqk_zljczf = ybqk_zljczf;
+		this.ybqk_qgzt = ybqk_qgzt;
+		this.ybqk_yyztjczf = ybqk_yyztjczf;
+		this.shfs_dlpl = shfs_dlpl;
+		this.shfs_mcdlsj = shfs_mcdlsj;
+		this.shfs_jcdlsj = shfs_jcdlsj;
+		this.shfs_dlfs = shfs_dlfs;
+		this.shfs_ysxg = shfs_ysxg;
+		this.shfs_xyzk = shfs_xyzk;
+		this.shfs_rxyl = shfs_rxyl;
+		this.shfs_ksxynl = shfs_ksxynl;
+		this.shfs_jynl = shfs_jynl;
+		this.shfs_yjpl = shfs_yjpl;
+		this.shfs_ryjl = shfs_ryjl;
+		this.shfs_sfjy = shfs_sfjy;
+		this.shfs_ksyjnl = shfs_ksyjnl;
+		this.shfs_jjnl = shfs_jjnl;
+		this.shfs_sfzj = shfs_sfzj;
+		this.shfs_yjzl = shfs_yjzl;
+		this.shfs_zybwhysjcs = shfs_zybwhysjcs;
+		this.shfs_gz = shfs_gz;
+		this.shfs_cysj = shfs_cysj;
+		this.shfs_dwzl = shfs_dwzl;
+		this.zqgn_kc = zqgn_kc;
+		this.zqgn_sfcl = zqgn_sfcl;
+		this.zqgn_clms = zqgn_clms;
+		this.zqgn_yb = zqgn_yb;
+		this.zqgn_lysl = zqgn_lysl;
+		this.zqgn_jzsl = zqgn_jzsl;
+		this.zqgn_tl = zqgn_tl;
+		this.zqgn_ydnl = zqgn_ydnl;
+		this.ct_sfydyc = ct_sfydyc;
+		this.ct_ydycms = ct_ydycms;
+		this.ct_pf = ct_pf;
+		this.ct_gm = ct_gm;
+		this.ct_lbj = ct_lbj;
+		this.ct_sftzx = ct_sftzx;
+		this.ct_sfhxy = ct_sfhxy;
+		this.ct_hxyms = ct_hxyms;
+		this.ct_ly = ct_ly;
+		this.ct_rate = ct_rate;
+		this.ct_rhythm = ct_rhythm;
+		this.ct_sfzy = ct_sfzy;
+		this.ct_zyms = ct_zyms;
+		this.ct_sfyt = ct_sfyt;
+		this.ct_ytms = ct_ytms;
+		this.ct_sfbk = ct_sfbk;
+		this.ct_bkms = ct_bkms;
+		this.ct_sfgd = ct_sfgd;
+		this.ct_gdms = ct_gdms;
+		this.ct_sfpd = ct_sfpd;
+		this.ct_pdms = ct_pdms;
+		this.ct_sfydxzy = ct_sfydxzy;
+		this.ct_ydxzyms = ct_ydxzyms;
+		this.ct_xzsz = ct_xzsz;
+		this.ct_zbdmbd = ct_zbdmbd;
+		this.ct_kmzz = ct_kmzz;
+		this.ct_rx = ct_rx;
+		this.ct_wy = ct_wy;
+		this.ct_yd = ct_yd;
+		this.ct_gt = ct_gt;
+		this.ct_ = ct_;
+		this.ct_fj = ct_fj;
+		this.ct_qt = ct_qt;
+		this.fzjc_xhdb = fzjc_xhdb;
+		this.fzjc_bxb = fzjc_bxb;
+		this.fzjc_xxb = fzjc_xxb;
+		this.fzjc_xcgqt = fzjc_xcgqt;
+		this.fzjc_ndb = fzjc_ndb;
+		this.fzjc_ndbxz = fzjc_ndbxz;
+		this.fzjc_nt = fzjc_nt;
+		this.fzjc_ntxz = fzjc_ntxz;
+		this.fzjc_nttxz = fzjc_nttxz;
+		this.fzjc_nqxxz = fzjc_nqxxz;
+		this.fzjc_nbz = fzjc_nbz;
+		this.fzjc_nysjd = fzjc_nysjd;
+		this.fzjc_ncgqt = fzjc_ncgqt;
+		this.fzjc_kfxt = fzjc_kfxt;
+		this.fzjc_sfxdtzc = fzjc_sfxdtzc;
+		this.fzjc_xdtycxx = fzjc_xdtycxx;
+		this.fzjc_nwlbdb = fzjc_nwlbdb;
+		this.fzjc_sfdbqx = fzjc_sfdbqx;
+		this.fzjc_thxhdb = fzjc_thxhdb;
+		this.fzjc_bmky = fzjc_bmky;
+		this.fzjc_hxkt = fzjc_hxkt;
+		this.fzjc_eky = fzjc_eky;
+		this.fzjc_ekt = fzjc_ekt;
+		this.fzjc_xqgbzam = fzjc_xqgbzam;
+		this.fzjc_xqgczam = fzjc_xqgczam;
+		this.fzjc_bdb = fzjc_bdb;
+		this.fzjc_zdhs = fzjc_zdhs;
+		this.fzjc_jhdhs = fzjc_jhdhs;
+		this.fzjc_xqjg = fzjc_xqjg;
+		this.fzjc_xnsd = fzjc_xnsd;
+		this.fzjc_xjnd = fzjc_xjnd;
+		this.fzjc_xnnd = fzjc_xnnd;
+		this.fzjc_zdgc = fzjc_zdgc;
+		this.fzjc_dmdzdb = fzjc_dmdzdb;
+		this.fzjc_gysz = fzjc_gysz;
+		this.fzjc_gmdzdb = fzjc_gmdzdb;
+		this.fzjc_apky = fzjc_apky;
+		this.fzjc_sfxbxxpzc = fzjc_sfxbxxpzc;
+		this.fzjc_xbxxpycms = fzjc_xbxxpycms;
+		this.fzjc_sfbczc = fzjc_sfbczc;
+		this.fzjc_bcycms = fzjc_bcycms;
+		this.fzjc_sfgjpzc = fzjc_sfgjpzc;
+		this.fzjc_gjpycms = fzjc_gjpycms;
+		this.fzjc_qt = fzjc_qt;
+		this.zytzbs_phz = zytzbs_phz;
+		this.zytzbs_qxz = zytzbs_qxz;
+		this.zytzbs_yangxz = zytzbs_yangxz;
+		this.zytzbs_yinxz = zytzbs_yinxz;
+		this.zytzbs_tsz = zytzbs_tsz;
+		this.zytzbs_srz = zytzbs_srz;
+		this.zytzbs_xyz = zytzbs_xyz;
+		this.zytzbs_qyz = zytzbs_qyz;
+		this.zytzbs_tbz = zytzbs_tbz;
+		this.jkwt_nxgjb = jkwt_nxgjb;
+		this.jkwt_szjb = jkwt_szjb;
+		this.jkwt_xzjb = jkwt_xzjb;
+		this.jkwt_xgjb = jkwt_xgjb;
+		this.jkwt_ybjb = jkwt_ybjb;
+		this.jkwt_sfsjxtjb = jkwt_sfsjxtjb;
+		this.jkwt_sjxtjbms = jkwt_sjxtjbms;
+		this.jkwt_sfqtxtjb = jkwt_sfqtxtjb;
+		this.jkwt_qtxtjbms = jkwt_qtxtjbms;
+		this.zyylqk = zyylqk;
+		this.zyyyqk = zyyyqk;
+		this.fmyghfyjzs = fmyghfyjzs;
+		this.jkpj_sftjyc = jkpj_sftjyc;
+		this.jkpj_yc1 = jkpj_yc1;
+		this.jkpj_yc2 = jkpj_yc2;
+		this.jkpj_yc3 = jkpj_yc3;
+		this.jkzd = jkzd;
+		this.wxyskz = wxyskz;
+		this.wxyskz_mb = wxyskz_mb;
+		this.wxyskz_jyjzym = wxyskz_jyjzym;
+		this.wxyskz_qt = wxyskz_qt;
+		this.createTime = createTime;
+		this.updateTime = updateTime;
+	}
+
+	/** Not-null value. */
     public String getExaminationNo() {
         return examinationNo;
     }
@@ -1552,8 +1608,32 @@ public class GeneralExamination {
     public void setWxyskz(String wxyskz) {
         this.wxyskz = wxyskz;
     }
+    
+    public String getWxyskz_mb() {
+		return wxyskz_mb;
+	}
 
-    public String getCreateTime() {
+	public void setWxyskz_mb(String wxyskz_mb) {
+		this.wxyskz_mb = wxyskz_mb;
+	}
+
+	public String getWxyskz_jyjzym() {
+		return wxyskz_jyjzym;
+	}
+
+	public void setWxyskz_jyjzym(String wxyskz_jyjzym) {
+		this.wxyskz_jyjzym = wxyskz_jyjzym;
+	}
+
+	public String getWxyskz_qt() {
+		return wxyskz_qt;
+	}
+
+	public void setWxyskz_qt(String wxyskz_qt) {
+		this.wxyskz_qt = wxyskz_qt;
+	}
+
+	public String getCreateTime() {
         return createTime;
     }
 

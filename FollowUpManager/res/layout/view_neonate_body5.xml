@@ -90,6 +90,7 @@
         android:textSize="@dimen/global_font_size_xlarge" />
 
     <LinearLayout
+        android:id="@+id/complexionLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -138,6 +139,7 @@
         android:textSize="@dimen/global_font_size_xlarge" />
 
     <LinearLayout
+        android:id="@+id/aurigoLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -191,6 +193,7 @@
         android:textSize="@dimen/global_font_size_xlarge" />
 
     <LinearLayout
+        android:id="@+id/bregmaLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -568,6 +571,7 @@
         android:textSize="@dimen/global_font_size_xlarge" />
 
     <LinearLayout
+        android:id="@+id/skinLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"

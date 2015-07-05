@@ -54,17 +54,21 @@ public class FollowUpThreeSixNewbornDao extends AbstractDao<FollowUpThreeSixNewb
         public final static Property Sysjc = new Property(28, String.class, "sysjc", false, "SYSJC");
         public final static Property Fzjc = new Property(29, String.class, "fzjc", false, "FZJC");
         public final static Property Hbqk = new Property(30, String.class, "hbqk", false, "HBQK");
-        public final static Property Yyxjbgl_sfyyxjb = new Property(31, Boolean.class, "yyxjbgl_sfyyxjb", false, "YYXJBGL_SFYYXJB");
-        public final static Property Jbzd = new Property(32, String.class, "jbzd", false, "JBZD");
-        public final static Property Zz_sfzz = new Property(33, Boolean.class, "zz_sfzz", false, "ZZ_SFZZ");
-        public final static Property Zz_yy = new Property(34, String.class, "zz_yy", false, "ZZ_YY");
-        public final static Property Zz_jgjks = new Property(35, String.class, "zz_jgjks", false, "ZZ_JGJKS");
-        public final static Property Zd_zd = new Property(36, String.class, "zd_zd", false, "ZD_ZD");
-        public final static Property Zd_yzhjy = new Property(37, String.class, "zd_yzhjy", false, "ZD_YZHJY");
-        public final static Property Zd_xcsfrq = new Property(38, String.class, "zd_xcsfrq", false, "ZD_XCSFRQ");
-        public final static Property Zd_sfysqm = new Property(39, String.class, "zd_sfysqm", false, "ZD_SFYSQM");
-        public final static Property CreateTime = new Property(40, String.class, "createTime", false, "CREATE_TIME");
-        public final static Property UpdateTime = new Property(41, String.class, "updateTime", false, "UPDATE_TIME");
+        public final static Property Hbqk_fy = new Property(31, String.class, "hbqk_fy", false, "HBQK_FY");
+        public final static Property Hbqk_fx = new Property(32, String.class, "hbqk_fx", false, "HBQK_FX");
+        public final static Property Hbqk_ws = new Property(33, String.class, "hbqk_ws", false, "HBQK_WS");
+        public final static Property Hbqk_qt = new Property(34, String.class, "hbqk_qt", false, "HBQK_QT");
+        public final static Property Yyxjbgl_sfyyxjb = new Property(35, Boolean.class, "yyxjbgl_sfyyxjb", false, "YYXJBGL_SFYYXJB");
+        public final static Property Jbzd = new Property(36, String.class, "jbzd", false, "JBZD");
+        public final static Property Zz_sfzz = new Property(37, Boolean.class, "zz_sfzz", false, "ZZ_SFZZ");
+        public final static Property Zz_yy = new Property(38, String.class, "zz_yy", false, "ZZ_YY");
+        public final static Property Zz_jgjks = new Property(39, String.class, "zz_jgjks", false, "ZZ_JGJKS");
+        public final static Property Zd_zd = new Property(40, String.class, "zd_zd", false, "ZD_ZD");
+        public final static Property Zd_yzhjy = new Property(41, String.class, "zd_yzhjy", false, "ZD_YZHJY");
+        public final static Property Zd_xcsfrq = new Property(42, String.class, "zd_xcsfrq", false, "ZD_XCSFRQ");
+        public final static Property Zd_sfysqm = new Property(43, String.class, "zd_sfysqm", false, "ZD_SFYSQM");
+        public final static Property CreateTime = new Property(44, String.class, "createTime", false, "CREATE_TIME");
+        public final static Property UpdateTime = new Property(45, String.class, "updateTime", false, "UPDATE_TIME");
     };
 
 
@@ -111,6 +115,10 @@ public class FollowUpThreeSixNewbornDao extends AbstractDao<FollowUpThreeSixNewb
                 "'SYSJC' TEXT," + // 28: sysjc
                 "'FZJC' TEXT," + // 29: fzjc
                 "'HBQK' TEXT," + // 30: hbqk
+                "'HBQK_FY' TEXT," + // 30: hbqk
+                "'HBQK_FX' TEXT," + // 30: hbqk
+                "'HBQK_WS' TEXT," + // 30: hbqk
+                "'HBQK_QT' TEXT," + // 30: hbqk
                 "'YYXJBGL_SFYYXJB' INTEGER," + // 31: yyxjbgl_sfyyxjb
                 "'JBZD' TEXT," + // 32: jbzd
                 "'ZZ_SFZZ' INTEGER," + // 33: zz_sfzz
@@ -282,59 +290,80 @@ public class FollowUpThreeSixNewbornDao extends AbstractDao<FollowUpThreeSixNewb
             stmt.bindString(31, hbqk);
         }
  
+        String hbqk_fy = entity.getHbqk_fy();
+        if (hbqk_fy != null) {
+            stmt.bindString(32, hbqk_fy);
+        }
+        
+        String hbqk_fx = entity.getHbqk_fx();
+        if (hbqk_fx != null) {
+            stmt.bindString(33, hbqk_fx);
+        }
+        
+        String hbqk_ws = entity.getHbqk_ws();
+        if (hbqk_ws != null) {
+            stmt.bindString(34, hbqk_ws);
+        }
+        
+        String hbqk_qt = entity.getHbqk_qt();
+        if (hbqk_qt != null) {
+            stmt.bindString(35, hbqk_qt);
+        }
+        
+        
         Boolean yyxjbgl_sfyyxjb = entity.getYyxjbgl_sfyyxjb();
         if (yyxjbgl_sfyyxjb != null) {
-            stmt.bindLong(32, yyxjbgl_sfyyxjb ? 1l: 0l);
+            stmt.bindLong(36, yyxjbgl_sfyyxjb ? 1l: 0l);
         }
  
         String jbzd = entity.getJbzd();
         if (jbzd != null) {
-            stmt.bindString(33, jbzd);
+            stmt.bindString(37, jbzd);
         }
  
         Boolean zz_sfzz = entity.getZz_sfzz();
         if (zz_sfzz != null) {
-            stmt.bindLong(34, zz_sfzz ? 1l: 0l);
+            stmt.bindLong(38, zz_sfzz ? 1l: 0l);
         }
  
         String zz_yy = entity.getZz_yy();
         if (zz_yy != null) {
-            stmt.bindString(35, zz_yy);
+            stmt.bindString(39, zz_yy);
         }
  
         String zz_jgjks = entity.getZz_jgjks();
         if (zz_jgjks != null) {
-            stmt.bindString(36, zz_jgjks);
+            stmt.bindString(40, zz_jgjks);
         }
  
         String zd_zd = entity.getZd_zd();
         if (zd_zd != null) {
-            stmt.bindString(37, zd_zd);
+            stmt.bindString(41, zd_zd);
         }
  
         String zd_yzhjy = entity.getZd_yzhjy();
         if (zd_yzhjy != null) {
-            stmt.bindString(38, zd_yzhjy);
+            stmt.bindString(42, zd_yzhjy);
         }
  
         String zd_xcsfrq = entity.getZd_xcsfrq();
         if (zd_xcsfrq != null) {
-            stmt.bindString(39, zd_xcsfrq);
+            stmt.bindString(43, zd_xcsfrq);
         }
  
         String zd_sfysqm = entity.getZd_sfysqm();
         if (zd_sfysqm != null) {
-            stmt.bindString(40, zd_sfysqm);
+            stmt.bindString(44, zd_sfysqm);
         }
  
         String createTime = entity.getCreateTime();
         if (createTime != null) {
-            stmt.bindString(41, createTime);
+            stmt.bindString(45, createTime);
         }
  
         String updateTime = entity.getUpdateTime();
         if (updateTime != null) {
-            stmt.bindString(42, updateTime);
+            stmt.bindString(46, updateTime);
         }
     }
 
@@ -379,17 +408,21 @@ public class FollowUpThreeSixNewbornDao extends AbstractDao<FollowUpThreeSixNewb
             cursor.isNull(offset + 28) ? null : cursor.getString(offset + 28), // sysjc
             cursor.isNull(offset + 29) ? null : cursor.getString(offset + 29), // fzjc
             cursor.isNull(offset + 30) ? null : cursor.getString(offset + 30), // hbqk
-            cursor.isNull(offset + 31) ? null : cursor.getShort(offset + 31) != 0, // yyxjbgl_sfyyxjb
-            cursor.isNull(offset + 32) ? null : cursor.getString(offset + 32), // jbzd
-            cursor.isNull(offset + 33) ? null : cursor.getShort(offset + 33) != 0, // zz_sfzz
-            cursor.isNull(offset + 34) ? null : cursor.getString(offset + 34), // zz_yy
-            cursor.isNull(offset + 35) ? null : cursor.getString(offset + 35), // zz_jgjks
-            cursor.isNull(offset + 36) ? null : cursor.getString(offset + 36), // zd_zd
-            cursor.isNull(offset + 37) ? null : cursor.getString(offset + 37), // zd_yzhjy
-            cursor.isNull(offset + 38) ? null : cursor.getString(offset + 38), // zd_xcsfrq
-            cursor.isNull(offset + 39) ? null : cursor.getString(offset + 39), // zd_sfysqm
-            cursor.isNull(offset + 40) ? null : cursor.getString(offset + 40), // createTime
-            cursor.isNull(offset + 41) ? null : cursor.getString(offset + 41) // updateTime
+            cursor.isNull(offset + 31) ? null : cursor.getString(offset + 31), // hbqk
+            cursor.isNull(offset + 32) ? null : cursor.getString(offset + 32), // hbqk
+            cursor.isNull(offset + 33) ? null : cursor.getString(offset + 33), // hbqk
+            cursor.isNull(offset + 34) ? null : cursor.getString(offset + 34), // hbqk
+            cursor.isNull(offset + 35) ? null : cursor.getShort(offset + 35) != 0, // yyxjbgl_sfyyxjb
+            cursor.isNull(offset + 36) ? null : cursor.getString(offset + 36), // jbzd
+            cursor.isNull(offset + 37) ? null : cursor.getShort(offset + 37) != 0, // zz_sfzz
+            cursor.isNull(offset + 38) ? null : cursor.getString(offset + 38), // zz_yy
+            cursor.isNull(offset + 39) ? null : cursor.getString(offset + 39), // zz_jgjks
+            cursor.isNull(offset + 40) ? null : cursor.getString(offset + 40), // zd_zd
+            cursor.isNull(offset + 41) ? null : cursor.getString(offset + 41), // zd_yzhjy
+            cursor.isNull(offset + 42) ? null : cursor.getString(offset + 42), // zd_xcsfrq
+            cursor.isNull(offset + 43) ? null : cursor.getString(offset + 43), // zd_sfysqm
+            cursor.isNull(offset + 44) ? null : cursor.getString(offset + 44), // createTime
+            cursor.isNull(offset + 45) ? null : cursor.getString(offset + 45) // updateTime
         );
         return entity;
     }
@@ -428,17 +461,21 @@ public class FollowUpThreeSixNewbornDao extends AbstractDao<FollowUpThreeSixNewb
         entity.setSysjc(cursor.isNull(offset + 28) ? null : cursor.getString(offset + 28));
         entity.setFzjc(cursor.isNull(offset + 29) ? null : cursor.getString(offset + 29));
         entity.setHbqk(cursor.isNull(offset + 30) ? null : cursor.getString(offset + 30));
-        entity.setYyxjbgl_sfyyxjb(cursor.isNull(offset + 31) ? null : cursor.getShort(offset + 31) != 0);
-        entity.setJbzd(cursor.isNull(offset + 32) ? null : cursor.getString(offset + 32));
-        entity.setZz_sfzz(cursor.isNull(offset + 33) ? null : cursor.getShort(offset + 33) != 0);
-        entity.setZz_yy(cursor.isNull(offset + 34) ? null : cursor.getString(offset + 34));
-        entity.setZz_jgjks(cursor.isNull(offset + 35) ? null : cursor.getString(offset + 35));
-        entity.setZd_zd(cursor.isNull(offset + 36) ? null : cursor.getString(offset + 36));
-        entity.setZd_yzhjy(cursor.isNull(offset + 37) ? null : cursor.getString(offset + 37));
-        entity.setZd_xcsfrq(cursor.isNull(offset + 38) ? null : cursor.getString(offset + 38));
-        entity.setZd_sfysqm(cursor.isNull(offset + 39) ? null : cursor.getString(offset + 39));
-        entity.setCreateTime(cursor.isNull(offset + 40) ? null : cursor.getString(offset + 40));
-        entity.setUpdateTime(cursor.isNull(offset + 41) ? null : cursor.getString(offset + 41));
+        entity.setHbqk_fy(cursor.isNull(offset + 31) ? null : cursor.getString(offset + 31));
+        entity.setHbqk_fx(cursor.isNull(offset + 32) ? null : cursor.getString(offset + 32));
+        entity.setHbqk_ws(cursor.isNull(offset + 33) ? null : cursor.getString(offset + 33));
+        entity.setHbqk_qt(cursor.isNull(offset + 34) ? null : cursor.getString(offset + 34));
+        entity.setYyxjbgl_sfyyxjb(cursor.isNull(offset + 35) ? null : cursor.getShort(offset + 35) != 0);
+        entity.setJbzd(cursor.isNull(offset + 36) ? null : cursor.getString(offset + 36));
+        entity.setZz_sfzz(cursor.isNull(offset + 37) ? null : cursor.getShort(offset + 37) != 0);
+        entity.setZz_yy(cursor.isNull(offset + 38) ? null : cursor.getString(offset + 38));
+        entity.setZz_jgjks(cursor.isNull(offset + 39) ? null : cursor.getString(offset + 39));
+        entity.setZd_zd(cursor.isNull(offset + 40) ? null : cursor.getString(offset + 40));
+        entity.setZd_yzhjy(cursor.isNull(offset + 41) ? null : cursor.getString(offset + 41));
+        entity.setZd_xcsfrq(cursor.isNull(offset + 42) ? null : cursor.getString(offset + 42));
+        entity.setZd_sfysqm(cursor.isNull(offset + 43) ? null : cursor.getString(offset + 43));
+        entity.setCreateTime(cursor.isNull(offset + 44) ? null : cursor.getString(offset + 44));
+        entity.setUpdateTime(cursor.isNull(offset + 45) ? null : cursor.getString(offset + 45));
      }
     
     /** @inheritdoc */

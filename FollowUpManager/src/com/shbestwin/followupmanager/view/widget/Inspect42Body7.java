@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
@@ -23,6 +24,7 @@ public class Inspect42Body7 extends LinearLayout implements IBaseInspect42Body {
 	private RadioGroup rg_zz;
 	private EditText et_yy,et_jgjks,et_xcsfrq,et_sfysqm;
 	private boolean isHas=false;
+	private RadioButton rb_w,rb_y;
 	public Inspect42Body7(Context context) {
 		this(context, null);
 	}
@@ -39,6 +41,8 @@ public class Inspect42Body7 extends LinearLayout implements IBaseInspect42Body {
 		et_jgjks=(EditText) rootView.findViewById(R.id.et_jgjks);
 		et_xcsfrq=(EditText) rootView.findViewById(R.id.et_xcsfrq);
 		et_sfysqm=(EditText) rootView.findViewById(R.id.et_sfysqm);
+		rb_w=(RadioButton) rootView.findViewById(R.id.rb_w);
+		rb_y=(RadioButton) rootView.findViewById(R.id.rb_y);
 		
 		rg_zz.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
@@ -83,8 +87,20 @@ public class Inspect42Body7 extends LinearLayout implements IBaseInspect42Body {
 
 	@Override
 	public void setData(FollowUpFortyTwo followUpFortyTwo) {
-		// TODO Auto-generated method stub
-
+		if(followUpFortyTwo!=null){
+			et_jgjks.setText(followUpFortyTwo.getZz_jgjks());
+			et_yy.setText(followUpFortyTwo.getZz_yy());
+			et_xcsfrq.setText(followUpFortyTwo.getZz_xcsfrq());
+			et_sfysqm.setText(followUpFortyTwo.getZtpg_sfysqm());
+			
+			if(followUpFortyTwo.getZz_sfygzz()){
+				rb_y.setChecked(true);
+				rb_w.setChecked(false);
+			}else {
+				rb_y.setChecked(false);
+				rb_w.setChecked(true);
+			}
+		}
 	}
 
 	@Override

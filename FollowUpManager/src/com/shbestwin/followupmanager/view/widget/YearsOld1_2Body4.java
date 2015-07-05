@@ -6,19 +6,27 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.model.followup.FollowUpOneTwoNewborn;
 
-public class YearsOld1_2Body4 extends LinearLayout  implements IBaseYearsOld1_2Body,OnCheckedChangeListener{
+public class YearsOld1_2Body4 extends LinearLayout implements
+		IBaseYearsOld1_2Body, OnCheckedChangeListener {
 	private RadioGroup rg_fwtt, rg_dyshwx, rg_sbsnzjkzt, rg_szk, rg_xcs,
-	rg_sszwj, rg_hfs, rg_zjzsdzjwx, rg_rs, rg_yszcz;
+			rg_sszwj, rg_hfs, rg_zjzsdzjwx, rg_rs, rg_yszcz;
 
-private boolean is_fwtt = true, is_dyshwx = true, is_sbsnzjkzt = true,
-	is_szk = true, is_xcs = true, is_sszwj = true, is_hfs = true,
-	is_zjzsdzjwx = true, is_rs = true, is_yszcz = true;
+	private boolean is_fwtt = true, is_dyshwx = true, is_sbsnzjkzt = true,
+			is_szk = true, is_xcs = true, is_sszwj = true, is_hfs = true,
+			is_zjzsdzjwx = true, is_rs = true, is_yszcz = true;
+
+	private RadioButton rb_fwtt_f, rb_fwtt_s, rb_dyshwx_f, rb_dyshwx_s,
+			rb_sbsnzjkzt_f, rb_sbsnzjkzt_s, rb_szk_f, rb_szk_s, rb_xcs_f,
+			rb_xcs_s, rb_sszwj_f, rb_sszwj_s, rb_hfs_f, rb_hfs_s,
+			rb_zjzsdzjwx_f, rb_zjzsdzjwx_s, rb_rs_f, rb_rs_s, rb_yszcz_f,
+			rb_yszcz_s;
 
 	public YearsOld1_2Body4(Context context) {
 		this(context, null);
@@ -30,7 +38,33 @@ private boolean is_fwtt = true, is_dyshwx = true, is_sbsnzjkzt = true,
 
 	public YearsOld1_2Body4(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		View rootView = LayoutInflater.from(context).inflate(R.layout.view_years_old_1_2_body4, this, true);
+		View rootView = LayoutInflater.from(context).inflate(
+				R.layout.view_years_old_1_2_body4, this, true);
+		rb_fwtt_f = (RadioButton) rootView.findViewById(R.id.rb_fwtt_f);
+		rb_fwtt_s = (RadioButton) rootView.findViewById(R.id.rb_fwtt_s);
+		rb_dyshwx_f = (RadioButton) rootView.findViewById(R.id.rb_dyshwx_f);
+		rb_dyshwx_s = (RadioButton) rootView.findViewById(R.id.rb_dyshwx_s);
+		rb_sbsnzjkzt_f = (RadioButton) rootView
+				.findViewById(R.id.rb_sbsnzjkzt_f);
+		rb_sbsnzjkzt_s = (RadioButton) rootView
+				.findViewById(R.id.rb_sbsnzjkzt_s);
+		rb_szk_f = (RadioButton) rootView.findViewById(R.id.rb_szk_f);
+		rb_szk_s = (RadioButton) rootView.findViewById(R.id.rb_szk_s);
+		rb_xcs_f = (RadioButton) rootView.findViewById(R.id.rb_xcs_f);
+		rb_xcs_s = (RadioButton) rootView.findViewById(R.id.rb_xcs_s);
+		rb_sszwj_f = (RadioButton) rootView.findViewById(R.id.rb_sszwj_f);
+		rb_sszwj_s = (RadioButton) rootView.findViewById(R.id.rb_sszwj_s);
+		rb_hfs_f = (RadioButton) rootView.findViewById(R.id.rb_hfs_f);
+		rb_hfs_s = (RadioButton) rootView.findViewById(R.id.rb_hfs_s);
+		rb_zjzsdzjwx_f = (RadioButton) rootView
+				.findViewById(R.id.rb_zjzsdzjwx_f);
+		rb_zjzsdzjwx_s = (RadioButton) rootView
+				.findViewById(R.id.rb_zjzsdzjwx_s);
+		rb_rs_f = (RadioButton) rootView.findViewById(R.id.rb_rs_f);
+		rb_rs_s = (RadioButton) rootView.findViewById(R.id.rb_rs_s);
+		rb_yszcz_f = (RadioButton) rootView.findViewById(R.id.rb_yszcz_f);
+		rb_yszcz_s = (RadioButton) rootView.findViewById(R.id.rb_yszcz_s);
+
 		rg_fwtt = (RadioGroup) rootView.findViewById(R.id.rg_fwtt);
 		rg_dyshwx = (RadioGroup) rootView.findViewById(R.id.rg_dyshwx);
 		rg_sbsnzjkzt = (RadioGroup) rootView.findViewById(R.id.rg_sbsnzjkzt);
@@ -53,6 +87,7 @@ private boolean is_fwtt = true, is_dyshwx = true, is_sbsnzjkzt = true,
 		rg_rs.setOnCheckedChangeListener(this);
 		rg_yszcz.setOnCheckedChangeListener(this);
 	}
+
 	@Override
 	public void getData(FollowUpOneTwoNewborn followUpOneTwoNewborn) {
 		followUpOneTwoNewborn.setFysc_hyszrdxhtp(is_fwtt);
@@ -69,8 +104,87 @@ private boolean is_fwtt = true, is_dyshwx = true, is_sbsnzjkzt = true,
 
 	@Override
 	public void setData(FollowUpOneTwoNewborn followUpOneTwoNewborn) {
-		// TODO Auto-generated method stub
-		
+		if (followUpOneTwoNewborn != null) {
+			if (followUpOneTwoNewborn.getFysc_hyysjbbmm()) {
+				rb_fwtt_s.setChecked(true);
+				rb_fwtt_f.setChecked(false);
+			} else {
+				rb_fwtt_s.setChecked(false);
+				rb_fwtt_f.setChecked(true);
+			}
+			
+			if (followUpOneTwoNewborn.getFysc_hyszrdxhtp()) {
+				rb_dyshwx_s.setChecked(true);
+				rb_dyshwx_f.setChecked(false);
+			} else {
+				rb_dyshwx_s.setChecked(false);
+				rb_dyshwx_f.setChecked(true);
+			}
+			
+			if (followUpOneTwoNewborn.getFysc_zjdzw()) {
+				rb_sbsnzjkzt_s.setChecked(true);
+				rb_sbsnzjkzt_f.setChecked(false);
+			} else {
+				rb_sbsnzjkzt_s.setChecked(false);
+				rb_sbsnzjkzt_f.setChecked(true);
+			}
+			
+			if (followUpOneTwoNewborn.getFysc_hjwjfdbzhwl()) {
+				rb_szk_s.setChecked(true);
+				rb_szk_f.setChecked(false);
+			} else {
+				rb_szk_s.setChecked(false);
+				rb_szk_f.setChecked(true);
+			}
+			
+			if (followUpOneTwoNewborn.getFysc_nzjdxbzql()) {
+				rb_xcs_s.setChecked(true);
+				rb_xcs_f.setChecked(false);
+			} else {
+				rb_xcs_s.setChecked(false);
+				rb_xcs_f.setChecked(true);
+			}
+			
+			if (followUpOneTwoNewborn.getFysc_hssgysddz()) {
+				rb_sszwj_s.setChecked(true);
+				rb_sszwj_f.setChecked(false);
+			} else {
+				rb_sszwj_s.setChecked(false);
+				rb_sszwj_f.setChecked(true);
+			}
+			
+			if (followUpOneTwoNewborn.getFysc_hzrzjwghstbw()) {
+				rb_hfs_s.setChecked(true);
+				rb_hfs_f.setChecked(false);
+			} else {
+				rb_hfs_s.setChecked(false);
+				rb_hfs_f.setChecked(true);
+			}
+			
+			if (followUpOneTwoNewborn.getFysc_nwcjdzlrbqfzs()) {
+				rb_zjzsdzjwx_s.setChecked(true);
+				rb_zjzsdzjwx_f.setChecked(false);
+			} else {
+				rb_zjzsdzjwx_s.setChecked(false);
+				rb_zjzsdzjwx_f.setChecked(true);
+			}
+			
+			if (followUpOneTwoNewborn.getFysc_hzjp()) {
+				rb_rs_s.setChecked(true);
+				rb_rs_f.setChecked(false);
+			} else {
+				rb_rs_s.setChecked(false);
+				rb_rs_f.setChecked(true);
+			}
+			
+			if (followUpOneTwoNewborn.getFysc_hdg37kjmhwj()) {
+				rb_yszcz_s.setChecked(true);
+				rb_yszcz_f.setChecked(false);
+			} else {
+				rb_yszcz_s.setChecked(false);
+				rb_yszcz_f.setChecked(true);
+			}
+		}
 	}
 
 	@Override
@@ -140,6 +254,6 @@ private boolean is_fwtt = true, is_dyshwx = true, is_sbsnzjkzt = true,
 	@Override
 	public void setFragment(FragmentManager fragmentManager) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

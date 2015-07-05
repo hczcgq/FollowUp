@@ -60,7 +60,9 @@ public class PostpartumBody1 extends LinearLayout implements IBasePostpartumBody
 
 	@Override
 	public void setData(FollowUpPostpartum followUpPostpartum) {
-
+		if(followUpPostpartum!=null){
+			et_fsrq.setText(followUpPostpartum.getGrxx_fsrq());
+		}
 	}
 
 	@Override

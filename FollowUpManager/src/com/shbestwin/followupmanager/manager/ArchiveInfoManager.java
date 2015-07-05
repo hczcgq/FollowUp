@@ -49,7 +49,6 @@ public class ArchiveInfoManager {
 	}
 
 	public List<ArchiveInfo> getArchiveInfoList(String name, String idcard, String cardNo) {
-
 		StringBuilder where = new StringBuilder(" where ");
 		List<String> selectionArg = new ArrayList<String>();
 		if (!TextUtils.isEmpty(name)) {

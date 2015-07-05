@@ -37,8 +37,11 @@ public class Antenatal2_5Body3 extends LinearLayout  implements IBaseAntenatal2_
 
 	@Override
 	public void setData(FollowUpTwoToFivePregnancy followUpTwoToFivePregnancy) {
-		// TODO Auto-generated method stub
-
+		if(followUpTwoToFivePregnancy!=null){
+			et_gdgd.setText(followUpTwoToFivePregnancy.getCqjc_gdgd());
+			et_fw.setText(followUpTwoToFivePregnancy.getCqjc_fw());
+			et_txl.setText(followUpTwoToFivePregnancy.getCqjc_txl());
+		}
 	}
 
 	@Override

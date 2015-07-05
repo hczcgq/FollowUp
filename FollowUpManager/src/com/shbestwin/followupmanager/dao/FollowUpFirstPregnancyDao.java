@@ -87,6 +87,11 @@ public class FollowUpFirstPregnancyDao extends AbstractDao<FollowUpFirstPregnanc
         public final static Property Ztpg_sfysqm = new Property(61, String.class, "ztpg_sfysqm", false, "ZTPG_SFYSQM");
         public final static Property CreateTime = new Property(62, String.class, "createTime", false, "CREATE_TIME");
         public final static Property UpdateTime = new Property(63, String.class, "updateTime", false, "UPDATE_TIME");
+        public final static Property Fzjc_xqgczam = new Property(64, String.class, "fzjc_xqgczam", false, "FZJC_XQGCZAM");
+        public final static Property Fzjc_xqjg = new Property(65, String.class, "fzjc_xqjg", false, "FZJC_XQJG");
+        public final static Property Fzjc_xnsd= new Property(66, String.class, "fzjc_xnsd", false, "FZJC_XNSD");
+        public final static Property Fzjc_xjnd = new Property(67, String.class, "fzjc_xjnd", false, "FZJC_XKND");
+        public final static Property Fzjc_xnnd = new Property(68, String.class, "fzjc_xnnd", false, "FZJC_XNND");
     };
 
 
@@ -165,7 +170,13 @@ public class FollowUpFirstPregnancyDao extends AbstractDao<FollowUpFirstPregnanc
                 "'ZZ_XCSFRQ' TEXT," + // 60: zz_xcsfrq
                 "'ZTPG_SFYSQM' TEXT," + // 61: ztpg_sfysqm
                 "'CREATE_TIME' TEXT," + // 62: createTime
-                "'UPDATE_TIME' TEXT);"); // 63: updateTime
+                "'UPDATE_TIME' TEXT," +
+                "'FZJC_XQGCZAM' TEXT," +
+                "'FZJC_XQJG' TEXT," +
+                "'FZJC_XNSD' TEXT," +
+                "'FZJC_XKND' TEXT," +
+                "'FZJC_XNND' TEXT" +
+                ");"); // 63: updateTime
     }
 
     /** Drops the underlying database table. */
@@ -490,6 +501,27 @@ public class FollowUpFirstPregnancyDao extends AbstractDao<FollowUpFirstPregnanc
         if (updateTime != null) {
             stmt.bindString(64, updateTime);
         }
+        
+        String fzjc_xqgczam = entity.getFzjc_xqgczam();
+        if (fzjc_xqgczam != null) {
+        	stmt.bindString(65, fzjc_xqgczam);
+        }
+        String fzjc_xqjg = entity.getFzjc_xqjg();
+        if (fzjc_xqjg != null) {
+        	stmt.bindString(66, fzjc_xqjg);
+        }
+        String fzjc_xnsd = entity.getFzjc_xnsd();
+        if (fzjc_xnsd != null) {
+        	stmt.bindString(67, fzjc_xnsd);
+        }
+        String fzjc_xjnd = entity.getFzjc_xjnd();
+        if (fzjc_xjnd != null) {
+        	stmt.bindString(68, fzjc_xjnd);
+        }
+        String fzjc_xnnd = entity.getFzjc_xnnd();
+        if (fzjc_xnnd != null) {
+        	stmt.bindString(69, fzjc_xnnd);
+        }
     }
 
     /** @inheritdoc */
@@ -565,7 +597,12 @@ public class FollowUpFirstPregnancyDao extends AbstractDao<FollowUpFirstPregnanc
             cursor.isNull(offset + 60) ? null : cursor.getString(offset + 60), // zz_xcsfrq
             cursor.isNull(offset + 61) ? null : cursor.getString(offset + 61), // ztpg_sfysqm
             cursor.isNull(offset + 62) ? null : cursor.getString(offset + 62), // createTime
-            cursor.isNull(offset + 63) ? null : cursor.getString(offset + 63) // updateTime
+            cursor.isNull(offset + 63) ? null : cursor.getString(offset + 63), // updateTime
+            cursor.isNull(offset + 64) ? null : cursor.getString(offset + 64), // updateTime
+            cursor.isNull(offset + 65) ? null : cursor.getString(offset + 65), // updateTime
+            cursor.isNull(offset + 66) ? null : cursor.getString(offset + 66), // updateTime
+            cursor.isNull(offset + 67) ? null : cursor.getString(offset + 67), // updateTime
+            cursor.isNull(offset + 68) ? null : cursor.getString(offset + 68) // updateTime
         );
         return entity;
     }
@@ -637,6 +674,11 @@ public class FollowUpFirstPregnancyDao extends AbstractDao<FollowUpFirstPregnanc
         entity.setZtpg_sfysqm(cursor.isNull(offset + 61) ? null : cursor.getString(offset + 61));
         entity.setCreateTime(cursor.isNull(offset + 62) ? null : cursor.getString(offset + 62));
         entity.setUpdateTime(cursor.isNull(offset + 63) ? null : cursor.getString(offset + 63));
+        entity.setFzjc_xqgczam(cursor.isNull(offset + 64) ? null : cursor.getString(offset + 64));
+        entity.setFzjc_xqjg(cursor.isNull(offset + 65) ? null : cursor.getString(offset + 65));
+        entity.setFzjc_xnsd(cursor.isNull(offset + 66) ? null : cursor.getString(offset + 66));
+        entity.setFzjc_xjnd(cursor.isNull(offset + 67) ? null : cursor.getString(offset + 67));
+        entity.setFzjc_xnnd(cursor.isNull(offset + 68) ? null : cursor.getString(offset + 68));
      }
     
     /** @inheritdoc */

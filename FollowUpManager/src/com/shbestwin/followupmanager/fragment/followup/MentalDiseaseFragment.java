@@ -44,6 +44,7 @@ public class MentalDiseaseFragment extends BaseFragment {
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
+		onRenderPage();
 	}
 
 	@Override
@@ -66,6 +67,7 @@ public class MentalDiseaseFragment extends BaseFragment {
 		mentalDiseaseBodyList.add((IBaseMentalDiseaseBody) rootView.findViewById(R.id.mentalDiseaseBody5));
 		mentalDiseaseBodyList.add((IBaseMentalDiseaseBody) rootView.findViewById(R.id.mentalDiseaseBody6));
 		mentalDiseaseBodyList.add((IBaseMentalDiseaseBody) rootView.findViewById(R.id.mentalDiseaseBody7));
+		initData();
 	}
 
 	@Override

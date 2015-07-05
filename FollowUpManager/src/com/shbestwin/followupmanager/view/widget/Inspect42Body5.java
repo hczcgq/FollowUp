@@ -1,6 +1,5 @@
 package com.shbestwin.followupmanager.view.widget;
 
-import android.R.bool;
 import android.content.Context;
 import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
@@ -8,10 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Spinner;
-
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ViewDataUtil;
 import com.shbestwin.followupmanager.model.followup.FollowUpFortyTwo;
@@ -21,6 +20,7 @@ public class Inspect42Body5 extends LinearLayout  implements IBaseInspect42Body{
 	private EditText et_el,et_zg,et_sk,et_qt;
 	private Spinner sn_skyhqk;
 	private boolean isEl=false,isZg=false,isSk=false;
+	private RadioButton rb_el_w,rb_el_y,rb_zg_w,rb_zg_y,rb_sk_w,rb_sk_y;
 	public Inspect42Body5(Context context) {
 		this(context, null);
 	}
@@ -35,6 +35,14 @@ public class Inspect42Body5 extends LinearLayout  implements IBaseInspect42Body{
 		rg_el=(RadioGroup) rootView.findViewById(R.id.rg_el);
 		rg_zg=(RadioGroup) rootView.findViewById(R.id.rg_zg);
 		rg_sk=(RadioGroup) rootView.findViewById(R.id.rg_sk);
+		
+		rb_el_w=(RadioButton) rootView.findViewById(R.id.rb_el_w);
+		rb_el_y=(RadioButton) rootView.findViewById(R.id.rb_el_y);
+		rb_zg_w=(RadioButton) rootView.findViewById(R.id.rb_zg_w);
+		rb_zg_y=(RadioButton) rootView.findViewById(R.id.rb_zg_y);
+		rb_sk_w=(RadioButton) rootView.findViewById(R.id.rb_sk_w);
+		rb_sk_y=(RadioButton) rootView.findViewById(R.id.rb_sk_y);
+		
 		
 		et_el=(EditText) rootView.findViewById(R.id.et_el);
 		et_zg=(EditText) rootView.findViewById(R.id.et_zg);
@@ -91,8 +99,34 @@ public class Inspect42Body5 extends LinearLayout  implements IBaseInspect42Body{
 
 	@Override
 	public void setData(FollowUpFortyTwo followUpFortyTwo) {
-		// TODO Auto-generated method stub
-
+		if(followUpFortyTwo!=null){
+			et_el.setText(followUpFortyTwo.getChjc_sfelycms());
+			et_zg.setText(followUpFortyTwo.getChjc_sfzgycms());
+			et_sk.setText(followUpFortyTwo.getChjc_sfskycms());
+			et_qt.setText(followUpFortyTwo.getChjc_qt());
+			ViewDataUtil.setSpinnerData(sn_skyhqk, followUpFortyTwo.getChjc_skyhzk());
+			if(followUpFortyTwo.getChjc_sfelyc()){
+				rb_el_y.setChecked(true);
+				rb_el_w.setChecked(false);
+			}else {
+				rb_el_y.setChecked(false);
+				rb_el_w.setChecked(true);
+			}
+			if(followUpFortyTwo.getChjc_sfzgyc()){
+				rb_zg_y.setChecked(true);
+				rb_zg_w.setChecked(false);
+			}else {
+				rb_zg_y.setChecked(false);
+				rb_zg_w.setChecked(true);
+			}
+			if(followUpFortyTwo.getChjc_sfskyc()){
+				rb_sk_y.setChecked(true);
+				rb_sk_w.setChecked(false);
+			}else {
+				rb_sk_y.setChecked(false);
+				rb_sk_w.setChecked(true);
+			}
+		}
 	}
 
 	@Override

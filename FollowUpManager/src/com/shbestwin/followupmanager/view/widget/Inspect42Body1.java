@@ -59,8 +59,9 @@ public class Inspect42Body1 extends LinearLayout implements IBaseInspect42Body {
 
 	@Override
 	public void setData(FollowUpFortyTwo followUpFortyTwo) {
-		// TODO Auto-generated method stub
-
+		if(followUpFortyTwo!=null){
+			et_fsrq.setText(followUpFortyTwo.getGrxx_sfrq());
+		}
 	}
 
 	@Override

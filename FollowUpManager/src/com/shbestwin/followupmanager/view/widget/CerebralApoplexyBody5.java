@@ -148,7 +148,7 @@ public class CerebralApoplexyBody5 extends LinearLayout implements IBaseCerebral
 		followUpStroke.setWxyskzgxz_hdl(et_hdl.getText().toString());
 		followUpStroke.setWxyskzgxz_LP(et_lp.getText().toString());
 		 try {
-	            followUpStroke.setWxyskztnb_yyqk(JsonUtil
+	            followUpStroke.setWxyskzgxz_yyqk(JsonUtil
 	                    .objectsToJson(medicationList));
 	        } catch (Exception e) {
 	            e.printStackTrace();
@@ -159,10 +159,10 @@ public class CerebralApoplexyBody5 extends LinearLayout implements IBaseCerebral
     @Override
 	public void setData(FollowUpStroke followUpStroke) {
 	    if (followUpStroke != null) {
-            et_fcrq.setText(followUpStroke.getWxyskzgxz_yyqk());
-            et_tg.setText(followUpStroke.getWxyskzgxz_fcrq());
-            et_tc.setText(followUpStroke.getWxyskzgxz_tg());
-            et_ldl.setText(followUpStroke.getWxyskzgxz_tc());
+            et_fcrq.setText(followUpStroke.getWxyskzgxz_fcrq());
+            et_tg.setText(followUpStroke.getWxyskzgxz_tg());
+            et_tc.setText(followUpStroke.getWxyskzgxz_tc());
+            et_ldl.setText(followUpStroke.getWxyskzgxz_ldl());
             et_hdl.setText(followUpStroke.getWxyskzgxz_hdl());
             et_lp.setText(followUpStroke.getWxyskzgxz_LP());
             try {

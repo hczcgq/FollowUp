@@ -6,6 +6,7 @@
     android:orientation="vertical" >
 
     <LinearLayout
+        android:id="@+id/stoolPropertyLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
@@ -63,6 +64,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/stoolColorLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -107,6 +109,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/sleepProblemsLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"

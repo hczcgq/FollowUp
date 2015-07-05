@@ -151,7 +151,7 @@ public class SplashActivity extends AbsBaseActivity {
 				@Override
 				public void run() {
 					// 是否登录了，没有登录跳转到登录页面，否则跳转到主页
-					MainActivity.launch(mActivity);
+					LoginActivity.launch(mActivity);
 					finish();
 				}
 			}, delayMills);

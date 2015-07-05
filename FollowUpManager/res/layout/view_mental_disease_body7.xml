@@ -178,6 +178,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:id="@+id/rehabilitationMeasureLayout"
         android:gravity="center_vertical"
         android:orientation="horizontal" >
 
@@ -193,7 +194,7 @@
             android:text="生活劳动能力" />
 
         <CheckBox
-            android:id="@+id/rehabilitationMeasure1"
+            android:id="@+id/ç"
             style="@style/CheckBoxStyle"
             android:layout_width="160dp"
             android:text="职业训练" />
@@ -230,6 +231,7 @@
             android:text="本次随访分类：" />
 
         <Spinner
+            android:id="@+id/sn_bcsffl"
             style="@style/GeneralExaminationSpinnerStyle"
             android:layout_width="220dp"
             android:entries="@array/followupCategory" />
@@ -248,6 +250,9 @@
             android:text="下次随访日期：" />
 
         <EditText
+            android:id="@+id/et_xcsfrq"
+            android:clickable="true"
+            android:editable="false"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp"
             android:drawableRight="@drawable/icon_calendar" />
@@ -266,6 +271,7 @@
             android:text="随访医生签名：" />
 
         <EditText
+             android:id="@+id/et_sfysqm"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
     </LinearLayout>

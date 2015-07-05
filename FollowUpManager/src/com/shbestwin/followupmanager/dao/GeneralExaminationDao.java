@@ -175,8 +175,11 @@ public class GeneralExaminationDao extends AbstractDao<GeneralExamination, Strin
         public final static Property Jkpj_yc3 = new Property(149, String.class, "jkpj_yc3", false, "JKPJ_YC3");
         public final static Property Jkzd = new Property(150, String.class, "jkzd", false, "JKZD");
         public final static Property Wxyskz = new Property(151, String.class, "wxyskz", false, "WXYSKZ");
-        public final static Property CreateTime = new Property(152, String.class, "createTime", false, "CREATE_TIME");
-        public final static Property UpdateTime = new Property(153, String.class, "updateTime", false, "UPDATE_TIME");
+        public final static Property Wxyskz_mb = new Property(152, String.class, "wxyskz_mb", false, "WXYSKZ_MB");
+        public final static Property Wxyskz_jyjzym = new Property(153, String.class, "wxyskz_jyjzym", false, "WXYSKZ_JYJZYM");
+        public final static Property Wxyskz_qt = new Property(154, String.class, "wxyskz_qt", false, "WXYSKZ_QT");
+        public final static Property CreateTime = new Property(155, String.class, "createTime", false, "CREATE_TIME");
+        public final static Property UpdateTime = new Property(156, String.class, "updateTime", false, "UPDATE_TIME");
     };
 
 
@@ -344,6 +347,9 @@ public class GeneralExaminationDao extends AbstractDao<GeneralExamination, Strin
                 "'JKPJ_YC3' TEXT," + // 149: jkpj_yc3
                 "'JKZD' TEXT," + // 150: jkzd
                 "'WXYSKZ' TEXT," + // 151: wxyskz
+                "'WXYSKZ_MB' TEXT," + // 151: wxyskz
+                "'WXYSKZ_JYJZYM' TEXT," + // 151: wxyskz
+                "'WXYSKZ_QT' TEXT," + // 151: wxyskz
                 "'CREATE_TIME' TEXT," + // 152: createTime
                 "'UPDATE_TIME' TEXT);"); // 153: updateTime
     }
@@ -1110,15 +1116,27 @@ public class GeneralExaminationDao extends AbstractDao<GeneralExamination, Strin
         if (wxyskz != null) {
             stmt.bindString(152, wxyskz);
         }
+        String wxyskz_mb = entity.getWxyskz_mb();
+        if (wxyskz_mb != null) {
+        	stmt.bindString(153, wxyskz_mb);
+        }
+        String wxyskz_jyjzym = entity.getWxyskz_jyjzym();
+        if (wxyskz_jyjzym != null) {
+        	stmt.bindString(154, wxyskz_jyjzym);
+        }
+        String wxyskz_qt = entity.getWxyskz_qt();
+        if (wxyskz_qt != null) {
+        	stmt.bindString(155, wxyskz_qt);
+        }
  
         String createTime = entity.getCreateTime();
         if (createTime != null) {
-            stmt.bindString(153, createTime);
+            stmt.bindString(156, createTime);
         }
  
         String updateTime = entity.getUpdateTime();
         if (updateTime != null) {
-            stmt.bindString(154, updateTime);
+            stmt.bindString(157, updateTime);
         }
     }
 
@@ -1284,8 +1302,11 @@ public class GeneralExaminationDao extends AbstractDao<GeneralExamination, Strin
             cursor.isNull(offset + 149) ? null : cursor.getString(offset + 149), // jkpj_yc3
             cursor.isNull(offset + 150) ? null : cursor.getString(offset + 150), // jkzd
             cursor.isNull(offset + 151) ? null : cursor.getString(offset + 151), // wxyskz
-            cursor.isNull(offset + 152) ? null : cursor.getString(offset + 152), // createTime
-            cursor.isNull(offset + 153) ? null : cursor.getString(offset + 153) // updateTime
+            cursor.isNull(offset + 152) ? null : cursor.getString(offset + 152), // wxyskz
+            cursor.isNull(offset + 153) ? null : cursor.getString(offset + 153), // wxyskz
+            cursor.isNull(offset + 154) ? null : cursor.getString(offset + 154), // wxyskz
+            cursor.isNull(offset + 155) ? null : cursor.getString(offset + 155), // createTime
+            cursor.isNull(offset + 156) ? null : cursor.getString(offset + 156) // updateTime
         );
         return entity;
     }
@@ -1445,8 +1466,11 @@ public class GeneralExaminationDao extends AbstractDao<GeneralExamination, Strin
         entity.setJkpj_yc3(cursor.isNull(offset + 149) ? null : cursor.getString(offset + 149));
         entity.setJkzd(cursor.isNull(offset + 150) ? null : cursor.getString(offset + 150));
         entity.setWxyskz(cursor.isNull(offset + 151) ? null : cursor.getString(offset + 151));
-        entity.setCreateTime(cursor.isNull(offset + 152) ? null : cursor.getString(offset + 152));
-        entity.setUpdateTime(cursor.isNull(offset + 153) ? null : cursor.getString(offset + 153));
+        entity.setWxyskz_mb(cursor.isNull(offset + 152) ? null : cursor.getString(offset + 152));
+        entity.setWxyskz_jyjzym(cursor.isNull(offset + 153) ? null : cursor.getString(offset + 153));
+        entity.setWxyskz_qt(cursor.isNull(offset + 154) ? null : cursor.getString(offset + 154));
+        entity.setCreateTime(cursor.isNull(offset + 155) ? null : cursor.getString(offset + 155));
+        entity.setUpdateTime(cursor.isNull(offset + 156) ? null : cursor.getString(offset + 156));
      }
     
     /** @inheritdoc */

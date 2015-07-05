@@ -1,7 +1,9 @@
 package com.shbestwin.followupmanager.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -24,6 +26,8 @@ import com.shbestwin.followupmanager.fragment.TopBarFragment;
  */
 public class MainActivity extends AbsBaseActivity implements TopBarFragment.OnTabSelectedListener {
 
+	private SharedPreferences preferences;
+	
 	@Override
 	protected void setContentView(Bundle savedInstanceState) {
 		setContentView(R.layout.activity_main);
@@ -35,7 +39,8 @@ public class MainActivity extends AbsBaseActivity implements TopBarFragment.OnTa
 
 	@Override
 	protected void initData() {
-
+		
+		
 	}
 
 	@Override
@@ -71,8 +76,6 @@ public class MainActivity extends AbsBaseActivity implements TopBarFragment.OnTa
 
 	private Fragment newInstance(int index) {
 		switch (index) {
-//		case 0:
-//			return HomeFragment.newInstance();
 		case 0:
 			return ArchiveInfoFragment.newInstance();
 		case 1:

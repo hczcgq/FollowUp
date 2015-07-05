@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
@@ -17,6 +18,7 @@ public class Antenatal2_5Body4 extends LinearLayout  implements IBaseAntenatal2_
 	private RadioGroup rg_bc,rg_xtsc;
 	private EditText et_bc,et_xtsc;
 	private boolean isBcYc=false,isXtjcYc=false;
+	private RadioButton rb_bc_w,rb_bc_y,rb_xtsc_w,rb_xtsc_y;
 	
 	public Antenatal2_5Body4(Context context) {
 		this(context, null);
@@ -33,6 +35,10 @@ public class Antenatal2_5Body4 extends LinearLayout  implements IBaseAntenatal2_
 		rg_xtsc=(RadioGroup) rootView.findViewById(R.id.rg_xtsc);
 		et_bc=(EditText) rootView.findViewById(R.id.et_bc);
 		et_xtsc=(EditText) rootView.findViewById(R.id.et_xtsc);
+		rb_bc_w=(RadioButton) rootView.findViewById(R.id.rb_bc_w);
+		rb_bc_y=(RadioButton) rootView.findViewById(R.id.rb_bc_y);
+		rb_xtsc_w=(RadioButton) rootView.findViewById(R.id.rb_xtsc_w);
+		rb_xtsc_y=(RadioButton) rootView.findViewById(R.id.rb_xtsc_y);
 		
 		rg_bc.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
@@ -69,8 +75,26 @@ public class Antenatal2_5Body4 extends LinearLayout  implements IBaseAntenatal2_
 
 	@Override
 	public void setData(FollowUpTwoToFivePregnancy followUpTwoToFivePregnancy) {
-		// TODO Auto-generated method stub
-
+		if(followUpTwoToFivePregnancy!=null){
+			et_bc.setText(followUpTwoToFivePregnancy.getQtjc_sfbcms());
+			et_xtsc.setText(followUpTwoToFivePregnancy.getQtjc_sfxtscms());
+			
+			if(followUpTwoToFivePregnancy.getQtjc_sfbc()){
+				rb_bc_y.setChecked(true);
+				rb_bc_w.setChecked(false);
+			}else{
+				rb_bc_y.setChecked(false);
+				rb_bc_w.setChecked(true);
+			}
+			if(followUpTwoToFivePregnancy.getQtjc_sfxtsc()){
+				rb_xtsc_y.setChecked(true);
+				rb_xtsc_w.setChecked(false);
+			}else{
+				rb_xtsc_y.setChecked(false);
+				rb_xtsc_w.setChecked(true);
+			}
+				
+		}
 	}
 
 	@Override

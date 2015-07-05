@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/relativeLayout"
     android:layout_marginTop="20dp"
     android:paddingBottom="20dp" >
 
@@ -50,7 +51,7 @@
         android:text="目标：" />
 
     <EditText
-        android:id="@+id/loseWeightEditText"
+        android:id="@+id/et_mb"
         style="@style/GeneralExaminationEditTextStyle"
         android:layout_below="@id/riskFactor0"
         android:layout_marginLeft="20dp"
@@ -60,11 +61,11 @@
     <TextView
         android:id="@+id/loseWeightUnitLabel"
         style="@style/GeneralExaminationTipsStyle"
-        android:layout_alignBaseline="@id/loseWeightEditText"
+        android:layout_alignBaseline="@id/et_mb"
         android:layout_below="@id/riskFactor0"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        android:layout_toRightOf="@id/loseWeightEditText"
+        android:layout_toRightOf="@id/et_mb"
         android:text="kg" />
 
     <CheckBox
@@ -77,6 +78,7 @@
         android:text="建议接种疫苗" />
 
     <EditText
+        android:id="@+id/et_jyjzym"
         style="@style/GeneralExaminationEditTextStyle"
         android:layout_width="220dp"
         android:layout_below="@id/riskFactor0"
@@ -93,6 +95,7 @@
         android:text="其他" />
 
     <EditText
+        android:id="@+id/et_qt"
         style="@style/GeneralExaminationEditTextStyle"
         android:layout_width="220dp"
         android:layout_below="@id/riskFactor3"

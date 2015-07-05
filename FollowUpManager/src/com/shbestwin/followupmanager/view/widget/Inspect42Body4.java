@@ -1,12 +1,7 @@
 package com.shbestwin.followupmanager.view.widget;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-
 import android.content.Context;
 import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
@@ -18,22 +13,18 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.CompoundButton.OnCheckedChangeListener;
-
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.JsonUtil;
 import com.shbestwin.followupmanager.common.util.ViewDataUtil;
+import com.shbestwin.followupmanager.model.followup.CheckBoxItem;
 import com.shbestwin.followupmanager.model.followup.FollowUpFortyTwo;
-import com.shbestwin.followupmanager.model.followup.PostpartumLeft;
-import com.shbestwin.followupmanager.model.followup.PostpartumRight;
 
-public class Inspect42Body4 extends LinearLayout  implements IBaseInspect42Body{
+public class Inspect42Body4 extends LinearLayout implements IBaseInspect42Body {
 	private RelativeLayout PostpartumLeftLayout, PostpartumRightLayout;
 	private CheckBox PostpartumLeftOther, PostpartumRightOther;
 	private CheckBox PostpartumLeftNone, PostpartumRightNone;
 	private EditText PostpartumLeftEdittext, postpartumRightEditText;
-	private boolean isPastHistoryLeft=false,isPastHistoryRight=false;
+
 	public Inspect42Body4(Context context) {
 		this(context, null);
 	}
@@ -44,8 +35,9 @@ public class Inspect42Body4 extends LinearLayout  implements IBaseInspect42Body{
 
 	public Inspect42Body4(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		View rootView = LayoutInflater.from(context).inflate(R.layout.view_inspect_42_body4, this, true);
-		
+		View rootView = LayoutInflater.from(context).inflate(
+				R.layout.view_inspect_42_body4, this, true);
+
 		PostpartumLeftLayout = (RelativeLayout) rootView
 				.findViewById(R.id.PostpartumLeftLayout);
 		PostpartumRightLayout = (RelativeLayout) rootView
@@ -67,83 +59,53 @@ public class Inspect42Body4 extends LinearLayout  implements IBaseInspect42Body{
 				PostpartumLeftEdittext);
 		ViewDataUtil.initOtherCheckboxConstraint(PostpartumRightOther,
 				postpartumRightEditText);
-		
-//		PostpartumLeftNone
-//				.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-//
-//					@Override
-//					public void onCheckedChanged(CompoundButton buttonView,
-//							boolean isChecked) {
-//						isPastHistoryLeft = !isChecked;
-//						setCheckBoxStatus(PostpartumLeftLayout, isChecked);
-//					}
-//				});
-//		setCheckBoxStatus(PostpartumLeftLayout, true);
-//
-//		PostpartumRightNone
-//				.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-//
-//					@Override
-//					public void onCheckedChanged(CompoundButton buttonView,
-//							boolean isChecked) {
-//						isPastHistoryRight= !isChecked;
-//						setCheckBoxStatus(PostpartumRightLayout, isChecked);
-//					}
-//				});
-//		setCheckBoxStatus(PostpartumRightLayout, true);
-		
+
+		PostpartumLeftNone
+				.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+					@Override
+					public void onCheckedChanged(CompoundButton buttonView,
+							boolean isChecked) {
+						setCheckBoxStatus(PostpartumLeftLayout, isChecked);
+					}
+				});
+		setCheckBoxStatus(PostpartumLeftLayout, true);
+		PostpartumRightNone
+				.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+					@Override
+					public void onCheckedChanged(CompoundButton buttonView,
+							boolean isChecked) {
+						setCheckBoxStatus(PostpartumRightLayout, isChecked);
+					}
+				});
+		setCheckBoxStatus(PostpartumRightLayout, true);
+
 	}
+
 	@Override
 	public void getData(FollowUpFortyTwo followUpFortyTwo) {
-		followUpFortyTwo.setRfjc_zcrx(getLeftCheckBoxText());
-		followUpFortyTwo.setRfjc_ycrx(getRightCheckBoxText());
+		followUpFortyTwo.setRfjc_zcrx(getLeftCheckBoxText(PostpartumLeftLayout,
+				PostpartumLeftEdittext));
+		followUpFortyTwo.setRfjc_ycrx(getLeftCheckBoxText(
+				PostpartumRightLayout, postpartumRightEditText));
 	}
-	private String getLeftCheckBoxText() {
-		List<PostpartumLeft> allergyHistoriesList = new ArrayList<PostpartumLeft>();
-		for (int i = 0; i < PostpartumLeftLayout.getChildCount(); i++) {
-			View item = PostpartumLeftLayout.getChildAt(i);
-			PostpartumLeft allergyHistories = new PostpartumLeft();
+
+	private String getLeftCheckBoxText(View layout, EditText editText) {
+		RelativeLayout relativeLayout = (RelativeLayout) layout;
+		List<CheckBoxItem> allergyHistoriesList = new ArrayList<CheckBoxItem>();
+		for (int i = 0; i < relativeLayout.getChildCount(); i++) {
+			View item = relativeLayout.getChildAt(i);
+			CheckBoxItem allergyHistories = new CheckBoxItem();
 			if (item instanceof CheckBox) {
 				CheckBox checkBox = (CheckBox) item;
 				if (checkBox.isChecked()) {
-					allergyHistories.setRfjc_zcrx_num(String.valueOf(i));
+					allergyHistories.setItem_num(String.valueOf(i));
 					if ("其他".equals(checkBox.getText())) {
-						allergyHistories
-								.setRfjc_zcrx_name(PostpartumLeftEdittext
-										.getText().toString());
-					} else {
-						allergyHistories.setRfjc_zcrx_name(checkBox.getText()
+						allergyHistories.setItem_name(editText.getText()
 								.toString());
-					}
-					allergyHistoriesList.add(allergyHistories);
-				}
-
-			}
-
-		}
-		try {
-			return JsonUtil.objectsToJson(allergyHistoriesList);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return "";
-	}
-
-	private String getRightCheckBoxText() {
-		List<PostpartumRight> allergyHistoriesList = new ArrayList<PostpartumRight>();
-		for (int i = 0; i < PostpartumRightLayout.getChildCount(); i++) {
-			View item = PostpartumRightLayout.getChildAt(i);
-			PostpartumRight allergyHistories = new PostpartumRight();
-			if (item instanceof CheckBox) {
-				CheckBox checkBox = (CheckBox) item;
-				if (checkBox.isChecked()) {
-					allergyHistories.setRfjc_ycrx_num(String.valueOf(i));
-					if ("其他".equals(checkBox.getText())) {
-						allergyHistories
-								.setRfjc_ycrx_name(postpartumRightEditText
-										.getText().toString());
 					} else {
-						allergyHistories.setRfjc_ycrx_name(checkBox.getText()
+						allergyHistories.setItem_name(checkBox.getText()
 								.toString());
 					}
 					allergyHistoriesList.add(allergyHistories);
@@ -162,8 +124,20 @@ public class Inspect42Body4 extends LinearLayout  implements IBaseInspect42Body{
 
 	@Override
 	public void setData(FollowUpFortyTwo followUpFortyTwo) {
-		// TODO Auto-generated method stub
-
+		if(followUpFortyTwo!=null){
+			try {
+				setCheckBoxText(PostpartumLeftLayout, PostpartumLeftEdittext,
+						JsonUtil.jsonToObjects(
+								followUpFortyTwo.getRfjc_zcrx(),
+								CheckBoxItem.class));
+				setCheckBoxText(PostpartumRightOther, postpartumRightEditText,
+						JsonUtil.jsonToObjects(
+								followUpFortyTwo.getRfjc_ycrx(),
+								CheckBoxItem.class));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	@Override
@@ -171,10 +145,10 @@ public class Inspect42Body4 extends LinearLayout  implements IBaseInspect42Body{
 		// TODO Auto-generated method stub
 		return true;
 	}
-	
+
 	private void setCheckBoxStatus(RelativeLayout familyHistory,
 			boolean isChecked) {
-		for (int i = 1; i < familyHistory.getChildCount(); i++) {
+		for (int i = 2; i < familyHistory.getChildCount(); i++) {
 			View item = familyHistory.getChildAt(i);
 			if (item instanceof CheckBox) {
 				((CheckBox) item).setEnabled(!isChecked);
@@ -184,10 +158,29 @@ public class Inspect42Body4 extends LinearLayout  implements IBaseInspect42Body{
 			}
 		}
 	}
+	
+	private void setCheckBoxText(View layout, EditText textview,
+			List<CheckBoxItem> mList) {
+		LinearLayout myLayout = (LinearLayout) layout;
+		for (int i = 0; i < mList.size(); i++) {
+			int Num = Integer.valueOf(mList.get(i).getItem_num());
+			String name = mList.get(i).getItem_name();
+			if ((View) (myLayout).getChildAt(Num) instanceof CheckBox) {
+				CheckBox checkBox = (CheckBox) (View) (myLayout)
+						.getChildAt(Num);
+				checkBox.setChecked(true);
+				if (textview != null) {
+					if (Num == myLayout.getChildCount() - 2) {
+						textview.setText(name);
+					}
+				}
+			}
+		}
+	}
 
 	@Override
 	public void setFragment(FragmentManager fragmentManager) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

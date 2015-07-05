@@ -1,14 +1,12 @@
 package com.shbestwin.followupmanager.view.widget;
 
 import android.content.Context;
-import android.drm.DrmStore.RightsStatus;
 import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.model.followup.FollowUpFortyTwo;
 
@@ -42,8 +40,18 @@ public class Inspect42Body2 extends LinearLayout  implements IBaseInspect42Body{
 
 	@Override
 	public void setData(FollowUpFortyTwo followUpFortyTwo) {
-		// TODO Auto-generated method stub
-
+		if(followUpFortyTwo!=null){
+			et_tw.setText(followUpFortyTwo.getJbjc_tw());
+			String xy=followUpFortyTwo.getJbjc_xy();
+			if(xy.split("/").length==1){
+				et_xy_ssy.setText(xy.split("/")[0]);
+			}else if(xy.split("/").length==2){
+				et_xy_ssy.setText(xy.split("/")[0]);
+				et_xy_szy.setText(xy.split("/")[1]);
+			}
+			et_mb.setText(followUpFortyTwo.getJbjc_mb());
+			et_tz.setText(followUpFortyTwo.getJbjc_tz());
+		}
 	}
 
 	@Override

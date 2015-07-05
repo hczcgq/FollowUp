@@ -37,8 +37,11 @@ public class Inspect42Body3 extends LinearLayout  implements IBaseInspect42Body{
 
 	@Override
 	public void setData(FollowUpFortyTwo followUpFortyTwo) {
-		// TODO Auto-generated method stub
-
+		if(followUpFortyTwo!=null){
+			et_xlzk.setText(followUpFortyTwo.getXljkzk_xlzk());
+			et_smzk.setText(followUpFortyTwo.getXljkzk_smzk());
+			et_jkzk.setText(followUpFortyTwo.getXljkzk_jkzk());
+		}
 	}
 
 	@Override

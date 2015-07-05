@@ -64,8 +64,12 @@ private FragmentManager fragmentManager;
 
 	@Override
 	public void setData(FollowUpTwoToFivePregnancy followUpTwoToFivePregnancy) {
-		// TODO Auto-generated method stub
-
+		if(followUpTwoToFivePregnancy!=null){
+			et_fsrq.setText(followUpTwoToFivePregnancy.getGrxx_fsrq());
+			et_yz.setText(followUpTwoToFivePregnancy.getGrxx_yz());
+			et_cqfscs.setText(followUpTwoToFivePregnancy.getGrxx_cqfscs());
+			et_zs.setText(followUpTwoToFivePregnancy.getGrxx_zs());
+		}
 	}
 
 	@Override

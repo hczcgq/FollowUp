@@ -75,6 +75,12 @@ public class FollowUpFirstPregnancy {
     private String ztpg_sfysqm;
     private String createTime;
     private String updateTime;
+    
+    private String fzjc_xqgczam;
+    private String fzjc_xqjg;
+    private String fzjc_xnsd;
+    private String fzjc_xjnd;
+    private String fzjc_xnnd;
 
     // KEEP FIELDS - put your custom fields here
     // KEEP FIELDS END
@@ -86,74 +92,104 @@ public class FollowUpFirstPregnancy {
         this.followUpNo = followUpNo;
     }
 
-    public FollowUpFirstPregnancy(String followUpNo, String idcard, String grxx_tbrq, String grxx_yz, String grxx_yc, String grxx_ydfmcs, String grxx_pgccs, Boolean grxx_sfmcyj, String grxx_sfmcyjms, String grxx_ycq, String poxx_zfxm, String poxx_zfnl, String poxx_zfdh, String tz_sg, String tz_tz, String tz_tzzs, String tz_xy, String jws, String jzslb, String jzszl, String grs, Boolean fksss_sfygss, String fksss_sfygssms, String ycs_ycs, Boolean tingz_sfxzyc, String tingz_sfxzycms, Boolean tingz_sffbyc, String tingz_sffbycms, Boolean fkjc_sfwyyc, String tingz_sfwyycms, Boolean fkjc_sfydyc, String tingz_sfydycms, Boolean fkjc_sfgjyc, String tingz_sfgjycms, Boolean fkjc_sfzgyc, String tingz_sfzgycms, Boolean fkjc_sffjyc, String tingz_sffjycms, String fzjc_xhdbz, String fzjc_bxbjsz, String fzjc_xxbjsz, String fzjc_xcgqt, String fzjc_ndb, String fzjc_nt, String fzjc_ntt, String fzjc_nqx, String fzjc_ncgqt, String fzjc_xqgbzam, String fzjc_bdb, String fzjc_zdhs, String fzjc_jhdhs, Boolean fzjc_sfydfmwyc, String fzjc_sfydfmwycms, String fzjc_mdxqxsy, String fzjc_HIVktjc, Boolean ztpg_sfztpgyc, String ztpg_sfztpgycms, Boolean zz_sfygzz, String zz_yy, String zz_jgjks, String zz_xcsfrq, String ztpg_sfysqm, String createTime, String updateTime) {
-        this.followUpNo = followUpNo;
-        this.idcard = idcard;
-        this.grxx_tbrq = grxx_tbrq;
-        this.grxx_yz = grxx_yz;
-        this.grxx_yc = grxx_yc;
-        this.grxx_ydfmcs = grxx_ydfmcs;
-        this.grxx_pgccs = grxx_pgccs;
-        this.grxx_sfmcyj = grxx_sfmcyj;
-        this.grxx_sfmcyjms = grxx_sfmcyjms;
-        this.grxx_ycq = grxx_ycq;
-        this.poxx_zfxm = poxx_zfxm;
-        this.poxx_zfnl = poxx_zfnl;
-        this.poxx_zfdh = poxx_zfdh;
-        this.tz_sg = tz_sg;
-        this.tz_tz = tz_tz;
-        this.tz_tzzs = tz_tzzs;
-        this.tz_xy = tz_xy;
-        this.jws = jws;
-        this.jzslb = jzslb;
-        this.jzszl = jzszl;
-        this.grs = grs;
-        this.fksss_sfygss = fksss_sfygss;
-        this.fksss_sfygssms = fksss_sfygssms;
-        this.ycs_ycs = ycs_ycs;
-        this.tingz_sfxzyc = tingz_sfxzyc;
-        this.tingz_sfxzycms = tingz_sfxzycms;
-        this.tingz_sffbyc = tingz_sffbyc;
-        this.tingz_sffbycms = tingz_sffbycms;
-        this.fkjc_sfwyyc = fkjc_sfwyyc;
-        this.tingz_sfwyycms = tingz_sfwyycms;
-        this.fkjc_sfydyc = fkjc_sfydyc;
-        this.tingz_sfydycms = tingz_sfydycms;
-        this.fkjc_sfgjyc = fkjc_sfgjyc;
-        this.tingz_sfgjycms = tingz_sfgjycms;
-        this.fkjc_sfzgyc = fkjc_sfzgyc;
-        this.tingz_sfzgycms = tingz_sfzgycms;
-        this.fkjc_sffjyc = fkjc_sffjyc;
-        this.tingz_sffjycms = tingz_sffjycms;
-        this.fzjc_xhdbz = fzjc_xhdbz;
-        this.fzjc_bxbjsz = fzjc_bxbjsz;
-        this.fzjc_xxbjsz = fzjc_xxbjsz;
-        this.fzjc_xcgqt = fzjc_xcgqt;
-        this.fzjc_ndb = fzjc_ndb;
-        this.fzjc_nt = fzjc_nt;
-        this.fzjc_ntt = fzjc_ntt;
-        this.fzjc_nqx = fzjc_nqx;
-        this.fzjc_ncgqt = fzjc_ncgqt;
-        this.fzjc_xqgbzam = fzjc_xqgbzam;
-        this.fzjc_bdb = fzjc_bdb;
-        this.fzjc_zdhs = fzjc_zdhs;
-        this.fzjc_jhdhs = fzjc_jhdhs;
-        this.fzjc_sfydfmwyc = fzjc_sfydfmwyc;
-        this.fzjc_sfydfmwycms = fzjc_sfydfmwycms;
-        this.fzjc_mdxqxsy = fzjc_mdxqxsy;
-        this.fzjc_HIVktjc = fzjc_HIVktjc;
-        this.ztpg_sfztpgyc = ztpg_sfztpgyc;
-        this.ztpg_sfztpgycms = ztpg_sfztpgycms;
-        this.zz_sfygzz = zz_sfygzz;
-        this.zz_yy = zz_yy;
-        this.zz_jgjks = zz_jgjks;
-        this.zz_xcsfrq = zz_xcsfrq;
-        this.ztpg_sfysqm = ztpg_sfysqm;
-        this.createTime = createTime;
-        this.updateTime = updateTime;
-    }
+  
 
-    /** Not-null value. */
+    public FollowUpFirstPregnancy(String followUpNo, String idcard,
+			String grxx_tbrq, String grxx_yz, String grxx_yc,
+			String grxx_ydfmcs, String grxx_pgccs, Boolean grxx_sfmcyj,
+			String grxx_sfmcyjms, String grxx_ycq, String poxx_zfxm,
+			String poxx_zfnl, String poxx_zfdh, String tz_sg, String tz_tz,
+			String tz_tzzs, String tz_xy, String jws, String jzslb,
+			String jzszl, String grs, Boolean fksss_sfygss,
+			String fksss_sfygssms, String ycs_ycs, Boolean tingz_sfxzyc,
+			String tingz_sfxzycms, Boolean tingz_sffbyc, String tingz_sffbycms,
+			Boolean fkjc_sfwyyc, String tingz_sfwyycms, Boolean fkjc_sfydyc,
+			String tingz_sfydycms, Boolean fkjc_sfgjyc, String tingz_sfgjycms,
+			Boolean fkjc_sfzgyc, String tingz_sfzgycms, Boolean fkjc_sffjyc,
+			String tingz_sffjycms, String fzjc_xhdbz, String fzjc_bxbjsz,
+			String fzjc_xxbjsz, String fzjc_xcgqt, String fzjc_ndb,
+			String fzjc_nt, String fzjc_ntt, String fzjc_nqx,
+			String fzjc_ncgqt, String fzjc_xqgbzam, String fzjc_bdb,
+			String fzjc_zdhs, String fzjc_jhdhs, Boolean fzjc_sfydfmwyc,
+			String fzjc_sfydfmwycms, String fzjc_mdxqxsy, String fzjc_HIVktjc,
+			Boolean ztpg_sfztpgyc, String ztpg_sfztpgycms, Boolean zz_sfygzz,
+			String zz_yy, String zz_jgjks, String zz_xcsfrq,
+			String ztpg_sfysqm, String createTime, String updateTime,
+			String fzjc_xqgczam, String fzjc_xqjg, String fzjc_xnsd,
+			String fzjc_xjnd, String fzjc_xnnd) {
+		super();
+		this.followUpNo = followUpNo;
+		this.idcard = idcard;
+		this.grxx_tbrq = grxx_tbrq;
+		this.grxx_yz = grxx_yz;
+		this.grxx_yc = grxx_yc;
+		this.grxx_ydfmcs = grxx_ydfmcs;
+		this.grxx_pgccs = grxx_pgccs;
+		this.grxx_sfmcyj = grxx_sfmcyj;
+		this.grxx_sfmcyjms = grxx_sfmcyjms;
+		this.grxx_ycq = grxx_ycq;
+		this.poxx_zfxm = poxx_zfxm;
+		this.poxx_zfnl = poxx_zfnl;
+		this.poxx_zfdh = poxx_zfdh;
+		this.tz_sg = tz_sg;
+		this.tz_tz = tz_tz;
+		this.tz_tzzs = tz_tzzs;
+		this.tz_xy = tz_xy;
+		this.jws = jws;
+		this.jzslb = jzslb;
+		this.jzszl = jzszl;
+		this.grs = grs;
+		this.fksss_sfygss = fksss_sfygss;
+		this.fksss_sfygssms = fksss_sfygssms;
+		this.ycs_ycs = ycs_ycs;
+		this.tingz_sfxzyc = tingz_sfxzyc;
+		this.tingz_sfxzycms = tingz_sfxzycms;
+		this.tingz_sffbyc = tingz_sffbyc;
+		this.tingz_sffbycms = tingz_sffbycms;
+		this.fkjc_sfwyyc = fkjc_sfwyyc;
+		this.tingz_sfwyycms = tingz_sfwyycms;
+		this.fkjc_sfydyc = fkjc_sfydyc;
+		this.tingz_sfydycms = tingz_sfydycms;
+		this.fkjc_sfgjyc = fkjc_sfgjyc;
+		this.tingz_sfgjycms = tingz_sfgjycms;
+		this.fkjc_sfzgyc = fkjc_sfzgyc;
+		this.tingz_sfzgycms = tingz_sfzgycms;
+		this.fkjc_sffjyc = fkjc_sffjyc;
+		this.tingz_sffjycms = tingz_sffjycms;
+		this.fzjc_xhdbz = fzjc_xhdbz;
+		this.fzjc_bxbjsz = fzjc_bxbjsz;
+		this.fzjc_xxbjsz = fzjc_xxbjsz;
+		this.fzjc_xcgqt = fzjc_xcgqt;
+		this.fzjc_ndb = fzjc_ndb;
+		this.fzjc_nt = fzjc_nt;
+		this.fzjc_ntt = fzjc_ntt;
+		this.fzjc_nqx = fzjc_nqx;
+		this.fzjc_ncgqt = fzjc_ncgqt;
+		this.fzjc_xqgbzam = fzjc_xqgbzam;
+		this.fzjc_bdb = fzjc_bdb;
+		this.fzjc_zdhs = fzjc_zdhs;
+		this.fzjc_jhdhs = fzjc_jhdhs;
+		this.fzjc_sfydfmwyc = fzjc_sfydfmwyc;
+		this.fzjc_sfydfmwycms = fzjc_sfydfmwycms;
+		this.fzjc_mdxqxsy = fzjc_mdxqxsy;
+		this.fzjc_HIVktjc = fzjc_HIVktjc;
+		this.ztpg_sfztpgyc = ztpg_sfztpgyc;
+		this.ztpg_sfztpgycms = ztpg_sfztpgycms;
+		this.zz_sfygzz = zz_sfygzz;
+		this.zz_yy = zz_yy;
+		this.zz_jgjks = zz_jgjks;
+		this.zz_xcsfrq = zz_xcsfrq;
+		this.ztpg_sfysqm = ztpg_sfysqm;
+		this.createTime = createTime;
+		this.updateTime = updateTime;
+		this.fzjc_xqgczam = fzjc_xqgczam;
+		this.fzjc_xqjg = fzjc_xqjg;
+		this.fzjc_xnsd = fzjc_xnsd;
+		this.fzjc_xjnd = fzjc_xjnd;
+		this.fzjc_xnnd = fzjc_xnnd;
+	}
+
+	/** Not-null value. */
     public String getFollowUpNo() {
         return followUpNo;
     }
@@ -668,6 +704,48 @@ public class FollowUpFirstPregnancy {
     public void setUpdateTime(String updateTime) {
         this.updateTime = updateTime;
     }
+
+	public String getFzjc_xqgczam() {
+		return fzjc_xqgczam;
+	}
+
+	public void setFzjc_xqgczam(String fzjc_xqgczam) {
+		this.fzjc_xqgczam = fzjc_xqgczam;
+	}
+
+	public String getFzjc_xqjg() {
+		return fzjc_xqjg;
+	}
+
+	public void setFzjc_xqjg(String fzjc_xqjg) {
+		this.fzjc_xqjg = fzjc_xqjg;
+	}
+
+	public String getFzjc_xnsd() {
+		return fzjc_xnsd;
+	}
+
+	public void setFzjc_xnsd(String fzjc_xnsd) {
+		this.fzjc_xnsd = fzjc_xnsd;
+	}
+
+	public String getFzjc_xjnd() {
+		return fzjc_xjnd;
+	}
+
+	public void setFzjc_xjnd(String fzjc_xjnd) {
+		this.fzjc_xjnd = fzjc_xjnd;
+	}
+
+	public String getFzjc_xnnd() {
+		return fzjc_xnnd;
+	}
+
+	public void setFzjc_xnnd(String fzjc_xnnd) {
+		this.fzjc_xnnd = fzjc_xnnd;
+	}
+    
+    
 
     // KEEP METHODS - put your custom methods here
     // KEEP METHODS END

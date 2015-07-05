@@ -61,6 +61,7 @@ public class YearsOld1_2Body1 extends LinearLayout implements IBaseYearsOld1_2Bo
 
 	@Override
 	public void getData(FollowUpOneTwoNewborn followUpOneTwoNewborn) {
+		
 		followUpOneTwoNewborn.setGrxx_csrl(et_csrl.getText().toString());
 		followUpOneTwoNewborn.setGrxx_fsrq(et_fsrq.getText().toString());
 		followUpOneTwoNewborn.setGrxx_zrys(et_zrys.getText().toString());
@@ -70,13 +71,16 @@ public class YearsOld1_2Body1 extends LinearLayout implements IBaseYearsOld1_2Bo
 
 	@Override
 	public void setData(FollowUpOneTwoNewborn followUpOneTwoNewborn) {
-		// TODO Auto-generated method stub
-		
+		if(followUpOneTwoNewborn!=null){
+			et_csrl.setText(followUpOneTwoNewborn.getGrxx_csrl());
+			et_fsrq.setText(followUpOneTwoNewborn.getGrxx_fsrq());
+			et_zrys.setText(followUpOneTwoNewborn.getGrxx_zrys());
+			ViewDataUtil.setSpinnerData(sn_yn, followUpOneTwoNewborn.getGrxx_ynl());
+		}
 	}
 
 	@Override
 	public boolean validate() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 

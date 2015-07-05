@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Spinner;
@@ -20,6 +21,7 @@ public class YearsOld1_2Body2 extends LinearLayout  implements IBaseYearsOld1_2B
 	private EditText et_mrwy,et_zccs,et_nnnf,et_d,et_fywssd;
 	private Spinner sn_rlhyx,sn_sghsc,sn_sy;
 	private boolean isHas=false;
+	private RadioButton rb_f,rb_s;
 	public YearsOld1_2Body2(Context context) {
 		this(context, null);
 	}
@@ -40,6 +42,8 @@ public class YearsOld1_2Body2 extends LinearLayout  implements IBaseYearsOld1_2B
 		sn_rlhyx=(Spinner) rootView.findViewById(R.id.sn_rlhyx);
 		sn_sghsc=(Spinner) rootView.findViewById(R.id.sn_sghsc);
 		sn_sy=(Spinner) rootView.findViewById(R.id.sn_sy);
+		rb_f=(RadioButton) rootView.findViewById(R.id.rb_f);
+		rb_s=(RadioButton) rootView.findViewById(R.id.rb_s);
 		
 		rg_mrwy.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
@@ -68,8 +72,24 @@ public class YearsOld1_2Body2 extends LinearLayout  implements IBaseYearsOld1_2B
 
 	@Override
 	public void setData(FollowUpOneTwoNewborn followUpOneTwoNewborn) {
-		// TODO Auto-generated method stub
-		
+		if(followUpOneTwoNewborn!=null){
+			et_mrwy.setText(followUpOneTwoNewborn.getWyqk_sfmryyms());
+			et_zccs.setText(followUpOneTwoNewborn.getWyqk_zccs());
+			et_nnnf.setText(followUpOneTwoNewborn.getWyqk_nnnf());
+			et_d.setText(followUpOneTwoNewborn.getWyqk_d());
+			et_fywssd.setText(followUpOneTwoNewborn.getWyqk_fywssd());
+			ViewDataUtil.setSpinnerData(sn_rlhyx, followUpOneTwoNewborn.getWyqk_rlhyx());
+			ViewDataUtil.setSpinnerData(sn_sghsc, followUpOneTwoNewborn.getWyqk_sghsc());
+			ViewDataUtil.setSpinnerData(sn_sy, followUpOneTwoNewborn.getWyqk_sy());
+			
+			if(followUpOneTwoNewborn.getWyqk_sfmryy()){
+				rb_s.setChecked(true);
+				rb_f.setChecked(false);
+			}else {
+				rb_s.setChecked(false);
+				rb_f.setChecked(true);
+			}
+		}
 	}
 
 	@Override

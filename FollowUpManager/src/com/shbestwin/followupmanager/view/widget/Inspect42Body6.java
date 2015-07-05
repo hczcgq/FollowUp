@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
@@ -17,6 +18,7 @@ public class Inspect42Body6 extends LinearLayout  implements IBaseInspect42Body{
 	private RadioGroup rg_zd;
 	private EditText et_qt;
 	private String zd_name="性保健";
+	private RadioButton rb_xbj,rb_by,rb_cmrwy,rb_qt;
 	public Inspect42Body6(Context context) {
 		this(context, null);
 	}
@@ -30,6 +32,10 @@ public class Inspect42Body6 extends LinearLayout  implements IBaseInspect42Body{
 		View rootView = LayoutInflater.from(context).inflate(R.layout.view_inspect_42_body6, this, true);
 		rg_zd=(RadioGroup) rootView.findViewById(R.id.rg_zd);
 		et_qt=(EditText) rootView.findViewById(R.id.et_qt);
+		rb_xbj=(RadioButton) rootView.findViewById(R.id.rb_xbj);
+		rb_by=(RadioButton) rootView.findViewById(R.id.rb_by);
+		rb_cmrwy=(RadioButton) rootView.findViewById(R.id.rb_cmrwy);
+		rb_qt=(RadioButton) rootView.findViewById(R.id.rb_qt);
 		
 		rg_zd.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
@@ -54,8 +60,30 @@ public class Inspect42Body6 extends LinearLayout  implements IBaseInspect42Body{
 
 	@Override
 	public void setData(FollowUpFortyTwo followUpFortyTwo) {
-		// TODO Auto-generated method stub
-
+		if(followUpFortyTwo!=null){
+			if(followUpFortyTwo.getZd_name().equals("性保健")){
+				rb_xbj.setChecked(true);
+				rb_by.setChecked(false);
+				rb_cmrwy.setChecked(false);
+				rb_qt.setChecked(false);
+			}else if(followUpFortyTwo.getZd_name().equals("避孕")){
+				rb_xbj.setChecked(false);
+				rb_by.setChecked(true);
+				rb_cmrwy.setChecked(false);
+				rb_qt.setChecked(false);
+			}else if(followUpFortyTwo.getZd_name().equals("纯母乳喂养6个月")){
+				rb_xbj.setChecked(false);
+				rb_by.setChecked(false);
+				rb_cmrwy.setChecked(true);
+				rb_qt.setChecked(false);
+			}else {
+				rb_xbj.setChecked(false);
+				rb_by.setChecked(false);
+				rb_cmrwy.setChecked(false);
+				rb_qt.setChecked(true);
+				et_qt.setText(followUpFortyTwo.getZd_name());
+			}
+		}
 	}
 
 	@Override

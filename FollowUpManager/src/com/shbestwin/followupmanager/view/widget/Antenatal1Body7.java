@@ -15,8 +15,8 @@ import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.JsonUtil;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.common.util.ViewDataUtil;
+import com.shbestwin.followupmanager.model.followup.CheckBoxItem;
 import com.shbestwin.followupmanager.model.followup.FollowUpFirstPregnancy;
-import com.shbestwin.followupmanager.model.followup.SelfHistory;
 
 public class Antenatal1Body7 extends LinearLayout implements
 		IBaseAntenatal1Body {
@@ -54,19 +54,19 @@ public class Antenatal1Body7 extends LinearLayout implements
 	}
 
 	private String getCheckBoxText() {
-		List<SelfHistory> allergyHistoriesList = new ArrayList<SelfHistory>();
+		List<CheckBoxItem> allergyHistoriesList = new ArrayList<CheckBoxItem>();
 		for (int i = 0; i < selfHistoryLayout.getChildCount(); i++) {
 			View item = selfHistoryLayout.getChildAt(i);
-			SelfHistory allergyHistories = new SelfHistory();
+			CheckBoxItem allergyHistories = new CheckBoxItem();
 			if (item instanceof CheckBox) {
 				CheckBox checkBox = (CheckBox) item;
 				if (checkBox.isChecked()) {
-					allergyHistories.setGrs_num(String.valueOf(i));
+					allergyHistories.setItem_num(String.valueOf(i));
 					if ("其他".equals(checkBox.getText())) {
-						allergyHistories.setGrs_name(selfHistoryEdittext
+						allergyHistories.setItem_name(selfHistoryEdittext
 								.getText().toString());
 					} else {
-						allergyHistories.setGrs_name(checkBox.getText()
+						allergyHistories.setItem_name(checkBox.getText()
 								.toString());
 					}
 					allergyHistoriesList.add(allergyHistories);
@@ -85,9 +85,30 @@ public class Antenatal1Body7 extends LinearLayout implements
 
 	@Override
 	public void setData(FollowUpFirstPregnancy followUpFirstPregnancy) {
-		// TODO Auto-generated method stub
-
+		if (followUpFirstPregnancy != null) {
+            try {
+                setCheckBoxText(JsonUtil.jsonToObjects(
+                        followUpFirstPregnancy.getGrs(), CheckBoxItem.class));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 	}
+	
+	private void setCheckBoxText(List<CheckBoxItem> mList) {
+        for (int i = 0; i < mList.size(); i++) {
+            int Num = Integer.parseInt(mList.get(i).getItem_num());
+            String name = mList.get(i).getItem_name();
+            if (selfHistoryLayout.getChildAt(Num) instanceof CheckBox) {
+                CheckBox checkBox = (CheckBox) selfHistoryLayout
+                        .getChildAt(Num);
+                checkBox.setChecked(true);
+                if (Num == selfHistoryLayout.getChildCount() - 2) {
+                	selfHistoryEdittext.setText(name);
+                }
+            }
+        }
+    }
 
 	@Override
 	public boolean validate() {

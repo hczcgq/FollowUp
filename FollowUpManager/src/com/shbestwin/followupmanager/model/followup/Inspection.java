@@ -1,5 +1,10 @@
 package com.shbestwin.followupmanager.model.followup;
 
+/**
+ * 辅助检查
+ * @author chenguoquan
+ *
+ */
 public class Inspection {
 
     private String fzjc_fzjcxm;

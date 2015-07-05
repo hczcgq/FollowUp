@@ -132,7 +132,7 @@ public class MentalDiseaseBody6 extends LinearLayout implements
     @Override
     public void getData(FollowUpMentalDisease followUpMentalDisease) {
         try {
-            followUpMentalDisease.setSysfzjc_fyycx(JsonUtil
+            followUpMentalDisease.setSysfzjc_jcx(JsonUtil
                     .objectsToJson(inspectionList));
         } catch (Exception e) {
             e.printStackTrace();
@@ -153,7 +153,7 @@ public class MentalDiseaseBody6 extends LinearLayout implements
             List<Inspection> lists;
             try {
                 lists = JsonUtil.jsonToObjects(
-                        followUpMentalDisease.getSysfzjc_fyycx(),
+                        followUpMentalDisease.getSysfzjc_jcx(),
                         Inspection.class);
                 if (lists != null && lists.size() > 0) {
                     inspectionList.addAll(lists);
