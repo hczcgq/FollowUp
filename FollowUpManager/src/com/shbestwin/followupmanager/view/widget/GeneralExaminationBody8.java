@@ -100,25 +100,25 @@ public class GeneralExaminationBody8 extends LinearLayout implements
 		eye4.setOnCheckedChangeListener(new OtherCheckedChangeListenerEditText());
 		
 		
-//		isCerebrokidney = false;
-//		setCheckBoxStatus(cerebrokidneyLayout, true);
-//		cerebrokidneyEidtText.setEnabled(false);
-//		isKidney = false;
-//		setCheckBoxStatus(kidneyLayout, true);
-//		kidneyeditText.setEnabled(false);
-//		isHeart = false;
-//		setCheckBoxStatus(heartLayout, true);
-//		hearteditText.setEnabled(false);
-//		isVascular = false;
-//		setCheckBoxStatus(vascularLayout, true);
-//		vasculareditText.setEnabled(false);
-//		isEye = false;
-//		setCheckBoxStatus(eyeLayout, true);
-//		eyeeditText.setEnabled(false);
-//		
-//		
-//		et_sjxtjb.setEnabled(false);
-//		et_qtxijb.setEnabled(false);
+		isCerebrokidney = false;
+		setCheckBoxStatus(cerebrokidneyLayout, true);
+		cerebrokidneyEidtText.setEnabled(false);
+		isKidney = false;
+		setCheckBoxStatus(kidneyLayout, true);
+		kidneyeditText.setEnabled(false);
+		isHeart = false;
+		setCheckBoxStatus(heartLayout, true);
+		hearteditText.setEnabled(false);
+		isVascular = false;
+		setCheckBoxStatus(vascularLayout, true);
+		vasculareditText.setEnabled(false);
+		isEye = false;
+		setCheckBoxStatus(eyeLayout, true);
+		eyeeditText.setEnabled(false);
+		
+		
+		et_sjxtjb.setEnabled(false);
+		et_qtxijb.setEnabled(false);
 		
 		rg_sjxtjb.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 			

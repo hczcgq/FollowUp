@@ -128,7 +128,6 @@ public class RoutineExaminationFragment extends BaseQuickExaminationFragment {
 		protected Integer doInBackground(Void... params) {
 			if (waistlineManager.connectDevice()) {
 				int result = waistlineManager.readData();
-				System.out.println("xutan------"+result);
 				waistlineManager.closeDevice();
 				return result;
 			}

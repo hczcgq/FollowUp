@@ -15,6 +15,7 @@ import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.common.util.ViewDataUtil;
 import com.shbestwin.followupmanager.model.examination.GeneralExamination;
+import com.shbestwin.followupmanager.model.followup.FollowUpAged;
 
 public class GeneralExaminationBody1 extends LinearLayout implements
 		IBaseGeneralExaminationBody {
@@ -65,17 +66,14 @@ public class GeneralExaminationBody1 extends LinearLayout implements
 
 	@Override
 	public void setData(GeneralExamination generalExamination) {
-		ViewDataUtil.setCheckboxData(symptomLayout, otherSymptomEditText,
-				generalExamination.getZz());
+		if(generalExamination!=null){
+			ViewDataUtil.setCheckboxData(symptomLayout, otherSymptomEditText,
+					generalExamination.getZz());
+		}
 	}
 
 	@Override
 	public boolean validate() {
-		if (!ViewDataUtil.validateOtherCheckbox(otherSymptomCheckBox,
-				otherSymptomEditText)) {
-			ToastUtils.showToast(getContext(), "请输入其他症状信息！");
-			return false;
-		}
 		return true;
 	}
 

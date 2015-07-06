@@ -2,11 +2,9 @@ package com.shbestwin.followupmanager.manager.device;
 
 import java.util.Iterator;
 import java.util.Set;
-
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
-
 import com.RT_Printer.BluetoothPrinter.BLUETOOTH.BluetoothPrintDriver;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.log.Log;

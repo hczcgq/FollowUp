@@ -6,14 +6,12 @@ import java.io.OutputStream;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.UUID;
-
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothServerSocket;
 import android.bluetooth.BluetoothSocket;
 import android.os.Build;
-
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.bluetooth.BluetoothConnector;
 import com.shbestwin.followupmanager.bluetooth.BluetoothSocketWrapper;

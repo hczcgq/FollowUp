@@ -103,7 +103,6 @@ public class GeneralExaminationFragment extends BaseFragment {
 		if (generalExamination != null) {
 			zrysEditText.setText(generalExamination.getZrys());
 			tjrqEditText.setText(generalExamination.getTjrq());
-
 			for (IBaseGeneralExaminationBody generalExaminationBody : generalExaminationBodyList) {
 				generalExaminationBody.setData(generalExamination);
 			}
@@ -139,9 +138,9 @@ public class GeneralExaminationFragment extends BaseFragment {
 		generalExamination.setTjrq(tjrqEditText.getText().toString());
 
 		for (IBaseGeneralExaminationBody generalExaminationBody : generalExaminationBodyList) {
-			if (!generalExaminationBody.validate()) {
-				return;
-			}
+//			if (!generalExaminationBody.validate()) {
+//				return;
+//			}
 			generalExaminationBody.getData(generalExamination);
 		}
 

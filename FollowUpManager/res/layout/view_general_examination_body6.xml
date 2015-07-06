@@ -449,6 +449,7 @@
             android:text="血清谷丙转氨酶：" />
 
         <EditText
+            android:id="@+id/et_xqgbzam"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
 
@@ -463,6 +464,7 @@
             android:text="血清谷草转氨酶：" />
 
         <EditText
+            android:id="@+id/et_xqgczam"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
 
@@ -483,6 +485,7 @@
             android:text="白蛋白：" />
 
         <EditText
+            android:id="@+id/et_bdb"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
 
@@ -497,6 +500,7 @@
             android:text="总胆红素：" />
 
         <EditText
+            android:id="@+id/et_zdhs"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
 
@@ -517,6 +521,7 @@
             android:text="结合胆红素：" />
 
         <EditText
+            android:id="@+id/et_jhdhs"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
 
@@ -547,6 +552,7 @@
             android:text="血清肌酐：" />
 
         <EditText
+            android:id="@+id/et_xqjg"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
 
@@ -561,6 +567,7 @@
             android:text="血尿素氮：" />
 
         <EditText
+             android:id="@+id/et_xnsd"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
 
@@ -581,6 +588,7 @@
             android:text="血钾浓度：" />
 
         <EditText
+             android:id="@+id/et_xjnd"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
 
@@ -595,6 +603,7 @@
             android:text="血钠浓度：" />
 
         <EditText
+             android:id="@+id/et_xnnd"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
 
@@ -625,6 +634,7 @@
             android:text="总胆固醇：" />
 
         <EditText
+             android:id="@+id/et_zdgc"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
 
@@ -639,6 +649,7 @@
             android:text="低密度脂蛋白：" />
 
         <EditText
+             android:id="@+id/et_dmdzdb"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
 
@@ -659,6 +670,7 @@
             android:text="甘油三酯：" />
 
         <EditText
+             android:id="@+id/et_gysz"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
 
@@ -673,6 +685,7 @@
             android:text="高密度脂蛋白：" />
 
         <EditText
+             android:id="@+id/et_gmdzdb"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
 
@@ -701,7 +714,9 @@
             style="@style/GeneralExaminationLabelStyle"
             android:text="癌胚抗原：" />
 
+        
         <EditText
+             android:id="@+id/et_apky"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
 
@@ -721,6 +736,7 @@
         android:textSize="@dimen/global_font_size_xlarge" />
 
     <RadioGroup
+        android:id="@+id/rg_xbxsx"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -732,18 +748,19 @@
             android:text="胸部X线片：" />
 
         <RadioButton
-            android:id="@+id/CXFRadioButton0"
+            android:id="@+id/rb_xbxsx_zc"
             style="@style/RadioButtonStyle"
             android:checked="true"
             android:text="正常" />
 
         <RadioButton
-            android:id="@+id/CXFRadioButton1"
+            android:id="@+id/rb_xbxsx_yc"
             style="@style/RadioButtonStyle"
             android:layout_marginLeft="20dp"
             android:text="异常" />
 
         <EditText
+            android:id="@+id/et_xbxsx"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp"
             android:layout_marginLeft="20dp" />
@@ -760,6 +777,7 @@
         android:textSize="@dimen/global_font_size_xlarge" />
 
     <RadioGroup
+        android:id="@+id/rg_bc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -771,18 +789,19 @@
             android:text="B超：" />
 
         <RadioButton
-            android:id="@+id/typeBUltrasonicRadioButton0"
+            android:id="@+id/rb_bc_zc"
             style="@style/RadioButtonStyle"
             android:checked="true"
             android:text="正常" />
 
         <RadioButton
-            android:id="@+id/typeBUltrasonicRadioButton1"
+            android:id="@+id/rb_bc_yc"
             style="@style/RadioButtonStyle"
             android:layout_marginLeft="20dp"
             android:text="异常" />
 
         <EditText
+            android:id="@+id/et_bc"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp"
             android:layout_marginLeft="20dp" />
@@ -799,6 +818,7 @@
         android:textSize="@dimen/global_font_size_xlarge" />
 
     <RadioGroup
+        android:id="@+id/rg_gjtp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -810,18 +830,19 @@
             android:text="宫颈涂片：" />
 
         <RadioButton
-            android:id="@+id/papsmearRadioButton0"
+            android:id="@+id/rb_gjtp_zc"
             style="@style/RadioButtonStyle"
             android:checked="true"
             android:text="正常" />
 
         <RadioButton
-            android:id="@+id/papsmearRadioButton1"
+            android:id="@+id/rb_gjtp_yc"
             style="@style/RadioButtonStyle"
             android:layout_marginLeft="20dp"
             android:text="异常" />
 
         <EditText
+            android:id="@+id/et_gjtp"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp"
             android:layout_marginLeft="20dp" />
@@ -848,6 +869,7 @@
             android:text="其他：" />
 
         <EditText
+            android:id="@+id/et_qt"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
     </LinearLayout>

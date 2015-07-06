@@ -149,6 +149,6 @@ public class GeneralExaminationBody2 extends LinearLayout implements IBaseGenera
 
 	@Override
 	public boolean validate() {
-		return true;
+		return false;
 	}
 }

@@ -38,7 +38,7 @@ public class DeviceTypeListAdapter extends ArrayListAdapter<Device>{
 			holder = (ViewHolder) convertView.getTag();
 		}
 		
-		Device device = getItem(position);
+		final Device device = getItem(position);
 		holder.brandTextView.setText(device.getBrand());
 		holder.modelTextView.setText(device.getModel());
 		if (device.isUsing()) {
@@ -51,7 +51,7 @@ public class DeviceTypeListAdapter extends ArrayListAdapter<Device>{
             
             @Override
             public void onClick(View arg0) {
-                
+                listener.editBoothName(device);
             }
         });
 		return convertView;
@@ -62,5 +62,14 @@ public class DeviceTypeListAdapter extends ArrayListAdapter<Device>{
 		private TextView modelTextView;
 		private ImageView checkImageView;
 		private ImageView editImageView;
+	}
+	
+	DeviceListener listener;
+	public void setDeviceListener(DeviceListener listener){
+		this.listener=listener;
+	}
+	
+	public interface DeviceListener{
+		public void editBoothName(Device device);
 	}
 }

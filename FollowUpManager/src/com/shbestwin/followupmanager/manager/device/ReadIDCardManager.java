@@ -6,7 +6,6 @@ import java.io.OutputStream;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.UUID;
-
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -15,13 +14,12 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Environment;
 import android.util.Log;
-
 import com.ivsign.android.IDCReader.IDCReaderSDK;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.model.device.IDCardInfo;
 
 public class ReadIDCardManager {
-	private static final String DEVICE_NAME1 = "CVR-100B";
+	private static final String DEVICE_NAME = "CVR-100B";
 //	private static final String DEVICE_NAME2 = "IDCReader";
 //	private static final String DEVICE_NAME3 = "COM2";
 //	private static final String DEVICE_NAME4 = "BOLUTEK";
@@ -62,7 +60,7 @@ public class ReadIDCardManager {
 		Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();// 获取所有已配对的设备
 		// 1、没有配对的设备
 		if (pairedDevices.size() <= 0) {
-			showTips(String.format(mActivity.getResources().getString(R.string.device_idcard_no_bonded_devices), DEVICE_NAME1));
+			showTips(String.format(mActivity.getResources().getString(R.string.device_idcard_no_bonded_devices), DEVICE_NAME));
 			return false;
 		}
 
@@ -70,7 +68,7 @@ public class ReadIDCardManager {
 		for (Iterator<BluetoothDevice> iterator = pairedDevices.iterator(); iterator.hasNext();) {
 			BluetoothDevice device = (BluetoothDevice) iterator.next();
 			//|| DEVICE_NAME2.equals(device.getName()) || DEVICE_NAME3.equals(device.getName()) || DEVICE_NAME4.equals(device.getName())
-			if (DEVICE_NAME1.equals(device.getName())) {
+			if (DEVICE_NAME.equals(device.getName())) {
 				adaptedDevice = device;
 				break;
 			}
@@ -78,7 +76,7 @@ public class ReadIDCardManager {
 
 		// 2、没有合适的配对设备
 		if (adaptedDevice == null) {
-			showTips(String.format(mActivity.getResources().getString(R.string.device_idcard_no_bonded_devices), DEVICE_NAME1));
+			showTips(String.format(mActivity.getResources().getString(R.string.device_idcard_no_bonded_devices), DEVICE_NAME));
 			return false;
 		}
 

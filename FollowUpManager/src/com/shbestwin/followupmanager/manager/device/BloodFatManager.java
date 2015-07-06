@@ -9,6 +9,8 @@ import java.util.Set;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.content.Context;
+import android.content.SharedPreferences;
 
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.bluetooth.BluetoothConnector;

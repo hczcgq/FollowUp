@@ -7,14 +7,12 @@ import java.io.UnsupportedEncodingException;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.UUID;
-
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import cn.novacomm.ble.iGate;
 import cn.novacomm.ble.iGateCallBacks;
-
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.log.Log;
 import com.shbestwin.followupmanager.model.device.BloodGlucose;
