@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Spinner;
@@ -15,10 +16,11 @@ import com.shbestwin.followupmanager.common.util.ViewDataUtil;
 import com.shbestwin.followupmanager.model.examination.GeneralExamination;
 
 public class GeneralExaminationBody2 extends LinearLayout implements IBaseGeneralExaminationBody{
-	private EditText et_tw,et_mb,et_hxpl,et_zcxy_1,et_zcxy_2,et_sg,et_bmi,et_ycxy_1,et_ycxy_2,et_tz,et_yw,et_lnrrzgn_zf,et_lnrqgzt_zf;
+	private EditText et_tw,et_mb,et_hxpl,et_zcxy_1,et_zcxy_2,et_sg,et_bmi,et_ycxy_1,et_ycxy_2,et_tz,et_yw,et_zlztjc_zf,et_yyztjc_zf;
 	private Spinner sn_lnrjkzkzwpg,sn_lnrshzlnl;
 	private RadioGroup rg_lnrrzgn,rg_lnrqgzt;
 	private String name_lnrrzgn="粗筛阴性",name_lnrqgzt="粗筛阴性";
+	private RadioButton rb_lnrrzgn_csyinx,rb_lnrrzgn_csyangx,rb_lnrqgzt_csyinx,rb_lnrqgzt_csyangx;
 	public GeneralExaminationBody2(Context context) {
 		this(context, null);
 	}
@@ -41,14 +43,19 @@ public class GeneralExaminationBody2 extends LinearLayout implements IBaseGenera
 		et_ycxy_2=(EditText) rootView.findViewById(R.id.et_ycxy_2);
 		et_tz=(EditText) rootView.findViewById(R.id.et_tz);
 		et_yw=(EditText) rootView.findViewById(R.id.et_yw);
-		et_lnrrzgn_zf=(EditText) rootView.findViewById(R.id.et_lnrrzgn_zf);
-		et_lnrqgzt_zf=(EditText) rootView.findViewById(R.id.et_lnrqgzt_zf);
+		et_zlztjc_zf=(EditText) rootView.findViewById(R.id.et_zlztjc_zf);
+		et_yyztjc_zf=(EditText) rootView.findViewById(R.id.et_yyztjc_zf);
 		
 		sn_lnrjkzkzwpg=(Spinner) rootView.findViewById(R.id.sn_lnrjkzkzwpg);
 		sn_lnrshzlnl=(Spinner) rootView.findViewById(R.id.sn_lnrshzlnl);
 		
 		rg_lnrrzgn=(RadioGroup) rootView.findViewById(R.id.rg_lnrrzgn);
 		rg_lnrqgzt=(RadioGroup) rootView.findViewById(R.id.rg_lnrqgzt);
+		
+		rb_lnrrzgn_csyinx=(RadioButton) rootView.findViewById(R.id.rb_lnrrzgn_csyinx);
+		rb_lnrrzgn_csyangx=(RadioButton) rootView.findViewById(R.id.rb_lnrrzgn_csyangx);
+		rb_lnrqgzt_csyinx=(RadioButton) rootView.findViewById(R.id.rb_lnrqgzt_csyinx);
+		rb_lnrqgzt_csyangx=(RadioButton) rootView.findViewById(R.id.rb_lnrqgzt_csyangx);
 		
 		rg_lnrrzgn.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
@@ -88,9 +95,9 @@ public class GeneralExaminationBody2 extends LinearLayout implements IBaseGenera
 		generalExamination.setYbqk_jkzk(ViewDataUtil.getSpinnerData(sn_lnrjkzkzwpg));
 		generalExamination.setYbqk_shzlnl(ViewDataUtil.getSpinnerData(sn_lnrshzlnl));
 		generalExamination.setYbqk_rzgn(name_lnrrzgn);
-		generalExamination.setYbqk_zljczf(et_lnrrzgn_zf.getText().toString());
+		generalExamination.setYbqk_zljczf(et_zlztjc_zf.getText().toString());
 		generalExamination.setYbqk_qgzt(name_lnrqgzt);
-		generalExamination.setYbqk_yyztjczf(et_lnrqgzt_zf.getText().toString());
+		generalExamination.setYbqk_yyztjczf(et_yyztjc_zf.getText().toString());
 	}
 
 	@Override
@@ -117,8 +124,26 @@ public class GeneralExaminationBody2 extends LinearLayout implements IBaseGenera
             et_bmi.setText(generalExamination.getYbqk_bmi());
             et_tz.setText(generalExamination.getYbqk_tz());
             et_yw.setText(generalExamination.getYbqk_yw());
-//            et_lnrrzgn_zf.setText(generalExamination.getYbqk_zljczf());
-//            et_lnrqgzt_zf.setText(generalExamination.getYbqk_qgzt());
+            ViewDataUtil.setSpinnerData(sn_lnrjkzkzwpg, generalExamination.getYbqk_jkzk());
+            ViewDataUtil.setSpinnerData(sn_lnrshzlnl, generalExamination.getYbqk_shzlnl());
+            et_zlztjc_zf.setText(generalExamination.getYbqk_zljczf());
+            et_yyztjc_zf.setText(generalExamination.getYbqk_yyztjczf());
+            
+            if(generalExamination.getYbqk_rzgn().equals("粗筛阴性")) {
+                rb_lnrrzgn_csyinx.setChecked(true);
+                rb_lnrrzgn_csyangx.setChecked(false);
+            }else {
+                rb_lnrrzgn_csyinx.setChecked(false);
+                rb_lnrrzgn_csyangx.setChecked(true);
+            }
+            
+            if(generalExamination.getYbqk_qgzt().equals("粗筛阴性")) {
+                rb_lnrqgzt_csyinx.setChecked(true);
+                rb_lnrqgzt_csyangx.setChecked(false);
+            }else {
+                rb_lnrqgzt_csyinx.setChecked(false);
+                rb_lnrqgzt_csyangx.setChecked(true);
+            }
 		}
 	}
 

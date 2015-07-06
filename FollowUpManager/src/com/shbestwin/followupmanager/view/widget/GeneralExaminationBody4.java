@@ -5,12 +5,15 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.model.examination.GeneralExamination;
 
 public class GeneralExaminationBody4 extends LinearLayout implements IBaseGeneralExaminationBody{
-	public GeneralExaminationBody4(Context context) {
+	
+    private RelativeLayout dentitionLayout;
+    public GeneralExaminationBody4(Context context) {
 		this(context, null);
 	}
 

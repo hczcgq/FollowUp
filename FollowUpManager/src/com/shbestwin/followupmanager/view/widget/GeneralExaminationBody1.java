@@ -21,7 +21,6 @@ public class GeneralExaminationBody1 extends LinearLayout implements
 	private RelativeLayout symptomLayout;
 	private EditText otherSymptomEditText;
 	private CheckBox noneSymptomCheckBox, otherSymptomCheckBox;
-	private boolean isSysmptomNone=false;
 
 	public GeneralExaminationBody1(Context context) {
 		this(context, null);
@@ -51,7 +50,6 @@ public class GeneralExaminationBody1 extends LinearLayout implements
 					@Override
 					public void onCheckedChanged(CompoundButton buttonView,
 							boolean isChecked) {
-						isSysmptomNone = !isChecked;
 						setCheckBoxStatus(symptomLayout, isChecked);
 					}
 				});

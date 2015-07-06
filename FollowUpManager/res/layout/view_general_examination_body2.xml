@@ -251,7 +251,7 @@
             android:text="简易智力状态检查，总分：" />
 
         <EditText
-            android:id="@+id/et_lnrrzgn_zf"
+            android:id="@+id/et_zlztjc_zf"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="100dp"
             android:imeOptions="actionNext"
@@ -294,7 +294,7 @@
             android:text="简易抑郁状态检查，总分：" />
 
         <EditText
-            android:id="@+id/et_lnrqgzt_zf"
+            android:id="@+id/et_yyztjc_zf"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="100dp"
             android:imeOptions="actionNext"

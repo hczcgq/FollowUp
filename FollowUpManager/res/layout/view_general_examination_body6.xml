@@ -25,6 +25,7 @@
             android:text="血红蛋白：" />
 
         <EditText
+            android:id="@+id/et_xhdb"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
 
@@ -38,6 +39,7 @@
             android:text="白血胞：" />
 
         <EditText
+            android:id="@+id/et_bxb"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
 
@@ -51,6 +53,7 @@
             android:text="血小板：" />
 
         <EditText
+            android:id="@+id/et_xxb"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
     </LinearLayout>
@@ -66,6 +69,7 @@
             android:text="其他：" />
 
         <EditText
+            android:id="@+id/et_xcg_qt"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
     </LinearLayout>
@@ -90,9 +94,12 @@
             style="@style/GeneralExaminationLabelStyle"
             android:text="尿蛋白(mg/24h)：" />
 
-        <EditText style="@style/GeneralExaminationEditTextStyle" />
+        <EditText
+            android:id="@+id/et_ndb"
+             style="@style/GeneralExaminationEditTextStyle" />
 
         <Spinner
+            android:id="@+id/sn_ndb"
             style="@style/GeneralExaminationSpinnerStyle"
             android:layout_width="220dp"
             android:layout_marginLeft="20dp"
@@ -103,9 +110,12 @@
             android:layout_marginLeft="50dp"
             android:text="尿糖(mmol/L)：" />
 
-        <EditText style="@style/GeneralExaminationEditTextStyle" />
+        <EditText
+            android:id="@+id/et_nt" 
+            style="@style/GeneralExaminationEditTextStyle" />
 
         <Spinner
+            android:id="@+id/sn_nt"
             style="@style/GeneralExaminationSpinnerStyle"
             android:layout_width="220dp"
             android:layout_marginLeft="20dp"
@@ -124,6 +134,7 @@
             android:text="尿酮体：" />
 
         <Spinner
+            android:id="@+id/sn_ntt"
             style="@style/GeneralExaminationSpinnerStyle"
             android:layout_width="220dp"
             android:entries="@array/urineProtein" />
@@ -134,6 +145,7 @@
             android:text="尿潜血：" />
 
         <Spinner
+            android:id="@+id/sn_nqx"
             style="@style/GeneralExaminationSpinnerStyle"
             android:layout_width="220dp"
             android:entries="@array/urineProtein" />
@@ -144,6 +156,7 @@
             android:text="尿比重：" />
 
         <EditText
+            android:id="@+id/et_nbz"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
     </LinearLayout>
@@ -160,6 +173,7 @@
             android:text="尿液酸碱度：" />
 
         <EditText
+            android:id="@+id/et_nysjd"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
 
@@ -169,6 +183,7 @@
             android:text="其他：" />
 
         <EditText
+            android:id="@+id/et_ncg_qt"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
     </LinearLayout>
@@ -194,6 +209,7 @@
             android:text="空腹血糖：" />
 
         <EditText
+            android:id="@+id/et_kfxt"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
 
@@ -213,6 +229,7 @@
         android:textSize="@dimen/global_font_size_xlarge" />
 
     <RadioGroup
+        android:id="@+id/rg_xdt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -224,18 +241,19 @@
             android:text="心电图：" />
 
         <RadioButton
-            android:id="@+id/cardiogramRadioButton0"
+            android:id="@+id/rb_xdt_zc"
             style="@style/RadioButtonStyle"
             android:checked="true"
             android:text="正常" />
 
         <RadioButton
-            android:id="@+id/cardiogramRadioButton1"
+            android:id="@+id/rb_xdt_yc"
             style="@style/RadioButtonStyle"
             android:layout_marginLeft="20dp"
             android:text="异常" />
 
         <EditText
+            android:id="@+id/et_xdt"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp"
             android:layout_marginLeft="20dp" />
@@ -262,6 +280,7 @@
             android:text="尿微量白蛋白：" />
 
         <EditText
+            android:id="@+id/et_nwlbdb"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
 
@@ -281,6 +300,7 @@
         android:textSize="@dimen/global_font_size_xlarge" />
 
     <RadioGroup
+        android:id="@+id/rg_dbqx"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -292,13 +312,13 @@
             android:text="大便潜血：" />
 
         <RadioButton
-            android:id="@+id/FOBRadioButton0"
+            android:id="@+id/rb_dbqx_yinx"
             style="@style/RadioButtonStyle"
             android:checked="true"
             android:text="阴性" />
 
         <RadioButton
-            android:id="@+id/FOBRadioButton1"
+            android:id="@+id/rb_dbqx_yangx"
             style="@style/RadioButtonStyle"
             android:layout_marginLeft="20dp"
             android:text="阳性" />
@@ -325,6 +345,7 @@
             android:text="糖化血红蛋白：" />
 
         <EditText
+            android:id="@+id/et_thxhdb"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
 
@@ -355,6 +376,7 @@
             android:text="乙型肝炎表面抗原：" />
 
         <Spinner
+            android:id="@+id/sn_yxgybmky"
             style="@style/GeneralExaminationSpinnerStyle"
             android:layout_width="150dp"
             android:entries="@array/negativePositive" />
@@ -366,6 +388,7 @@
             android:text="乙型肝炎核心抗体：" />
 
         <Spinner
+            android:id="@+id/sn_yxgyhxkt"
             style="@style/GeneralExaminationSpinnerStyle"
             android:layout_width="150dp"
             android:entries="@array/negativePositive" />
@@ -383,38 +406,26 @@
             android:text="乙型肝炎e抗原：" />
 
         <Spinner
+            android:id="@+id/sn_yxgyeky"
             style="@style/GeneralExaminationSpinnerStyle"
             android:layout_width="150dp"
             android:entries="@array/negativePositive" />
 
         <TextView
+           
             style="@style/GeneralExaminationLabelStyle"
             android:layout_marginLeft="20dp"
             android:minWidth="160dp"
             android:text="乙型肝炎e抗体：" />
 
         <Spinner
+             android:id="@+id/sn_yxgyekt"
             style="@style/GeneralExaminationSpinnerStyle"
             android:layout_width="150dp"
             android:entries="@array/negativePositive" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal" >
-
-        <TextView
-            style="@style/GeneralExaminationLabelStyle"
-            android:minWidth="160dp"
-            android:text="乙型肝炎核心抗体：" />
-
-        <Spinner
-            style="@style/GeneralExaminationSpinnerStyle"
-            android:layout_width="150dp"
-            android:entries="@array/negativePositive" />
-    </LinearLayout>
+  
 
     <TextView
         android:layout_width="wrap_content"

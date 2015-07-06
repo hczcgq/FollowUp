@@ -60,7 +60,6 @@ public class DeviceFragment extends BaseFragment {
 				deviceTypeLayout.setVisibility(View.VISIBLE);
 				checkedIndex = position;
 				List<Device> deviceTypeList = settingDevicesList.get(position).getAll();
-				System.out.println(deviceTypeList.get(0).getBrand());
 				deviceTypeListAdapter.setList(deviceTypeList);
 			}
 		});
@@ -80,7 +79,6 @@ public class DeviceFragment extends BaseFragment {
 		if (deviceAll.get(position).isUsing()) {
 			return;
 		}
-
 		Device checkedDevice = settingDevices.getAll().get(position);
 		checkedDevice.setUsing(true);
 		settingDevices.setSelected(checkedDevice);

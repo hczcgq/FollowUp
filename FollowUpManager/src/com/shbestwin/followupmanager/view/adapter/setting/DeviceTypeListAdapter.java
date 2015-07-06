@@ -4,6 +4,7 @@ import java.util.List;
 
 import android.content.Context;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -31,6 +32,7 @@ public class DeviceTypeListAdapter extends ArrayListAdapter<Device>{
 			holder.brandTextView = (TextView) convertView.findViewById(R.id.brandTextView);
 			holder.modelTextView = (TextView) convertView.findViewById(R.id.modelTextView);
 			holder.checkImageView = (ImageView) convertView.findViewById(R.id.checkImageView);
+			holder.editImageView = (ImageView) convertView.findViewById(R.id.edit);
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
@@ -44,6 +46,14 @@ public class DeviceTypeListAdapter extends ArrayListAdapter<Device>{
 		} else {
 			holder.checkImageView.setImageResource(0);
 		}
+		
+		holder.editImageView.setOnClickListener(new OnClickListener() {
+            
+            @Override
+            public void onClick(View arg0) {
+                
+            }
+        });
 		return convertView;
 	}
 
@@ -51,5 +61,6 @@ public class DeviceTypeListAdapter extends ArrayListAdapter<Device>{
 		private TextView brandTextView;
 		private TextView modelTextView;
 		private ImageView checkImageView;
+		private ImageView editImageView;
 	}
 }

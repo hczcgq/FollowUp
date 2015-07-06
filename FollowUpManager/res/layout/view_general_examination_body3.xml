@@ -26,6 +26,7 @@
             android:text="锻炼频率：" />
 
         <Spinner
+            android:id="@+id/sn_dlpl"
             style="@style/GeneralExaminationSpinnerStyle"
             android:layout_width="150dp"
             android:entries="@array/exerciseFrequency" />
@@ -35,7 +36,9 @@
             android:layout_marginLeft="20dp"
             android:text="每次锻炼时间：" />
 
-        <EditText style="@style/GeneralExaminationEditTextStyle" />
+        <EditText
+            android:id="@+id/et_mcdlsj" 
+            style="@style/GeneralExaminationEditTextStyle" />
 
         <TextView
             style="@style/GeneralExaminationTipsStyle"
@@ -46,7 +49,9 @@
             android:layout_marginLeft="20dp"
             android:text="坚持锻炼时间：" />
 
-        <EditText style="@style/GeneralExaminationEditTextStyle" />
+        <EditText 
+            android:id="@+id/et_jcdlsj"
+            style="@style/GeneralExaminationEditTextStyle" />
 
         <TextView
             style="@style/GeneralExaminationTipsStyle"
@@ -64,6 +69,7 @@
             android:text="锻炼方式：" />
 
         <EditText
+            android:id="@+id/et_dlfs"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="300dp" />
     </LinearLayout>
@@ -143,24 +149,25 @@
             android:text="吸烟状况：" />
 
         <RadioGroup
+            android:id="@+id/rg_xyzk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
 
             <RadioButton
-                android:id="@+id/smokingRadioButton1"
+                android:id="@+id/rb_xyzk_cbxy"
                 style="@style/RadioButtonStyle"
                 android:checked="true"
                 android:text="1.从不吸烟" />
 
             <RadioButton
-                android:id="@+id/smokingRadioButton2"
+                android:id="@+id/rb_xyzk_yjy"
                 style="@style/RadioButtonStyle"
                 android:layout_marginLeft="20dp"
                 android:text="2.过去吸，已戒烟" />
 
             <RadioButton
-                android:id="@+id/smokingRadioButton3"
+                android:id="@+id/rb_xyzk_xy"
                 style="@style/RadioButtonStyle"
                 android:layout_marginLeft="20dp"
                 android:text="3.吸烟" />
@@ -177,7 +184,9 @@
             style="@style/GeneralExaminationLabelStyle"
             android:text="日吸烟量：" />
 
-        <EditText style="@style/GeneralExaminationEditTextStyle" />
+        <EditText
+            android:id="@+id/et_rxyl" 
+            style="@style/GeneralExaminationEditTextStyle" />
 
         <TextView
             style="@style/GeneralExaminationTipsStyle"
@@ -188,7 +197,9 @@
             android:layout_marginLeft="20dp"
             android:text="开始吸烟年龄：" />
 
-        <EditText style="@style/GeneralExaminationEditTextStyle" />
+        <EditText
+            android:id="@+id/et_ksxyln" 
+            style="@style/GeneralExaminationEditTextStyle" />
 
         <TextView
             style="@style/GeneralExaminationTipsStyle"
@@ -199,7 +210,9 @@
             android:layout_marginLeft="20dp"
             android:text="戒烟年龄：" />
 
-        <EditText style="@style/GeneralExaminationEditTextStyle" />
+        <EditText
+            android:id="@+id/et_jyln"
+             style="@style/GeneralExaminationEditTextStyle" />
 
         <TextView
             style="@style/GeneralExaminationTipsStyle"
@@ -228,6 +241,7 @@
             android:text="饮酒频率：" />
 
         <Spinner
+            android:id="@+id/sn_yjpl"
             style="@style/GeneralExaminationSpinnerStyle"
             android:layout_width="150dp"
             android:entries="@array/drinkingFrequency" />
@@ -237,7 +251,9 @@
             android:layout_marginLeft="20dp"
             android:text="日饮酒量：" />
 
-        <EditText style="@style/GeneralExaminationEditTextStyle" />
+        <EditText
+            android:id="@+id/et_ryjl"
+             style="@style/GeneralExaminationEditTextStyle" />
 
         <TextView
             style="@style/GeneralExaminationTipsStyle"
@@ -256,18 +272,19 @@
             android:text="是否戒酒：" />
 
         <RadioGroup
+            android:id="@+id/rg_sfjj"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
 
             <RadioButton
-                android:id="@+id/temperanceRadioButton0"
+                android:id="@+id/rb_sfjj_wjj"
                 style="@style/RadioButtonStyle"
                 android:checked="true"
                 android:text="未戒酒" />
 
             <RadioButton
-                android:id="@+id/temperanceRadioButton1"
+                android:id="@+id/rb_sfjj_yjj"
                 style="@style/RadioButtonStyle"
                 android:layout_marginLeft="20dp"
                 android:text="已戒酒" />
@@ -278,7 +295,9 @@
             android:layout_marginLeft="20dp"
             android:text="开始饮酒年龄：" />
 
-        <EditText style="@style/GeneralExaminationEditTextStyle" />
+        <EditText
+            android:id="@+id/et_ksyjln" 
+            style="@style/GeneralExaminationEditTextStyle" />
 
         <TextView
             style="@style/GeneralExaminationTipsStyle"
@@ -289,7 +308,9 @@
             android:layout_marginLeft="20dp"
             android:text="戒酒年龄：" />
 
-        <EditText style="@style/GeneralExaminationEditTextStyle" />
+        <EditText
+            android:id="@+id/et_jjln"
+             style="@style/GeneralExaminationEditTextStyle" />
 
         <TextView
             style="@style/GeneralExaminationTipsStyle"
@@ -308,18 +329,19 @@
             android:text="近一年内是否曾醉酒：" />
 
         <RadioGroup
+            android:id="@+id/rg_sfzj"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
 
             <RadioButton
-                android:id="@+id/drunkennessRadioButton0"
+                android:id="@+id/rb_sfzj_s"
                 style="@style/RadioButtonStyle"
                 android:checked="true"
                 android:text="是" />
 
             <RadioButton
-                android:id="@+id/drunkennessRadioButton1"
+                android:id="@+id/rb_sfzj_f"
                 style="@style/RadioButtonStyle"
                 android:layout_marginLeft="20dp"
                 android:text="否" />
@@ -331,6 +353,7 @@
             android:text="饮酒种类：" />
 
         <Spinner
+            android:id="@+id/sn_yjzl"
             style="@style/GeneralExaminationSpinnerStyle"
             android:layout_width="150dp"
             android:entries="@array/drinkingType" />
@@ -354,18 +377,19 @@
         android:orientation="horizontal" >
 
         <RadioGroup
+            android:id="@+id/rg_zybwhysjcs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
 
             <RadioButton
-                android:id="@+id/diseaseRadioButton0"
+                android:id="@+id/rb_zybwhysjcs_w"
                 style="@style/RadioButtonStyle"
                 android:checked="true"
                 android:text="无" />
 
             <RadioButton
-                android:id="@+id/diseaseRadioButton1"
+                android:id="@+id/rb_zybwhysjcs_y"
                 style="@style/RadioButtonStyle"
                 android:layout_marginLeft="20dp"
                 android:text="有" />
@@ -377,6 +401,7 @@
             android:text="工种：" />
 
         <EditText
+            android:id="@+id/et_gz"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
 
@@ -386,6 +411,7 @@
             android:text="从业时间：" />
 
         <EditText
+            android:id="@+id/et_cysj"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp"
             android:drawableRight="@drawable/icon_calendar" />

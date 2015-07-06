@@ -3,6 +3,7 @@ package com.shbestwin.followupmanager.fragment;
 import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.app.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -120,6 +121,13 @@ public class TopBarFragment extends BaseFragment implements
 		logoutButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+			    SharedPreferences preferences = getActivity().getSharedPreferences("USER_INFO",
+	                    Context.MODE_PRIVATE);
+	            SharedPreferences.Editor editor = preferences.edit();
+	            editor.putString("Username", "");
+	            editor.putString("Password", "");
+	            editor.putBoolean("RememberUser", false);
+	            editor.commit();
 				LoginActivity.launch(getActivity());
 			}
 		});

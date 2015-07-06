@@ -1,15 +1,12 @@
 package com.shbestwin.followupmanager.activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.fragment.ArchiveInfoFragment;
 import com.shbestwin.followupmanager.fragment.FollowUpManagerFragment;
@@ -26,8 +23,6 @@ import com.shbestwin.followupmanager.fragment.TopBarFragment;
  */
 public class MainActivity extends AbsBaseActivity implements TopBarFragment.OnTabSelectedListener {
 
-	private SharedPreferences preferences;
-	
 	@Override
 	protected void setContentView(Bundle savedInstanceState) {
 		setContentView(R.layout.activity_main);

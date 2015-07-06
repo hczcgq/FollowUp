@@ -8,12 +8,15 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ViewDataUtil;
 import com.shbestwin.followupmanager.model.examination.GeneralExamination;
+import com.shbestwin.followupmanager.model.followup.FollowUpAged;
 
 public class GeneralExaminationBody8 extends LinearLayout implements
 		IBaseGeneralExaminationBody {
@@ -24,6 +27,7 @@ public class GeneralExaminationBody8 extends LinearLayout implements
 	private EditText cerebrokidneyEidtText, kidneyeditText, hearteditText,
 			vasculareditText, eyeeditText;
 	private RadioGroup rg_sjxtjb, rg_qtxijb;
+	private RadioButton rb_sjxtjb_wfx,rb_sjxtjb_y,rb_qtxijb_wfx,rb_qtxijb_y;
 	private EditText et_sjxtjb, et_qtxijb;
 	private boolean isCerebrokidney = false, isKidney = false, isHeart = false,
 			isVascular = false, isEye = false;
@@ -43,6 +47,11 @@ public class GeneralExaminationBody8 extends LinearLayout implements
 		View rootView = LayoutInflater.from(context).inflate(
 				R.layout.view_general_examination_body8, this, true);
 
+		rb_sjxtjb_wfx=(RadioButton) rootView.findViewById(R.id.rb_sjxtjb_wfx);
+		rb_sjxtjb_y=(RadioButton) rootView.findViewById(R.id.rb_sjxtjb_y);
+		rb_qtxijb_wfx=(RadioButton) rootView.findViewById(R.id.rb_qtxijb_wfx);
+		rb_qtxijb_y=(RadioButton) rootView.findViewById(R.id.rb_qtxijb_y);
+		
 		cerebrokidneyLayout = (RelativeLayout) rootView
 				.findViewById(R.id.cerebrokidneyLayout);
 		kidneyLayout = (RelativeLayout) rootView
@@ -91,27 +100,25 @@ public class GeneralExaminationBody8 extends LinearLayout implements
 		eye4.setOnCheckedChangeListener(new OtherCheckedChangeListenerEditText());
 		
 		
-		isCerebrokidney = false;
-		setCheckBoxStatus(cerebrokidneyLayout, true);
-		cerebrokidneyEidtText.setEnabled(false);
-		isKidney = false;
-		setCheckBoxStatus(kidneyLayout, true);
-		kidneyeditText.setEnabled(false);
-		isHeart = false;
-		setCheckBoxStatus(heartLayout, true);
-		hearteditText.setEnabled(false);
-		isVascular = false;
-		setCheckBoxStatus(vascularLayout, true);
-		vasculareditText.setEnabled(false);
-		isEye = false;
-		setCheckBoxStatus(eyeLayout, true);
-		eyeeditText.setEnabled(false);
-		
-		
-		
-		
-		et_sjxtjb.setEnabled(false);
-		et_qtxijb.setEnabled(false);
+//		isCerebrokidney = false;
+//		setCheckBoxStatus(cerebrokidneyLayout, true);
+//		cerebrokidneyEidtText.setEnabled(false);
+//		isKidney = false;
+//		setCheckBoxStatus(kidneyLayout, true);
+//		kidneyeditText.setEnabled(false);
+//		isHeart = false;
+//		setCheckBoxStatus(heartLayout, true);
+//		hearteditText.setEnabled(false);
+//		isVascular = false;
+//		setCheckBoxStatus(vascularLayout, true);
+//		vasculareditText.setEnabled(false);
+//		isEye = false;
+//		setCheckBoxStatus(eyeLayout, true);
+//		eyeeditText.setEnabled(false);
+//		
+//		
+//		et_sjxtjb.setEnabled(false);
+//		et_qtxijb.setEnabled(false);
 		
 		rg_sjxtjb.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 			
@@ -146,10 +153,10 @@ public class GeneralExaminationBody8 extends LinearLayout implements
 	@Override
 	public void getData(GeneralExamination generalExamination) {
 		generalExamination.setJkwt_nxgjb(ViewDataUtil.getCheckboxData(cerebrokidneyLayout,cerebrokidneyEidtText));
-		generalExamination.setJkwt_nxgjb(ViewDataUtil.getCheckboxData(kidneyLayout,kidneyeditText));
-		generalExamination.setJkwt_nxgjb(ViewDataUtil.getCheckboxData(heartLayout,hearteditText));
-		generalExamination.setJkwt_nxgjb(ViewDataUtil.getCheckboxData(vascularLayout,vasculareditText));
-		generalExamination.setJkwt_nxgjb(ViewDataUtil.getCheckboxData(eyeLayout,eyeeditText));
+		generalExamination.setJkwt_szjb(ViewDataUtil.getCheckboxData(kidneyLayout,kidneyeditText));
+		generalExamination.setJkwt_xzjb(ViewDataUtil.getCheckboxData(heartLayout,hearteditText));
+		generalExamination.setJkwt_xgjb(ViewDataUtil.getCheckboxData(vascularLayout,vasculareditText));
+		generalExamination.setJkwt_ybjb(ViewDataUtil.getCheckboxData(eyeLayout,eyeeditText));
 		generalExamination.setJkwt_sfsjxtjb(isSjxt);
 		generalExamination.setJkwt_sjxtjbms(et_sjxtjb.getText().toString());
 		generalExamination.setJkwt_sfqtxtjb(isQt);
@@ -159,8 +166,31 @@ public class GeneralExaminationBody8 extends LinearLayout implements
 
 	@Override
 	public void setData(GeneralExamination generalExamination) {
-		// TODO Auto-generated method stub
-
+		if(generalExamination!=null) {
+		    ViewDataUtil.setCheckboxData(cerebrokidneyLayout, cerebrokidneyEidtText, generalExamination.getJkwt_nxgjb());
+		    ViewDataUtil.setCheckboxData(kidneyLayout, kidneyeditText, generalExamination.getJkwt_szjb());
+		    ViewDataUtil.setCheckboxData(heartLayout, hearteditText, generalExamination.getJkwt_xzjb());
+		    ViewDataUtil.setCheckboxData(vascularLayout, vasculareditText, generalExamination.getJkwt_xgjb());
+		    ViewDataUtil.setCheckboxData(eyeLayout, eyeeditText, generalExamination.getJkwt_ybjb());
+		    et_qtxijb.setText(generalExamination.getJkwt_qtxtjbms());
+		    et_sjxtjb.setText(generalExamination.getJkwt_sjxtjbms());
+		    
+		    if(generalExamination.getJkwt_sfsjxtjb()) {
+		        rb_sjxtjb_y.setChecked(true);
+		        rb_sjxtjb_wfx.setChecked(false);
+		    }else {
+		        rb_sjxtjb_y.setChecked(false);
+                rb_sjxtjb_wfx.setChecked(true);
+            }
+		    
+		    if(generalExamination.getJkwt_sfqtxtjb()) {
+                rb_qtxijb_y.setChecked(true);
+                rb_qtxijb_wfx.setChecked(false);
+            }else {
+                rb_qtxijb_y.setChecked(false);
+                rb_qtxijb_wfx.setChecked(true);
+            }
+		}
 	}
 
 	@Override

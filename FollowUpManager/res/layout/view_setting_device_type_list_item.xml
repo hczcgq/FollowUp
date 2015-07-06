@@ -42,6 +42,6 @@
         android:layout_height="40dp"
         android:contentDescription="@null"
         android:scaleType="centerInside"
-        android:src="@drawable/icon_check" />
+        android:src="@drawable/icon_edit" />
 
 </LinearLayout>
