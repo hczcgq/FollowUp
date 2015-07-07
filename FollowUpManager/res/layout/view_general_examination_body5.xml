@@ -26,6 +26,7 @@
             android:text="眼底：" />
 
         <RadioGroup
+            android:id="@+id/eyegroundRadioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
@@ -44,6 +45,7 @@
         </RadioGroup>
 
         <EditText
+            android:id="@+id/et_yd"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp"
             android:layout_marginLeft="20dp" />
@@ -133,6 +135,7 @@
             android:text="其他" />
 
         <EditText
+            android:id="@+id/et_pf"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp"
             android:layout_below="@id/skin0"
@@ -182,6 +185,7 @@
             android:text="其他" />
 
         <EditText
+            android:id="@+id/et_gm"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp"
             android:layout_below="@id/skin0"
@@ -229,6 +233,7 @@
             android:text="其他" />
 
         <EditText
+            android:id="@+id/et_lbj"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp"
             android:layout_below="@id/skin0"
@@ -257,6 +262,7 @@
             android:text="桶装胸：" />
 
         <RadioGroup
+            android:id="@+id/barrelChestRadioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
@@ -287,6 +293,7 @@
             android:text="呼吸音：" />
 
         <RadioGroup
+            android:id="@+id/breathSoundsRadioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
@@ -305,6 +312,7 @@
         </RadioGroup>
 
         <EditText
+            android:id="@+id/et_hxy"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp"
             android:layout_marginLeft="20dp" />
@@ -345,6 +353,7 @@
             android:text="其他" />
 
         <EditText
+            android:id="@+id/et_ly"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp"
             android:layout_below="@id/skin0"
@@ -371,7 +380,9 @@
             style="@style/GeneralExaminationLabelStyle"
             android:text="心率：" />
 
-        <EditText style="@style/GeneralExaminationEditTextStyle" />
+        <EditText
+            android:id="@+id/et_xl" 
+            style="@style/GeneralExaminationEditTextStyle" />
 
         <TextView
             style="@style/GeneralExaminationTipsStyle"
@@ -383,6 +394,7 @@
             android:text="心律：" />
 
         <Spinner
+            android:id="@+id/sn_xl"
             style="@style/GeneralExaminationSpinnerStyle"
             android:layout_width="150dp"
             android:entries="@array/heartRhythm" />
@@ -400,6 +412,7 @@
             android:text="杂音：" />
 
         <RadioGroup
+            android:id="@+id/murmurRadioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
@@ -418,6 +431,7 @@
         </RadioGroup>
 
         <EditText
+            android:id="@+id/et_zy"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp"
             android:layout_marginLeft="20dp" />
@@ -445,6 +459,7 @@
             android:text="压痛：" />
 
         <RadioGroup
+            android:id="@+id/tendernessRadioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
@@ -463,6 +478,7 @@
         </RadioGroup>
 
         <EditText
+            android:id="@+id/et_yt"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp"
             android:layout_marginLeft="20dp" />
@@ -480,6 +496,7 @@
             android:text="包块：" />
 
         <RadioGroup
+            android:id="@+id/enclosedMassRadioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
@@ -498,6 +515,7 @@
         </RadioGroup>
 
         <EditText
+            android:id="@+id/et_bk"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp"
             android:layout_marginLeft="20dp" />
@@ -515,6 +533,7 @@
             android:text="肝大：" />
 
         <RadioGroup
+            android:id="@+id/hepatomegalyRadioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
@@ -533,6 +552,7 @@
         </RadioGroup>
 
         <EditText
+            android:id="@+id/et_gd"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp"
             android:layout_marginLeft="20dp" />
@@ -550,6 +570,7 @@
             android:text="脾大：" />
 
         <RadioGroup
+            android:id="@+id/splenauxeRadioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
@@ -568,6 +589,7 @@
         </RadioGroup>
 
         <EditText
+            android:id="@+id/et_pd"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp"
             android:layout_marginLeft="20dp" />
@@ -585,6 +607,7 @@
             android:text="移动性浊音：" />
 
         <RadioGroup
+            android:id="@+id/voicedSoundRadioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
@@ -603,6 +626,7 @@
         </RadioGroup>
 
         <EditText
+            android:id="@+id/et_ydxzy"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp"
             android:layout_marginLeft="20dp" />
@@ -630,6 +654,7 @@
             android:text="下肢水肿：" />
 
         <RadioGroup
+            android:id="@+id/immersionFootRadioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
@@ -682,6 +707,7 @@
             android:text="足背动脉搏动：" />
 
         <RadioGroup
+            android:id="@+id/arteriopalmusRadioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
@@ -734,6 +760,7 @@
             android:text="肛门指诊：" />
 
         <RadioGroup
+            android:id="@+id/rectalTouchRadioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
@@ -769,6 +796,7 @@
                 android:text="其他" />
 
             <EditText
+                android:id="@+id/et_gmzz"
                 style="@style/GeneralExaminationEditTextStyle"
                 android:layout_width="220dp"
                 android:layout_marginLeft="20dp" />
@@ -803,6 +831,7 @@
             android:text="乳腺：" />
 
         <RadioGroup
+            android:id="@+id/breastRadioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
@@ -838,6 +867,7 @@
                 android:text="其他" />
 
             <EditText
+                android:id="@+id/et_rx"
                 style="@style/GeneralExaminationEditTextStyle"
                 android:layout_width="220dp"
                 android:layout_marginLeft="20dp" />
@@ -861,6 +891,7 @@
         android:textSize="@dimen/global_font_size_xlarge" />
 
     <RadioGroup
+        android:id="@+id/vulvaRadioGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -884,6 +915,7 @@
             android:text="异常" />
 
         <EditText
+            android:id="@+id/et_wy"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp"
             android:layout_marginLeft="20dp" />
@@ -896,6 +928,7 @@
     </RadioGroup>
 
     <RadioGroup
+        android:id="@+id/vaginaRadioGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -919,6 +952,7 @@
             android:text="异常" />
 
         <EditText
+            android:id="@+id/et_yind"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp"
             android:layout_marginLeft="20dp" />
@@ -931,6 +965,7 @@
     </RadioGroup>
 
     <RadioGroup
+        android:id="@+id/cervixRadioGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -954,6 +989,7 @@
             android:text="异常" />
 
         <EditText
+            android:id="@+id/et_gj"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp"
             android:layout_marginLeft="20dp" />
@@ -966,6 +1002,7 @@
     </RadioGroup>
 
     <RadioGroup
+        android:id="@+id/corporaUteriRadioGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -989,6 +1026,7 @@
             android:text="异常" />
 
         <EditText
+            android:id="@+id/et_gt"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp"
             android:layout_marginLeft="20dp" />
@@ -1001,6 +1039,7 @@
     </RadioGroup>
 
     <RadioGroup
+        android:id="@+id/adnexaRadioGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -1024,6 +1063,7 @@
             android:text="异常" />
 
         <EditText
+            android:id="@+id/et_fj"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp"
             android:layout_marginLeft="20dp" />
@@ -1056,6 +1096,7 @@
             android:text="其他：" />
 
         <EditText
+            android:id="@+id/et_qt"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="300dp" />
     </LinearLayout>

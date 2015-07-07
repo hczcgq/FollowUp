@@ -140,12 +140,10 @@ public class PersonalInfoFragment extends BaseArchiveFragment {
 			return false;
 		}
 
-		System.out.println(negativeEventOther.isChecked()+"--"+TextUtils.isEmpty(negativeEventEditText.getText().toString()));
-		System.out.println(negativeEventOther.isChecked() && TextUtils.isEmpty(negativeEventEditText.getText().toString()));
-		if (ViewDataUtil.validateOtherCheckbox(negativeEventOther, negativeEventEditText)) {
-			ToastUtils.showToast(getActivity(), "请输入其他负性事件！");
-			return false;
-		}
+//		if (ViewDataUtil.validateOtherCheckbox(negativeEventOther, negativeEventEditText)) {
+//			ToastUtils.showToast(getActivity(), "请输入其他负性事件！");
+//			return false;
+//		}
 
 		if (TextUtils.isEmpty(createDateEditText.getText().toString())) {
 			ToastUtils.showToast(getActivity(), "建档日期不能为空！");

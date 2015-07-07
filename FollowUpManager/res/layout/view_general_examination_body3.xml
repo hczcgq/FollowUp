@@ -434,6 +434,7 @@
             android:text="粉尘：" />
 
         <EditText
+            android:id="@+id/et_fc"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
 
@@ -443,6 +444,7 @@
             android:text="防护措施：" />
 
         <RadioGroup
+            android:id="@+id/rg_fc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
@@ -460,6 +462,7 @@
                 android:text="有" />
 
             <EditText
+                android:id="@+id/et_fc_qt"
                 style="@style/GeneralExaminationEditTextStyle"
                 android:layout_width="220dp"
                 android:layout_marginLeft="20dp" />
@@ -478,6 +481,7 @@
             android:text="放射物质：" />
 
         <EditText
+            android:id="@+id/et_fswz"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
 
@@ -487,6 +491,7 @@
             android:text="防护措施：" />
 
         <RadioGroup
+             android:id="@+id/rg_fswz"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
@@ -504,6 +509,7 @@
                 android:text="有" />
 
             <EditText
+                 android:id="@+id/et_fswz_qt"
                 style="@style/GeneralExaminationEditTextStyle"
                 android:layout_width="220dp"
                 android:layout_marginLeft="20dp" />
@@ -522,6 +528,7 @@
             android:text="物理因素：" />
 
         <EditText
+            android:id="@+id/et_wlys"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
 
@@ -531,6 +538,7 @@
             android:text="防护措施：" />
 
         <RadioGroup
+            android:id="@+id/rg_wlys"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
@@ -548,6 +556,7 @@
                 android:text="有" />
 
             <EditText
+                android:id="@+id/et_wlys_qt"
                 style="@style/GeneralExaminationEditTextStyle"
                 android:layout_width="220dp"
                 android:layout_marginLeft="20dp" />
@@ -566,6 +575,7 @@
             android:text="化学物质：" />
 
         <EditText
+            android:id="@+id/et_hxwz"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
 
@@ -575,6 +585,7 @@
             android:text="防护措施：" />
 
         <RadioGroup
+            android:id="@+id/rg_hxwz"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
@@ -592,6 +603,7 @@
                 android:text="有" />
 
             <EditText
+                android:id="@+id/et_hxwz_qt"
                 style="@style/GeneralExaminationEditTextStyle"
                 android:layout_width="220dp"
                 android:layout_marginLeft="20dp" />
@@ -610,6 +622,7 @@
             android:text="其他：" />
 
         <EditText
+            android:id="@+id/et_qt"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="220dp" />
 
@@ -619,6 +632,7 @@
             android:text="防护措施：" />
 
         <RadioGroup
+            android:id="@+id/rg_qt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
@@ -636,6 +650,7 @@
                 android:text="有" />
 
             <EditText
+                android:id="@+id/et_qt_qt"
                 style="@style/GeneralExaminationEditTextStyle"
                 android:layout_width="220dp"
                 android:layout_marginLeft="20dp" />

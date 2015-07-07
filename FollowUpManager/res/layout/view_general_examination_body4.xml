@@ -26,6 +26,7 @@
             android:text="口唇：" />
 
         <RadioGroup
+            android:id="@+id/lipRadioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
@@ -136,6 +137,7 @@
             android:text="咽部：" />
 
         <RadioGroup
+            android:id="@+id/pharynxRadioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
@@ -182,6 +184,7 @@
             android:text="裸眼视力：" />
 
         <EditText
+            android:id="@+id/et_lysl_zy"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="80dp"
             android:hint="左眼" />
@@ -192,6 +195,7 @@
             android:text="/" />
 
         <EditText
+             android:id="@+id/et_lysl_yy"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="80dp"
             android:hint="右眼" />
@@ -202,6 +206,7 @@
             android:text="矫正视力：" />
 
         <EditText
+             android:id="@+id/et_jzsl_zy"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="80dp"
             android:hint="左眼" />
@@ -212,6 +217,7 @@
             android:text="/" />
 
         <EditText
+            android:id="@+id/et_jzsl_yy"
             style="@style/GeneralExaminationEditTextStyle"
             android:layout_width="80dp"
             android:hint="右眼" />
@@ -238,6 +244,7 @@
             android:text="听力：" />
 
         <Spinner
+            android:id="@+id/sn_tl"
             style="@style/GeneralExaminationSpinnerStyle"
             android:layout_width="150dp"
             android:entries="@array/hearing" />
@@ -264,6 +271,7 @@
             android:text="运动能力：" />
 
         <Spinner
+            android:id="@+id/sn_ydnl"
             style="@style/GeneralExaminationSpinnerStyle"
             android:layout_width="300dp"
             android:entries="@array/motorFunction" />
