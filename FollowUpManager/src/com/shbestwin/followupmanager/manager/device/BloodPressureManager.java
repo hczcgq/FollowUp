@@ -8,6 +8,9 @@ import java.util.Set;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.bluetooth.BluetoothConnector;
 import com.shbestwin.followupmanager.bluetooth.BluetoothSocketWrapper;
@@ -37,7 +40,7 @@ public class BloodPressureManager {
 	private static final String TAG = BloodPressureManager.class.getSimpleName();
 	private Log log = new Log("bluetoothDevice");
 
-	private static final String DEVICE_NAME = "BP";// 血压计的名称。型号：ePW-19B
+	private String DEVICE_NAME = "BP";// 血压计的名称。型号：ePW-19B
 
 	private static byte[] CMD_REQUEST_DATA = new byte[5];
 	
@@ -70,6 +73,13 @@ public class BloodPressureManager {
 	public BloodPressureManager(Activity activity) {
 		this.mActivity = activity;
 		mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+		SharedPreferences preferences=mActivity.getSharedPreferences("DEVICE_NAME", Context.MODE_PRIVATE);
+		if(preferences.contains("BloodPressure_BP")){
+			String device=preferences.getString("BloodPressure_BP", "");
+			if(device!=""&&device!=null){
+				DEVICE_NAME=device;
+			}
+		}
 	}
 
 	/**

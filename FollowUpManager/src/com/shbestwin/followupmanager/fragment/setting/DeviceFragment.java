@@ -74,8 +74,10 @@ public class DeviceFragment extends BaseFragment implements DeviceListener {
 					int position, long id) {
 				deviceTypeLayout.setVisibility(View.VISIBLE);
 				checkedIndex = position;
-				List<Device> deviceTypeList = settingDevicesList.get(position)
-						.getAll();
+				List<Device> deviceTypeList = settingDevicesList.get(position).getAll();
+				for(int i=0;i<deviceTypeList.size();i++){
+					System.out.println("----"+deviceTypeList.get(i).isUsing());
+				}
 				deviceTypeListAdapter.setList(deviceTypeList);
 			}
 		});
@@ -109,12 +111,10 @@ public class DeviceFragment extends BaseFragment implements DeviceListener {
 
 	@Override
 	public void editBoothName(final Device device) {
-		final DeviceNameDialog medicationDialog = DeviceNameDialog
-				.newInstance();
+		final DeviceNameDialog medicationDialog =new DeviceNameDialog(device);
 		medicationDialog.show(
 				((FragmentActivity) getActivity()).getSupportFragmentManager(),
 				"medicationDialog");
-
 		medicationDialog
 				.setOnConfirmClickListener(new OnConfirmClickListener() {
 
@@ -122,17 +122,45 @@ public class DeviceFragment extends BaseFragment implements DeviceListener {
 					public void onConfirmClick() {
 						String name = medicationDialog.getName();
 						medicationDialog.hide();
-						saveBoothName(device,name);
+						saveBoothName(device, name);
 					}
 				});
 	}
-	
-	private void saveBoothName(Device device,String name){
-		
-		SharedPreferences preferences=getActivity().getSharedPreferences("DEVICE_NAME", Context.MODE_PRIVATE);
-		
-		SharedPreferences.Editor editor=preferences.edit();
-//		editor.putInt("", name);
+
+	private void saveBoothName(Device device, String name) {
+		String value = null;
+		if (device.getCode().equals("0201")) {
+			value = "ReadIDCard";
+		} else if (device.getCode().equals("0301")) {
+			value = "Waistline";
+		} else if (device.getCode().equals("0401")) {
+			value = "BloodPressure_BP";
+		} else if (device.getCode().equals("0402")) {
+			value = "BloodPressure_HEM";
+		} else if (device.getCode().equals("0501")) {
+			value = "BloodGlucose";
+		} else if (device.getCode().equals("0502")) {
+			value = "BloodGlucose_BU";
+		} else if (device.getCode().equals("0601")) {
+			value = "BloodFat_BU";
+		} else if (device.getCode().equals("0701")) {
+			value = "FingerOximeter";
+		} else if (device.getCode().equals("0801")) {
+			value = "Electrocardiogram";
+		} else if (device.getCode().equals("0901")) {
+			value = "BodyComposition";
+		} else if (device.getCode().equals("1001")) {
+			value = "Print";
+		}
+
+		if (value != null) {
+			SharedPreferences preferences = getActivity().getSharedPreferences(
+					"DEVICE_NAME", Context.MODE_PRIVATE);
+			SharedPreferences.Editor editor = preferences.edit();
+			editor.putString(value, name);
+			editor.commit();
+		}
+
 	}
 
 }

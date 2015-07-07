@@ -8,6 +8,9 @@ import java.util.Set;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.bluetooth.BluetoothConnector;
 import com.shbestwin.followupmanager.bluetooth.BluetoothSocketWrapper;
@@ -24,7 +27,7 @@ public class WaistlineManager {
 	private static final String TAG = WaistlineManager.class.getSimpleName();
 	private Log log = new Log("bluetoothDevice");
 
-	private static final String DEVICE_NAME = "MB_YWC_1441120022";
+	private String DEVICE_NAME = "MB_YWC_1441120022";
 	private Activity mActivity;
 
 	private BluetoothAdapter mBluetoothAdapter = null;
@@ -38,6 +41,14 @@ public class WaistlineManager {
 	public WaistlineManager(Activity activity) {
 		this.mActivity = activity;
 		mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+		SharedPreferences preferences=mActivity.getSharedPreferences("DEVICE_NAME", Context.MODE_PRIVATE);
+		if(preferences.contains("Waistline")){
+			String device=preferences.getString("Waistline", "");
+			if(device!=""&&device!=null){
+				DEVICE_NAME=device;
+			}
+		}
+		System.out.println("----------"+DEVICE_NAME);
 	}
 
 	/**

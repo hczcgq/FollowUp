@@ -10,6 +10,9 @@ import java.util.Set;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.bluetooth.BluetoothConnector;
 import com.shbestwin.followupmanager.bluetooth.BluetoothSocketWrapper;
@@ -31,7 +34,7 @@ public class BodyCompositionManager {
 	private static final String TAG = BodyCompositionManager.class.getSimpleName();
 	private Log log = new Log("bluetoothDevice");
 
-	private static final String DEVICE_NAME = "Belter";// 脂肪秤的名称
+	private String DEVICE_NAME = "Belter";// 脂肪秤的名称
 
 	private static byte[] CMD_REQUEST_DATA = new byte[6];
 
@@ -57,6 +60,13 @@ public class BodyCompositionManager {
 	public BodyCompositionManager(Activity activity) {
 		this.mActivity = activity;
 		mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+		SharedPreferences preferences=mActivity.getSharedPreferences("DEVICE_NAME", Context.MODE_PRIVATE);
+		if(preferences.contains("BodyComposition")){
+			String device=preferences.getString("BodyComposition", "");
+			if(device!=""&&device!=null){
+				DEVICE_NAME=device;
+			}
+		}
 	}
 
 	/**

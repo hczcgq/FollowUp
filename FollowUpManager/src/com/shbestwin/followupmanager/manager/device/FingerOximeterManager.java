@@ -10,6 +10,8 @@ import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Build;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.log.Log;
@@ -27,7 +29,7 @@ public class FingerOximeterManager {
 	private static final String TAG = FingerOximeterManager.class.getSimpleName();
 	private Log log = new Log("bluetoothDevice");
 
-	private static final String DEVICE_NAME = "PC-60NW-1";
+	private String DEVICE_NAME = "PC-60NW-1";
 
 	// 查询版本
 	private static byte[] CMD_QUERY_VERSION = new byte[6];
@@ -73,6 +75,13 @@ public class FingerOximeterManager {
 	public FingerOximeterManager(Activity activity) {
 		this.mActivity = activity;
 		mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+		SharedPreferences preferences=mActivity.getSharedPreferences("DEVICE_NAME", Context.MODE_PRIVATE);
+		if(preferences.contains("FingerOximeter")){
+			String device=preferences.getString("FingerOximeter", "");
+			if(device!=""&&device!=null){
+				DEVICE_NAME=device;
+			}
+		}
 	}
 
 	/**

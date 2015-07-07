@@ -45,6 +45,7 @@ public class DeviceManager {
 		if (TextUtils.isEmpty(deviceList)) {
 			return getDefaultDeviceList();
 		}
+		
 		Type listType = new TypeToken<List<SettingDevices>>() {
 		}.getType();
 		List<SettingDevices> settingDevices = new Gson().fromJson(deviceList, listType);

@@ -11,6 +11,8 @@ import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
+import android.content.Context;
+import android.content.SharedPreferences;
 import cn.novacomm.ble.iGate;
 import cn.novacomm.ble.iGateCallBacks;
 import com.shbestwin.followupmanager.R;
@@ -27,7 +29,7 @@ public class BloodGlucoseManager implements iGateCallBacks {
 	private static final String TAG = BloodGlucoseManager.class.getSimpleName();
 	private Log log = new Log("bluetoothDevice");
 
-	private static final String DEVICE_NAME = "101A0000047";// 血糖仪设备名称
+	private String DEVICE_NAME = "101A0000047";// 血糖仪设备名称
 	private String deviceAddress;
 
 	// 获取meter id
@@ -57,6 +59,13 @@ public class BloodGlucoseManager implements iGateCallBacks {
 		mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 		mIgate = new iGate(activity, UUID.fromString("C14D2C0A-401F-B7A9-841F-E2E93B80F631"), this);
 		mIgate.initialize(false);// 不自动连接
+		SharedPreferences preferences=mActivity.getSharedPreferences("DEVICE_NAME", Context.MODE_PRIVATE);
+		if(preferences.contains("BloodGlucose")){
+			String device=preferences.getString("BloodGlucose", "");
+			if(device!=""&&device!=null){
+				DEVICE_NAME=device;
+			}
+		}
 	}
 
 	@Override

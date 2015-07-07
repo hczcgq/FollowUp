@@ -34,8 +34,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:contentDescription="@null"
-        android:scaleType="centerInside"
-        android:src="@drawable/icon_check" />
+        android:scaleType="centerInside" />
       <ImageView
         android:id="@+id/edit"
         android:layout_width="40dp"

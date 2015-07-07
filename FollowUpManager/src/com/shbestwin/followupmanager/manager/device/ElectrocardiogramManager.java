@@ -11,6 +11,9 @@ import java.util.Set;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.bluetooth.BluetoothConnector;
 import com.shbestwin.followupmanager.bluetooth.BluetoothSocketWrapper;
@@ -136,7 +139,7 @@ public class ElectrocardiogramManager {
 	// 01-30 23:09:52.265: I/ElectrocardiogramManager(14237):
 	// Name=ECG:HC-201B,address=30:14:09:03:15:10
 
-	private static final String DEVICE_NAME = "ECG:HC-201B";// 心电仪设备名称(HC201)
+	private String DEVICE_NAME = "ECG:HC-201B";// 心电仪设备名称(HC201)
 
 	private Activity mActivity;
 
@@ -151,6 +154,13 @@ public class ElectrocardiogramManager {
 	public ElectrocardiogramManager(Activity activity) {
 		this.mActivity = activity;
 		mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+		SharedPreferences preferences=mActivity.getSharedPreferences("DEVICE_NAME", Context.MODE_PRIVATE);
+		if(preferences.contains("Electrocardiogram")){
+			String device=preferences.getString("Electrocardiogram", "");
+			if(device!=""&&device!=null){
+				DEVICE_NAME=device;
+			}
+		}
 	}
 
 	/**

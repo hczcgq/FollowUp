@@ -12,6 +12,8 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothServerSocket;
 import android.bluetooth.BluetoothSocket;
+import android.content.Context;
+import android.content.SharedPreferences;
 
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.log.Log;
@@ -27,7 +29,7 @@ public class CopyOfWaistlineManager {
 	private static final String TAG = CopyOfWaistlineManager.class.getSimpleName();
 	private Log log = new Log("bluetoothDevice");
 
-	private static final String DEVICE_NAME = "MB_YWC_1441120016";
+	private String DEVICE_NAME = "MB_YWC_1441120016";
 	private Activity mActivity;
 
 	private BluetoothAdapter mBluetoothAdapter = null;
@@ -41,6 +43,13 @@ public class CopyOfWaistlineManager {
 	public CopyOfWaistlineManager(Activity activity) {
 		this.mActivity = activity;
 		mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+		SharedPreferences preferences=mActivity.getSharedPreferences("DEVICE_NAME", Context.MODE_PRIVATE);
+		if(preferences.contains("Waistline")){
+			String device=preferences.getString("Waistline", "");
+			if(device!=""&&device!=null){
+				DEVICE_NAME=device;
+			}
+		}
 	}
 
 	/**

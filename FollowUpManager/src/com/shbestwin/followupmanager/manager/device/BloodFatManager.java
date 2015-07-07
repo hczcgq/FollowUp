@@ -30,7 +30,7 @@ public class BloodFatManager {
 	private static final String TAG = BloodFatManager.class.getSimpleName();
 	private Log log = new Log("bluetoothDevice");
 
-	private static final String DEVICE_NAME = "Hihol";// 血脂的名称。，型号：BU-34
+	private String DEVICE_NAME = "Hihol";// 血脂的名称。，型号：BU-34
 
 	private Activity mActivity;
 
@@ -45,6 +45,13 @@ public class BloodFatManager {
 	public BloodFatManager(Activity activity) {
 		this.mActivity = activity;
 		mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+		SharedPreferences preferences=mActivity.getSharedPreferences("DEVICE_NAME", Context.MODE_PRIVATE);
+		if(preferences.contains("BloodFat_BU")){
+			String device=preferences.getString("BloodFat_BU", "");
+			if(device!=""&&device!=null){
+				DEVICE_NAME=device;
+			}
+		}
 	}
 
 	/**

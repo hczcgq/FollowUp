@@ -3,6 +3,7 @@ package com.shbestwin.followupmanager.view.widget;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.R.integer;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -227,15 +228,15 @@ public class GeneralExaminationBody3 extends LinearLayout implements
         generalExamination.setShfs_cysj(et_cysj.getText().toString());
 
         List<Poison> lists = new ArrayList<Poison>();
-        Poison poison_fc = new Poison(et_fc.getText().toString(), isFc,
+        Poison poison_fc = new Poison(et_fc.getText().toString(), String.valueOf(isFc),
                 et_fc_qt.getText().toString());
-        Poison poison_fswz = new Poison(et_fswz.getText().toString(), isFswz,
+        Poison poison_fswz = new Poison(et_fswz.getText().toString(),  String.valueOf(isFswz),
                 et_fswz_qt.getText().toString());
-        Poison poison_wlys = new Poison(et_wlys.getText().toString(), isWlys,
+        Poison poison_wlys = new Poison(et_wlys.getText().toString(),  String.valueOf(isWlys),
                 et_wlys_qt.getText().toString());
-        Poison poison_hxys = new Poison(et_hxwz.getText().toString(), isHxwz,
+        Poison poison_hxys = new Poison(et_hxwz.getText().toString(),  String.valueOf(isHxwz),
                 et_hxwz_qt.getText().toString());
-        Poison poison_qt = new Poison(et_qt.getText().toString(), isQt,
+        Poison poison_qt = new Poison(et_qt.getText().toString(),  String.valueOf(isQt),
                 et_qt_qt.getText().toString());
         lists.add(poison_fc);
         lists.add(poison_fswz);
@@ -306,12 +307,58 @@ public class GeneralExaminationBody3 extends LinearLayout implements
                 lists = JsonUtil.jsonToObjects(
                         generalExamination.getShfs_dwzl(), Poison.class);
                 if (lists != null && lists.size() > 0) {
-
+                	for(int i=0;i<lists.size();i++){
+                		showDw(lists.get(i),i);
+                	}
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
+    }
+    
+    private void showDw(Poison poison,int index){
+    	if(index==0){
+    		et_fc.setText(poison.getName());
+    		et_fc_qt.setText(poison.getMeasurename());
+    		if(Boolean.parseBoolean(poison.getIsmeasure())){
+    			rg_fc.check(R.id.dustRadioButton1);
+    		}else {
+    			rg_fc.check(R.id.dustRadioButton0);
+			}
+    	}else if(index==1){
+    		et_fswz.setText(poison.getName());
+    		et_fswz_qt.setText(poison.getMeasurename());
+    		if(Boolean.parseBoolean(poison.getIsmeasure())){
+    			rg_fswz.check(R.id.radiogenRadioButton1);
+    		}else {
+    			rg_fswz.check(R.id.radiogenRadioButton0);
+			}
+    	}else if(index==2){
+    		et_wlys.setText(poison.getName());
+    		et_wlys_qt.setText(poison.getMeasurename());
+    		if(Boolean.parseBoolean(poison.getIsmeasure())){
+    			rg_wlys.check(R.id.physicalFactorRadioButton1);
+    		}else {
+    			rg_fc.check(R.id.physicalFactorRadioButton0);
+			}
+    	}else if(index==3){
+    		et_hxwz.setText(poison.getName());
+    		et_hxwz_qt.setText(poison.getMeasurename());
+    		if(Boolean.parseBoolean(poison.getIsmeasure())){
+    			rg_hxwz.check(R.id.chemicalRadioButton1);
+    		}else {
+    			rg_hxwz.check(R.id.chemicalRadioButton0);
+			}
+    	}else if(index==4){
+    		et_qt.setText(poison.getName());
+    		et_qt_qt.setText(poison.getMeasurename());
+    		if(Boolean.parseBoolean(poison.getIsmeasure())){
+    			rg_qt.check(R.id.otherRadioButton1);
+    		}else {
+    			rg_qt.check(R.id.otherRadioButton0);
+			}
+    	}
     }
 
     @Override

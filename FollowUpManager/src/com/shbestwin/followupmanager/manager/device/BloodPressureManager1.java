@@ -11,6 +11,8 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothServerSocket;
 import android.bluetooth.BluetoothSocket;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Build;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.bluetooth.BluetoothConnector;
@@ -30,7 +32,7 @@ public class BloodPressureManager1 {
 	private static final String TAG = BloodPressureManager1.class.getSimpleName();
 	private Log log = new Log("bluetoothDevice");
 
-	private static final String DEVICE_NAME = "HEM-7081-IT";// 血压计的名称
+	private String DEVICE_NAME = "HEM-7081-IT";// 血压计的名称
 
 	private Activity mActivity;
 
@@ -51,6 +53,13 @@ public class BloodPressureManager1 {
 		this.mActivity = activity;
 		mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 		mPreferencesManager = new PreferencesManager(activity);
+		SharedPreferences preferences=mActivity.getSharedPreferences("DEVICE_NAME", Context.MODE_PRIVATE);
+		if(preferences.contains("BloodPressure_HEM")){
+			String device=preferences.getString("BloodPressure_HEM", "");
+			if(device!=""&&device!=null){
+				DEVICE_NAME=device;
+			}
+		}
 	}
 
 	public boolean isPaired() {

@@ -8,6 +8,9 @@ import java.util.Set;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.bluetooth.BluetoothConnector;
 import com.shbestwin.followupmanager.bluetooth.BluetoothSocketWrapper;
@@ -25,7 +28,7 @@ public class BloodGlucoseManager1 {
 	private static final String TAG = BloodGlucoseManager1.class.getSimpleName();
 	private Log log = new Log("bluetoothDevice");
 
-	private static final String DEVICE_NAME = "101A0000047";// 血糖仪设备名称
+	private String DEVICE_NAME = "101A0000047";// 血糖仪设备名称
 
 	// 获取meter id
 	private static String CMD_METER_ID = "&TB 50299";
@@ -46,6 +49,13 @@ public class BloodGlucoseManager1 {
 	public BloodGlucoseManager1(Activity activity) {
 		this.mActivity = activity;
 		mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+		SharedPreferences preferences=mActivity.getSharedPreferences("DEVICE_NAME", Context.MODE_PRIVATE);
+		if(preferences.contains("BloodGlucose")){
+			String device=preferences.getString("BloodGlucose", "");
+			if(device!=""&&device!=null){
+				DEVICE_NAME=device;
+			}
+		}
 	}
 
 	/**

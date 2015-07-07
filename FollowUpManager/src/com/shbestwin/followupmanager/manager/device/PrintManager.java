@@ -5,6 +5,9 @@ import java.util.Set;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import com.RT_Printer.BluetoothPrinter.BLUETOOTH.BluetoothPrintDriver;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.log.Log;
@@ -18,7 +21,7 @@ public class PrintManager {
 	private static final String TAG = PrintManager.class.getSimpleName();
 	private Log log = new Log("bluetoothDevice");
 
-	private static final String DEVICE_NAME = "RPP-02";// 打印机的名称
+	private  String DEVICE_NAME = "RPP-02";// 打印机的名称
 
 	private Activity mActivity;
 
@@ -31,6 +34,13 @@ public class PrintManager {
 	public PrintManager(Activity activity) {
 		this.mActivity = activity;
 		mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+		SharedPreferences preferences=mActivity.getSharedPreferences("DEVICE_NAME", Context.MODE_PRIVATE);
+		if(preferences.contains("Print")){
+			String device=preferences.getString("Print", "");
+			if(device!=""&&device!=null){
+				DEVICE_NAME=device;
+			}
+		}
 	}
 
 	public boolean isPaired() {

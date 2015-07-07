@@ -10,7 +10,9 @@ import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Environment;
 import android.util.Log;
@@ -19,7 +21,7 @@ import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.model.device.IDCardInfo;
 
 public class ReadIDCardManager {
-	private static final String DEVICE_NAME = "CVR-100B";
+	private String DEVICE_NAME = "CVR-100B";
 //	private static final String DEVICE_NAME2 = "IDCReader";
 //	private static final String DEVICE_NAME3 = "COM2";
 //	private static final String DEVICE_NAME4 = "BOLUTEK";
@@ -44,6 +46,13 @@ public class ReadIDCardManager {
 	public ReadIDCardManager(Activity activity) {
 		this.mActivity = activity;
 		mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+		SharedPreferences preferences=mActivity.getSharedPreferences("DEVICE_NAME", Context.MODE_PRIVATE);
+		if(preferences.contains("ReadIDCard")){
+			String device=preferences.getString("ReadIDCard", "");
+			if(device!=""&&device!=null){
+				DEVICE_NAME=device;
+			}
+		}
 	}
 
 	/**
