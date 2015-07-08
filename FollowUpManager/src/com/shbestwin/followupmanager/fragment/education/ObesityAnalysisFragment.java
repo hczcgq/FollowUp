@@ -1,25 +1,32 @@
 package com.shbestwin.followupmanager.fragment.education;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.fragment.BaseFragment;
+import com.shbestwin.followupmanager.model.examination.ExaminationInfo;
 
 /**
  * 
  * 肥胖分析
- *
+ * 
  * @version
  */
 public class ObesityAnalysisFragment extends BaseFragment {
 	private TextView analysisResultTextView, adviseTextView;
 	private TextView heightTextView, weightTextView, BMITextView;
 	private TextView waistTextView, hipsTextView, waistToHipratioTextView;
-	private TextView bodyImpedanceTextView, fatTextView, visceralFatTextView, KCALTextView;
+	private TextView bodyImpedanceTextView, fatTextView, visceralFatTextView,
+			KCALTextView;
 
 	public static ObesityAnalysisFragment newInstance() {
 		ObesityAnalysisFragment fragment = new ObesityAnalysisFragment();
@@ -27,9 +34,12 @@ public class ObesityAnalysisFragment extends BaseFragment {
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fragment_education_obesity_analysis, container, false);
-		analysisResultTextView = (TextView) rootView.findViewById(R.id.analysisResultTextView);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		View rootView = inflater.inflate(
+				R.layout.fragment_education_obesity_analysis, container, false);
+		analysisResultTextView = (TextView) rootView
+				.findViewById(R.id.analysisResultTextView);
 		adviseTextView = (TextView) rootView.findViewById(R.id.adviseTextView);
 
 		heightTextView = (TextView) rootView.findViewById(R.id.heightTextView);
@@ -38,11 +48,14 @@ public class ObesityAnalysisFragment extends BaseFragment {
 
 		waistTextView = (TextView) rootView.findViewById(R.id.waistTextView);
 		hipsTextView = (TextView) rootView.findViewById(R.id.hipsTextView);
-		waistToHipratioTextView = (TextView) rootView.findViewById(R.id.waistToHipratioTextView);
+		waistToHipratioTextView = (TextView) rootView
+				.findViewById(R.id.waistToHipratioTextView);
 
-		bodyImpedanceTextView = (TextView) rootView.findViewById(R.id.bodyImpedanceTextView);
+		bodyImpedanceTextView = (TextView) rootView
+				.findViewById(R.id.bodyImpedanceTextView);
 		fatTextView = (TextView) rootView.findViewById(R.id.fatTextView);
-		visceralFatTextView = (TextView) rootView.findViewById(R.id.visceralFatTextView);
+		visceralFatTextView = (TextView) rootView
+				.findViewById(R.id.visceralFatTextView);
 		KCALTextView = (TextView) rootView.findViewById(R.id.KCALTextView);
 		return rootView;
 	}
@@ -50,19 +63,35 @@ public class ObesityAnalysisFragment extends BaseFragment {
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-
-		heightTextView.setText("");
-		weightTextView.setText("");
-		BMITextView.setText("");
-		waistTextView.setText("");
-		hipsTextView.setText("");
-		waistToHipratioTextView.setText("");
-		bodyImpedanceTextView.setText("");
-		fatTextView.setText("");
-		visceralFatTextView.setText("");
-		KCALTextView.setText("");
-
 		double BMI = 28.5;
+		ExaminationInfo generalExamination = MyApplication.getInstance()
+				.getExaminationInfo();
+		if (generalExamination != null) {
+			String msg = generalExamination.getRoutineCheckups();
+			if (!TextUtils.isEmpty(msg)) {
+				try {
+					JSONObject jsonObject = new JSONObject(msg);
+					BMI = Double.parseDouble(jsonObject.getString("BMI"));
+					heightTextView.setText(jsonObject.getString("height"));
+					weightTextView.setText(jsonObject.getString("weight"));
+					BMITextView.setText(jsonObject.getString("BMI"));
+
+					bodyImpedanceTextView.setText(jsonObject
+							.getString("bodyImpedance"));
+					fatTextView.setText(jsonObject.getString("KCAL"));
+					visceralFatTextView.setText(jsonObject.getString("fat"));
+					KCALTextView.setText(jsonObject.getString("visceralFat"));
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+
+			}
+
+		}
+		// waistTextView.setText(jsonObject.getString("weight"));
+		// hipsTextView.setText(jsonObject.getString("weight"));
+		// waistToHipratioTextView.setText(jsonObject.getString("weight"));
+
 		// 过轻：低于18.5
 		// 正常：18.5-24.99
 		// 过重：25-28

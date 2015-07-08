@@ -28,15 +28,17 @@ import com.shbestwin.followupmanager.model.examination.ExaminationInfo;
 /**
  * 
  * 常规体检
- *
+ * 
  * @version
  */
 public class RoutineExaminationFragment extends BaseQuickExaminationFragment {
 	private Button getWaistlineButton, getHiplineButton, getBustButton;
-	private EditText waistlineEditText, hiplineEditText, bustEditText, waistToHipratioEditText, BWHConclusionEditText;
+	private EditText waistlineEditText, hiplineEditText, bustEditText,
+			waistToHipratioEditText, BWHConclusionEditText;
 
 	private EditText temperatureEditText, temperatureConclusionEditText;
-	private EditText heightEditText, weightEditText, BMIEditText, physiqueConclusionEditText;
+	private EditText heightEditText, weightEditText, BMIEditText,
+			physiqueConclusionEditText;
 
 	public static RoutineExaminationFragment newInstance() {
 		RoutineExaminationFragment fragment = new RoutineExaminationFragment();
@@ -44,22 +46,34 @@ public class RoutineExaminationFragment extends BaseQuickExaminationFragment {
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fragment_quick_examination_routine_examination, container, false);
-		getWaistlineButton = (Button) rootView.findViewById(R.id.getWaistlineButton);
-		getHiplineButton = (Button) rootView.findViewById(R.id.getHiplineButton);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		View rootView = inflater.inflate(
+				R.layout.fragment_quick_examination_routine_examination,
+				container, false);
+		getWaistlineButton = (Button) rootView
+				.findViewById(R.id.getWaistlineButton);
+		getHiplineButton = (Button) rootView
+				.findViewById(R.id.getHiplineButton);
 		getBustButton = (Button) rootView.findViewById(R.id.getBustButton);
-		waistlineEditText = (EditText) rootView.findViewById(R.id.waistlineEditText);
-		hiplineEditText = (EditText) rootView.findViewById(R.id.hiplineEditText);
+		waistlineEditText = (EditText) rootView
+				.findViewById(R.id.waistlineEditText);
+		hiplineEditText = (EditText) rootView
+				.findViewById(R.id.hiplineEditText);
 		bustEditText = (EditText) rootView.findViewById(R.id.bustEditText);
-		waistToHipratioEditText = (EditText) rootView.findViewById(R.id.waistToHipratioEditText);
-		BWHConclusionEditText = (EditText) rootView.findViewById(R.id.BWHConclusionEditText);
-		temperatureEditText = (EditText) rootView.findViewById(R.id.temperatureEditText);
-		temperatureConclusionEditText = (EditText) rootView.findViewById(R.id.temperatureConclusionEditText);
+		waistToHipratioEditText = (EditText) rootView
+				.findViewById(R.id.waistToHipratioEditText);
+		BWHConclusionEditText = (EditText) rootView
+				.findViewById(R.id.BWHConclusionEditText);
+		temperatureEditText = (EditText) rootView
+				.findViewById(R.id.temperatureEditText);
+		temperatureConclusionEditText = (EditText) rootView
+				.findViewById(R.id.temperatureConclusionEditText);
 		heightEditText = (EditText) rootView.findViewById(R.id.heightEditText);
 		weightEditText = (EditText) rootView.findViewById(R.id.weightEditText);
 		BMIEditText = (EditText) rootView.findViewById(R.id.BMIEditText);
-		physiqueConclusionEditText = (EditText) rootView.findViewById(R.id.physiqueConclusionEditText);
+		physiqueConclusionEditText = (EditText) rootView
+				.findViewById(R.id.physiqueConclusionEditText);
 		return rootView;
 	}
 
@@ -93,16 +107,15 @@ public class RoutineExaminationFragment extends BaseQuickExaminationFragment {
 	private void readData(EditText editText) {
 		if (!dataReading) {
 			dataReading = true;
-//			new ReadDataTask(getActivity(), editText).execute();
-			
-			
+			// new ReadDataTask(getActivity(), editText).execute();
+
 			if (readDataTask != null
-                    && readDataTask.getStatus() == AsyncTask.Status.RUNNING) {
-                readDataTask.cancel(true); // 如果Task还在运行，则先取消它
-            }
-            // 启动新的任务
-            readDataTask = new ReadDataTask(getActivity(),editText);
-            readDataTask.execute();
+					&& readDataTask.getStatus() == AsyncTask.Status.RUNNING) {
+				readDataTask.cancel(true); // 如果Task还在运行，则先取消它
+			}
+			// 启动新的任务
+			readDataTask = new ReadDataTask(getActivity(), editText);
+			readDataTask.execute();
 		}
 	}
 
@@ -120,13 +133,14 @@ public class RoutineExaminationFragment extends BaseQuickExaminationFragment {
 
 		@Override
 		protected void onPreExecute() {
-			progressDialog = ProgressDialog.show(activity, "温馨提示", "获取中。。。", false, true);
+			progressDialog = ProgressDialog.show(activity, "温馨提示", "获取中。。。",
+					false, true);
 			progressDialog.setOnCancelListener(new OnCancelListener() {
 				@Override
 				public void onCancel(DialogInterface dialog) {
 					if (waistlineManager != null) {
 						waistlineManager.closeDevice();
-						dataReading=false;
+						dataReading = false;
 					}
 				}
 			});
@@ -191,7 +205,9 @@ public class RoutineExaminationFragment extends BaseQuickExaminationFragment {
 		if (!TextUtils.isEmpty(heightStr) && !TextUtils.isEmpty(weightStr)) {
 			double height = Double.parseDouble(heightStr);
 			double weight = Double.parseDouble(weightStr);
-			double BMI = new BigDecimal(weight).divide(new BigDecimal(Math.pow(height / 100, 2)), 1, RoundingMode.DOWN).doubleValue();
+			double BMI = new BigDecimal(weight).divide(
+					new BigDecimal(Math.pow(height / 100, 2)), 1,
+					RoundingMode.DOWN).doubleValue();
 			BMIEditText.setText("" + BMI);
 			// BMI值 <18.5 18.5～23.9 24.0～27.9 ≥28
 			// 体质 体重过低 体重正常 超重 肥胖
@@ -215,9 +231,12 @@ public class RoutineExaminationFragment extends BaseQuickExaminationFragment {
 		if (!TextUtils.isEmpty(waistlineStr) && !TextUtils.isEmpty(hiplineStr)) {
 			double waistline = Double.parseDouble(waistlineStr);
 			double hipline = Double.parseDouble(hiplineStr);
-			double waistToHipratio = new BigDecimal(waistline).divide(new BigDecimal(hipline), 2, RoundingMode.DOWN).doubleValue();
+			double waistToHipratio = new BigDecimal(waistline).divide(
+					new BigDecimal(hipline), 2, RoundingMode.DOWN)
+					.doubleValue();
 			waistToHipratioEditText.setText("" + waistToHipratio);
-			ArchiveInfo archiveInfo = MyApplication.getInstance().getArchiveInfo();
+			ArchiveInfo archiveInfo = MyApplication.getInstance()
+					.getArchiveInfo();
 			if (archiveInfo != null) {
 				// 男士大于 1，女士大于 0.8，即被认为有腹部肥胖
 				if ("男".equals(archiveInfo.getGender())) {
@@ -256,21 +275,29 @@ public class RoutineExaminationFragment extends BaseQuickExaminationFragment {
 
 	@Override
 	public String getPrintData(String examinationNo) {
-		String printStr = ExaminationManager.getInstance(getActivity()).getPrintTemplate(R.raw.print_routine_examination_template, examinationNo);
+		String printStr = ExaminationManager.getInstance(getActivity())
+				.getPrintTemplate(R.raw.print_routine_examination_template,
+						examinationNo);
 		// 替换相关数据
-		printStr=printStr.replace("{temperature}", temperatureEditText.getText().toString())// 体温
-					     .replace("{temperature_conclusion}", temperatureConclusionEditText.getText().toString())// 结论
-		
-					     .replace("{height}", heightEditText.getText().toString())// 身高
-					     .replace("{weight}", weightEditText.getText().toString())// 体重
-					     .replace("{BMI}", BMIEditText.getText().toString())// BMI
-					     .replace("{constitutional_index_conclusion}", physiqueConclusionEditText.getText().toString())// 结论
+		printStr = printStr
+				.replace("{temperature}",
+						temperatureEditText.getText().toString())// 体温
+				.replace("{temperature_conclusion}",
+						temperatureConclusionEditText.getText().toString())// 结论
 
-					     .replace("{waist}", waistlineEditText.getText().toString())// 腰围
-					     .replace("{hips}", hiplineEditText.getText().toString())// 臀围
-					     .replace("{bust}", bustEditText.getText().toString())// 胸围
-					     .replace("{waist_to_hipratio}", waistToHipratioEditText.getText().toString())// 腰臀比
-					     .replace("{BWH_conclusion}", BWHConclusionEditText.getText().toString());// 结论
+				.replace("{height}", heightEditText.getText().toString())// 身高
+				.replace("{weight}", weightEditText.getText().toString())// 体重
+				.replace("{BMI}", BMIEditText.getText().toString())// BMI
+				.replace("{constitutional_index_conclusion}",
+						physiqueConclusionEditText.getText().toString())// 结论
+
+				.replace("{waist}", waistlineEditText.getText().toString())// 腰围
+				.replace("{hips}", hiplineEditText.getText().toString())// 臀围
+				.replace("{bust}", bustEditText.getText().toString())// 胸围
+				.replace("{waist_to_hipratio}",
+						waistToHipratioEditText.getText().toString())// 腰臀比
+				.replace("{BWH_conclusion}",
+						BWHConclusionEditText.getText().toString());// 结论
 		return printStr;
 	}
 
@@ -290,27 +317,55 @@ public class RoutineExaminationFragment extends BaseQuickExaminationFragment {
 				String date = System.currentTimeMillis() + "";
 				routineCheckups.put("updateTime", date);
 			}
-			routineCheckups.put("temperature", temperatureEditText.getText().toString());
-			routineCheckups.put("temperatureConclusion", temperatureConclusionEditText.getText().toString());
+			routineCheckups.put("temperature", temperatureEditText.getText()
+					.toString());
+			routineCheckups.put("temperatureConclusion",
+					temperatureConclusionEditText.getText().toString());
 			routineCheckups.put("height", heightEditText.getText().toString());
 			routineCheckups.put("weight", weightEditText.getText().toString());
 			routineCheckups.put("BMI", BMIEditText.getText().toString());
-			routineCheckups.put("constitutionalIndexConclusion", physiqueConclusionEditText.getText().toString());
-			routineCheckups.put("waist", waistlineEditText.getText().toString());
+			routineCheckups.put("constitutionalIndexConclusion",
+					physiqueConclusionEditText.getText().toString());
+			routineCheckups
+					.put("waist", waistlineEditText.getText().toString());
 			routineCheckups.put("hips", hiplineEditText.getText().toString());
 			routineCheckups.put("bust", bustEditText.getText().toString());
-			routineCheckups.put("waistToHipratio", waistToHipratioEditText.getText().toString());
-			routineCheckups.put("BWHConclusion", BWHConclusionEditText.getText().toString());
+			routineCheckups.put("waistToHipratio", waistToHipratioEditText
+					.getText().toString());
+			routineCheckups.put("BWHConclusion", BWHConclusionEditText
+					.getText().toString());
 			examinationInfo.setRoutineCheckups(routineCheckups.toString());
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
-
 	}
 
-    @Override
-    public void setSaveData(ExaminationInfo examinationInfo) {
-        // TODO Auto-generated method stub
-        
-    }
+	@Override
+	public void setSaveData(ExaminationInfo examinationInfo) {
+		if (examinationInfo != null) {
+			String msg=examinationInfo.getRoutineCheckups();
+			System.out.println(msg);
+			if(TextUtils.isEmpty(msg)){
+				return;
+			}
+			try {
+				JSONObject jsonObject =new JSONObject(msg);
+				temperatureEditText.setText(jsonObject.getString("temperature").toString());
+				temperatureConclusionEditText.setText(jsonObject.getString("temperatureConclusion"));
+				heightEditText.setText(jsonObject.getString("height"));
+				weightEditText.setText(jsonObject.getString("weight"));
+				BMIEditText.setText(jsonObject.getString("BMI"));
+				physiqueConclusionEditText.setText(jsonObject.getString("constitutionalIndexConclusion"));
+				waistlineEditText.setText(jsonObject.getString("waist"));
+				hiplineEditText.setText(jsonObject.getString("hips"));
+				bustEditText.setText(jsonObject.getString("bust"));
+				waistToHipratioEditText.setText(jsonObject.getString("waistToHipratio"));
+				BWHConclusionEditText.setText(jsonObject.getString("BWHConclusion"));
+				
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+			
+		}
+	}
 }

@@ -274,7 +274,25 @@ public class BloodFatFragment extends BaseQuickExaminationFragment {
 
     @Override
     public void setSaveData(ExaminationInfo examinationInfo) {
-        // TODO Auto-generated method stub
-        
+    	if (examinationInfo != null) {
+			String msg=examinationInfo.getBloodFat();
+			if(TextUtils.isEmpty(msg)){
+				return;
+			}
+			try {
+				JSONObject jsonObject =new JSONObject(msg);
+				bloodCHOLEditText.setText(jsonObject.getString("CHOL"));
+				bloodCHOLConclusionEditText.setText(jsonObject.getString("CHOLConclusion"));
+				bloodTGEditText.setText(jsonObject.getString("TG"));
+				bloodTGConclusionEditText.setText(jsonObject.getString("TGConclusion"));
+				bloodHDLEditText.setText(jsonObject.getString("HDL"));
+				bloodHDLConclusionEditText.setText(jsonObject.getString("HDLConclusion"));
+				bloodLDLEditText.setText(jsonObject.getString("LDL"));
+				bloodLDLConclusionEditText.setText(jsonObject.getString("LDLConclusion"));
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+			
+		}
     }
 }

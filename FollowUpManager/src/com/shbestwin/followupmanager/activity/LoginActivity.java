@@ -38,7 +38,7 @@ public class LoginActivity extends AbsBaseActivity {
     protected void initView(Bundle savedInstanceState) {
         et_username = (EditText) findViewById(R.id.et_username);
         et_password = (EditText) findViewById(R.id.et_password);
-        remoteLoginButton = (Button) findViewById(R.id.remoteLoginButton);
+//        remoteLoginButton = (Button) findViewById(R.id.remoteLoginButton);
         localLoginButton = (Button) findViewById(R.id.localLoginButton);
         ck_remember = (CheckBox) findViewById(R.id.ck_remember);
 
@@ -61,13 +61,13 @@ public class LoginActivity extends AbsBaseActivity {
     @Override
     protected void initListener() {
 
-        remoteLoginButton.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                loginRemote();
-            }
-        });
+//        remoteLoginButton.setOnClickListener(new OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                loginRemote();
+//            }
+//        });
 
         localLoginButton.setOnClickListener(new OnClickListener() {
 

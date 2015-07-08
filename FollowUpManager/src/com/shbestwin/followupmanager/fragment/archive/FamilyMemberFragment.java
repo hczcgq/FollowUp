@@ -173,9 +173,10 @@ public class FamilyMemberFragment extends BaseArchiveFragment implements FamilyM
 						if(!familyMember.toString().equals(myFamilyMember.toString())){
 							familyMemberList.set(position, familyMember);
 							familyMemberAdapter.notifyDataSetChanged();
+							familyMemberDialog.hide();
 						}						
 					}		
-					familyMemberDialog.hide();
+					
 				}
 			});	
 			break;

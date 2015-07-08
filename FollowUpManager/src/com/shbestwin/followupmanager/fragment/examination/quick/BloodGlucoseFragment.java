@@ -2,6 +2,8 @@ package com.shbestwin.followupmanager.fragment.examination.quick;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import android.R.bool;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -269,7 +271,20 @@ public class BloodGlucoseFragment extends BaseQuickExaminationFragment {
 
     @Override
     public void setSaveData(ExaminationInfo examinationInfo) {
-        // TODO Auto-generated method stub
-        
+       if(examinationInfo!=null){
+    	   String msg=examinationInfo.getBloodSugar();
+    	   if(TextUtils.isEmpty(msg)){
+				return;
+			}
+    	   try {
+			JSONObject json=new JSONObject(msg);
+			ViewDataUtil.setSpinnerData(bloodGlucoseTypeSpinner, json.getString("type"));
+			bloodGlucoseEditText.setText(json.getString("value"));
+			conclusionEditText.setText(json.getString("conclusion"));
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+    	   
+       }
     }
 }

@@ -378,7 +378,21 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 
     @Override
     public void setSaveData(ExaminationInfo examinationInfo) {
-        // TODO Auto-generated method stub
-        
+       if(examinationInfo!=null){
+    	   String msg=examinationInfo.getBloodPressure();
+    	   if(TextUtils.isEmpty(msg)){
+    		   return;
+    	   }
+    	   try {
+			JSONObject json=new JSONObject(msg);
+			systolicPressureEditText.setText(json.getString("systolicPressure"));
+			diastolicPressureEditText.setText(json.getString("diastolicPressure"));
+			pulseRateEditText.setText(json.getString("pulse"));
+			conclusionEditText.setText(json.getString("conclusion"));
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+    	   
+       }
     }
 }

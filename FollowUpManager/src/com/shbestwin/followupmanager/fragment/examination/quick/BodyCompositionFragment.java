@@ -221,7 +221,30 @@ public class BodyCompositionFragment extends BaseQuickExaminationFragment {
 
     @Override
     public void setSaveData(ExaminationInfo examinationInfo) {
-        // TODO Auto-generated method stub
-        
+    	if (examinationInfo != null) {
+			String msg=examinationInfo.getBodyComposition();
+			if(TextUtils.isEmpty(msg)){
+				return;
+			}
+			try {
+				JSONObject jsonObject =new JSONObject(msg);
+				heightEditText.setText(jsonObject.getString("height"));
+				weightEditText.setText(jsonObject.getString("weight"));
+				BMIEditText.setText(jsonObject.getString("BMI"));
+				bodyImpedanceEditText.setText(jsonObject.getString("bodyImpedance"));
+				KCALEditText.setText(jsonObject.getString("KCAL"));
+				RKCALEditText.setText(jsonObject.getString("RKCAL"));
+				fatEditText.setText(jsonObject.getString("fat"));
+				visceralFatEditText.setText(jsonObject.getString("visceralFat"));
+				muscleEditText.setText(jsonObject.getString("muscle"));
+				bodyWaterEditText.setText(jsonObject.getString("bodyWater"));
+				boneMassEditText.setText(jsonObject.getString("boneMass"));
+				conclusionEditText.setText(jsonObject.getString("conclusion"));
+				
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+			
+		}
     }
 }

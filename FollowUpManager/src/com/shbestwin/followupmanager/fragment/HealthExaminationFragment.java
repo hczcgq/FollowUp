@@ -189,6 +189,7 @@ public class HealthExaminationFragment extends BaseIDCardInfoFragment {
 		printTextView.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				
 				ArchiveInfo archiveInfo = MyApplication.getInstance().getArchiveInfo();
 				if (archiveInfo == null) {
 					ToastUtils.showToast(getActivity(), "请先到档案信息中选择体检人！");
@@ -200,9 +201,10 @@ public class HealthExaminationFragment extends BaseIDCardInfoFragment {
 					ToastUtils.showToast(getActivity(), "请先点击体检登记！");
 					return;
 				}
-
+				printTextView.setEnabled(false);
 				BaseFragment baseFragment = contentFragmentList.get(contentViewPager.getCurrentItem());
 				baseFragment.onPrint();
+				printTextView.setEnabled(true);
 			}
 		});
 	}

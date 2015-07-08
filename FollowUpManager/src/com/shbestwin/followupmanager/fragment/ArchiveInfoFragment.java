@@ -100,6 +100,29 @@ public class ArchiveInfoFragment extends BaseFragment {
 		initContentView();
 		initOperateViews();
 		initAutoCompleteViews();
+		refreshData();
+	}
+	
+	public void refreshData() {
+		ArchiveInfo archiveInfo = MyApplication.getInstance().getArchiveInfo();
+		System.out.println(archiveInfo+"--------");
+		if (archiveInfo == null) {
+			return;
+		} else {
+			nameACEditText.setText(archiveInfo.getName());
+			idcardACEditText.setText(archiveInfo.getIdcard());
+			if ("男".equals(archiveInfo.getGender())) {
+				gendarTextView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_male, 0, 0, 0);
+			} else if ("女".equals(archiveInfo.getGender())) {
+				gendarTextView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_female, 0, 0, 0);
+			}
+			gendarTextView.setText(archiveInfo.getGender());
+			ageTextView.setText(DateUtils.getAgeByBirthday(archiveInfo.getBirthday()) + "岁");
+			avatarImageView.setImageBitmap(archiveInfo.getPicture());
+
+			cardNoACEditText.setText(archiveInfo.getCardNo());
+			archiveNoTextView.setText(archiveInfo.getArchiveNo());
+		}
 	}
 
 	/**

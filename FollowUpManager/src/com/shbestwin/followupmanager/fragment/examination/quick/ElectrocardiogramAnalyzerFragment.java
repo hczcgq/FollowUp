@@ -372,7 +372,6 @@ public class ElectrocardiogramAnalyzerFragment extends
                 String date = System.currentTimeMillis() + "";
                 ecgAnalysis.put("updateTime", date);
             }
-
             ecgAnalysis
                     .put("checkTime", checkTimeEditText.getText().toString());
             ecgAnalysis
@@ -397,7 +396,26 @@ public class ElectrocardiogramAnalyzerFragment extends
 
     @Override
     public void setSaveData(ExaminationInfo examinationInfo) {
-        // TODO Auto-generated method stub
-        
+    	if (examinationInfo != null) {
+			String msg=examinationInfo.getEcgAnalysis();
+			if(TextUtils.isEmpty(msg)){
+				return;
+			}
+			try {
+				JSONObject jsonObject =new JSONObject(msg);
+				checkTimeEditText.setText(jsonObject.getString("checkTime"));
+				heartRateEditText.setText(jsonObject.getString("pulseRate"));
+				PROfAVREditText.setText(jsonObject.getString("PROfAVR"));
+				QTOfAVREditText.setText(jsonObject.getString("QTOfAVR"));
+				RvoltOfAVREditText.setText(jsonObject.getString("RvoltOfAVR"));
+				PvoltOfAVREditText.setText(jsonObject.getString("PvoltOfAVR"));
+				TvoltOfAVREditText.setText(jsonObject.getString("TvoltOfAVR"));
+				STvoltOfAVREditText.setText(jsonObject.getString("STvoltOfAVR"));
+				conclusionEditText.setText(jsonObject.getString("conclusion"));
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+			
+		}
     }
 }

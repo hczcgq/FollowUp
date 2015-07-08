@@ -75,8 +75,9 @@ public class FamilyProblemFragment extends BaseArchiveFragment implements Family
 					mFamilyProblem = data;
 					familyProblemList.add(mFamilyProblem);
 					familyProblemAdapter.notifyDataSetChanged();
+					familyProblemDialog.hide();	
 				}
-				familyProblemDialog.hide();
+				
 			}
 		});
 	}

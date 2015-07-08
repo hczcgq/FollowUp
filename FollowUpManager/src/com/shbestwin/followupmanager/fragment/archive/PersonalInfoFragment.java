@@ -198,6 +198,7 @@ public class PersonalInfoFragment extends BaseArchiveFragment {
 	@Override
 	public void refreshData() {
 		ArchiveInfo archiveInfo = MyApplication.getInstance().getArchiveInfo();
+		System.out.println(archiveInfo+"--------");
 		if (archiveInfo == null) {
 			resetData();
 		} else {

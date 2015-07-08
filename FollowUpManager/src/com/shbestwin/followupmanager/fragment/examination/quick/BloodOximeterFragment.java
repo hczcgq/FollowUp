@@ -190,7 +190,20 @@ public class BloodOximeterFragment extends BaseQuickExaminationFragment {
 
     @Override
     public void setSaveData(ExaminationInfo examinationInfo) {
-        // TODO Auto-generated method stub
-        
+    	if (examinationInfo != null) {
+			String msg=examinationInfo.getBloodOxygen();
+			if(TextUtils.isEmpty(msg)){
+				return;
+			}
+			try {
+				JSONObject jsonObject =new JSONObject(msg);
+				bloodOxygenEditText.setText(jsonObject.getString("saturation"));
+				pulseRateEditText.setText(jsonObject.getString("pulseRate"));
+				conclusionEditText	.setText(jsonObject.getString("conclusion"));
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+			
+		}
     }
 }

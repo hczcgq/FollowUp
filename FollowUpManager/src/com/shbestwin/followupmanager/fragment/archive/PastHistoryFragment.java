@@ -143,8 +143,9 @@ public class PastHistoryFragment extends BaseArchiveFragment implements PastHist
 					mPastHistoryOperation = pastHistoryOperation;
 					operationList.add(mPastHistoryOperation);
 					operationAdapter.notifyDataSetChanged();
+					pastHistoryOperationDialog.hide();
 				}		
-				pastHistoryOperationDialog.hide();
+				
 			}
 		});
 		
@@ -163,8 +164,9 @@ public class PastHistoryFragment extends BaseArchiveFragment implements PastHist
 					mPastHistoryInjury = pastHistoryInjury;
 					injuryList.add(mPastHistoryInjury);
 					injuryAdapter.notifyDataSetChanged();
+					pastHistoryInjuryDialog.hide();
 				}
-				pastHistoryInjuryDialog.hide();
+				
 			}
 		});
 	}
@@ -182,8 +184,9 @@ public class PastHistoryFragment extends BaseArchiveFragment implements PastHist
 					mPastHistoryTransfusion = pastHistoryTransfusion;
 					transfusionList.add(mPastHistoryTransfusion);
 					transfusionAdapter.notifyDataSetChanged();
+					pastHistoryTransfusionDialog.hide();
 				}		
-				pastHistoryTransfusionDialog.hide();
+				
 			}
 		});
 	}
@@ -200,8 +203,9 @@ public class PastHistoryFragment extends BaseArchiveFragment implements PastHist
 					mPastHistoryDisease = pastHistoryDisease;
 					diseaseList.add(mPastHistoryDisease);
 					diseaseAdapter.notifyDataSetChanged();
+					pastHistoryDiseaseDialog.hide();
 				}		
-				pastHistoryDiseaseDialog.hide();
+				
 			}
 		});
 	}
