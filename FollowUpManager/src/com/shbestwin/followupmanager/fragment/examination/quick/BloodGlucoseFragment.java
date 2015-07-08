@@ -2,7 +2,6 @@ package com.shbestwin.followupmanager.fragment.examination.quick;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -17,7 +16,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.common.util.ViewDataUtil;
@@ -73,17 +71,34 @@ public class BloodGlucoseFragment extends BaseQuickExaminationFragment {
 	}
 
 	private boolean dataReading = false;
-
+	private ReadDataTask readDataTask;
+	private ReadDataTask1 readDataTask1;
 	private void readData() {
 		if (!dataReading) {
 			Device device = DeviceManager.getInstance(getActivity()).getDeviceByTypeId(Device.TYPE_ID_BLOOD_GLUCOSE);
 			System.out.println(device.getCode());
 			if (device.getCode().equals("0501")) {
 				dataReading = true;
-				new ReadDataTask(getActivity()).execute();
+//				new ReadDataTask(getActivity()).execute();
+				
+				 if (readDataTask != null
+		                    && readDataTask.getStatus() == AsyncTask.Status.RUNNING) {
+		                readDataTask.cancel(true); // 如果Task还在运行，则先取消它
+		            }
+	            // 启动新的任务
+	            readDataTask = new ReadDataTask(getActivity());
+	            readDataTask.execute();
 			} else if (device.getCode().equals("0502")) {
 				dataReading = true;
-				new ReadDataTask1(getActivity()).execute();
+//				new ReadDataTask1(getActivity()).execute();
+				
+				if (readDataTask1 != null
+                        && readDataTask1.getStatus() == AsyncTask.Status.RUNNING) {
+                    readDataTask1.cancel(true); // 如果Task还在运行，则先取消它
+                }
+                // 启动新的任务
+                readDataTask1 = new ReadDataTask1(getActivity());
+                readDataTask1.execute();
 			}
 		}
 	}
@@ -106,6 +121,7 @@ public class BloodGlucoseFragment extends BaseQuickExaminationFragment {
 				public void onCancel(DialogInterface dialog) {
 					if (bloodGlucoseManager != null) {
 						bloodGlucoseManager.closeDevice();
+						dataReading=false;
 					}
 				}
 			});
@@ -154,6 +170,7 @@ public class BloodGlucoseFragment extends BaseQuickExaminationFragment {
 				public void onCancel(DialogInterface dialog) {
 					if (bloodFatManager != null) {
 						bloodFatManager.closeDevice();
+						dataReading=false;
 					}
 				}
 			});
@@ -249,4 +266,10 @@ public class BloodGlucoseFragment extends BaseQuickExaminationFragment {
 			e.printStackTrace();
 		}
 	}
+
+    @Override
+    public void setSaveData(ExaminationInfo examinationInfo) {
+        // TODO Auto-generated method stub
+        
+    }
 }

@@ -8,6 +8,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Set;
+
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -177,7 +178,7 @@ public class ElectrocardiogramManager {
 		Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();// 获取所有已配对的设备
 		// 1、没有配对的设备
 		if (pairedDevices.size() <= 0) {
-			showTips(R.string.device_idcard_no_bonded_devices);
+		    showTips(String.format(mActivity.getResources().getString(R.string.device_idcard_no_bonded_devices), DEVICE_NAME));
 			return false;
 		}
 
@@ -193,7 +194,7 @@ public class ElectrocardiogramManager {
 
 		// 2、没有合适的配对设备
 		if (adaptedDevice == null) {
-			showTips(R.string.device_idcard_no_bonded_devices);
+		    showTips(String.format(mActivity.getResources().getString(R.string.device_idcard_no_bonded_devices), DEVICE_NAME));;
 			return false;
 		}
 
@@ -574,14 +575,24 @@ public class ElectrocardiogramManager {
 	}
 
 	private void showTips(final int resId) {
-		mTipsInfo = mActivity.getResources().getString(resId);
-		// mActivity.runOnUiThread(new Runnable() {
-		// @Override
-		// public void run() {
-		// ToastUtils.showToast(mActivity, resId);
-		// }
-		// });
-	}
+        mTipsInfo = mActivity.getResources().getString(resId);
+        // mActivity.runOnUiThread(new Runnable() {
+        // @Override
+        // public void run() {
+        // ToastUtils.showToast(mActivity, resId);
+        // }
+        // });
+    }
+
+    private void showTips(String tipsInfo) {
+        mTipsInfo = tipsInfo;
+        // mActivity.runOnUiThread(new Runnable() {
+        // @Override
+        // public void run() {
+        // ToastUtils.showToast(mActivity, resId);
+        // }
+        // });
+    }
 
 	public String getTipsInfo() {
 		return mTipsInfo;

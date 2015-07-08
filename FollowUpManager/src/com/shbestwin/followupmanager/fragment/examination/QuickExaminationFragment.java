@@ -30,6 +30,8 @@ import com.shbestwin.followupmanager.fragment.examination.quick.RoutineExaminati
 import com.shbestwin.followupmanager.manager.ExaminationManager;
 import com.shbestwin.followupmanager.manager.device.PrintManager;
 import com.shbestwin.followupmanager.model.examination.ExaminationInfo;
+import com.shbestwin.followupmanager.model.examination.GeneralExamination;
+import com.shbestwin.followupmanager.view.widget.IBaseGeneralExaminationBody;
 import com.shbestwin.followupmanager.view.widget.TabMenuLayout;
 
 /**
@@ -39,138 +41,164 @@ import com.shbestwin.followupmanager.view.widget.TabMenuLayout;
  * @version
  */
 public class QuickExaminationFragment extends BaseFragment {
-	private TabMenuLayout tabMenuLayout;
+    private TabMenuLayout tabMenuLayout;
 
-	private ViewPager bodyViewPager;
-	private List<BaseQuickExaminationFragment> contentFragmentList;
+    private ViewPager bodyViewPager;
 
-	public static QuickExaminationFragment newInstance() {
-		QuickExaminationFragment fragment = new QuickExaminationFragment();
-		return fragment;
-	}
+    private List<BaseQuickExaminationFragment> contentFragmentList;
 
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fragment_examination_quick_examination, container, false);
-		tabMenuLayout = (TabMenuLayout) rootView.findViewById(R.id.tabMenuLayout);
-		bodyViewPager = (ViewPager) rootView.findViewById(R.id.bodyViewPager);
-		return rootView;
-	}
+    public static QuickExaminationFragment newInstance() {
+        QuickExaminationFragment fragment = new QuickExaminationFragment();
+        return fragment;
+    }
 
-	@Override
-	public void onActivityCreated(Bundle savedInstanceState) {
-		super.onActivityCreated(savedInstanceState);
-		initTabView();
-		initBodyView();
-	}
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) {
+        View rootView = inflater.inflate(
+                R.layout.fragment_examination_quick_examination, container,
+                false);
+        tabMenuLayout = (TabMenuLayout) rootView
+                .findViewById(R.id.tabMenuLayout);
+        bodyViewPager = (ViewPager) rootView.findViewById(R.id.bodyViewPager);
+        return rootView;
+    }
 
-	private void initTabView() {
-		String[] tabMenu = getResources().getStringArray(R.array.jktjQuickExaminationTabMenu);
-		tabMenuLayout.renderMenu(tabMenu);
-		tabMenuLayout.checkItem(0);
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        initTabView();
+        initBodyView();
+    }
 
-		tabMenuLayout.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-			@Override
-			public void onCheckedChanged(RadioGroup group, int checkedId) {
-				bodyViewPager.setCurrentItem(checkedId);
-			}
-		});
-	}
+    private void initTabView() {
+        String[] tabMenu = getResources().getStringArray(
+                R.array.jktjQuickExaminationTabMenu);
+        tabMenuLayout.renderMenu(tabMenu);
+        tabMenuLayout.checkItem(0);
 
-	/**
-	 * 初始化内容视图
-	 *
-	 */
-	private void initBodyView() {
-		contentFragmentList = new ArrayList<BaseQuickExaminationFragment>();
-		contentFragmentList.add(RoutineExaminationFragment.newInstance());// 常规体检
-		contentFragmentList.add(BloodPressureFragment.newInstance());// 血压
-		contentFragmentList.add(BloodGlucoseFragment.newInstance());// 血糖
-		contentFragmentList.add(BloodFatFragment.newInstance());// 血脂
-		contentFragmentList.add(BloodOximeterFragment.newInstance());// 血氧
-		contentFragmentList.add(ElectrocardiogramAnalyzerFragment.newInstance());// 心电分析
-		contentFragmentList.add(BodyCompositionFragment.newInstance());// 人体成分
-		// contentFragmentList.add(HumorFragment.newInstance());// 体液
+        tabMenuLayout.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                bodyViewPager.setCurrentItem(checkedId);
+            }
+        });
+    }
 
-		// contentViewPager.setPageTransformer(true, new
-		// RotateDownTransformer());
-		// 给ViewPager设置适配器
-		bodyViewPager.setAdapter(new ContentFragmentPagerAdapter(getChildFragmentManager()));
-		bodyViewPager.setCurrentItem(0);// 设置当前显示标签页为第一页
-		bodyViewPager.setOnPageChangeListener(new OnPageChangeListener() {
-			@Override
-			public void onPageSelected(int position) {
-				tabMenuLayout.checkItem(position);
-			}
+    /**
+     * 初始化内容视图
+     *
+     */
+    private void initBodyView() {
+        contentFragmentList = new ArrayList<BaseQuickExaminationFragment>();
+        contentFragmentList.add(RoutineExaminationFragment.newInstance());// 常规体检
+        contentFragmentList.add(BloodPressureFragment.newInstance());// 血压
+        contentFragmentList.add(BloodGlucoseFragment.newInstance());// 血糖
+        contentFragmentList.add(BloodFatFragment.newInstance());// 血脂
+        contentFragmentList.add(BloodOximeterFragment.newInstance());// 血氧
+        contentFragmentList
+                .add(ElectrocardiogramAnalyzerFragment.newInstance());// 心电分析
+        contentFragmentList.add(BodyCompositionFragment.newInstance());// 人体成分
+        // contentFragmentList.add(HumorFragment.newInstance());// 体液
 
-			@Override
-			public void onPageScrolled(int arg0, float arg1, int arg2) {
-			}
+        // contentViewPager.setPageTransformer(true, new
+        // RotateDownTransformer());
+        // 给ViewPager设置适配器
+        bodyViewPager.setAdapter(new ContentFragmentPagerAdapter(
+                getChildFragmentManager()));
+        bodyViewPager.setCurrentItem(0);// 设置当前显示标签页为第一页
+        bodyViewPager.setOnPageChangeListener(new OnPageChangeListener() {
+            @Override
+            public void onPageSelected(int position) {
+                tabMenuLayout.checkItem(position);
+            }
 
-			@Override
-			public void onPageScrollStateChanged(int arg0) {
+            @Override
+            public void onPageScrolled(int arg0, float arg1, int arg2) {
+            }
 
-			}
-		});// 页面变化时的监听器
-	}
+            @Override
+            public void onPageScrollStateChanged(int arg0) {
 
-	private class ContentFragmentPagerAdapter extends FragmentPagerAdapter {
+            }
+        });// 页面变化时的监听器
+        ExaminationInfo generalExamination = MyApplication.getInstance()
+                .getExaminationInfo();
+        if (generalExamination != null) {
+            BaseQuickExaminationFragment baseFragment = contentFragmentList
+                    .get(bodyViewPager.getCurrentItem());
+            baseFragment.getSaveData(generalExamination);
+            
+            System.out.println(generalExamination.getRoutineCheckups());
+        }
 
-		public ContentFragmentPagerAdapter(FragmentManager fm) {
-			super(fm);
-		}
+    }
 
-		@Override
-		public Fragment getItem(int position) {
-			return contentFragmentList.get(position);
-		}
+    private class ContentFragmentPagerAdapter extends FragmentPagerAdapter {
 
-		@Override
-		public int getCount() {
-			return contentFragmentList.size();
-		}
-	}
+        public ContentFragmentPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
 
-	@Override
-	public void onConclusion() {
-		BaseFragment baseFragment = contentFragmentList.get(bodyViewPager.getCurrentItem());
-		baseFragment.onConclusion();
-	}
+        @Override
+        public Fragment getItem(int position) {
+            return contentFragmentList.get(position);
+        }
 
-	@Override
-	public void onPrint() {
+        @Override
+        public int getCount() {
+            return contentFragmentList.size();
+        }
+    }
 
-		ExaminationInfo examinationInfo = MyApplication.getInstance().getExaminationInfo();
-		BaseQuickExaminationFragment baseFragment = contentFragmentList.get(bodyViewPager.getCurrentItem());
-		String printData = baseFragment.getPrintData(examinationInfo.getExaminationNo());
-		PrintManager printManager = new PrintManager(getActivity());
-	
-		if (printManager.connectDevice()) {
-			printManager.print(printData);
-			printManager.closeDevice();
-		}
-	}
+    @Override
+    public void onConclusion() {
+        BaseFragment baseFragment = contentFragmentList.get(bodyViewPager
+                .getCurrentItem());
+        baseFragment.onConclusion();
+    }
 
-	@Override
-	public void onSave() {
-		ExaminationInfo examinationInfo = MyApplication.getInstance().getExaminationInfo();
-		if (examinationInfo == null) {
-			ToastUtils.showToast(getActivity(), "请先进行体检登记!");
-			return;
-		}
+    @Override
+    public void onPrint() {
 
-		BaseQuickExaminationFragment baseFragment = contentFragmentList.get(bodyViewPager.getCurrentItem());
-		baseFragment.getSaveData(examinationInfo);
+        ExaminationInfo examinationInfo = MyApplication.getInstance()
+                .getExaminationInfo();
+        BaseQuickExaminationFragment baseFragment = contentFragmentList
+                .get(bodyViewPager.getCurrentItem());
+        String printData = baseFragment.getPrintData(examinationInfo
+                .getExaminationNo());
+        PrintManager printManager = new PrintManager(getActivity());
 
-		ExaminationManager.getInstance(getActivity()).saveOrUpdateExaminationInfo(examinationInfo);
-		ToastUtils.showToast(getActivity(), "保存数据成功！");
-		MyApplication.getInstance().setExaminationInfo(examinationInfo);
-	}
+        if (printManager.connectDevice()) {
+            printManager.print(printData);
+            printManager.closeDevice();
+        }
+    }
 
-	@Override
-	public void onUpload() {
-		BaseFragment baseFragment = contentFragmentList.get(bodyViewPager.getCurrentItem());
-		baseFragment.onUpload();
-	}
+    @Override
+    public void onSave() {
+        ExaminationInfo examinationInfo = MyApplication.getInstance()
+                .getExaminationInfo();
+        if (examinationInfo == null) {
+            ToastUtils.showToast(getActivity(), "请先进行体检登记!");
+            return;
+        }
+
+        BaseQuickExaminationFragment baseFragment = contentFragmentList
+                .get(bodyViewPager.getCurrentItem());
+        baseFragment.getSaveData(examinationInfo);
+
+        ExaminationManager.getInstance(getActivity())
+                .saveOrUpdateExaminationInfo(examinationInfo);
+        ToastUtils.showToast(getActivity(), "保存数据成功！");
+        MyApplication.getInstance().setExaminationInfo(examinationInfo);
+    }
+
+    @Override
+    public void onUpload() {
+        BaseFragment baseFragment = contentFragmentList.get(bodyViewPager
+                .getCurrentItem());
+        baseFragment.onUpload();
+    }
 
 }

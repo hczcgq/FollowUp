@@ -38,4 +38,10 @@ public class HumorFragment extends BaseQuickExaminationFragment {
 	@Override
 	public void getSaveData(ExaminationInfo examinationInfo) {
 	}
+
+    @Override
+    public void setSaveData(ExaminationInfo examinationInfo) {
+        // TODO Auto-generated method stub
+        
+    }
 }

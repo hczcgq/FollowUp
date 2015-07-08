@@ -2,10 +2,8 @@ package com.shbestwin.followupmanager.fragment.examination.quick;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -19,7 +17,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-
 import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
@@ -91,11 +88,21 @@ public class RoutineExaminationFragment extends BaseQuickExaminationFragment {
 	}
 
 	private boolean dataReading = false;
+	private ReadDataTask readDataTask;
 
 	private void readData(EditText editText) {
 		if (!dataReading) {
 			dataReading = true;
-			new ReadDataTask(getActivity(), editText).execute();
+//			new ReadDataTask(getActivity(), editText).execute();
+			
+			
+			if (readDataTask != null
+                    && readDataTask.getStatus() == AsyncTask.Status.RUNNING) {
+                readDataTask.cancel(true); // 如果Task还在运行，则先取消它
+            }
+            // 启动新的任务
+            readDataTask = new ReadDataTask(getActivity(),editText);
+            readDataTask.execute();
 		}
 	}
 
@@ -119,6 +126,7 @@ public class RoutineExaminationFragment extends BaseQuickExaminationFragment {
 				public void onCancel(DialogInterface dialog) {
 					if (waistlineManager != null) {
 						waistlineManager.closeDevice();
+						dataReading=false;
 					}
 				}
 			});
@@ -263,9 +271,6 @@ public class RoutineExaminationFragment extends BaseQuickExaminationFragment {
 					     .replace("{bust}", bustEditText.getText().toString())// 胸围
 					     .replace("{waist_to_hipratio}", waistToHipratioEditText.getText().toString())// 腰臀比
 					     .replace("{BWH_conclusion}", BWHConclusionEditText.getText().toString());// 结论
-		
-		System.out.println(printStr);
-		
 		return printStr;
 	}
 
@@ -285,7 +290,6 @@ public class RoutineExaminationFragment extends BaseQuickExaminationFragment {
 				String date = System.currentTimeMillis() + "";
 				routineCheckups.put("updateTime", date);
 			}
-
 			routineCheckups.put("temperature", temperatureEditText.getText().toString());
 			routineCheckups.put("temperatureConclusion", temperatureConclusionEditText.getText().toString());
 			routineCheckups.put("height", heightEditText.getText().toString());
@@ -303,4 +307,10 @@ public class RoutineExaminationFragment extends BaseQuickExaminationFragment {
 		}
 
 	}
+
+    @Override
+    public void setSaveData(ExaminationInfo examinationInfo) {
+        // TODO Auto-generated method stub
+        
+    }
 }

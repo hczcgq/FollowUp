@@ -1,10 +1,8 @@
 package com.shbestwin.followupmanager.fragment.examination.quick;
 
 import java.text.DecimalFormat;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -18,7 +16,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.manager.ExaminationManager;
@@ -77,11 +74,19 @@ public class BodyCompositionFragment extends BaseQuickExaminationFragment {
 	}
 
 	private boolean dataReading = false;
-
+	private ReadDataTask readDataTask;
 	private void readData() {
 		if (!dataReading) {
 			dataReading = true;
-			new ReadDataTask(getActivity()).execute();
+//			new ReadDataTask(getActivity()).execute();
+			
+			if (readDataTask != null
+                    && readDataTask.getStatus() == AsyncTask.Status.RUNNING) {
+                readDataTask.cancel(true); // 如果Task还在运行，则先取消它
+            }
+            // 启动新的任务
+            readDataTask = new ReadDataTask(getActivity());
+            readDataTask.execute();
 		}
 	}
 
@@ -103,6 +108,7 @@ public class BodyCompositionFragment extends BaseQuickExaminationFragment {
 				public void onCancel(DialogInterface dialog) {
 					if (bodyCompositionManager != null) {
 						bodyCompositionManager.closeDevice();
+						dataReading=false;
 					}
 				}
 			});
@@ -212,4 +218,10 @@ public class BodyCompositionFragment extends BaseQuickExaminationFragment {
 			e.printStackTrace();
 		}
 	}
+
+    @Override
+    public void setSaveData(ExaminationInfo examinationInfo) {
+        // TODO Auto-generated method stub
+        
+    }
 }

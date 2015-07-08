@@ -2,7 +2,6 @@ package com.shbestwin.followupmanager.fragment.examination.quick;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -18,7 +17,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.manager.DeviceManager;
@@ -74,16 +72,33 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 	}
 
 	private boolean dataReading = false;
-
+	private ReadDataTask readDataTask;
+	private ReadDataTask1 readDataTask1;
 	private void readData() {
 		if (!dataReading) {
 			Device device = DeviceManager.getInstance(getActivity()).getDeviceByTypeId(Device.TYPE_ID_BLOOD_PRESSURE);
 			if (device.getCode().equals("0401")) {
 				dataReading = true;
-				new ReadDataTask(getActivity()).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+//				new ReadDataTask(getActivity()).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+			
+				if (readDataTask != null
+	                    && readDataTask.getStatus() == AsyncTask.Status.RUNNING) {
+	                readDataTask.cancel(true); // 如果Task还在运行，则先取消它
+	            }
+	            // 启动新的任务
+	            readDataTask = new ReadDataTask(getActivity());
+	            readDataTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 			} else if (device.getCode().equals("0402")) {
 				dataReading = true;
-				new ReadDataTask1(getActivity()).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+//				new ReadDataTask1(getActivity()).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+				
+				if (readDataTask1 != null
+                        && readDataTask1.getStatus() == AsyncTask.Status.RUNNING) {
+				    readDataTask1.cancel(true); // 如果Task还在运行，则先取消它
+                }
+                // 启动新的任务
+				readDataTask1 = new ReadDataTask1(getActivity());
+				readDataTask1.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 			}
 
 		}
@@ -107,6 +122,7 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 				public void onCancel(DialogInterface dialog) {
 					if (bloodPressureManager != null) {
 						bloodPressureManager.closeDevice();
+						dataReading=false;
 					}
 				}
 			});
@@ -157,6 +173,7 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 				@Override
 				public void onCancel(DialogInterface dialog) {
 					ReadDataTask1.this.cancel(true);
+					dataReading=false;
 				}
 			});
 		}
@@ -358,4 +375,10 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 			e.printStackTrace();
 		}
 	}
+
+    @Override
+    public void setSaveData(ExaminationInfo examinationInfo) {
+        // TODO Auto-generated method stub
+        
+    }
 }
