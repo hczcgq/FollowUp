@@ -123,6 +123,7 @@ public class BloodOximeterFragment extends BaseQuickExaminationFragment {
 				bloodOxygenEditText.setText(result.getBloodOxygen() + "");
 				pulseRateEditText.setText(result.getPulseRate() + "");
 				// conclusionEditText.setText(result.getConclusion());
+				onConclusion();
 			} else {
 				ToastUtils.showToast(activity, fingerOximeterManager.getTipsInfo());
 			}
@@ -199,7 +200,7 @@ public class BloodOximeterFragment extends BaseQuickExaminationFragment {
 				JSONObject jsonObject =new JSONObject(msg);
 				bloodOxygenEditText.setText(jsonObject.getString("saturation"));
 				pulseRateEditText.setText(jsonObject.getString("pulseRate"));
-				conclusionEditText	.setText(jsonObject.getString("conclusion"));
+				conclusionEditText.setText(jsonObject.getString("conclusion"));
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}

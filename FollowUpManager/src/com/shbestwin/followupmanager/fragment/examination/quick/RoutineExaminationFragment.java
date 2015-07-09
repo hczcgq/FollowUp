@@ -163,6 +163,7 @@ public class RoutineExaminationFragment extends BaseQuickExaminationFragment {
 			}
 			if (result != null) {
 				editText.setText(result + "");
+				onConclusion();
 			} else {
 				ToastUtils.showToast(activity, waistlineManager.getTipsInfo());
 			}
@@ -361,7 +362,7 @@ public class RoutineExaminationFragment extends BaseQuickExaminationFragment {
 				bustEditText.setText(jsonObject.getString("bust"));
 				waistToHipratioEditText.setText(jsonObject.getString("waistToHipratio"));
 				BWHConclusionEditText.setText(jsonObject.getString("BWHConclusion"));
-				
+				onConclusion();
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}

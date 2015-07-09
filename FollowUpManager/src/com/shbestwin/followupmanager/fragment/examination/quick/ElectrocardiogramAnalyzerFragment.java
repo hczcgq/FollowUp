@@ -239,6 +239,7 @@ public class ElectrocardiogramAnalyzerFragment extends
                 TvoltOfAVREditText.setText(result.getTvoltOfAVR() + "");
                 STvoltOfAVREditText.setText(result.getSTvoltOfAVR() + "");
                 points = result.getPoints();
+                onConclusion();
             } else {
                 showWaveformButton.setEnabled(false);
                 ToastUtils.showToast(activity,
@@ -388,6 +389,7 @@ public class ElectrocardiogramAnalyzerFragment extends
                     .toString());
             ecgAnalysis.put("conclusion", conclusionEditText.getText()
                     .toString());
+//            ecgAnalysis.put("point", points);
             examinationInfo.setEcgAnalysis(ecgAnalysis.toString());
         } catch (JSONException e) {
             e.printStackTrace();

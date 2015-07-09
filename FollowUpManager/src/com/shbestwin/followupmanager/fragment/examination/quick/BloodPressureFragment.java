@@ -135,6 +135,10 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 				bloodPressureManager.closeDevice();
 				return bloodPressure;
 			}
+//			BloodPressure bloodPressure = new BloodPressure();
+//			bloodPressure.setSystolicPressure(165);//收缩压
+//            bloodPressure.setDiastolicPressure(82);//舒张压
+//            bloodPressure.setPulseRate(76);//脉搏
 			return null;
 		}
 
@@ -147,7 +151,8 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 				systolicPressureEditText.setText(result.getSystolicPressure() + "");
 				diastolicPressureEditText.setText(result.getDiastolicPressure() + "");
 				pulseRateEditText.setText(result.getPulseRate() + "");
-				// conclusionEditText.setText(result.getConclusion());
+//				 conclusionEditText.setText(result.getConclusion());
+				 onConclusion();
 			} else {
 				ToastUtils.showToast(activity, bloodPressureManager.getTipsInfo());
 			}
@@ -198,6 +203,7 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 				diastolicPressureEditText.setText(result.getDiastolicPressure() + "");
 				pulseRateEditText.setText(result.getPulseRate() + "");
 				// conclusionEditText.setText(result.getConclusion());
+				onConclusion();
 			} else {
 				if (bloodPressureManager.isPaired()) {
 					ToastUtils.showToast(activity, bloodPressureManager.getTipsInfo());
@@ -389,6 +395,7 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 			diastolicPressureEditText.setText(json.getString("diastolicPressure"));
 			pulseRateEditText.setText(json.getString("pulse"));
 			conclusionEditText.setText(json.getString("conclusion"));
+//			onConclusion();
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}

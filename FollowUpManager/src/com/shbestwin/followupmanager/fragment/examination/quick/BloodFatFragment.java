@@ -138,18 +138,21 @@ public class BloodFatFragment extends BaseQuickExaminationFragment {
 					bloodCHOLEditText.setText(result.getBloodCHOL() + "");
 					// bloodCHOLConclusionEditText.setText(result.getConclusion());
 					bloodFat.setBloodCHOL(result.getBloodCHOL());
+					onConclusion();
 					// setLDL();
 					break;
 				case BloodFat.TYPE_BLOOD_TG:
 					bloodTGEditText.setText(result.getBloodTG() + "");
 					// bloodTGConclusionEditText.setText(result.getConclusion());
 					bloodFat.setBloodTG(result.getBloodTG());
+					onConclusion();
 					// setLDL();
 					break;
 				case BloodFat.TYPE_BLOOD_HDL:
 					bloodHDLEditText.setText(result.getBloodHDL() + "");
 					// bloodHDLConclusionEditText.setText(result.getConclusion());
 					bloodFat.setBloodHDL(result.getBloodHDL());
+					onConclusion();
 					// setLDL();
 					break;
 				default:

@@ -146,6 +146,7 @@ public class BloodGlucoseFragment extends BaseQuickExaminationFragment {
 			}
 			if (result != null) {
 				bloodGlucoseEditText.setText(result.getBloodGlucose() + "");
+				onConclusion();
 			} else {
 				ToastUtils.showToast(activity, bloodGlucoseManager.getTipsInfo());
 			}
@@ -197,6 +198,7 @@ public class BloodGlucoseFragment extends BaseQuickExaminationFragment {
 				switch (result.getType()) {
 				case BloodFat.TYPE_BLOOD_GLUCOSE:
 					bloodGlucoseEditText.setText(result.getBloodGlucose() + "");
+					onConclusion();
 					break;
 				default:
 					ToastUtils.showToast(activity, "获取数据失败！");

@@ -163,7 +163,7 @@ public class BodyCompositionFragment extends BaseQuickExaminationFragment {
 
 	@Override
 	public void onConclusion() {
-
+	    
 	}
 
 	@Override
