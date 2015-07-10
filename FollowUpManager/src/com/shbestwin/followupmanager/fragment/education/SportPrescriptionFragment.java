@@ -2,18 +2,15 @@ package com.shbestwin.followupmanager.fragment.education;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.fragment.BaseFragment;
-import com.shbestwin.followupmanager.fragment.examination.quick.BaseQuickExaminationFragment;
 import com.shbestwin.followupmanager.model.examination.ExaminationInfo;
 
 /**
@@ -51,7 +48,7 @@ public class SportPrescriptionFragment extends BaseFragment {
 		ExaminationInfo generalExamination = MyApplication.getInstance()
 				.getExaminationInfo();
 		if (generalExamination != null) {
-			String msg = generalExamination.getRoutineCheckups();
+			String msg = generalExamination.getBodyComposition();
 			if (!TextUtils.isEmpty(msg)) {
 				try {
 					JSONObject jsonObject = new JSONObject(msg);
@@ -64,7 +61,6 @@ public class SportPrescriptionFragment extends BaseFragment {
 
 		}
 
-		System.out.println("-----"+BMI);
 		String advise = "";
 		if (BMI < 18.5) {
 			advise = "消耗卡路里200";

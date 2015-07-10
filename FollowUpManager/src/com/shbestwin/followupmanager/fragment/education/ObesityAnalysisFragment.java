@@ -67,7 +67,7 @@ public class ObesityAnalysisFragment extends BaseFragment {
 		ExaminationInfo generalExamination = MyApplication.getInstance()
 				.getExaminationInfo();
 		if (generalExamination != null) {
-			String msg = generalExamination.getRoutineCheckups();
+			String msg = generalExamination.getBodyComposition();
 			if (!TextUtils.isEmpty(msg)) {
 				try {
 					JSONObject jsonObject = new JSONObject(msg);
@@ -75,7 +75,6 @@ public class ObesityAnalysisFragment extends BaseFragment {
 					heightTextView.setText(jsonObject.getString("height"));
 					weightTextView.setText(jsonObject.getString("weight"));
 					BMITextView.setText(jsonObject.getString("BMI"));
-
 					bodyImpedanceTextView.setText(jsonObject
 							.getString("bodyImpedance"));
 					fatTextView.setText(jsonObject.getString("KCAL"));
@@ -86,11 +85,22 @@ public class ObesityAnalysisFragment extends BaseFragment {
 				}
 
 			}
+			
+			String msg1 = generalExamination.getRoutineCheckups();
+            if (!TextUtils.isEmpty(msg1)) {
+                try {
+                    JSONObject jsonObject = new JSONObject(msg1);
+                     waistTextView.setText(jsonObject.getString("waist"));
+                     hipsTextView.setText(jsonObject.getString("hips"));
+                     waistToHipratioTextView.setText(jsonObject.getString("waist_to_hipratio"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
 
 		}
-		// waistTextView.setText(jsonObject.getString("weight"));
-		// hipsTextView.setText(jsonObject.getString("weight"));
-		// waistToHipratioTextView.setText(jsonObject.getString("weight"));
+		
 
 		// 过轻：低于18.5
 		// 正常：18.5-24.99

@@ -1,15 +1,21 @@
 package com.shbestwin.followupmanager.fragment.education;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.os.Bundle;
 import android.text.Html;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.fragment.BaseFragment;
 import com.shbestwin.followupmanager.model.device.BloodGlucose;
+import com.shbestwin.followupmanager.model.examination.ExaminationInfo;
 
 /**
  * 
@@ -37,7 +43,87 @@ public class ComprehensiveEvaluationFragment extends BaseFragment {
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 
-		double BMI = 28.5;
+		
+		 // 1、血压信息
+        double systolicPressure = 123;// 收缩压
+        double diastolicPressure = 85;// 舒张压
+        // 2、血糖信息
+        int bloodGlucoseType = 0;
+        double bloodGlucose = 6.5;
+
+        // 3、肥胖
+        double BMI = 28.5;
+        
+        // 4、甘油三酯
+        double bloodTg = 1.7;
+        
+        // 5、高密度脂蛋白
+        double bloodHdl = 1.43;
+        
+        // 6、低密度脂蛋白
+        double bloodLdl = 2.0;
+        
+        // 7、血总胆固醇
+        double bloodChol = 2.81;
+        
+
+        ExaminationInfo generalExamination = MyApplication.getInstance()
+                .getExaminationInfo();
+        if (generalExamination != null) {
+            String msg = generalExamination.getBloodPressure();
+            if (!TextUtils.isEmpty(msg)) {
+                try {
+                    JSONObject json = new JSONObject(msg);
+                    systolicPressure = Double.parseDouble(json
+                            .getString("systolicPressure"));// 收缩压
+                    diastolicPressure = Double.parseDouble(json
+                            .getString("diastolicPressure"));// 舒张压
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            String msg1 = generalExamination.getBloodSugar();
+            if (!TextUtils.isEmpty(msg1)) {
+                try {
+                    JSONObject json = new JSONObject(msg1);
+                    if (json.getString("type").equals(
+                            BloodGlucose.TYPE_EMPTY_STOMACH)) {
+                        bloodGlucoseType = 0;
+                    } else {
+                        bloodGlucoseType = 1;
+                    }
+                    bloodGlucose = Double.parseDouble(json.getString("value"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            
+            String msg2 = generalExamination.getBodyComposition();
+            if (!TextUtils.isEmpty(msg2)) {
+                try {
+                    JSONObject json = new JSONObject(msg2);
+                    BMI = Double.parseDouble(json.getString("BMI"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            
+            String msg3 = generalExamination.getBloodFat();
+            if (!TextUtils.isEmpty(msg2)) {
+                try {
+                    JSONObject json = new JSONObject(msg3);
+                    bloodChol = Float.parseFloat(json.getString("CHOL"));// 胆固醇
+                    bloodTg = Float.parseFloat(json.getString("HDL"));// 甘油三脂
+                    bloodHdl= Float.parseFloat(json.getString("LDL"));// 高密度脂蛋白
+                    bloodLdl = bloodChol - bloodHdl - bloodLdl / 2.2F;
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
+		
 		// 过轻：低于18.5
 		// 正常：18.5-24.99
 		// 过重：25-28
@@ -61,8 +147,6 @@ public class ComprehensiveEvaluationFragment extends BaseFragment {
 
 		int index = 0;
 		// 1、血压信息
-		double systolicPressure = 123;// 收缩压
-		double diastolicPressure = 85;// 舒张压
 		if ((systolicPressure < 120) && (diastolicPressure < 80)) {
 			index++;
 			riskFactor.append("（" + index + "）、").append(getString(R.string.jkjy_fxys_tips_hypopiesia)).append("<br/>");
@@ -82,8 +166,6 @@ public class ComprehensiveEvaluationFragment extends BaseFragment {
 		}
 
 		// 2、血糖信息
-		int bloodGlucoseType = 0;
-		double bloodGlucose = 6.5;
 		switch (bloodGlucoseType) {
 		// 空腹血糖:正常为3.9～6.1毫摩尔/升。小于3.9毫摩尔/升为低血糖，大于6.1-6.9mmol/L为血糖偏高，大于6.9mmol/L为高血糖
 		case BloodGlucose.TYPE_EMPTY_STOMACH:
@@ -127,7 +209,6 @@ public class ComprehensiveEvaluationFragment extends BaseFragment {
 		}
 
 		// 4、甘油三酯
-		double bloodTg = 1.7;
 		// 0.56-1.70mmol/L
 		if (bloodTg < 0.56) {
 			index++;
@@ -138,7 +219,6 @@ public class ComprehensiveEvaluationFragment extends BaseFragment {
 		}
 
 		// 5、高密度脂蛋白
-		double bloodHdl = 1.43;
 		// 1.16-1.42mmol/L
 		if (bloodHdl < 1.16) {
 			index++;
@@ -149,7 +229,6 @@ public class ComprehensiveEvaluationFragment extends BaseFragment {
 		}
 
 		// 6、低密度脂蛋白
-		double bloodLdl = 2.0;
 		// 低密度脂蛋白胆固醇=总胆固醇-高密度脂蛋白胆固醇-（甘油三酯/2.2）
 		// 正常参考范围：2.1-3.1。
 		if (bloodLdl < 2.1) {
@@ -161,7 +240,6 @@ public class ComprehensiveEvaluationFragment extends BaseFragment {
 		}
 
 		// 7、血总胆固醇
-		double bloodChol = 2.81;
 		// 2.82-5.95mmol/L
 		if (bloodChol < 2.82) {
 			index++;

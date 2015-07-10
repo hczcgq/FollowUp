@@ -22,10 +22,12 @@ import com.github.mikephil.charting.utils.XLabels.XLabelPosition;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.fragment.BaseFragment;
 import com.shbestwin.followupmanager.manager.ExaminationManager;
+import com.shbestwin.followupmanager.model.examination.GeneralExamination;
 import com.shbestwin.followupmanager.model.examination.PhysiqueType;
 import com.shbestwin.followupmanager.model.examination.Question;
 import com.shbestwin.followupmanager.view.widget.ExaminationLayout;
 import com.shbestwin.followupmanager.view.widget.ExaminationLayout.OnEndClickListener;
+import com.shbestwin.followupmanager.view.widget.IBaseGeneralExaminationBody;
 
 /**
  * 
@@ -33,7 +35,7 @@ import com.shbestwin.followupmanager.view.widget.ExaminationLayout.OnEndClickLis
  *
  * @version
  */
-public class PhysiqueIdentifyFragment extends BaseFragment {
+public class PhysiqueIdentifyFragment extends BaseFragment implements IBaseGeneralExaminationBody{
 	private ViewFlipper viewFlipper;
 	private Button startExaminationButton, lastExaminationButton;
 	private Button physiqueReportButton, returnButton;
@@ -101,7 +103,7 @@ public class PhysiqueIdentifyFragment extends BaseFragment {
 		lastExaminationButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-
+			    
 			}
 		});
 
@@ -367,4 +369,20 @@ public class PhysiqueIdentifyFragment extends BaseFragment {
 		physiqueFeatureTextView.setText(physiqueFeature);
 		physiqueGuidanceTextView.setText(physiqueGuidance);
 	}
+
+	
+    @Override
+    public void getData(GeneralExamination generalExamination) {
+        
+    }
+
+    @Override
+    public void setData(GeneralExamination generalExamination) {
+        
+    }
+
+    @Override
+    public boolean validate() {
+        return false;
+    }
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
+import android.os.Handler;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -85,12 +86,25 @@ public class ExaminationLayout extends FrameLayout {
 		optionsRadioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			@Override
 			public void onCheckedChanged(RadioGroup group, int checkedId) {
+			    System.out.println("-----------------");
 				answers.set(currentIndex, checkedId);
+				boolean result = answers.get(currentIndex) >= 0 ? true : false;
+				if(result&&isNext&&(currentIndex<(questions.size()-1))) {
+				    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            isNext=false;
+                            handleNext();
+                        }
+                    }, 1000);
+				}
 			}
 		});
 		options = null;
 	}
 
+	private boolean isNext=true;
+	
 	public List<Question> getQuestions() {
 		return questions;
 	}
@@ -123,6 +137,7 @@ public class ExaminationLayout extends FrameLayout {
 		}
 		preQuestionButton.setEnabled(true);
 		changeQuestion();
+		isNext=true;
 	}
 
 	public void renderView(String mainTitle, String subTitle, List<Question> questions, List<String> options) {
@@ -182,9 +197,10 @@ public class ExaminationLayout extends FrameLayout {
 		} else {
 			subTitleTextView.setVisibility(View.GONE);
 		}
-
+		
 		currentIndex = 0;
 		preQuestionButton.setEnabled(false);
+		nextQuestionButton.setEnabled(true);
 		if (currentIndex >= (questions.size() - 1)) {
 			nextQuestionButton.setEnabled(false);
 		}
@@ -202,14 +218,12 @@ public class ExaminationLayout extends FrameLayout {
 			lp.rightMargin = (int) (getResources().getDisplayMetrics().density * 50);
 			optionsRadioGroup.addView(child, lp);
 		}
-
 	}
 
 	public boolean isFinished() {
 		if (CollectionUtils.isEmpty(answers)) {
 			return false;
 		}
-
 		for (Integer answer : answers) {
 			if (answer < 0) {
 				return false;
