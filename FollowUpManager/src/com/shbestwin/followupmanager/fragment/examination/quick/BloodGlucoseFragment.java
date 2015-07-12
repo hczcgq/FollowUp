@@ -34,7 +34,7 @@ import com.shbestwin.followupmanager.view.widget.MeasureTipsLayout;
 /**
  * 
  * 血糖
- *
+ * 
  * @version
  */
 public class BloodGlucoseFragment extends BaseQuickExaminationFragment {
@@ -50,13 +50,20 @@ public class BloodGlucoseFragment extends BaseQuickExaminationFragment {
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fragment_quick_examination_blood_glucose, container, false);
-		measureTipsLayuout = (MeasureTipsLayout) rootView.findViewById(R.id.measureTipsLayuout);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		View rootView = inflater.inflate(
+				R.layout.fragment_quick_examination_blood_glucose, container,
+				false);
+		measureTipsLayuout = (MeasureTipsLayout) rootView
+				.findViewById(R.id.measureTipsLayuout);
 		getDataButton = (Button) rootView.findViewById(R.id.getDataButton);
-		bloodGlucoseEditText = (EditText) rootView.findViewById(R.id.bloodGlucoseEditText);
-		bloodGlucoseTypeSpinner = (Spinner) rootView.findViewById(R.id.bloodGlucoseTypeSpinner);
-		conclusionEditText = (EditText) rootView.findViewById(R.id.conclusionEditText);
+		bloodGlucoseEditText = (EditText) rootView
+				.findViewById(R.id.bloodGlucoseEditText);
+		bloodGlucoseTypeSpinner = (Spinner) rootView
+				.findViewById(R.id.bloodGlucoseTypeSpinner);
+		conclusionEditText = (EditText) rootView
+				.findViewById(R.id.conclusionEditText);
 		return rootView;
 	}
 
@@ -75,32 +82,34 @@ public class BloodGlucoseFragment extends BaseQuickExaminationFragment {
 	private boolean dataReading = false;
 	private ReadDataTask readDataTask;
 	private ReadDataTask1 readDataTask1;
+
 	private void readData() {
 		if (!dataReading) {
-			Device device = DeviceManager.getInstance(getActivity()).getDeviceByTypeId(Device.TYPE_ID_BLOOD_GLUCOSE);
+			Device device = DeviceManager.getInstance(getActivity())
+					.getDeviceByTypeId(Device.TYPE_ID_BLOOD_GLUCOSE);
 			System.out.println(device.getCode());
 			if (device.getCode().equals("0501")) {
 				dataReading = true;
-//				new ReadDataTask(getActivity()).execute();
-				
-				 if (readDataTask != null
-		                    && readDataTask.getStatus() == AsyncTask.Status.RUNNING) {
-		                readDataTask.cancel(true); // 如果Task还在运行，则先取消它
-		            }
-	            // 启动新的任务
-	            readDataTask = new ReadDataTask(getActivity());
-	            readDataTask.execute();
+				// new ReadDataTask(getActivity()).execute();
+
+				if (readDataTask != null
+						&& readDataTask.getStatus() == AsyncTask.Status.RUNNING) {
+					readDataTask.cancel(true); // 如果Task还在运行，则先取消它
+				}
+				// 启动新的任务
+				readDataTask = new ReadDataTask(getActivity());
+				readDataTask.execute();
 			} else if (device.getCode().equals("0502")) {
 				dataReading = true;
-//				new ReadDataTask1(getActivity()).execute();
-				
+				// new ReadDataTask1(getActivity()).execute();
+
 				if (readDataTask1 != null
-                        && readDataTask1.getStatus() == AsyncTask.Status.RUNNING) {
-                    readDataTask1.cancel(true); // 如果Task还在运行，则先取消它
-                }
-                // 启动新的任务
-                readDataTask1 = new ReadDataTask1(getActivity());
-                readDataTask1.execute();
+						&& readDataTask1.getStatus() == AsyncTask.Status.RUNNING) {
+					readDataTask1.cancel(true); // 如果Task还在运行，则先取消它
+				}
+				// 启动新的任务
+				readDataTask1 = new ReadDataTask1(getActivity());
+				readDataTask1.execute();
 			}
 		}
 	}
@@ -117,13 +126,14 @@ public class BloodGlucoseFragment extends BaseQuickExaminationFragment {
 
 		@Override
 		protected void onPreExecute() {
-			progressDialog = ProgressDialog.show(activity, "温馨提示", "获取中。。。", false, true);
+			progressDialog = ProgressDialog.show(activity, "温馨提示", "获取中。。。",
+					false, true);
 			progressDialog.setOnCancelListener(new OnCancelListener() {
 				@Override
 				public void onCancel(DialogInterface dialog) {
 					if (bloodGlucoseManager != null) {
 						bloodGlucoseManager.closeDevice();
-						dataReading=false;
+						dataReading = false;
 					}
 				}
 			});
@@ -148,7 +158,8 @@ public class BloodGlucoseFragment extends BaseQuickExaminationFragment {
 				bloodGlucoseEditText.setText(result.getBloodGlucose() + "");
 				onConclusion();
 			} else {
-				ToastUtils.showToast(activity, bloodGlucoseManager.getTipsInfo());
+				ToastUtils.showToast(activity,
+						bloodGlucoseManager.getTipsInfo());
 			}
 			bloodGlucoseManager = null;
 			dataReading = false;
@@ -167,13 +178,14 @@ public class BloodGlucoseFragment extends BaseQuickExaminationFragment {
 
 		@Override
 		protected void onPreExecute() {
-			progressDialog = ProgressDialog.show(activity, "温馨提示", "获取中。。。", false, true);
+			progressDialog = ProgressDialog.show(activity, "温馨提示", "获取中。。。",
+					false, true);
 			progressDialog.setOnCancelListener(new OnCancelListener() {
 				@Override
 				public void onCancel(DialogInterface dialog) {
 					if (bloodFatManager != null) {
 						bloodFatManager.closeDevice();
-						dataReading=false;
+						dataReading = false;
 					}
 				}
 			});
@@ -227,10 +239,12 @@ public class BloodGlucoseFragment extends BaseQuickExaminationFragment {
 
 	@Override
 	public void onConclusion() {
-		int bloodGlucoseType = bloodGlucoseTypeSpinner.getSelectedItemPosition();
+		int bloodGlucoseType = bloodGlucoseTypeSpinner
+				.getSelectedItemPosition();
 		String bloodGlucoseStr = bloodGlucoseEditText.getText().toString();
 		if (!TextUtils.isEmpty(bloodGlucoseStr)) {
-			conclusionEditText.setText(BloodGlucose.getConclusion(bloodGlucoseType, Float.parseFloat(bloodGlucoseStr)));
+			conclusionEditText.setText(BloodGlucose.getConclusion(
+					bloodGlucoseType, Float.parseFloat(bloodGlucoseStr)));
 		} else {
 			conclusionEditText.setText("");
 		}
@@ -238,11 +252,17 @@ public class BloodGlucoseFragment extends BaseQuickExaminationFragment {
 
 	@Override
 	public String getPrintData(String examinationNo) {
-		String printStr = ExaminationManager.getInstance(getActivity()).getPrintTemplate(R.raw.print_blood_glucose_template, examinationNo);
+		String printStr = ExaminationManager.getInstance(getActivity())
+				.getPrintTemplate(R.raw.print_blood_glucose_template,
+						examinationNo);
 		// 替换相关数据
-		printStr=printStr.replace("{test_type}", ViewDataUtil.getSpinnerData(bloodGlucoseTypeSpinner))// 检测类型
-						 .replace("{blood_glucose}", bloodGlucoseEditText.getText().toString())// 血糖值
-						 .replace("{conclusion}", conclusionEditText.getText().toString());// 结论
+		printStr = printStr
+				.replace("{test_type}",
+						ViewDataUtil.getSpinnerData(bloodGlucoseTypeSpinner))// 检测类型
+				.replace("{blood_glucose}",
+						bloodGlucoseEditText.getText().toString())// 血糖值
+				.replace("{conclusion}",
+						conclusionEditText.getText().toString());// 结论
 		return printStr;
 	}
 
@@ -262,31 +282,43 @@ public class BloodGlucoseFragment extends BaseQuickExaminationFragment {
 				bloodSugar.put("updateTime", date);
 			}
 
-			bloodSugar.put("type", ViewDataUtil.getSpinnerData(bloodGlucoseTypeSpinner));
+			bloodSugar.put("type",
+					ViewDataUtil.getSpinnerData(bloodGlucoseTypeSpinner));
 			bloodSugar.put("value", bloodGlucoseEditText.getText().toString());
-			bloodSugar.put("conclusion", conclusionEditText.getText().toString());
+			bloodSugar.put("conclusion", conclusionEditText.getText()
+					.toString());
 			examinationInfo.setBloodSugar(bloodSugar.toString());
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 	}
 
-    @Override
-    public void setSaveData(ExaminationInfo examinationInfo) {
-       if(examinationInfo!=null){
-    	   String msg=examinationInfo.getBloodSugar();
-    	   if(TextUtils.isEmpty(msg)){
+	@Override
+	public void setSaveData(ExaminationInfo examinationInfo) {
+		if (examinationInfo != null) {
+			String msg = examinationInfo.getBloodSugar();
+			if (TextUtils.isEmpty(msg)) {
+				bloodGlucoseEditText.setText("");
+				conclusionEditText.setText("");
 				return;
 			}
-    	   try {
-			JSONObject json=new JSONObject(msg);
-			ViewDataUtil.setSpinnerData(bloodGlucoseTypeSpinner, json.getString("type"));
-			bloodGlucoseEditText.setText(json.getString("value"));
-			conclusionEditText.setText(json.getString("conclusion"));
-		} catch (JSONException e) {
-			e.printStackTrace();
+			try {
+				JSONObject json = new JSONObject(msg);
+				ViewDataUtil.setSpinnerData(bloodGlucoseTypeSpinner,
+						json.getString("type"));
+				bloodGlucoseEditText.setText(json.getString("value"));
+				conclusionEditText.setText(json.getString("conclusion"));
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+
 		}
-    	   
-       }
-    }
+	}
+
+	@Override
+	public void onReset() {
+		super.onReset();
+		bloodGlucoseEditText.setText("");
+		conclusionEditText.setText("");
+	}
 }

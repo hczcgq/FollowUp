@@ -113,4 +113,9 @@ public class AgednessAssessmentFragment extends BaseFragment {
 			return contentFragmentList.size();
 		}
 	}
+	
+	@Override
+	public void onSave() {
+		super.onSave();
+	}
 }

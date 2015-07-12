@@ -3,6 +3,7 @@ package com.shbestwin.followupmanager.fragment.followup;
 import java.util.ArrayList;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,8 @@ import com.shbestwin.followupmanager.fragment.BaseFragment;
 import com.shbestwin.followupmanager.manager.FollowUpManager;
 import com.shbestwin.followupmanager.model.ArchiveInfo;
 import com.shbestwin.followupmanager.model.followup.FollowUpDiabetesMellitus;
+import com.shbestwin.followupmanager.model.followup.FollowUpHypertension;
+import com.shbestwin.followupmanager.view.dialog.followup.FollowupReportDialog;
 import com.shbestwin.followupmanager.view.widget.IBaseDiabetesMellitusBody;
 
 /**
@@ -131,5 +134,27 @@ public class DiabetesMellitusFragment extends BaseFragment {
 
 	@Override
 	public void onUpload() {
+	}
+	
+	@Override
+	public void onReport() {
+		super.onReport();
+		ArchiveInfo archiveInfo = MyApplication.getInstance().getArchiveInfo();
+		if (archiveInfo == null) {
+			ToastUtils.showToast(getActivity(), "请先到档案信息中选择随访人！");
+			return;
+		}
+		FollowUpDiabetesMellitus followUpHypertension = MyApplication.getInstance()
+				.getFollowUpDiabetesMellitus();
+		if (followUpHypertension == null) {
+			ToastUtils.showToast(getActivity(), "糖尿病信息为空！");
+			return;
+		}
+		final FollowupReportDialog hypertensionInspectionDialog = FollowupReportDialog
+				.newInstance();
+		hypertensionInspectionDialog.show(
+				((FragmentActivity) getActivity()).getSupportFragmentManager(),
+				"hypertensionInspectionDialog");
+
 	}
 }

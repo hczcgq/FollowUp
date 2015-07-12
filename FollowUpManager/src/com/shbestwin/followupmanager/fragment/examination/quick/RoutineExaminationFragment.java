@@ -345,8 +345,18 @@ public class RoutineExaminationFragment extends BaseQuickExaminationFragment {
 	public void setSaveData(ExaminationInfo examinationInfo) {
 		if (examinationInfo != null) {
 			String msg=examinationInfo.getRoutineCheckups();
-			System.out.println(msg);
 			if(TextUtils.isEmpty(msg)){
+				temperatureEditText.setText("");
+				temperatureConclusionEditText.setText("");
+				heightEditText.setText("");
+				weightEditText.setText("");
+				BMIEditText.setText("");
+				physiqueConclusionEditText.setText("");
+				waistlineEditText.setText("");
+				hiplineEditText.setText("");
+				bustEditText.setText("");
+				waistToHipratioEditText.setText("");
+				BWHConclusionEditText.setText("");
 				return;
 			}
 			try {
@@ -368,5 +378,21 @@ public class RoutineExaminationFragment extends BaseQuickExaminationFragment {
 			}
 			
 		}
+	}
+	
+	@Override
+	public void onReset() {
+		super.onReset();
+		temperatureEditText.setText("");
+		temperatureConclusionEditText.setText("");
+		heightEditText.setText("");
+		weightEditText.setText("");
+		BMIEditText.setText("");
+		physiqueConclusionEditText.setText("");
+		waistlineEditText.setText("");
+		hiplineEditText.setText("");
+		bustEditText.setText("");
+		waistToHipratioEditText.setText("");
+		BWHConclusionEditText.setText("");
 	}
 }

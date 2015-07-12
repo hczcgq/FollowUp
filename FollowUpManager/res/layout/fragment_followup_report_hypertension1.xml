@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent" >
+
+    <LinearLayout style="@style/ContentLayoutStyle" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/PersonalInfoLabelStyle"
+                android:text="基本信息："
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal" >
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:text="身份证：" />
+
+                <EditText
+                    android:id="@+id/cardIDEditText"
+                    style="@style/PersonalInfoEditTextStyle" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:text="姓名：" />
+
+                <EditText
+                    android:id="@+id/nameEditText"
+                    style="@style/PersonalInfoEditTextStyle" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:text="性别：" />
+
+                <Spinner
+                    android:id="@+id/genderSpinner"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/gender" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal" >
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:text="出生日期：" />
+
+                <EditText
+                    android:id="@+id/birthdayEditText"
+                    style="@style/PersonalInfoEditTextStyle"
+                    android:clickable="true"
+                    android:cursorVisible="false"
+                    android:drawableRight="@drawable/icon_calendar"
+                    android:editable="false"
+                    android:focusableInTouchMode="false" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:text="联系电话：" />
+
+                <EditText
+                    android:id="@+id/telephoneEditText"
+                    style="@style/PersonalInfoEditTextStyle"
+                    android:inputType="textPhonetic" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:text="民族：" />
+
+                <Spinner
+                    android:id="@+id/ethnicSpinner"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/ethnic" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal" >
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:text="家庭住址：" />
+
+                <EditText
+                    android:id="@+id/familyAddressEditText"
+                    style="@style/PersonalInfoEditTextStyle"
+                    android:layout_width="530dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                style="@style/PersonalInfoItemStyle"
+                android:layout_weight="2" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:text="户籍地址：" />
+
+                <EditText
+                    android:id="@+id/residentAddressEditText"
+                    style="@style/PersonalInfoEditTextStyle"
+                    android:layout_width="530dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/PersonalInfoItemStyle"
+                android:layout_weight="1" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:text="婚姻状况：" />
+
+                <Spinner
+                    android:id="@+id/marriageSpinner"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/marriage" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal" >
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:text="具体工种：" />
+
+                <Spinner
+                    android:id="@+id/workSpinner"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/job" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:text="职业：" />
+
+                <Spinner
+                    android:id="@+id/jobSpinner"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/job" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:text="文化程度：" />
+
+                <Spinner
+                    android:id="@+id/educationSpinner"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:entries="@array/education" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal" >
+
+            <LinearLayout style="@style/PersonalInfoItemStyle" >
+
+                <TextView
+                    style="@style/PersonalInfoLabelStyle"
+                    android:text="工作单位：" />
+
+                <EditText
+                    android:id="@+id/companyEditText"
+                    style="@style/PersonalInfoEditTextStyle"
+                    android:layout_width="530dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/PersonalInfoLabelStyle"
+                android:text="保险类型：" />
+
+            <RelativeLayout
+                android:id="@+id/insuranceCategoryLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <CheckBox
+                    android:id="@+id/insuranceCategory0"
+                    style="@style/CheckBoxStyle"
+                    android:minWidth="250dp"
+                    android:text="医保" />
+
+                <CheckBox
+                    android:id="@+id/insuranceCategory1"
+                    style="@style/CheckBoxStyle"
+                    android:layout_toRightOf="@id/insuranceCategory0"
+                    android:minWidth="250dp"
+                    android:text="商业医疗保险" />
+
+                <CheckBox
+                    android:id="@+id/insuranceCategory2"
+                    style="@style/CheckBoxStyle"
+                    android:layout_toRightOf="@id/insuranceCategory1"
+                    android:minWidth="250dp"
+                    android:text="大病统筹" />
+
+                <CheckBox
+                    android:id="@+id/insuranceCategory3"
+                    style="@style/CheckBoxStyle"
+                    android:layout_below="@id/insuranceCategory0"
+                    android:layout_marginTop="15dp"
+                    android:minWidth="250dp"
+                    android:text="新型农村合作医疗" />
+
+                <CheckBox
+                    android:id="@+id/insuranceCategory4"
+                    style="@style/CheckBoxStyle"
+                    android:layout_below="@id/insuranceCategory0"
+                    android:layout_marginTop="15dp"
+                    android:layout_toRightOf="@id/insuranceCategory3"
+                    android:minWidth="250dp"
+                    android:text="城镇居民基本医疗保险" />
+
+                <CheckBox
+                    android:id="@+id/insuranceCategory5"
+                    style="@style/CheckBoxStyle"
+                    android:layout_below="@id/insuranceCategory1"
+                    android:layout_marginTop="15dp"
+                    android:layout_toRightOf="@id/insuranceCategory4"
+                    android:minWidth="250dp"
+                    android:text="公费医疗" />
+
+                <CheckBox
+                    android:id="@+id/insuranceCategory6"
+                    style="@style/CheckBoxStyle"
+                    android:layout_below="@id/insuranceCategory3"
+                    android:layout_marginTop="15dp"
+                    android:text="其他" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

@@ -116,26 +116,26 @@ public class SplashActivity extends AbsBaseActivity {
 					}
 				}
 				
-				// 3、帮助文件解压到sdcard中
-				//帮助文件是否解压成功
-				boolean helpUnziped = preferencesManager.getBoolean(PreferencesConstant.KEY_HELP_UNZIPED, false);
-				// 帮助文件是否存在
-				File helpDir = new File(mApplication.getAppDir() + "help.pdf");
-				boolean helpExisted = helpDir.exists();
-				if (!helpUnziped || !helpExisted) {// 帮助没有被解压成功或者不存在
-					String appDir = mApplication.getAppDir();
-					FileUtils.createDir(appDir);// 创建目录
-					String resourceFileArray[] = getResources().getAssets().list("help");
-					for (int i = 0; i < resourceFileArray.length; i++) {
-						resourceFileArray[i] = "help/" + resourceFileArray[i];
-					}
-
-					String destZipFile = appDir + "help.zip";
-					FileUtils.mergeFile(mActivity, resourceFileArray, destZipFile);
-					if (FileUtils.unZipFiles(destZipFile, appDir)) {
-						new PreferencesManager(mActivity).putBoolean(PreferencesConstant.KEY_RESOURCE_UNZIPED, true);
-					}
-				}
+//				// 3、帮助文件解压到sdcard中
+//				//帮助文件是否解压成功
+//				boolean helpUnziped = preferencesManager.getBoolean(PreferencesConstant.KEY_HELP_UNZIPED, false);
+//				// 帮助文件是否存在
+//				File helpDir = new File(mApplication.getAppDir() + "help.pdf");
+//				boolean helpExisted = helpDir.exists();
+//				if (!helpUnziped || !helpExisted) {// 帮助没有被解压成功或者不存在
+//					String appDir = mApplication.getAppDir();
+//					FileUtils.createDir(appDir);// 创建目录
+//					String resourceFileArray[] = getResources().getAssets().list("help");
+//					for (int i = 0; i < resourceFileArray.length; i++) {
+//						resourceFileArray[i] = "help/" + resourceFileArray[i];
+//					}
+//
+//					String destZipFile = appDir + "help.zip";
+//					FileUtils.mergeFile(mActivity, resourceFileArray, destZipFile);
+//					if (FileUtils.unZipFiles(destZipFile, appDir)) {
+//						new PreferencesManager(mActivity).putBoolean(PreferencesConstant.KEY_RESOURCE_UNZIPED, true);
+//					}
+//				}
 
 			} catch (IOException e) {
 				e.printStackTrace();

@@ -752,4 +752,9 @@ public class PsychologicaAssessmentFragment extends BaseFragment implements OnCl
 		}
 		return result;
 	}
+	
+	@Override
+	public void onSave() {
+		super.onSave();
+	}
 }

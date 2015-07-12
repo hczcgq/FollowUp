@@ -202,7 +202,13 @@ public class FollowUpManagerFragment extends BaseIDCardInfoFragment {
 		reportCardTextView.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-
+				// 如果没有随访编号，需要先生成随访编号
+//				if (TextUtils.isEmpty(MyApplication.getInstance().getFollowUpNo())) {
+//					ToastUtils.showToast(getActivity(), "随访信息为空");
+//					return;
+//				}
+//				BaseFragment baseFragment = contentFragmentList.get(contentViewPager.getCurrentItem());
+//				baseFragment.onReport();
 			}
 		});
 	}

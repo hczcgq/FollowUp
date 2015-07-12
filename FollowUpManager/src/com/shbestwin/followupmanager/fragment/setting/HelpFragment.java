@@ -38,7 +38,7 @@ public class HelpFragment extends BaseFragment {
 		showHelpDocButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				startPdfFileIntent();
+//				startPdfFileIntent();
 			}
 		});
 	}
@@ -56,7 +56,6 @@ public class HelpFragment extends BaseFragment {
 			getActivity().startActivity(intent);
         } 
         catch (ActivityNotFoundException e) {
-        	System.out.println("打开失败");
         	ToastUtils.showToast(getActivity(), "没有找到打开pdf文件的相关软件");
         }
 	}

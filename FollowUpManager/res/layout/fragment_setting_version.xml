@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
+        android:text="立创家庭医生移动随访系统软件V3.0"
         android:textSize="@dimen/global_font_size_large" />
 
     <Button

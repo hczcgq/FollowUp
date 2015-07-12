@@ -42,4 +42,8 @@ public class BaseFragment extends Fragment {
 	public void onExaminationRegister() {
 
 	}
+	
+	public void onReport(){
+		
+	}
 }

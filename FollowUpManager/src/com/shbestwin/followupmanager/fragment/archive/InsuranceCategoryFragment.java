@@ -62,6 +62,7 @@ public class InsuranceCategoryFragment extends BaseArchiveFragment {
 				}
 			}
 		});
+		refreshData();
 	}
 
 	@Override
@@ -86,8 +87,6 @@ public class InsuranceCategoryFragment extends BaseArchiveFragment {
 			archiveInfo.setInsuranceNo(insuranceNo.getText().toString());
 			archiveInfo.setCategoryName(getCategoryName());
 		}
-		
-		
 		return archiveInfo;
 	}
 

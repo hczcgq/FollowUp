@@ -25,7 +25,8 @@ import com.shbestwin.followupmanager.model.examination.Question;
 
 public class ExaminationLayout extends FrameLayout {
 	private ExaminationIndicator examinationIndicator;
-	private TextView mainTitleTextView, subTitleTextView, questionTipsTextView, questionTextView;
+	private TextView mainTitleTextView, subTitleTextView, questionTipsTextView,
+			questionTextView;
 	private RadioGroup optionsRadioGroup;
 	private Button preQuestionButton, nextQuestionButton, endButton;
 
@@ -33,6 +34,8 @@ public class ExaminationLayout extends FrameLayout {
 	private List<String> options;
 	private int currentIndex;
 	private List<Integer> answers;
+
+	private boolean isNext = true;
 
 	public ExaminationLayout(Context context) {
 		this(context, null);
@@ -44,16 +47,22 @@ public class ExaminationLayout extends FrameLayout {
 
 	public ExaminationLayout(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		View root = LayoutInflater.from(context).inflate(R.layout.view_examination, this, true);
-		examinationIndicator = (ExaminationIndicator) root.findViewById(R.id.examinationIndicator);
-		mainTitleTextView = (TextView) root.findViewById(R.id.mainTitleTextView);
+		View root = LayoutInflater.from(context).inflate(
+				R.layout.view_examination, this, true);
+		examinationIndicator = (ExaminationIndicator) root
+				.findViewById(R.id.examinationIndicator);
+		mainTitleTextView = (TextView) root
+				.findViewById(R.id.mainTitleTextView);
 		subTitleTextView = (TextView) root.findViewById(R.id.subTitleTextView);
-		questionTipsTextView = (TextView) root.findViewById(R.id.questionTipsTextView);
+		questionTipsTextView = (TextView) root
+				.findViewById(R.id.questionTipsTextView);
 		questionTextView = (TextView) root.findViewById(R.id.questionTextView);
-		optionsRadioGroup = (RadioGroup) root.findViewById(R.id.optionsRadioGroup);
+		optionsRadioGroup = (RadioGroup) root
+				.findViewById(R.id.optionsRadioGroup);
 
 		preQuestionButton = (Button) root.findViewById(R.id.preQuestionButton);
-		nextQuestionButton = (Button) root.findViewById(R.id.nextQuestionButton);
+		nextQuestionButton = (Button) root
+				.findViewById(R.id.nextQuestionButton);
 		endButton = (Button) root.findViewById(R.id.endButton);
 
 		endButton.setOnClickListener(new OnClickListener() {
@@ -83,28 +92,28 @@ public class ExaminationLayout extends FrameLayout {
 			}
 		});
 
-		optionsRadioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-			@Override
-			public void onCheckedChanged(RadioGroup group, int checkedId) {
-			    System.out.println("-----------------");
-				answers.set(currentIndex, checkedId);
-				boolean result = answers.get(currentIndex) >= 0 ? true : false;
-				if(result&&isNext&&(currentIndex<(questions.size()-1))) {
-				    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            isNext=false;
-                            handleNext();
-                        }
-                    }, 1000);
-				}
-			}
-		});
+		optionsRadioGroup
+				.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+					@Override
+					public void onCheckedChanged(RadioGroup group, int checkedId) {
+						answers.set(currentIndex, checkedId);
+						boolean result = answers.get(currentIndex) >= 0 ? true
+								: false;
+						if (result && isNext
+								&& (currentIndex < (questions.size() - 1))) {
+							new Handler().postDelayed(new Runnable() {
+								@Override
+								public void run() {
+									isNext = false;
+									handleNext();
+								}
+							}, 500);
+						}
+					}
+				});
 		options = null;
 	}
 
-	private boolean isNext=true;
-	
 	public List<Question> getQuestions() {
 		return questions;
 	}
@@ -137,11 +146,13 @@ public class ExaminationLayout extends FrameLayout {
 		}
 		preQuestionButton.setEnabled(true);
 		changeQuestion();
-		isNext=true;
+		isNext = true;
 	}
 
-	public void renderView(String mainTitle, String subTitle, List<Question> questions, List<String> options) {
-		if (CollectionUtils.isEmpty(questions) || CollectionUtils.isEmpty(options)) {
+	public void renderView(String mainTitle, String subTitle,
+			List<Question> questions, List<String> options) {
+		if (CollectionUtils.isEmpty(questions)
+				|| CollectionUtils.isEmpty(options)) {
 			return;
 		}
 		this.questions = questions;
@@ -174,7 +185,8 @@ public class ExaminationLayout extends FrameLayout {
 		changeQuestion();
 	}
 
-	public void renderView(String mainTitle, String subTitle, List<Question> questions, String[] options) {
+	public void renderView(String mainTitle, String subTitle,
+			List<Question> questions, String[] options) {
 		if (CollectionUtils.isEmpty(questions) || ArrayUtils.isEmpty(options)) {
 			return;
 		}
@@ -197,7 +209,7 @@ public class ExaminationLayout extends FrameLayout {
 		} else {
 			subTitleTextView.setVisibility(View.GONE);
 		}
-		
+
 		currentIndex = 0;
 		preQuestionButton.setEnabled(false);
 		nextQuestionButton.setEnabled(true);
@@ -214,7 +226,9 @@ public class ExaminationLayout extends FrameLayout {
 			child.setTextColor(getResources().getColor(R.color.black));
 			child.setTextSize(18);
 			child.setId(i);
-			RadioGroup.LayoutParams lp = new RadioGroup.LayoutParams(RadioGroup.LayoutParams.WRAP_CONTENT, RadioGroup.LayoutParams.WRAP_CONTENT);
+			RadioGroup.LayoutParams lp = new RadioGroup.LayoutParams(
+					RadioGroup.LayoutParams.WRAP_CONTENT,
+					RadioGroup.LayoutParams.WRAP_CONTENT);
 			lp.rightMargin = (int) (getResources().getDisplayMetrics().density * 50);
 			optionsRadioGroup.addView(child, lp);
 		}
@@ -233,8 +247,12 @@ public class ExaminationLayout extends FrameLayout {
 	}
 
 	private void changeQuestion() {
-		questionTipsTextView.setText(Html.fromHtml(String.format(getResources().getString(R.string.jktj_test_question_tips), (currentIndex + 1), questions.size())));
-		questionTextView.setText(questions.get(currentIndex).getQuestion().replace("|", "\n"));
+		isNext = false;
+		questionTipsTextView.setText(Html.fromHtml(String.format(getResources()
+				.getString(R.string.jktj_test_question_tips),
+				(currentIndex + 1), questions.size())));
+		questionTextView.setText(questions.get(currentIndex).getQuestion()
+				.replace("|", "\n"));
 		examinationIndicator.updateIndex(currentIndex);
 		int id = answers.get(currentIndex);
 		if (id >= 0) {
@@ -242,8 +260,8 @@ public class ExaminationLayout extends FrameLayout {
 		} else {
 			optionsRadioGroup.clearCheck();
 		}
-
 		changeOptions();
+		isNext = true;
 	}
 
 	private void changeOptions() {
@@ -259,7 +277,9 @@ public class ExaminationLayout extends FrameLayout {
 			child.setTextColor(getResources().getColor(R.color.black));
 			child.setTextSize(18);
 			child.setId(i);
-			RadioGroup.LayoutParams lp = new RadioGroup.LayoutParams(RadioGroup.LayoutParams.WRAP_CONTENT, RadioGroup.LayoutParams.WRAP_CONTENT);
+			RadioGroup.LayoutParams lp = new RadioGroup.LayoutParams(
+					RadioGroup.LayoutParams.WRAP_CONTENT,
+					RadioGroup.LayoutParams.WRAP_CONTENT);
 			lp.rightMargin = (int) (getResources().getDisplayMetrics().density * 50);
 			optionsRadioGroup.addView(child, lp);
 		}

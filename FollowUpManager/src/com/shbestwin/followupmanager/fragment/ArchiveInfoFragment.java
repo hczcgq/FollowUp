@@ -105,7 +105,6 @@ public class ArchiveInfoFragment extends BaseFragment {
 	
 	public void refreshData() {
 		ArchiveInfo archiveInfo = MyApplication.getInstance().getArchiveInfo();
-		System.out.println(archiveInfo+"--------");
 		if (archiveInfo == null) {
 			return;
 		} else {

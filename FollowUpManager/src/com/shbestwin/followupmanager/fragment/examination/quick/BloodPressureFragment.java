@@ -32,13 +32,14 @@ import com.shbestwin.followupmanager.view.widget.MeasureTipsLayout;
 /**
  * 
  * 血压
- *
+ * 
  * @version
  */
 public class BloodPressureFragment extends BaseQuickExaminationFragment {
 	private MeasureTipsLayout measureTipsLayuout;
 	private Button getBloodPressureButton;
-	private EditText systolicPressureEditText, diastolicPressureEditText, pulseRateEditText;
+	private EditText systolicPressureEditText, diastolicPressureEditText,
+			pulseRateEditText;
 	private EditText conclusionEditText;
 
 	public static BloodPressureFragment newInstance() {
@@ -47,14 +48,23 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fragment_quick_examination_blood_pressure, container, false);
-		measureTipsLayuout = (MeasureTipsLayout) rootView.findViewById(R.id.measureTipsLayuout);
-		getBloodPressureButton = (Button) rootView.findViewById(R.id.getBloodPressureButton);
-		systolicPressureEditText = (EditText) rootView.findViewById(R.id.systolicPressureEditText);
-		diastolicPressureEditText = (EditText) rootView.findViewById(R.id.diastolicPressureEditText);
-		pulseRateEditText = (EditText) rootView.findViewById(R.id.pulseRateEditText);
-		conclusionEditText = (EditText) rootView.findViewById(R.id.conclusionEditText);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		View rootView = inflater.inflate(
+				R.layout.fragment_quick_examination_blood_pressure, container,
+				false);
+		measureTipsLayuout = (MeasureTipsLayout) rootView
+				.findViewById(R.id.measureTipsLayuout);
+		getBloodPressureButton = (Button) rootView
+				.findViewById(R.id.getBloodPressureButton);
+		systolicPressureEditText = (EditText) rootView
+				.findViewById(R.id.systolicPressureEditText);
+		diastolicPressureEditText = (EditText) rootView
+				.findViewById(R.id.diastolicPressureEditText);
+		pulseRateEditText = (EditText) rootView
+				.findViewById(R.id.pulseRateEditText);
+		conclusionEditText = (EditText) rootView
+				.findViewById(R.id.conclusionEditText);
 		return rootView;
 	}
 
@@ -74,29 +84,33 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 	private boolean dataReading = false;
 	private ReadDataTask readDataTask;
 	private ReadDataTask1 readDataTask1;
+
 	private void readData() {
 		if (!dataReading) {
-			Device device = DeviceManager.getInstance(getActivity()).getDeviceByTypeId(Device.TYPE_ID_BLOOD_PRESSURE);
+			Device device = DeviceManager.getInstance(getActivity())
+					.getDeviceByTypeId(Device.TYPE_ID_BLOOD_PRESSURE);
 			if (device.getCode().equals("0401")) {
 				dataReading = true;
-//				new ReadDataTask(getActivity()).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-			
+				// new
+				// ReadDataTask(getActivity()).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+
 				if (readDataTask != null
-	                    && readDataTask.getStatus() == AsyncTask.Status.RUNNING) {
-	                readDataTask.cancel(true); // 如果Task还在运行，则先取消它
-	            }
-	            // 启动新的任务
-	            readDataTask = new ReadDataTask(getActivity());
-	            readDataTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+						&& readDataTask.getStatus() == AsyncTask.Status.RUNNING) {
+					readDataTask.cancel(true); // 如果Task还在运行，则先取消它
+				}
+				// 启动新的任务
+				readDataTask = new ReadDataTask(getActivity());
+				readDataTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 			} else if (device.getCode().equals("0402")) {
 				dataReading = true;
-//				new ReadDataTask1(getActivity()).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-				
+				// new
+				// ReadDataTask1(getActivity()).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+
 				if (readDataTask1 != null
-                        && readDataTask1.getStatus() == AsyncTask.Status.RUNNING) {
-				    readDataTask1.cancel(true); // 如果Task还在运行，则先取消它
-                }
-                // 启动新的任务
+						&& readDataTask1.getStatus() == AsyncTask.Status.RUNNING) {
+					readDataTask1.cancel(true); // 如果Task还在运行，则先取消它
+				}
+				// 启动新的任务
 				readDataTask1 = new ReadDataTask1(getActivity());
 				readDataTask1.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 			}
@@ -116,13 +130,14 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 
 		@Override
 		protected void onPreExecute() {
-			progressDialog = ProgressDialog.show(activity, "温馨提示", "获取中。。。", false, true);
+			progressDialog = ProgressDialog.show(activity, "温馨提示", "获取中。。。",
+					false, true);
 			progressDialog.setOnCancelListener(new OnCancelListener() {
 				@Override
 				public void onCancel(DialogInterface dialog) {
 					if (bloodPressureManager != null) {
 						bloodPressureManager.closeDevice();
-						dataReading=false;
+						dataReading = false;
 					}
 				}
 			});
@@ -135,10 +150,10 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 				bloodPressureManager.closeDevice();
 				return bloodPressure;
 			}
-//			BloodPressure bloodPressure = new BloodPressure();
-//			bloodPressure.setSystolicPressure(165);//收缩压
-//            bloodPressure.setDiastolicPressure(82);//舒张压
-//            bloodPressure.setPulseRate(76);//脉搏
+			// BloodPressure bloodPressure = new BloodPressure();
+			// bloodPressure.setSystolicPressure(165);//收缩压
+			// bloodPressure.setDiastolicPressure(82);//舒张压
+			// bloodPressure.setPulseRate(76);//脉搏
 			return null;
 		}
 
@@ -148,13 +163,16 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 				progressDialog.dismiss();
 			}
 			if (result != null) {
-				systolicPressureEditText.setText(result.getSystolicPressure() + "");
-				diastolicPressureEditText.setText(result.getDiastolicPressure() + "");
+				systolicPressureEditText.setText(result.getSystolicPressure()
+						+ "");
+				diastolicPressureEditText.setText(result.getDiastolicPressure()
+						+ "");
 				pulseRateEditText.setText(result.getPulseRate() + "");
-//				 conclusionEditText.setText(result.getConclusion());
-				 onConclusion();
+				// conclusionEditText.setText(result.getConclusion());
+				onConclusion();
 			} else {
-				ToastUtils.showToast(activity, bloodPressureManager.getTipsInfo());
+				ToastUtils.showToast(activity,
+						bloodPressureManager.getTipsInfo());
 			}
 			bloodPressureManager = null;
 			dataReading = false;
@@ -173,12 +191,13 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 
 		@Override
 		protected void onPreExecute() {
-			progressDialog = ProgressDialog.show(activity, "温馨提示", "获取中。。。", false, true);
+			progressDialog = ProgressDialog.show(activity, "温馨提示", "获取中。。。",
+					false, true);
 			progressDialog.setOnCancelListener(new OnCancelListener() {
 				@Override
 				public void onCancel(DialogInterface dialog) {
 					ReadDataTask1.this.cancel(true);
-					dataReading=false;
+					dataReading = false;
 				}
 			});
 		}
@@ -199,14 +218,17 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 				progressDialog.dismiss();
 			}
 			if (result != null) {
-				systolicPressureEditText.setText(result.getSystolicPressure() + "");
-				diastolicPressureEditText.setText(result.getDiastolicPressure() + "");
+				systolicPressureEditText.setText(result.getSystolicPressure()
+						+ "");
+				diastolicPressureEditText.setText(result.getDiastolicPressure()
+						+ "");
 				pulseRateEditText.setText(result.getPulseRate() + "");
 				// conclusionEditText.setText(result.getConclusion());
 				onConclusion();
 			} else {
 				if (bloodPressureManager.isPaired()) {
-					ToastUtils.showToast(activity, bloodPressureManager.getTipsInfo());
+					ToastUtils.showToast(activity,
+							bloodPressureManager.getTipsInfo());
 				} else {
 					showPairDialog();
 				}
@@ -256,7 +278,8 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 	private void pair() {
 		if (!pairing) {
 			pairing = true;
-			new PairTask(getActivity()).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+			new PairTask(getActivity())
+					.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 		}
 	}
 
@@ -272,7 +295,8 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 
 		@Override
 		protected void onPreExecute() {
-			progressDialog = ProgressDialog.show(activity, "温馨提示", "配对中。。。", false, true);
+			progressDialog = ProgressDialog.show(activity, "温馨提示", "配对中。。。",
+					false, true);
 			progressDialog.setOnCancelListener(new OnCancelListener() {
 				@Override
 				public void onCancel(DialogInterface dialog) {
@@ -291,7 +315,8 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 			if (progressDialog != null) {
 				progressDialog.dismiss();
 			}
-			ToastUtils.showToast(activity, bloodPressurePairManager.getTipsInfo());
+			ToastUtils.showToast(activity,
+					bloodPressurePairManager.getTipsInfo());
 			bloodPressurePairManager = null;
 			pairing = false;
 		}
@@ -320,19 +345,25 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 
 	@Override
 	public void onConclusion() {
-		String systolicPressureStr = systolicPressureEditText.getText().toString();// 收缩压
-		String diastolicPressureStr = diastolicPressureEditText.getText().toString(); // 舒张压
-		if (!TextUtils.isEmpty(systolicPressureStr) && !TextUtils.isEmpty(diastolicPressureStr)) {
+		String systolicPressureStr = systolicPressureEditText.getText()
+				.toString();// 收缩压
+		String diastolicPressureStr = diastolicPressureEditText.getText()
+				.toString(); // 舒张压
+		if (!TextUtils.isEmpty(systolicPressureStr)
+				&& !TextUtils.isEmpty(diastolicPressureStr)) {
 			double systolicPressure = Double.parseDouble(systolicPressureStr);// 收缩压
 			double diastolicPressure = Double.parseDouble(diastolicPressureStr);// 舒张压
 			String result = "";
 			if ((systolicPressure < 120) && (diastolicPressure < 80)) {
 				result = "血压偏低";
-			} else if (((120 < systolicPressure) && (systolicPressure < 139)) || ((diastolicPressure > 80) && (diastolicPressure < 89))) {
+			} else if (((120 < systolicPressure) && (systolicPressure < 139))
+					|| ((diastolicPressure > 80) && (diastolicPressure < 89))) {
 				result = "血压正常";
-			} else if (((140 < systolicPressure) && (systolicPressure < 159)) || ((diastolicPressure > 90) && (diastolicPressure < 99))) {
+			} else if (((140 < systolicPressure) && (systolicPressure < 159))
+					|| ((diastolicPressure > 90) && (diastolicPressure < 99))) {
 				result = "1级高血压（轻度）";
-			} else if (((160 < systolicPressure) && (systolicPressure < 179)) || ((diastolicPressure > 100) && (diastolicPressure < 109))) {
+			} else if (((160 < systolicPressure) && (systolicPressure < 179))
+					|| ((diastolicPressure > 100) && (diastolicPressure < 109))) {
 				result = "2级高血压（中度）";
 			} else if ((systolicPressure > 160) || (diastolicPressure > 110)) {
 				result = "3级高血压（重度）";
@@ -347,12 +378,18 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 
 	@Override
 	public String getPrintData(String examinationNo) {
-		String printStr = ExaminationManager.getInstance(getActivity()).getPrintTemplate(R.raw.print_blood_pressure_template, examinationNo);
+		String printStr = ExaminationManager.getInstance(getActivity())
+				.getPrintTemplate(R.raw.print_blood_pressure_template,
+						examinationNo);
 		// 替换相关数据
-		printStr=printStr.replace("{systolic_pressure}", systolicPressureEditText.getText().toString())// 收缩压
-						 .replace("{diastolic_pressure}", diastolicPressureEditText.getText().toString())// 舒张压
-						 .replace("{pulse}", pulseRateEditText.getText().toString())// 周期脉搏
-						 .replace("{conclusion}", conclusionEditText.getText().toString());// 结论
+		printStr = printStr
+				.replace("{systolic_pressure}",
+						systolicPressureEditText.getText().toString())// 收缩压
+				.replace("{diastolic_pressure}",
+						diastolicPressureEditText.getText().toString())// 舒张压
+				.replace("{pulse}", pulseRateEditText.getText().toString())// 周期脉搏
+				.replace("{conclusion}",
+						conclusionEditText.getText().toString());// 结论
 		return printStr;
 	}
 
@@ -372,34 +409,51 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 				bloodPressure.put("updateTime", date);
 			}
 
-			bloodPressure.put("systolicPressure", systolicPressureEditText.getText().toString());
-			bloodPressure.put("diastolicPressure", diastolicPressureEditText.getText().toString());
+			bloodPressure.put("systolicPressure", systolicPressureEditText
+					.getText().toString());
+			bloodPressure.put("diastolicPressure", diastolicPressureEditText
+					.getText().toString());
 			bloodPressure.put("pulse", pulseRateEditText.getText().toString());
-			bloodPressure.put("conclusion", conclusionEditText.getText().toString());
+			bloodPressure.put("conclusion", conclusionEditText.getText()
+					.toString());
 			examinationInfo.setBloodPressure(bloodPressure.toString());
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 	}
 
-    @Override
-    public void setSaveData(ExaminationInfo examinationInfo) {
-       if(examinationInfo!=null){
-    	   String msg=examinationInfo.getBloodPressure();
-    	   if(TextUtils.isEmpty(msg)){
-    		   return;
-    	   }
-    	   try {
-			JSONObject json=new JSONObject(msg);
-			systolicPressureEditText.setText(json.getString("systolicPressure"));
-			diastolicPressureEditText.setText(json.getString("diastolicPressure"));
-			pulseRateEditText.setText(json.getString("pulse"));
-			conclusionEditText.setText(json.getString("conclusion"));
-//			onConclusion();
-		} catch (JSONException e) {
-			e.printStackTrace();
+	@Override
+	public void setSaveData(ExaminationInfo examinationInfo) {
+		if (examinationInfo != null) {
+			String msg = examinationInfo.getBloodPressure();
+			if (TextUtils.isEmpty(msg)) {
+				systolicPressureEditText.setText("");
+				diastolicPressureEditText.setText("");
+				pulseRateEditText.setText("");
+				conclusionEditText.setText("");
+				return;
+			}
+			try {
+				JSONObject json = new JSONObject(msg);
+				systolicPressureEditText.setText(json
+						.getString("systolicPressure"));
+				diastolicPressureEditText.setText(json
+						.getString("diastolicPressure"));
+				pulseRateEditText.setText(json.getString("pulse"));
+				conclusionEditText.setText(json.getString("conclusion"));
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+
 		}
-    	   
-       }
-    }
+	}
+	
+	@Override
+	public void onReset() {
+		super.onReset();
+		systolicPressureEditText.setText("");
+		diastolicPressureEditText.setText("");
+		pulseRateEditText.setText("");
+		conclusionEditText.setText("");
+	}
 }

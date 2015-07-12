@@ -26,13 +26,14 @@ import com.shbestwin.followupmanager.view.widget.MeasureTipsLayout;
 /**
  * 
  * 血氧
- *
+ * 
  * @version
  */
 public class BloodOximeterFragment extends BaseQuickExaminationFragment {
 	private MeasureTipsLayout measureTipsLayuout;
 	private Button getDataButton;
-	private EditText bloodOxygenEditText, pulseRateEditText, conclusionEditText;
+	private EditText bloodOxygenEditText, pulseRateEditText,
+			conclusionEditText;
 
 	public static BloodOximeterFragment newInstance() {
 		BloodOximeterFragment fragment = new BloodOximeterFragment();
@@ -40,13 +41,20 @@ public class BloodOximeterFragment extends BaseQuickExaminationFragment {
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fragment_quick_examination_blood_oximeter, container, false);
-		measureTipsLayuout = (MeasureTipsLayout) rootView.findViewById(R.id.measureTipsLayuout);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		View rootView = inflater.inflate(
+				R.layout.fragment_quick_examination_blood_oximeter, container,
+				false);
+		measureTipsLayuout = (MeasureTipsLayout) rootView
+				.findViewById(R.id.measureTipsLayuout);
 		getDataButton = (Button) rootView.findViewById(R.id.getDataButton);
-		bloodOxygenEditText = (EditText) rootView.findViewById(R.id.bloodOxygenEditText);
-		pulseRateEditText = (EditText) rootView.findViewById(R.id.pulseRateEditText);
-		conclusionEditText = (EditText) rootView.findViewById(R.id.conclusionEditText);
+		bloodOxygenEditText = (EditText) rootView
+				.findViewById(R.id.bloodOxygenEditText);
+		pulseRateEditText = (EditText) rootView
+				.findViewById(R.id.pulseRateEditText);
+		conclusionEditText = (EditText) rootView
+				.findViewById(R.id.conclusionEditText);
 		return rootView;
 	}
 
@@ -65,18 +73,19 @@ public class BloodOximeterFragment extends BaseQuickExaminationFragment {
 
 	private boolean dataReading = false;
 	private ReadDataTask readDataTask;
+
 	private void readData() {
 		if (!dataReading) {
 			dataReading = true;
-//			new ReadDataTask(getActivity()).execute();
-			
+			// new ReadDataTask(getActivity()).execute();
+
 			if (readDataTask != null
-                    && readDataTask.getStatus() == AsyncTask.Status.RUNNING) {
-                readDataTask.cancel(true); // 如果Task还在运行，则先取消它
-            }
-            // 启动新的任务
-            readDataTask = new ReadDataTask(getActivity());
-            readDataTask.execute();
+					&& readDataTask.getStatus() == AsyncTask.Status.RUNNING) {
+				readDataTask.cancel(true); // 如果Task还在运行，则先取消它
+			}
+			// 启动新的任务
+			readDataTask = new ReadDataTask(getActivity());
+			readDataTask.execute();
 		}
 	}
 
@@ -92,13 +101,14 @@ public class BloodOximeterFragment extends BaseQuickExaminationFragment {
 
 		@Override
 		protected void onPreExecute() {
-			progressDialog = ProgressDialog.show(activity, "温馨提示", "获取中。。。", false, true);
+			progressDialog = ProgressDialog.show(activity, "温馨提示", "获取中。。。",
+					false, true);
 			progressDialog.setOnCancelListener(new OnCancelListener() {
 				@Override
 				public void onCancel(DialogInterface dialog) {
 					if (fingerOximeterManager != null) {
 						fingerOximeterManager.closeDevice();
-						dataReading=false;
+						dataReading = false;
 					}
 				}
 			});
@@ -125,7 +135,8 @@ public class BloodOximeterFragment extends BaseQuickExaminationFragment {
 				// conclusionEditText.setText(result.getConclusion());
 				onConclusion();
 			} else {
-				ToastUtils.showToast(activity, fingerOximeterManager.getTipsInfo());
+				ToastUtils.showToast(activity,
+						fingerOximeterManager.getTipsInfo());
 			}
 			fingerOximeterManager = null;
 			dataReading = false;
@@ -148,7 +159,8 @@ public class BloodOximeterFragment extends BaseQuickExaminationFragment {
 	public void onConclusion() {
 		String bloodOxygenStr = bloodOxygenEditText.getText().toString();
 		if (!TextUtils.isEmpty(bloodOxygenStr)) {
-			conclusionEditText.setText(BloodOximeter.getConclusion(Integer.parseInt(bloodOxygenStr)));
+			conclusionEditText.setText(BloodOximeter.getConclusion(Integer
+					.parseInt(bloodOxygenStr)));
 		} else {
 			conclusionEditText.setText("");
 		}
@@ -156,11 +168,16 @@ public class BloodOximeterFragment extends BaseQuickExaminationFragment {
 
 	@Override
 	public String getPrintData(String examinationNo) {
-		String printStr = ExaminationManager.getInstance(getActivity()).getPrintTemplate(R.raw.print_finger_oximeter_template, examinationNo);
+		String printStr = ExaminationManager.getInstance(getActivity())
+				.getPrintTemplate(R.raw.print_finger_oximeter_template,
+						examinationNo);
 		// 替换相关数据
-		printStr=printStr.replace("{saturation}", bloodOxygenEditText.getText().toString())// 饱和度
-						 .replace("{pulse_rate}", pulseRateEditText.getText().toString())// 脉率
-						 .replace("{conclusion}", conclusionEditText.getText().toString());// 血氧结论
+		printStr = printStr
+				.replace("{saturation}",
+						bloodOxygenEditText.getText().toString())// 饱和度
+				.replace("{pulse_rate}", pulseRateEditText.getText().toString())// 脉率
+				.replace("{conclusion}",
+						conclusionEditText.getText().toString());// 血氧结论
 		return printStr;
 	}
 
@@ -180,31 +197,44 @@ public class BloodOximeterFragment extends BaseQuickExaminationFragment {
 				bloodOxygen.put("updateTime", date);
 			}
 
-			bloodOxygen.put("saturation", bloodOxygenEditText.getText().toString());
-			bloodOxygen.put("pulseRate", pulseRateEditText.getText().toString());
-			bloodOxygen.put("conclusion", conclusionEditText.getText().toString());
+			bloodOxygen.put("saturation", bloodOxygenEditText.getText()
+					.toString());
+			bloodOxygen
+					.put("pulseRate", pulseRateEditText.getText().toString());
+			bloodOxygen.put("conclusion", conclusionEditText.getText()
+					.toString());
 			examinationInfo.setBloodOxygen(bloodOxygen.toString());
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 	}
 
-    @Override
-    public void setSaveData(ExaminationInfo examinationInfo) {
-    	if (examinationInfo != null) {
-			String msg=examinationInfo.getBloodOxygen();
-			if(TextUtils.isEmpty(msg)){
+	@Override
+	public void setSaveData(ExaminationInfo examinationInfo) {
+		if (examinationInfo != null) {
+			String msg = examinationInfo.getBloodOxygen();
+			if (TextUtils.isEmpty(msg)) {
+				bloodOxygenEditText.setText("");
+				pulseRateEditText.setText("");
+				conclusionEditText.setText("");
 				return;
 			}
 			try {
-				JSONObject jsonObject =new JSONObject(msg);
+				JSONObject jsonObject = new JSONObject(msg);
 				bloodOxygenEditText.setText(jsonObject.getString("saturation"));
 				pulseRateEditText.setText(jsonObject.getString("pulseRate"));
 				conclusionEditText.setText(jsonObject.getString("conclusion"));
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
-			
 		}
-    }
+	}
+
+	@Override
+	public void onReset() {
+		super.onReset();
+		bloodOxygenEditText.setText("");
+		pulseRateEditText.setText("");
+		conclusionEditText.setText("");
+	}
 }

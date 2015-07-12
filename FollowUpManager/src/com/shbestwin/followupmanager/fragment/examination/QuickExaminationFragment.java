@@ -49,6 +49,8 @@ public class QuickExaminationFragment extends BaseFragment {
 
 	private boolean isFirst = true;
 
+	private ExaminationInfo generalExamination = null;
+
 	public static QuickExaminationFragment newInstance() {
 		QuickExaminationFragment fragment = new QuickExaminationFragment();
 		return fragment;
@@ -110,8 +112,7 @@ public class QuickExaminationFragment extends BaseFragment {
 				getChildFragmentManager()));
 		bodyViewPager.setCurrentItem(0);// 设置当前显示标签页为第一页
 
-		final ExaminationInfo generalExamination = MyApplication.getInstance()
-				.getExaminationInfo();
+		generalExamination = MyApplication.getInstance().getExaminationInfo();
 
 		bodyViewPager.setOnPageChangeListener(new OnPageChangeListener() {
 			@Override
@@ -208,4 +209,12 @@ public class QuickExaminationFragment extends BaseFragment {
 		baseFragment.onUpload();
 	}
 
+	@Override
+	public void onReset() {
+		super.onReset();
+		generalExamination = MyApplication.getInstance().getExaminationInfo();
+		BaseFragment baseFragment = contentFragmentList.get(bodyViewPager
+				.getCurrentItem());
+		baseFragment.onReset();
+	}
 }

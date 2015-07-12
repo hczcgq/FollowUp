@@ -63,7 +63,7 @@ public class DiabetesMellitusBody4 extends LinearLayout  implements IBaseDiabete
                 et_rxyl_mbz.setText(smoking.split("/")[1]);
             }
 		    String drinking=followUpDiabetesMellitus.getShzdfs_ryjl();
-            if(drinking.split("/").length==0) {
+            if(drinking.split("/").length==1) {
                 et_ryjl_dqz.setText(drinking.split("/")[0]);
             }else if(drinking.split("/").length==2) {
                 et_ryjl_dqz.setText(drinking.split("/")[0]);

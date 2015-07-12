@@ -224,6 +224,18 @@ public class BodyCompositionFragment extends BaseQuickExaminationFragment {
     	if (examinationInfo != null) {
 			String msg=examinationInfo.getBodyComposition();
 			if(TextUtils.isEmpty(msg)){
+				heightEditText.setText("");
+				weightEditText.setText("");
+				BMIEditText.setText("");
+				bodyImpedanceEditText.setText("");
+				KCALEditText.setText("");
+				RKCALEditText.setText("");
+				fatEditText.setText("");
+				visceralFatEditText.setText("");
+				muscleEditText.setText("");
+				bodyWaterEditText.setText("");
+				boneMassEditText.setText("");
+				conclusionEditText.setText("");
 				return;
 			}
 			try {
@@ -246,5 +258,22 @@ public class BodyCompositionFragment extends BaseQuickExaminationFragment {
 			}
 			
 		}
+    }
+    
+    @Override
+    public void onReset() {
+    	super.onReset();
+    	heightEditText.setText("");
+		weightEditText.setText("");
+		BMIEditText.setText("");
+		bodyImpedanceEditText.setText("");
+		KCALEditText.setText("");
+		RKCALEditText.setText("");
+		fatEditText.setText("");
+		visceralFatEditText.setText("");
+		muscleEditText.setText("");
+		bodyWaterEditText.setText("");
+		boneMassEditText.setText("");
+		conclusionEditText.setText("");
     }
 }

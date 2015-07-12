@@ -280,6 +280,14 @@ public class BloodFatFragment extends BaseQuickExaminationFragment {
     	if (examinationInfo != null) {
 			String msg=examinationInfo.getBloodFat();
 			if(TextUtils.isEmpty(msg)){
+				bloodCHOLEditText.setText("");
+				bloodCHOLConclusionEditText.setText("");
+				bloodTGEditText.setText("");
+				bloodTGConclusionEditText.setText("");
+				bloodHDLEditText.setText("");
+				bloodHDLConclusionEditText.setText("");
+				bloodLDLEditText.setText("");
+				bloodLDLConclusionEditText.setText("");
 				return;
 			}
 			try {
@@ -297,5 +305,18 @@ public class BloodFatFragment extends BaseQuickExaminationFragment {
 			}
 			
 		}
+    }
+    
+    @Override
+    public void onReset() {
+    	super.onReset();
+    	bloodCHOLEditText.setText("");
+		bloodCHOLConclusionEditText.setText("");
+		bloodTGEditText.setText("");
+		bloodTGConclusionEditText.setText("");
+		bloodHDLEditText.setText("");
+		bloodHDLConclusionEditText.setText("");
+		bloodLDLEditText.setText("");
+		bloodLDLConclusionEditText.setText("");
     }
 }
