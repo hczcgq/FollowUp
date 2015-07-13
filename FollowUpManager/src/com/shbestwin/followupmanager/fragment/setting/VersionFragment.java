@@ -33,9 +33,9 @@ public class VersionFragment extends BaseFragment {
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		// TODO 检查是本地登录还是网络登录
-//		String tips = "当前版本号：" +SystemUtils.getVersionName(getActivity()) + "\n当前是本地登录，无法判断是否需要更新。";
-//		tipsTextView.setText(tips);
-//		updateVersionButton.setEnabled(false);
+		String tips = "立创家庭医生移动随访系统软件V3.0\n杭州立创生物科技有限公司\n当前版本号：" +SystemUtils.getVersionName(getActivity()) + "\n当前是本地登录，无法判断是否需要更新。";
+		tipsTextView.setText(tips);
+		updateVersionButton.setEnabled(false);
 		// 如果为本地登录，则不允许更新版本
 		updateVersionButton.setOnClickListener(new OnClickListener() {
 			@Override
