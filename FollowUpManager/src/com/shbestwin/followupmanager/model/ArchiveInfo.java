@@ -144,11 +144,13 @@ public class ArchiveInfo {
 		this.picturePath = idCardInfo.getPicturePath();
 		this.gender = idCardInfo.getGender();
 		this.birthday = idCardInfo.getBirthday();
+		
 		if (!TextUtils.isEmpty(this.birthday)) {
 			this.birthday = DateUtils.formatDate(DateUtils.parseDate(this.birthday, "yyyyMMdd"), "yyyy-MM-dd");
 		}
 		this.ethnic = idCardInfo.getEthnic();
 		this.residentAddress = idCardInfo.getAddress();
+		this.familyAddress=idCardInfo.getAddress();
 	}
 
 	public Bitmap getPicture() {

@@ -77,9 +77,9 @@ public class ExaminationLayout extends FrameLayout {
 		preQuestionButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if (check()) {
+//				if (check()) {
 					handlePre();
-				}
+//				}
 			}
 		});
 
