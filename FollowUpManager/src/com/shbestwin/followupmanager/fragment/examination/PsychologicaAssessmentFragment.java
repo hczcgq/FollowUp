@@ -4,7 +4,8 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
-
+import org.json.JSONArray;
+import org.json.JSONObject;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,11 +17,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
-
+import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.CollectionUtils;
+import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.fragment.BaseFragment;
 import com.shbestwin.followupmanager.manager.ExaminationManager;
+import com.shbestwin.followupmanager.model.examination.ExaminationInfo;
 import com.shbestwin.followupmanager.model.examination.Question;
 import com.shbestwin.followupmanager.view.widget.ExaminationLayout;
 import com.shbestwin.followupmanager.view.widget.ExaminationLayout.OnEndClickListener;
@@ -28,18 +31,22 @@ import com.shbestwin.followupmanager.view.widget.ExaminationLayout.OnEndClickLis
 /**
  * 
  * 心理评估
- *
+ * 
  * @version
  */
-public class PsychologicaAssessmentFragment extends BaseFragment implements OnClickListener {
+public class PsychologicaAssessmentFragment extends BaseFragment implements
+		OnClickListener {
 	private ViewFlipper viewFlipper;
 	private ExaminationLayout examinationLayout;
-	private ImageView sdsImageView, sasImageView, psqiImageView, saqImageView, uclaImageView, gcqImageView, scl90ImageView, qlscaImageView;
+	private ImageView sdsImageView, sasImageView, psqiImageView, saqImageView,
+			uclaImageView, gcqImageView, scl90ImageView, qlscaImageView;
 	private LinearLayout contentLayout;
 	private String type;
 
 	private TextView resultTitleTextView, featureTextView, guidanceTextView;
 	private Button returnButton;
+
+	private List<Integer> mAnswers = new ArrayList<Integer>();
 
 	public static PsychologicaAssessmentFragment newInstance() {
 		PsychologicaAssessmentFragment fragment = new PsychologicaAssessmentFragment();
@@ -47,10 +54,14 @@ public class PsychologicaAssessmentFragment extends BaseFragment implements OnCl
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fragment_examination_psychological_assessment, container, false);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		View rootView = inflater.inflate(
+				R.layout.fragment_examination_psychological_assessment,
+				container, false);
 		viewFlipper = (ViewFlipper) rootView;
-		examinationLayout = (ExaminationLayout) rootView.findViewById(R.id.examinationLayout);
+		examinationLayout = (ExaminationLayout) rootView
+				.findViewById(R.id.examinationLayout);
 
 		sdsImageView = (ImageView) rootView.findViewById(R.id.sdsImageView);
 		sasImageView = (ImageView) rootView.findViewById(R.id.sasImageView);
@@ -61,10 +72,14 @@ public class PsychologicaAssessmentFragment extends BaseFragment implements OnCl
 		scl90ImageView = (ImageView) rootView.findViewById(R.id.scl90ImageView);
 		qlscaImageView = (ImageView) rootView.findViewById(R.id.qlscaImageView);
 
-		resultTitleTextView = (TextView) rootView.findViewById(R.id.resultTitleTextView);
-		featureTextView = (TextView) rootView.findViewById(R.id.featureTextView);
-		guidanceTextView = (TextView) rootView.findViewById(R.id.guidanceTextView);
-		contentLayout = (LinearLayout) rootView.findViewById(R.id.contentLayout);
+		resultTitleTextView = (TextView) rootView
+				.findViewById(R.id.resultTitleTextView);
+		featureTextView = (TextView) rootView
+				.findViewById(R.id.featureTextView);
+		guidanceTextView = (TextView) rootView
+				.findViewById(R.id.guidanceTextView);
+		contentLayout = (LinearLayout) rootView
+				.findViewById(R.id.contentLayout);
 		returnButton = (Button) rootView.findViewById(R.id.returnButton);
 
 		return rootView;
@@ -85,6 +100,10 @@ public class PsychologicaAssessmentFragment extends BaseFragment implements OnCl
 		examinationLayout.setOnEndClickListener(new OnEndClickListener() {
 			@Override
 			public void onEndClick(List<Integer> answers) {
+				if (mAnswers != null && mAnswers.size() > 0) {
+					mAnswers.clear();
+				}
+				mAnswers.addAll(answers);
 				// 看是否所有题目都做完了，如果是，显示测试结果，否则直接结束
 				boolean isFinish = true;
 				for (int answer : answers) {
@@ -94,6 +113,7 @@ public class PsychologicaAssessmentFragment extends BaseFragment implements OnCl
 					}
 				}
 				if (isFinish) {// 显示测试结果
+
 					viewFlipper.setDisplayedChild(2);
 					showConclusion(answers);
 				} else {// 直接结束，到初始页面
@@ -114,6 +134,7 @@ public class PsychologicaAssessmentFragment extends BaseFragment implements OnCl
 
 	@Override
 	public void onClick(View v) {
+
 		type = (String) v.getTag();
 		if (viewFlipper.getDisplayedChild() == 0) {
 			viewFlipper.showNext();
@@ -124,7 +145,8 @@ public class PsychologicaAssessmentFragment extends BaseFragment implements OnCl
 	private void renderQuestion() {
 		String mainTitle = "";
 		String[] options = null;
-		List<Question> questions = ExaminationManager.getInstance(getActivity()).getPsychologicaQuestions(type);
+		List<Question> questions = ExaminationManager
+				.getInstance(getActivity()).getPsychologicaQuestions(type);
 
 		if ("sds".equals(type)) {
 			options = getResources().getStringArray(R.array.SDSOptions);
@@ -133,9 +155,12 @@ public class PsychologicaAssessmentFragment extends BaseFragment implements OnCl
 			options = getResources().getStringArray(R.array.SASOptions);
 			mainTitle = getString(R.string.jktj_xlpg_title_sas);
 		} else if ("psqi".equals(type)) {
-			List<String> _options = ExaminationManager.getInstance(getActivity()).getPsychologicaOptionss(type);
+			List<String> _options = ExaminationManager.getInstance(
+					getActivity()).getPsychologicaOptionss(type);
 			mainTitle = getString(R.string.jktj_xlpg_title_psqi);
-			examinationLayout.renderView(mainTitle, getString(R.string.jktj_test_question_subtitle), questions, _options);
+			examinationLayout.renderView(mainTitle,
+					getString(R.string.jktj_test_question_subtitle), questions,
+					_options);
 			return;
 		} else if ("saq".equals(type)) {
 			options = getResources().getStringArray(R.array.SAQOptions);
@@ -153,7 +178,9 @@ public class PsychologicaAssessmentFragment extends BaseFragment implements OnCl
 			options = getResources().getStringArray(R.array.QLSCAOptions);
 			mainTitle = getString(R.string.jktj_xlpg_title_qlsca);
 		}
-		examinationLayout.renderView(mainTitle, getString(R.string.jktj_test_question_subtitle), questions, options);
+		examinationLayout.renderView(mainTitle,
+				getString(R.string.jktj_test_question_subtitle), questions,
+				options);
 	}
 
 	/**
@@ -191,15 +218,21 @@ public class PsychologicaAssessmentFragment extends BaseFragment implements OnCl
 		} else if ("scl90".equals(type)) {
 			contentLayout.setVisibility(View.VISIBLE);
 			featureTextView.setVisibility(View.GONE);
-			resultTitle = getString(R.string.jktj_xlpg_title_scl90) + " - 测试结果：";
+			resultTitle = getString(R.string.jktj_xlpg_title_scl90)
+					+ " - 测试结果：";
 			contentLayout.removeAllViews();
 			ArrayList<SCL90> result = getConclusionByScl90(answers);
-			contentLayout.addView(createItem("指标", "原始分", "平均分"), LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+			contentLayout.addView(createItem("指标", "原始分", "平均分"),
+					LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 			for (SCL90 sCL90 : result) {
-				contentLayout.addView(createItem(sCL90.name, "" + sCL90.score, "" + sCL90.avgScore), LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+				contentLayout.addView(
+						createItem(sCL90.name, "" + sCL90.score, ""
+								+ sCL90.avgScore), LayoutParams.MATCH_PARENT,
+						LayoutParams.WRAP_CONTENT);
 			}
 		} else if ("qlsca".equals(type)) {
-			resultTitle = getString(R.string.jktj_xlpg_title_qlsca) + " - 测试结果：";
+			resultTitle = getString(R.string.jktj_xlpg_title_qlsca)
+					+ " - 测试结果：";
 			feature = getConclusionByQlsca(answers);
 		}
 		resultTitleTextView.setText(resultTitle);
@@ -210,7 +243,8 @@ public class PsychologicaAssessmentFragment extends BaseFragment implements OnCl
 	private LinearLayout createItem(String text1, String text2, String text3) {
 		LinearLayout item = new LinearLayout(getActivity());
 		item.setVerticalGravity(LinearLayout.HORIZONTAL);
-		LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(0, LayoutParams.WRAP_CONTENT, 1);
+		LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(0,
+				LayoutParams.WRAP_CONTENT, 1);
 		item.addView(createItemView(text1), lp);
 		item.addView(createItemView(text2), lp);
 		item.addView(createItemView(text3), lp);
@@ -474,7 +508,8 @@ public class PsychologicaAssessmentFragment extends BaseFragment implements OnCl
 			// 1=从不，2=很少，3=有时，4=一直
 			int score = 0;
 			for (int i = 0; i < answers.size(); i++) {
-				if (i == 0 || i == 4 || i == 5 || i == 8 || i == 9 || i == 14 || i == 15 || i == 18 || i == 19) {
+				if (i == 0 || i == 4 || i == 5 || i == 8 || i == 9 || i == 14
+						|| i == 15 || i == 18 || i == 19) {
 					switch (answers.get(i)) {
 					case 0:// 从不
 						score += 4;
@@ -700,7 +735,9 @@ public class PsychologicaAssessmentFragment extends BaseFragment implements OnCl
 				}
 			}
 			for (SCL90 sCL90 : result) {
-				sCL90.avgScore = new BigDecimal(sCL90.score).divide(new BigDecimal(sCL90.count), 2, RoundingMode.DOWN).floatValue();
+				sCL90.avgScore = new BigDecimal(sCL90.score).divide(
+						new BigDecimal(sCL90.count), 2, RoundingMode.DOWN)
+						.floatValue();
 			}
 		}
 		return result;
@@ -752,9 +789,58 @@ public class PsychologicaAssessmentFragment extends BaseFragment implements OnCl
 		}
 		return result;
 	}
-	
+
 	@Override
 	public void onSave() {
 		super.onSave();
+		ExaminationInfo examinationInfo = MyApplication.getInstance()
+				.getExaminationInfo();
+		if (examinationInfo == null) {
+			ToastUtils.showToast(getActivity(), "请先进行体检登记!");
+			return;
+		}
+		System.out.println(mAnswers + "--" + mAnswers.size());
+		if (mAnswers != null && mAnswers.size() > 0) {
+
+			try {
+				JSONObject jsonObject = new JSONObject();
+				JSONArray array = new JSONArray();
+				for (int i = 0; i < mAnswers.size(); i++) {
+					array.put(mAnswers.get(i));
+				}
+				
+				if ("sds".equals(type)) {
+					jsonObject.put("SDS", array);
+					examinationInfo.setPsychologicaAssessmentSDS(jsonObject.toString());
+				} else if ("sas".equals(type)) {
+					jsonObject.put("SAS", array);
+					examinationInfo.setPsychologicaAssessmentSAS(jsonObject.toString());
+				} else if ("psqi".equals(type)) {
+					jsonObject.put("PSQI", array);
+					examinationInfo.setPsychologicaAssessmentPSQI(jsonObject.toString());
+				} else if ("saq".equals(type)) {
+					jsonObject.put("SAQ", array);
+					examinationInfo.setPsychologicaAssessmentSAQ(jsonObject.toString());
+				} else if ("ucla".equals(type)) {
+					jsonObject.put("UCLA", array);
+					examinationInfo.setPsychologicaAssessmentUCLA(jsonObject.toString());
+				} else if ("gcq".equals(type)) {
+					jsonObject.put("GCQ", array);
+					examinationInfo.setPsychologicaAssessmentGCQ(jsonObject.toString());
+				} else if ("scl90".equals(type)) {
+					jsonObject.put("SCL90", array);
+					examinationInfo.setPsychologicaAssessmentSCL90(jsonObject.toString());
+				} else if ("qlsca".equals(type)) {
+					jsonObject.put("QLSCA", array);
+					examinationInfo.setPsychologicaAssessmentQLSCA(jsonObject.toString());
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		ExaminationManager.getInstance(getActivity())
+				.saveOrUpdateExaminationInfo(examinationInfo);
+		ToastUtils.showToast(getActivity(), "保存数据成功！");
+		MyApplication.getInstance().setExaminationInfo(examinationInfo);
 	}
 }

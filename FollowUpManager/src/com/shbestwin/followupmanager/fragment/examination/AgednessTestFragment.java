@@ -1,7 +1,9 @@
 package com.shbestwin.followupmanager.fragment.examination;
 
+import java.util.ArrayList;
 import java.util.List;
-
+import org.json.JSONArray;
+import org.json.JSONObject;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,11 +12,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
-
+import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.CollectionUtils;
+import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.fragment.BaseFragment;
 import com.shbestwin.followupmanager.manager.ExaminationManager;
+import com.shbestwin.followupmanager.model.examination.ExaminationInfo;
 import com.shbestwin.followupmanager.model.examination.Question;
 import com.shbestwin.followupmanager.view.widget.ExaminationLayout;
 import com.shbestwin.followupmanager.view.widget.ExaminationLayout.OnEndClickListener;
@@ -26,11 +30,14 @@ public class AgednessTestFragment extends BaseFragment {
 
 	private ViewFlipper viewFlipper;
 	private ExaminationLayout examinationLayout;
-	private Button startExaminationButton, lastExaminationButton, againExaminationButton;
+	private Button startExaminationButton, lastExaminationButton,
+			againExaminationButton;
 	private TextView titleTextView, contentTextView, tipsTextView;
 	private TextView featureTextView;
 
 	private int type;
+
+	public static List<Integer> mAnswers = new ArrayList<Integer>();
 
 	public static AgednessTestFragment newInstance(int type) {
 		AgednessTestFragment fragment = new AgednessTestFragment();
@@ -41,17 +48,25 @@ public class AgednessTestFragment extends BaseFragment {
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fragment_examination_agedness_test, container, false);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		View rootView = inflater.inflate(
+				R.layout.fragment_examination_agedness_test, container, false);
 		viewFlipper = (ViewFlipper) rootView;
-		examinationLayout = (ExaminationLayout) rootView.findViewById(R.id.examinationLayout);
-		startExaminationButton = (Button) rootView.findViewById(R.id.startExaminationButton);
-		lastExaminationButton = (Button) rootView.findViewById(R.id.lastExaminationButton);
-		againExaminationButton = (Button) rootView.findViewById(R.id.againExaminationButton);
+		examinationLayout = (ExaminationLayout) rootView
+				.findViewById(R.id.examinationLayout);
+		startExaminationButton = (Button) rootView
+				.findViewById(R.id.startExaminationButton);
+		lastExaminationButton = (Button) rootView
+				.findViewById(R.id.lastExaminationButton);
+		againExaminationButton = (Button) rootView
+				.findViewById(R.id.againExaminationButton);
 		titleTextView = (TextView) rootView.findViewById(R.id.titleTextView);
-		contentTextView = (TextView) rootView.findViewById(R.id.contentTextView);
+		contentTextView = (TextView) rootView
+				.findViewById(R.id.contentTextView);
 		tipsTextView = (TextView) rootView.findViewById(R.id.tipsTextView);
-		featureTextView = (TextView) rootView.findViewById(R.id.featureTextView);
+		featureTextView = (TextView) rootView
+				.findViewById(R.id.featureTextView);
 		return rootView;
 	}
 
@@ -101,6 +116,11 @@ public class AgednessTestFragment extends BaseFragment {
 		examinationLayout.setOnEndClickListener(new OnEndClickListener() {
 			@Override
 			public void onEndClick(List<Integer> answers) {
+				if (mAnswers != null && mAnswers.size() > 0) {
+					mAnswers.clear();
+				}
+				mAnswers.addAll(answers);
+//				System.out.println("mAnswers:"+Arrays.asList(mAnswers.toArray()));
 				// 看是否所有题目都做完了，如果是，显示测试结果，否则直接结束
 				boolean isFinish = true;
 				for (int answer : answers) {
@@ -123,15 +143,19 @@ public class AgednessTestFragment extends BaseFragment {
 
 	private void renderQuestion() {
 		String subTitle = getString(R.string.jktj_test_question_subtitle);
-		List<Question> questions = ExaminationManager.getInstance(getActivity()).getAgednessQuestions(type);
+		List<Question> questions = ExaminationManager
+				.getInstance(getActivity()).getAgednessQuestions(type);
 		String[] options = null;
 		if (type == TYPE_SELF_CARE) {
-			options = getResources().getStringArray(R.array.AgednessSelfCareOptions);
+			options = getResources().getStringArray(
+					R.array.AgednessSelfCareOptions);
 		} else if (type == TYPE_DEPRESSION) {
 			subTitle = getString(R.string.jktj_test_question_subtitle1);
-			options = getResources().getStringArray(R.array.AgednessDepressionOptions);
+			options = getResources().getStringArray(
+					R.array.AgednessDepressionOptions);
 		} else {
-			options = getResources().getStringArray(R.array.AgednessIntelligenceOptions);
+			options = getResources().getStringArray(
+					R.array.AgednessIntelligenceOptions);
 		}
 		examinationLayout.renderView(null, subTitle, questions, options);
 	}
@@ -265,10 +289,42 @@ public class AgednessTestFragment extends BaseFragment {
 		}
 		return result;
 	}
-	
+
 	@Override
 	public void onSave() {
-	    super.onSave();
-	    System.out.println("-------------");
+		super.onSave();
+		ExaminationInfo examinationInfo = MyApplication.getInstance()
+				.getExaminationInfo();
+		if (examinationInfo == null) {
+			ToastUtils.showToast(getActivity(), "请先进行体检登记!");
+			return;
+		}
+		System.out.println(mAnswers+"--"+mAnswers.size());
+		if (mAnswers != null && mAnswers.size() > 0) {
+			try {
+				JSONObject jsonObject = new JSONObject();
+				JSONArray array = new JSONArray();
+				for (int i = 0; i < mAnswers.size(); i++) {
+					array.put(mAnswers.get(i));
+				}
+				if (type == TYPE_SELF_CARE) {
+					jsonObject.put("SELF_CARE", array);
+					examinationInfo.setAgednessSelfcare(jsonObject.toString());
+				} else if (type == TYPE_DEPRESSION) {
+					jsonObject.put("DEPRESSION", array);
+					examinationInfo.setAgednessDepression(jsonObject.toString());
+				} else {
+					jsonObject.put("INTELLIGENCE", array);
+					examinationInfo.setAgednessIntelligence(jsonObject.toString());
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		ExaminationManager.getInstance(getActivity())
+				.saveOrUpdateExaminationInfo(examinationInfo);
+		ToastUtils.showToast(getActivity(), "保存数据成功！");
+		MyApplication.getInstance().setExaminationInfo(examinationInfo);
 	}
 }

@@ -2,7 +2,6 @@ package com.shbestwin.followupmanager.fragment.examination;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -14,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
-
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.fragment.BaseFragment;
 import com.shbestwin.followupmanager.view.widget.TabMenuLayout;
@@ -31,6 +29,8 @@ public class AgednessAssessmentFragment extends BaseFragment {
 	
 	private ViewPager bodyViewPager;
 	private List<Fragment> contentFragmentList;
+	
+	private int index=0;
 
 	public static AgednessAssessmentFragment newInstance() {
 		AgednessAssessmentFragment fragment = new AgednessAssessmentFragment();
@@ -105,6 +105,7 @@ public class AgednessAssessmentFragment extends BaseFragment {
 
 		@Override
 		public Fragment getItem(int position) {
+			index=position;
 			return contentFragmentList.get(position);
 		}
 
@@ -117,5 +118,6 @@ public class AgednessAssessmentFragment extends BaseFragment {
 	@Override
 	public void onSave() {
 		super.onSave();
+		((BaseFragment)contentFragmentList.get(index)).onSave();
 	}
 }
