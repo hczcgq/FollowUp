@@ -265,4 +265,10 @@ public class AgednessTestFragment extends BaseFragment {
 		}
 		return result;
 	}
+	
+	@Override
+	public void onSave() {
+	    super.onSave();
+	    System.out.println("-------------");
+	}
 }
