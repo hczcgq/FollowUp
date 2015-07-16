@@ -17,7 +17,8 @@ import com.shbestwin.followupmanager.manager.FollowUpManager;
 import com.shbestwin.followupmanager.model.ArchiveInfo;
 import com.shbestwin.followupmanager.model.followup.FollowUpDiabetesMellitus;
 import com.shbestwin.followupmanager.model.followup.FollowUpHypertension;
-import com.shbestwin.followupmanager.view.dialog.followup.FollowupReportDialog;
+import com.shbestwin.followupmanager.view.dialog.followup.FollowupDiabetesMellitusReportDialog;
+import com.shbestwin.followupmanager.view.dialog.followup.FollowupHypertensionReportDialog;
 import com.shbestwin.followupmanager.view.widget.IBaseDiabetesMellitusBody;
 
 /**
@@ -150,7 +151,7 @@ public class DiabetesMellitusFragment extends BaseFragment {
 			ToastUtils.showToast(getActivity(), "糖尿病信息为空！");
 			return;
 		}
-		final FollowupReportDialog hypertensionInspectionDialog = FollowupReportDialog
+		final FollowupDiabetesMellitusReportDialog hypertensionInspectionDialog = FollowupDiabetesMellitusReportDialog
 				.newInstance();
 		hypertensionInspectionDialog.show(
 				((FragmentActivity) getActivity()).getSupportFragmentManager(),

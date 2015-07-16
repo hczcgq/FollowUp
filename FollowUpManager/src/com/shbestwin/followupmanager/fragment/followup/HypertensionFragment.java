@@ -18,7 +18,7 @@ import com.shbestwin.followupmanager.model.ArchiveInfo;
 import com.shbestwin.followupmanager.model.followup.FollowUpHypertension;
 import com.shbestwin.followupmanager.model.followup.Inspection;
 import com.shbestwin.followupmanager.view.dialog.BaseDialogFragment.OnConfirmClickListener;
-import com.shbestwin.followupmanager.view.dialog.followup.FollowupReportDialog;
+import com.shbestwin.followupmanager.view.dialog.followup.FollowupHypertensionReportDialog;
 import com.shbestwin.followupmanager.view.dialog.followup.InspectionDialog;
 import com.shbestwin.followupmanager.view.widget.IBaseHypertensionBody;
 
@@ -168,7 +168,7 @@ public class HypertensionFragment extends BaseFragment {
 			ToastUtils.showToast(getActivity(), "高血压信息为空！");
 			return;
 		}
-		final FollowupReportDialog hypertensionInspectionDialog = FollowupReportDialog
+		final FollowupHypertensionReportDialog hypertensionInspectionDialog = FollowupHypertensionReportDialog
 				.newInstance();
 		hypertensionInspectionDialog.show(
 				((FragmentActivity) getActivity()).getSupportFragmentManager(),

@@ -1073,7 +1073,7 @@
         <item>纯水或桶装水</item>
         <item>其他</item>
     </string-array>
-    
+
     <!-- 阶段 -->
     <string-array name="problemPhase">
         <item>新婚</item>
@@ -1087,7 +1087,6 @@
         <item>三代同生</item>
         <item>其他</item>
     </string-array>
-    
     <string-array name="bloodCellsCategory">
         <item>环氧合酶抑制剂</item>
         <item>二磷酸腺苷（ADP）受体抑制剂</item>
@@ -1096,9 +1095,6 @@
         <item>血栓素抑制剂</item>
         <item>其他</item>
     </string-array>
-    
-    
-    
     <string-array name="healthExamination">
         <item>健康体检</item>
         <item>随访管理</item>
@@ -1120,7 +1116,6 @@
         <item>老年随访</item>
         <item>残疾随访</item>
     </string-array>
-    
     <string-array name="SearchExamination">
         <item>血压</item>
         <item>血糖</item>
@@ -1129,4 +1124,19 @@
         <item>体重</item>
         <item>腰围</item>
     </string-array>
+    <string-array name="numberExamination">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </string-array>
+
 </resources>
