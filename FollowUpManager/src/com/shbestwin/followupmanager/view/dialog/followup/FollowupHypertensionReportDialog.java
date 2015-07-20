@@ -14,6 +14,8 @@ import com.shbestwin.followupmanager.common.util.DateUtils;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.common.util.ViewDataUtil;
 import com.shbestwin.followupmanager.model.ArchiveInfo;
+import com.shbestwin.followupmanager.model.report.ReportDiabetesMellitus;
+import com.shbestwin.followupmanager.model.report.ReportHyoertension;
 import com.shbestwin.followupmanager.view.dialog.BaseDialogReportFragment;
 import com.shbestwin.followupmanager.view.dialog.DatePickerDialog;
 import com.shbestwin.followupmanager.view.dialog.DatePickerDialog.OnDatePickerListener;
@@ -60,7 +62,7 @@ public class FollowupHypertensionReportDialog extends BaseDialogReportFragment {
 		genderSpinner = (Spinner) rootView.findViewById(R.id.genderSpinner);
 		ethnicSpinner = (Spinner) rootView.findViewById(R.id.ethnicSpinner);
 		familyHistorySpinner = (Spinner) rootView
-				.findViewById(R.id.educationSpinner);
+				.findViewById(R.id.familyHistorySpinner);
 
 		cardIDEditText = (EditText) rootView.findViewById(R.id.cardIDEditText);
 		nameEditText = (EditText) rootView.findViewById(R.id.nameEditText);
@@ -197,6 +199,34 @@ public class FollowupHypertensionReportDialog extends BaseDialogReportFragment {
 
 		}
 	}
+	
+	
+	public ReportHyoertension getReportHyoertension(){
+		ReportHyoertension entity=new ReportHyoertension();
+		entity.setReportno(System.currentTimeMillis() + "");
+		entity.setIdcard(cardIDEditText.getText().toString());
+		entity.setName(nameEditText.getText().toString());
+		entity.setSex(ViewDataUtil.getSpinnerData(genderSpinner));
+		entity.setBirth(birthdayEditText.getText().toString());
+		entity.setContactor(telephoneEditText.getText().toString());
+		entity.setNation(ViewDataUtil.getSpinnerData(ethnicSpinner));
+		entity.setReport_date(reportTimeEditText.getText().toString());
+		entity.setReport_unit(reportUnitEdittext.getText().toString());
+		entity.setReport_doctor(reportDocEdittext.getText().toString());
+		entity.setCheck_bloodpress(bloodPressCheckEditText1.getText().toString()+"/"+bloodPressCheckEditText2.getText().toString());
+		entity.setBloodpress_level(bloodPressLeveEditText.getText().toString());
+		entity.setBloodpress_type(bloodPressTypeEditText.getText().toString());
+		entity.setWeight(weightEditText.getText().toString());
+		entity.setHeight(heightEditText.getText().toString());
+		entity.setPluse(pluseEditText.getText().toString());
+		entity.setBloodpress(bloodPressEditText1.getText().toString()+"/"+bloodPressEditText2.getText().toString());
+		entity.setHistory_number(ViewDataUtil.getSpinnerData(familyHistorySpinner));
+		entity.setHistory_msg(ViewDataUtil.getCheckboxData(familyHistoryLayout, null));
+		entity.setNext_followup_date(nextFollowupTimeEditText.getText().toString());
+		entity.setDescribe(descibeEditText.getText().toString());
+		return entity;
+	}
+	
 
 	private OnConfirmClickListener onConfirmClickListener;
 

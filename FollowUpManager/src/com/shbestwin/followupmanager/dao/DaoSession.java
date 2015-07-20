@@ -21,6 +21,8 @@ import com.shbestwin.followupmanager.model.followup.FollowUpPostpartum;
 import com.shbestwin.followupmanager.model.followup.FollowUpStroke;
 import com.shbestwin.followupmanager.model.followup.FollowUpThreeSixNewborn;
 import com.shbestwin.followupmanager.model.followup.FollowUpTwoToFivePregnancy;
+import com.shbestwin.followupmanager.model.report.ReportDiabetesMellitus;
+import com.shbestwin.followupmanager.model.report.ReportHyoertension;
 
 import de.greenrobot.dao.AbstractDao;
 import de.greenrobot.dao.AbstractDaoSession;
@@ -53,6 +55,8 @@ public class DaoSession extends AbstractDaoSession {
     private final DaoConfig followUpThreeSixNewbornDaoConfig;
     private final DaoConfig followUpAgedDaoConfig;
     private final DaoConfig followUpDisabledPersonDaoConfig;
+    private final DaoConfig reportHypertensionDaoConfig;
+    private final DaoConfig reportDiabetesMellitusDaoConfig;
 
     private final ArchiveInfoDao archiveInfoDao;
     private final GeneralExaminationDao generalExaminationDao;
@@ -71,6 +75,8 @@ public class DaoSession extends AbstractDaoSession {
     private final FollowUpThreeSixNewbornDao followUpThreeSixNewbornDao;
     private final FollowUpAgedDao followUpAgedDao;
     private final FollowUpDisabledPersonDao followUpDisabledPersonDao;
+    private final ReportHypertensionDao reportHypertensionDao;
+    private final ReportDiabetesMellitusDao reportDiabetesMellitusDao;
 
     public DaoSession(SQLiteDatabase db, IdentityScopeType type, Map<Class<? extends AbstractDao<?, ?>>, DaoConfig>
             daoConfigMap) {
@@ -126,6 +132,12 @@ public class DaoSession extends AbstractDaoSession {
 
         followUpDisabledPersonDaoConfig = daoConfigMap.get(FollowUpDisabledPersonDao.class).clone();
         followUpDisabledPersonDaoConfig.initIdentityScope(type);
+        
+        reportHypertensionDaoConfig = daoConfigMap.get(ReportHypertensionDao.class).clone();
+        reportHypertensionDaoConfig.initIdentityScope(type);
+        
+        reportDiabetesMellitusDaoConfig = daoConfigMap.get(ReportDiabetesMellitusDao.class).clone();
+        reportDiabetesMellitusDaoConfig.initIdentityScope(type);
 
         archiveInfoDao = new ArchiveInfoDao(archiveInfoDaoConfig, this);
         generalExaminationDao = new GeneralExaminationDao(generalExaminationDaoConfig, this);
@@ -144,6 +156,8 @@ public class DaoSession extends AbstractDaoSession {
         followUpThreeSixNewbornDao = new FollowUpThreeSixNewbornDao(followUpThreeSixNewbornDaoConfig, this);
         followUpAgedDao = new FollowUpAgedDao(followUpAgedDaoConfig, this);
         followUpDisabledPersonDao = new FollowUpDisabledPersonDao(followUpDisabledPersonDaoConfig, this);
+        reportHypertensionDao = new ReportHypertensionDao(reportHypertensionDaoConfig, this);
+        reportDiabetesMellitusDao = new ReportDiabetesMellitusDao(reportDiabetesMellitusDaoConfig, this);
 
         registerDao(ArchiveInfo.class, archiveInfoDao);
         registerDao(GeneralExamination.class, generalExaminationDao);
@@ -162,6 +176,8 @@ public class DaoSession extends AbstractDaoSession {
         registerDao(FollowUpThreeSixNewborn.class, followUpThreeSixNewbornDao);
         registerDao(FollowUpAged.class, followUpAgedDao);
         registerDao(FollowUpDisabledPerson.class, followUpDisabledPersonDao);
+        registerDao(ReportHyoertension.class, reportHypertensionDao);
+        registerDao(ReportDiabetesMellitus.class, reportDiabetesMellitusDao);
     }
     
     public void clear() {
@@ -182,6 +198,8 @@ public class DaoSession extends AbstractDaoSession {
         followUpThreeSixNewbornDaoConfig.getIdentityScope().clear();
         followUpAgedDaoConfig.getIdentityScope().clear();
         followUpDisabledPersonDaoConfig.getIdentityScope().clear();
+        reportHypertensionDaoConfig.getIdentityScope().clear();
+        reportDiabetesMellitusDaoConfig.getIdentityScope().clear();
     }
 
     public ArchiveInfoDao getArchiveInfoDao() {
@@ -250,6 +268,14 @@ public class DaoSession extends AbstractDaoSession {
 
     public FollowUpDisabledPersonDao getFollowUpDisabledPersonDao() {
         return followUpDisabledPersonDao;
+    }
+    
+    public ReportHypertensionDao getReportHypertensionDao() {
+        return reportHypertensionDao;
+    }
+    
+    public ReportDiabetesMellitusDao getReportDiabetesMellitusDao() {
+        return reportDiabetesMellitusDao;
     }
 
 }

@@ -4,6 +4,7 @@ import java.util.Date;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -19,6 +20,7 @@ import com.shbestwin.followupmanager.common.util.DateUtils;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.common.util.ViewDataUtil;
 import com.shbestwin.followupmanager.model.ArchiveInfo;
+import com.shbestwin.followupmanager.model.report.ReportDiabetesMellitus;
 import com.shbestwin.followupmanager.view.dialog.BaseDialogReportFragment;
 import com.shbestwin.followupmanager.view.dialog.DatePickerDialog;
 import com.shbestwin.followupmanager.view.dialog.DatePickerDialog.OnDatePickerListener;
@@ -34,18 +36,18 @@ import com.shbestwin.followupmanager.view.dialog.DatePickerDialog.OnDatePickerLi
 public class FollowupDiabetesMellitusReportDialog extends
 		BaseDialogReportFragment {
 	private Spinner genderSpinner, ethnicSpinner, familyHistorySpinner,
-			marriage;
+	marriySpinner;
 	private EditText cardIDEditText, nameEditText, birthdayEditText,
 			familyAddressEditText, telephoneEditText, reportTimeEditText,
 			reportUnitEdittext, reportDocEdittext, bloodSugeEmptyEditText,
-			bloodSugeEatEditText, bloodPressRandomEditText,
+			bloodSugeEatEditText, bloodSugeRandomEditText,
 			nextFollowupTimeEditText, descibeEditText;
 	private TextView confirmView, cancelView;
 	private LinearLayout familyHistoryLayout;
 
 	private EditText diabetesMellitus_other;
 	private RelativeLayout diabetesMellitusRelativeLayout;
-	private CheckBox diabetesMellitus0, diabetesMellitus14;
+	private CheckBox diabetesMellitus0, diabetesMellitus14,familyHistory0;
 
 	public static FollowupDiabetesMellitusReportDialog newInstance() {
 		FollowupDiabetesMellitusReportDialog dialog = new FollowupDiabetesMellitusReportDialog();
@@ -66,11 +68,11 @@ public class FollowupDiabetesMellitusReportDialog extends
 		familyHistoryLayout = (LinearLayout) rootView
 				.findViewById(R.id.familyHistoryLayout);
 
-		marriage = (Spinner) rootView.findViewById(R.id.marriage);
+		marriySpinner = (Spinner) rootView.findViewById(R.id.marriySpinner);
 		genderSpinner = (Spinner) rootView.findViewById(R.id.genderSpinner);
 		ethnicSpinner = (Spinner) rootView.findViewById(R.id.ethnicSpinner);
 		familyHistorySpinner = (Spinner) rootView
-				.findViewById(R.id.educationSpinner);
+				.findViewById(R.id.familyHistorySpinner);
 
 		cardIDEditText = (EditText) rootView.findViewById(R.id.cardIDEditText);
 		nameEditText = (EditText) rootView.findViewById(R.id.nameEditText);
@@ -91,7 +93,7 @@ public class FollowupDiabetesMellitusReportDialog extends
 				.findViewById(R.id.bloodSugeEmptyEditText);
 		bloodSugeEatEditText = (EditText) rootView
 				.findViewById(R.id.bloodSugeEatEditText);
-		bloodPressRandomEditText = (EditText) rootView
+		bloodSugeRandomEditText = (EditText) rootView
 				.findViewById(R.id.bloodPressRandomEditText);
 		nextFollowupTimeEditText = (EditText) rootView
 				.findViewById(R.id.nextFollowupTimeEditText);
@@ -104,6 +106,7 @@ public class FollowupDiabetesMellitusReportDialog extends
 				.findViewById(R.id.et_other);
 		diabetesMellitus0 = (CheckBox) rootView.findViewById(R.id.TOD0);
 		diabetesMellitus14 = (CheckBox) rootView.findViewById(R.id.TOD14);
+		familyHistory0 = (CheckBox) rootView.findViewById(R.id.familyHistory0);
 		initView();
 		initDate();
 		return rootView;
@@ -207,6 +210,19 @@ public class FollowupDiabetesMellitusReportDialog extends
 								isChecked);
 					}
 				});
+		setCheckBoxStatus(diabetesMellitusRelativeLayout,
+				false);
+		familyHistory0
+		.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView,
+					boolean isChecked) {
+				setCheckBoxStatus(familyHistoryLayout,
+						isChecked);
+			}
+		});
+		familyHistory0.setChecked(true);
 	}
 
 	private void initDate() {
@@ -223,7 +239,7 @@ public class FollowupDiabetesMellitusReportDialog extends
 		}
 	}
 
-	private void setCheckBoxStatus(RelativeLayout familyHistory,
+	private void setCheckBoxStatus(ViewGroup familyHistory,
 			boolean isChecked) {
 		for (int i = 1; i < familyHistory.getChildCount(); i++) {
 			View item = familyHistory.getChildAt(i);
@@ -234,6 +250,33 @@ public class FollowupDiabetesMellitusReportDialog extends
 				}
 			}
 		}
+	}
+	
+	
+	
+	public ReportDiabetesMellitus getReportDiabetesMellitus(){
+		ReportDiabetesMellitus entity=new ReportDiabetesMellitus();
+		entity.setReportno(System.currentTimeMillis() + "");
+		entity.setIdcard(cardIDEditText.getText().toString());
+		entity.setName(nameEditText.getText().toString());
+		entity.setSex(ViewDataUtil.getSpinnerData(genderSpinner));
+		entity.setBirth(birthdayEditText.getText().toString());
+		entity.setContactor(telephoneEditText.getText().toString());
+		entity.setNation(ViewDataUtil.getSpinnerData(ethnicSpinner));
+		entity.setAddress(familyAddressEditText.getText().toString());
+		entity.setMarriy(ViewDataUtil.getSpinnerData(marriySpinner));
+		entity.setReport_date(reportTimeEditText.getText().toString());
+		entity.setReport_unit(reportUnitEdittext.getText().toString());
+		entity.setReport_doctor(reportDocEdittext.getText().toString());
+		entity.setEmpty_bloodsuger(bloodSugeEmptyEditText.getText().toString());
+		entity.setAfter_bloodsuger(bloodSugeEatEditText.getText().toString());
+		entity.setRondam_bloodsuger(bloodSugeRandomEditText.getText().toString());
+		entity.setExperience(ViewDataUtil.getCheckboxData(diabetesMellitusRelativeLayout, diabetesMellitus_other));
+		entity.setHistory_number(ViewDataUtil.getSpinnerData(familyHistorySpinner));
+		entity.setHistory_msg(ViewDataUtil.getCheckboxData(familyHistoryLayout, null));
+		entity.setNext_followup_date(nextFollowupTimeEditText.getText().toString());
+		entity.setDescribe(descibeEditText.getText().toString());
+		return entity;
 	}
 
 	private OnConfirmClickListener onConfirmClickListener;

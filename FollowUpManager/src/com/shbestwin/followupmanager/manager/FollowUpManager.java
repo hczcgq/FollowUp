@@ -23,6 +23,8 @@ import com.shbestwin.followupmanager.dao.FollowUpPostpartumDao;
 import com.shbestwin.followupmanager.dao.FollowUpStrokeDao;
 import com.shbestwin.followupmanager.dao.FollowUpThreeSixNewbornDao;
 import com.shbestwin.followupmanager.dao.FollowUpTwoToFivePregnancyDao;
+import com.shbestwin.followupmanager.dao.ReportDiabetesMellitusDao;
+import com.shbestwin.followupmanager.dao.ReportHypertensionDao;
 import com.shbestwin.followupmanager.model.followup.FollowUpAged;
 import com.shbestwin.followupmanager.model.followup.FollowUpDiabetesMellitus;
 import com.shbestwin.followupmanager.model.followup.FollowUpDisabledPerson;
@@ -37,6 +39,8 @@ import com.shbestwin.followupmanager.model.followup.FollowUpPostpartum;
 import com.shbestwin.followupmanager.model.followup.FollowUpStroke;
 import com.shbestwin.followupmanager.model.followup.FollowUpThreeSixNewborn;
 import com.shbestwin.followupmanager.model.followup.FollowUpTwoToFivePregnancy;
+import com.shbestwin.followupmanager.model.report.ReportDiabetesMellitus;
+import com.shbestwin.followupmanager.model.report.ReportHyoertension;
 
 public class FollowUpManager {
 	private static FollowUpManager instance = null;
@@ -59,6 +63,9 @@ public class FollowUpManager {
 
 	private FollowUpAgedDao mFollowUpAgedDao;// 老年随访
 	private FollowUpDisabledPersonDao mFollowUpDisabledPersonDao;// 残疾随访
+	
+	private ReportHypertensionDao mReportHypertensionDao; //高血压报卡
+	private ReportDiabetesMellitusDao mReportDiabetesMellitusDao; //糖尿病报卡
 
 	private FollowUpManager(Context applicContext) {
 		mContext = applicContext;
@@ -86,6 +93,10 @@ public class FollowUpManager {
 
 		mFollowUpAgedDao = daoSession.getFollowUpAgedDao();// 老年随访
 		mFollowUpDisabledPersonDao = daoSession.getFollowUpDisabledPersonDao();// 残疾随访
+		
+		
+		mReportHypertensionDao=daoSession.getReportHypertensionDao(); //糖尿病报卡
+		mReportDiabetesMellitusDao=daoSession.getReportDiabetesMellitusDao(); //糖尿病报卡
 	}
 
 	public static synchronized FollowUpManager getInstance(Context context) {
@@ -364,5 +375,48 @@ public class FollowUpManager {
 	public void saveOrUpdateFollowUpDisabledPerson(FollowUpDisabledPerson followUpDisabledPerson) {
 		this.mFollowUpDisabledPersonDao.insertOrReplace(followUpDisabledPerson);
 	}
+	
+	
+	
+	
+	//报卡
+	public ReportHyoertension getReportHyoertension(String followUpNo) {
+        return mReportHypertensionDao.load(followUpNo);
+    }
+
+    public ReportHyoertension getReportHyoertensionByIdcard(String idcard) {
+        StringBuilder where = new StringBuilder(" where ");
+        where.append(ReportHypertensionDao.Properties.Idcard.columnName).append("=?");
+        where.append(" order by ").append(ReportHypertensionDao.Properties.CreateTime.columnName).append(" desc");
+        List<ReportHyoertension> reportHyoertensionsList = mReportHypertensionDao.queryRaw(where.toString(), idcard);
+        if (!CollectionUtils.isEmpty(reportHyoertensionsList)) {
+            return reportHyoertensionsList.get(0);
+        }
+        return null;
+    }
+
+    public void saveOrUpdateReportHyoertension(ReportHyoertension reportHyoertension) {
+        this.mReportHypertensionDao.insertOrReplace(reportHyoertension);
+    }
+    
+    
+    public ReportDiabetesMellitus getReportDiabetesMellitus(String followUpNo) {
+        return mReportDiabetesMellitusDao.load(followUpNo);
+    }
+
+    public ReportDiabetesMellitus getReportDiabetesMellitusByIdcard(String idcard) {
+        StringBuilder where = new StringBuilder(" where ");
+        where.append(ReportDiabetesMellitusDao.Properties.Idcard.columnName).append("=?");
+        where.append(" order by ").append(ReportDiabetesMellitusDao.Properties.CreateTime.columnName).append(" desc");
+        List<ReportDiabetesMellitus> reportDiabetesMellitusList = mReportDiabetesMellitusDao.queryRaw(where.toString(), idcard);
+        if (!CollectionUtils.isEmpty(reportDiabetesMellitusList)) {
+            return reportDiabetesMellitusList.get(0);
+        }
+        return null;
+    }
+
+    public void saveOrUpdateReportDiabetesMellitus(ReportDiabetesMellitus reportDiabetesMellitus) {
+        this.mReportDiabetesMellitusDao.insertOrReplace(reportDiabetesMellitus);
+    }
 
 }

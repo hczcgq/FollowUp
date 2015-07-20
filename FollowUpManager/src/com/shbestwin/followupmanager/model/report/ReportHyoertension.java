@@ -7,7 +7,7 @@ package com.shbestwin.followupmanager.model.report;
 /**
  * Entity mapped to table FOLLOW_UP_AGED.
  */
-public class ReportDiabetesMellitus {
+public class ReportHyoertension {
 
     /** Not-null value. */
     private String reportno;
@@ -18,38 +18,40 @@ public class ReportDiabetesMellitus {
     private String birth;
     private String contactor;
     private String nation;
-    private String address;
-    private String marriy;
+    private String history_number;
+    private String history_msg;
     private String report_date;
     private String report_unit;
     private String report_doctor;
-    private String empty_bloodsuger;
-    private String after_bloodsuger;
-    private String rondam_bloodsuger;
-    private String experience;
-    private String history_number;
-    private String history_msg;
+    private String check_bloodpress;
+    private String bloodpress_level;
+    private String bloodpress_type;
+    private String height;
+    private String weight;
+    private String pluse;
+    private String bloodpress;
     private String next_followup_date;
     private String describe;
     private String createTime;
     private String updateTime;
     
 
-    public ReportDiabetesMellitus() {
+    public ReportHyoertension() {
     }
 
-    public ReportDiabetesMellitus(String reportno) {
+    public ReportHyoertension(String reportno) {
         this.reportno = reportno;
     }
+    
+    
 
-	public ReportDiabetesMellitus(String reportno, String idcard, String name,
+	public ReportHyoertension(String reportno, String idcard, String name,
 			String sex, String birth, String contactor, String nation,
-			String address, String marriy, String report_date,
-			String report_unit, String report_doctor, String empty_bloodsuger,
-			String after_bloodsuger, String rondam_bloodsuger,
-			String experience, String history_number, String history_msg,
-			String next_followup_date, String describe, String createTime,
-			String updateTime) {
+			String history_number, String history_msg, String report_date,
+			String report_unit, String report_doctor, String check_bloodpress,
+			String bloodpress_level, String bloodpress_type, String height,
+			String weight, String pluse, String bloodpress,
+			String next_followup_date, String describe,String createTime,String updateTime) {
 		super();
 		this.reportno = reportno;
 		this.idcard = idcard;
@@ -58,21 +60,22 @@ public class ReportDiabetesMellitus {
 		this.birth = birth;
 		this.contactor = contactor;
 		this.nation = nation;
-		this.address = address;
-		this.marriy = marriy;
+		this.history_number = history_number;
+		this.history_msg = history_msg;
 		this.report_date = report_date;
 		this.report_unit = report_unit;
 		this.report_doctor = report_doctor;
-		this.empty_bloodsuger = empty_bloodsuger;
-		this.after_bloodsuger = after_bloodsuger;
-		this.rondam_bloodsuger = rondam_bloodsuger;
-		this.experience = experience;
-		this.history_number = history_number;
-		this.history_msg = history_msg;
+		this.check_bloodpress = check_bloodpress;
+		this.bloodpress_level = bloodpress_level;
+		this.bloodpress_type = bloodpress_type;
+		this.height = height;
+		this.weight = weight;
+		this.pluse = pluse;
+		this.bloodpress = bloodpress;
 		this.next_followup_date = next_followup_date;
 		this.describe = describe;
-		this.createTime = createTime;
-		this.updateTime = updateTime;
+		this.createTime=createTime;
+		this.updateTime=updateTime;
 	}
 
 	public String getReportno() {
@@ -131,20 +134,20 @@ public class ReportDiabetesMellitus {
 		this.nation = nation;
 	}
 
-	public String getAddress() {
-		return address;
+	public String getHistory_number() {
+		return history_number;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setHistory_number(String history_number) {
+		this.history_number = history_number;
 	}
 
-	public String getMarriy() {
-		return marriy;
+	public String getHistory_msg() {
+		return history_msg;
 	}
 
-	public void setMarriy(String marriy) {
-		this.marriy = marriy;
+	public void setHistory_msg(String history_msg) {
+		this.history_msg = history_msg;
 	}
 
 	public String getReport_date() {
@@ -171,52 +174,60 @@ public class ReportDiabetesMellitus {
 		this.report_doctor = report_doctor;
 	}
 
-	public String getEmpty_bloodsuger() {
-		return empty_bloodsuger;
+	public String getCheck_bloodpress() {
+		return check_bloodpress;
 	}
 
-	public void setEmpty_bloodsuger(String empty_bloodsuger) {
-		this.empty_bloodsuger = empty_bloodsuger;
+	public void setCheck_bloodpress(String check_bloodpress) {
+		this.check_bloodpress = check_bloodpress;
 	}
 
-	public String getAfter_bloodsuger() {
-		return after_bloodsuger;
+	public String getBloodpress_level() {
+		return bloodpress_level;
 	}
 
-	public void setAfter_bloodsuger(String after_bloodsuger) {
-		this.after_bloodsuger = after_bloodsuger;
+	public void setBloodpress_level(String bloodpress_level) {
+		this.bloodpress_level = bloodpress_level;
 	}
 
-	public String getRondam_bloodsuger() {
-		return rondam_bloodsuger;
+	public String getBloodpress_type() {
+		return bloodpress_type;
 	}
 
-	public void setRondam_bloodsuger(String rondam_bloodsuger) {
-		this.rondam_bloodsuger = rondam_bloodsuger;
+	public void setBloodpress_type(String bloodpress_type) {
+		this.bloodpress_type = bloodpress_type;
 	}
 
-	public String getExperience() {
-		return experience;
+	public String getHeight() {
+		return height;
 	}
 
-	public void setExperience(String experience) {
-		this.experience = experience;
+	public void setHeight(String height) {
+		this.height = height;
 	}
 
-	public String getHistory_number() {
-		return history_number;
+	public String getWeight() {
+		return weight;
 	}
 
-	public void setHistory_number(String history_number) {
-		this.history_number = history_number;
+	public void setWeight(String weight) {
+		this.weight = weight;
 	}
 
-	public String getHistory_msg() {
-		return history_msg;
+	public String getPluse() {
+		return pluse;
 	}
 
-	public void setHistory_msg(String history_msg) {
-		this.history_msg = history_msg;
+	public void setPluse(String pluse) {
+		this.pluse = pluse;
+	}
+
+	public String getBloodpress() {
+		return bloodpress;
+	}
+
+	public void setBloodpress(String bloodpress) {
+		this.bloodpress = bloodpress;
 	}
 
 	public String getNext_followup_date() {
@@ -250,8 +261,4 @@ public class ReportDiabetesMellitus {
 	public void setUpdateTime(String updateTime) {
 		this.updateTime = updateTime;
 	}
-    
-    
-
-	
 }

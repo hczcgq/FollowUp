@@ -17,6 +17,8 @@ import com.shbestwin.followupmanager.manager.FollowUpManager;
 import com.shbestwin.followupmanager.model.ArchiveInfo;
 import com.shbestwin.followupmanager.model.followup.FollowUpHypertension;
 import com.shbestwin.followupmanager.model.followup.Inspection;
+import com.shbestwin.followupmanager.model.report.ReportDiabetesMellitus;
+import com.shbestwin.followupmanager.model.report.ReportHyoertension;
 import com.shbestwin.followupmanager.view.dialog.BaseDialogFragment.OnConfirmClickListener;
 import com.shbestwin.followupmanager.view.dialog.followup.FollowupHypertensionReportDialog;
 import com.shbestwin.followupmanager.view.dialog.followup.InspectionDialog;
@@ -168,11 +170,22 @@ public class HypertensionFragment extends BaseFragment {
 			ToastUtils.showToast(getActivity(), "高血压信息为空！");
 			return;
 		}
-		final FollowupHypertensionReportDialog hypertensionInspectionDialog = FollowupHypertensionReportDialog
+		final FollowupHypertensionReportDialog reportDialog = FollowupHypertensionReportDialog
 				.newInstance();
-		hypertensionInspectionDialog.show(
+		reportDialog.show(
 				((FragmentActivity) getActivity()).getSupportFragmentManager(),
-				"hypertensionInspectionDialog");
+				"HypertensionReportDialog");
+		reportDialog
+				.setOnConfirmClickListener(new FollowupHypertensionReportDialog.OnConfirmClickListener() {
 
+					@Override
+					public void onConfirmClick() {
+						ReportHyoertension entity = reportDialog
+								.getReportHyoertension();
+						FollowUpManager.getInstance(getActivity())
+								.saveOrUpdateReportHyoertension(entity);
+						reportDialog.hide();
+					}
+				});
 	}
 }

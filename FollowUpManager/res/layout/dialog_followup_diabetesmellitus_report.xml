@@ -439,6 +439,7 @@
                         android:id="@+id/familyHistory0"
                         style="@style/CheckBoxStyle"
                         android:minWidth="80dp"
+                        android:checked="true"
                         android:text="无" />
 
                     <CheckBox

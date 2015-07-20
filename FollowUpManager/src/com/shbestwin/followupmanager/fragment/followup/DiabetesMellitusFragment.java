@@ -17,6 +17,7 @@ import com.shbestwin.followupmanager.manager.FollowUpManager;
 import com.shbestwin.followupmanager.model.ArchiveInfo;
 import com.shbestwin.followupmanager.model.followup.FollowUpDiabetesMellitus;
 import com.shbestwin.followupmanager.model.followup.FollowUpHypertension;
+import com.shbestwin.followupmanager.model.report.ReportDiabetesMellitus;
 import com.shbestwin.followupmanager.view.dialog.followup.FollowupDiabetesMellitusReportDialog;
 import com.shbestwin.followupmanager.view.dialog.followup.FollowupHypertensionReportDialog;
 import com.shbestwin.followupmanager.view.widget.IBaseDiabetesMellitusBody;
@@ -24,7 +25,7 @@ import com.shbestwin.followupmanager.view.widget.IBaseDiabetesMellitusBody;
 /**
  * 
  * 糖尿病
- *
+ * 
  * @version
  */
 public class DiabetesMellitusFragment extends BaseFragment {
@@ -41,8 +42,11 @@ public class DiabetesMellitusFragment extends BaseFragment {
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		rootView = inflater.inflate(R.layout.fragment_follow_up_diabetes_mellitus, container, false);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		rootView = inflater
+				.inflate(R.layout.fragment_follow_up_diabetes_mellitus,
+						container, false);
 		viewStub = (ViewStub) rootView.findViewById(R.id.viewStub);
 		return rootView;
 	}
@@ -65,26 +69,40 @@ public class DiabetesMellitusFragment extends BaseFragment {
 
 	private void initView() {
 		diabetesMellitusBodiesList = new ArrayList<IBaseDiabetesMellitusBody>();
-		diabetesMellitusBodiesList.add((IBaseDiabetesMellitusBody) rootView.findViewById(R.id.diabetesMellitusBody1));
-		diabetesMellitusBodiesList.add((IBaseDiabetesMellitusBody) rootView.findViewById(R.id.diabetesMellitusBody2));
-		diabetesMellitusBodiesList.add((IBaseDiabetesMellitusBody) rootView.findViewById(R.id.diabetesMellitusBody3));
-		diabetesMellitusBodiesList.add((IBaseDiabetesMellitusBody) rootView.findViewById(R.id.diabetesMellitusBody4));
-		diabetesMellitusBodiesList.add((IBaseDiabetesMellitusBody) rootView.findViewById(R.id.diabetesMellitusBody5));
-		diabetesMellitusBodiesList.add((IBaseDiabetesMellitusBody) rootView.findViewById(R.id.diabetesMellitusBody6));
-		diabetesMellitusBodiesList.add((IBaseDiabetesMellitusBody) rootView.findViewById(R.id.diabetesMellitusBody7));
-		diabetesMellitusBodiesList.add((IBaseDiabetesMellitusBody) rootView.findViewById(R.id.diabetesMellitusBody8));
-		diabetesMellitusBodiesList.add((IBaseDiabetesMellitusBody) rootView.findViewById(R.id.diabetesMellitusBody9));
-		diabetesMellitusBodiesList.add((IBaseDiabetesMellitusBody) rootView.findViewById(R.id.diabetesMellitusBody10));
-		diabetesMellitusBodiesList.add((IBaseDiabetesMellitusBody) rootView.findViewById(R.id.diabetesMellitusBody11));
-		diabetesMellitusBodiesList.add((IBaseDiabetesMellitusBody) rootView.findViewById(R.id.diabetesMellitusBody12));
-		diabetesMellitusBodiesList.add((IBaseDiabetesMellitusBody) rootView.findViewById(R.id.diabetesMellitusBody13));
+		diabetesMellitusBodiesList.add((IBaseDiabetesMellitusBody) rootView
+				.findViewById(R.id.diabetesMellitusBody1));
+		diabetesMellitusBodiesList.add((IBaseDiabetesMellitusBody) rootView
+				.findViewById(R.id.diabetesMellitusBody2));
+		diabetesMellitusBodiesList.add((IBaseDiabetesMellitusBody) rootView
+				.findViewById(R.id.diabetesMellitusBody3));
+		diabetesMellitusBodiesList.add((IBaseDiabetesMellitusBody) rootView
+				.findViewById(R.id.diabetesMellitusBody4));
+		diabetesMellitusBodiesList.add((IBaseDiabetesMellitusBody) rootView
+				.findViewById(R.id.diabetesMellitusBody5));
+		diabetesMellitusBodiesList.add((IBaseDiabetesMellitusBody) rootView
+				.findViewById(R.id.diabetesMellitusBody6));
+		diabetesMellitusBodiesList.add((IBaseDiabetesMellitusBody) rootView
+				.findViewById(R.id.diabetesMellitusBody7));
+		diabetesMellitusBodiesList.add((IBaseDiabetesMellitusBody) rootView
+				.findViewById(R.id.diabetesMellitusBody8));
+		diabetesMellitusBodiesList.add((IBaseDiabetesMellitusBody) rootView
+				.findViewById(R.id.diabetesMellitusBody9));
+		diabetesMellitusBodiesList.add((IBaseDiabetesMellitusBody) rootView
+				.findViewById(R.id.diabetesMellitusBody10));
+		diabetesMellitusBodiesList.add((IBaseDiabetesMellitusBody) rootView
+				.findViewById(R.id.diabetesMellitusBody11));
+		diabetesMellitusBodiesList.add((IBaseDiabetesMellitusBody) rootView
+				.findViewById(R.id.diabetesMellitusBody12));
+		diabetesMellitusBodiesList.add((IBaseDiabetesMellitusBody) rootView
+				.findViewById(R.id.diabetesMellitusBody13));
 
 		initData();
 
 	}
 
 	private void initData() {
-		FollowUpDiabetesMellitus followUpDiabetesMellitus = MyApplication.getInstance().getFollowUpDiabetesMellitus();
+		FollowUpDiabetesMellitus followUpDiabetesMellitus = MyApplication
+				.getInstance().getFollowUpDiabetesMellitus();
 		for (IBaseDiabetesMellitusBody diabetesMellitusBody : diabetesMellitusBodiesList) {
 			diabetesMellitusBody.setData(followUpDiabetesMellitus);
 			diabetesMellitusBody.setFragment(getChildFragmentManager());
@@ -104,12 +122,14 @@ public class DiabetesMellitusFragment extends BaseFragment {
 			return;
 		}
 
-		FollowUpDiabetesMellitus followUpDiabetesMellitus = MyApplication.getInstance().getFollowUpDiabetesMellitus();
+		FollowUpDiabetesMellitus followUpDiabetesMellitus = MyApplication
+				.getInstance().getFollowUpDiabetesMellitus();
 		if (followUpDiabetesMellitus == null) {
 			followUpDiabetesMellitus = new FollowUpDiabetesMellitus();
 
 			// 设置体检编号
-			followUpDiabetesMellitus.setFollowUpNo(MyApplication.getInstance().getFollowUpNo());
+			followUpDiabetesMellitus.setFollowUpNo(MyApplication.getInstance()
+					.getFollowUpNo());
 			// 设置身份证号
 			followUpDiabetesMellitus.setIdcard(archiveInfo.getIdcard());
 
@@ -129,14 +149,15 @@ public class DiabetesMellitusFragment extends BaseFragment {
 		}
 
 		// 保存数据
-		FollowUpManager.getInstance(getActivity()).saveOrUpdateFollowUpDiabetesMellitus(followUpDiabetesMellitus);
+		FollowUpManager.getInstance(getActivity())
+				.saveOrUpdateFollowUpDiabetesMellitus(followUpDiabetesMellitus);
 		ToastUtils.showToast(getActivity(), "保存糖尿病数据成功！");
 	}
 
 	@Override
 	public void onUpload() {
 	}
-	
+
 	@Override
 	public void onReport() {
 		super.onReport();
@@ -145,17 +166,27 @@ public class DiabetesMellitusFragment extends BaseFragment {
 			ToastUtils.showToast(getActivity(), "请先到档案信息中选择随访人！");
 			return;
 		}
-		FollowUpDiabetesMellitus followUpHypertension = MyApplication.getInstance()
-				.getFollowUpDiabetesMellitus();
+		FollowUpDiabetesMellitus followUpHypertension = MyApplication
+				.getInstance().getFollowUpDiabetesMellitus();
 		if (followUpHypertension == null) {
 			ToastUtils.showToast(getActivity(), "糖尿病信息为空！");
 			return;
 		}
-		final FollowupDiabetesMellitusReportDialog hypertensionInspectionDialog = FollowupDiabetesMellitusReportDialog
+		final FollowupDiabetesMellitusReportDialog reportDialog = FollowupDiabetesMellitusReportDialog
 				.newInstance();
-		hypertensionInspectionDialog.show(
+		reportDialog.show(
 				((FragmentActivity) getActivity()).getSupportFragmentManager(),
-				"hypertensionInspectionDialog");
+				"DiabetesMellitusReportDialog");
+		reportDialog
+				.setOnConfirmClickListener(new FollowupDiabetesMellitusReportDialog.OnConfirmClickListener() {
 
+					@Override
+					public void onConfirmClick() {
+						ReportDiabetesMellitus entity = reportDialog
+								.getReportDiabetesMellitus();
+						FollowUpManager.getInstance(getActivity()).saveOrUpdateReportDiabetesMellitus(entity);
+						reportDialog.hide();
+					}
+				});
 	}
 }
