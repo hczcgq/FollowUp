@@ -31,7 +31,7 @@ public class BloodGlucoseManager1 {
 	private String DEVICE_NAME = "101A0000047";// 血糖仪设备名称
 
 	// 获取meter id
-	private static String CMD_METER_ID = "&TB 50299";
+	private static String CMD_METER_ID = "T1 62558";
 	// 获取数据
 	private static String CMD_DATA = "&N0 41854‍";
 
