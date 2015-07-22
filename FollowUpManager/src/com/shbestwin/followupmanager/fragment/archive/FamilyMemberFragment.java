@@ -77,8 +77,9 @@ public class FamilyMemberFragment extends BaseArchiveFragment implements FamilyM
 					mFamilyMember = familyMember;
 					familyMemberList.add(mFamilyMember);
 					familyMemberAdapter.notifyDataSetChanged();
+					familyMemberDialog.hide();
 				}
-				familyMemberDialog.hide();
+				
 			}
 		});
 	}

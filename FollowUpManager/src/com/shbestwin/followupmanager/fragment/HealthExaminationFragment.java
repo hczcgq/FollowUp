@@ -201,10 +201,8 @@ public class HealthExaminationFragment extends BaseIDCardInfoFragment {
 					ToastUtils.showToast(getActivity(), "请先点击体检登记！");
 					return;
 				}
-				printTextView.setEnabled(false);
 				BaseFragment baseFragment = contentFragmentList.get(contentViewPager.getCurrentItem());
 				baseFragment.onPrint();
-				printTextView.setEnabled(true);
 			}
 		});
 	}

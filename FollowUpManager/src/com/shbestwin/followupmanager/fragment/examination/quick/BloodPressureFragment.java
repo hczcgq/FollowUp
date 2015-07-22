@@ -10,6 +10,7 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,12 +22,17 @@ import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.manager.DeviceManager;
 import com.shbestwin.followupmanager.manager.ExaminationManager;
+import com.shbestwin.followupmanager.manager.FollowUpManager;
 import com.shbestwin.followupmanager.manager.device.BloodPressureManager;
 import com.shbestwin.followupmanager.manager.device.BloodPressureManager1;
 import com.shbestwin.followupmanager.manager.device.BloodPressureManager1.BloodPressurePairManager;
 import com.shbestwin.followupmanager.model.device.BloodPressure;
 import com.shbestwin.followupmanager.model.examination.ExaminationInfo;
+import com.shbestwin.followupmanager.model.report.ReportHyoertension;
 import com.shbestwin.followupmanager.model.setting.Device;
+import com.shbestwin.followupmanager.view.dialog.ReportConfirmDialog;
+import com.shbestwin.followupmanager.view.dialog.ReportConfirmDialog.OnConfirmClickListener;
+import com.shbestwin.followupmanager.view.dialog.followup.FollowupHypertensionReportDialog;
 import com.shbestwin.followupmanager.view.widget.MeasureTipsLayout;
 
 /**
@@ -145,16 +151,18 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 
 		@Override
 		protected BloodPressure doInBackground(Void... params) {
-			if (bloodPressureManager.connectDevice()) {
-				BloodPressure bloodPressure = bloodPressureManager.readData();
-				bloodPressureManager.closeDevice();
-				return bloodPressure;
-			}
-			// BloodPressure bloodPressure = new BloodPressure();
-			// bloodPressure.setSystolicPressure(165);//收缩压
-			// bloodPressure.setDiastolicPressure(82);//舒张压
-			// bloodPressure.setPulseRate(76);//脉搏
-			return null;
+			// if (bloodPressureManager.connectDevice()) {
+			// BloodPressure bloodPressure = bloodPressureManager.readData();
+			// bloodPressureManager.closeDevice();
+			// return bloodPressure;
+			// }
+			// return null;
+
+			BloodPressure bloodPressure = new BloodPressure();
+			bloodPressure.setSystolicPressure(165);// 收缩压
+			bloodPressure.setDiastolicPressure(82);// 舒张压
+			bloodPressure.setPulseRate(76);// 脉搏
+			return bloodPressure;
 		}
 
 		@Override
@@ -371,6 +379,39 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 				result = "单纯收缩期高血压";
 			}
 			conclusionEditText.setText(result);
+			
+			
+
+			if ((systolicPressure >= 140) || (diastolicPressure >= 90)) {
+				final ReportConfirmDialog medicationDialog =new ReportConfirmDialog("血压");
+				medicationDialog.show(((FragmentActivity) getActivity())
+						.getSupportFragmentManager(), "medicationDialog");
+				medicationDialog
+						.setOnConfirmClickListener(new OnConfirmClickListener() {
+
+							@Override
+							public void onConfirmClick() {
+								final FollowupHypertensionReportDialog reportDialog = FollowupHypertensionReportDialog
+										.newInstance();
+								reportDialog.show(
+										((FragmentActivity) getActivity()).getSupportFragmentManager(),
+										"HypertensionReportDialog");
+								reportDialog
+										.setOnConfirmClickListener(new FollowupHypertensionReportDialog.OnConfirmClickListener() {
+
+											@Override
+											public void onConfirmClick() {
+												ReportHyoertension entity = reportDialog
+														.getReportHyoertension();
+												FollowUpManager.getInstance(getActivity())
+														.saveOrUpdateReportHyoertension(entity);
+												reportDialog.hide();
+											}
+										});
+								medicationDialog.hide();
+							}
+						});
+			}
 		} else {
 			conclusionEditText.setText("");
 		}
@@ -447,7 +488,7 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 
 		}
 	}
-	
+
 	@Override
 	public void onReset() {
 		super.onReset();

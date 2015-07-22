@@ -2,7 +2,11 @@ package com.shbestwin.followupmanager.fragment.examination;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnCancelListener;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -14,7 +18,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
-
 import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
@@ -30,8 +33,6 @@ import com.shbestwin.followupmanager.fragment.examination.quick.RoutineExaminati
 import com.shbestwin.followupmanager.manager.ExaminationManager;
 import com.shbestwin.followupmanager.manager.device.PrintManager;
 import com.shbestwin.followupmanager.model.examination.ExaminationInfo;
-import com.shbestwin.followupmanager.model.examination.GeneralExamination;
-import com.shbestwin.followupmanager.view.widget.IBaseGeneralExaminationBody;
 import com.shbestwin.followupmanager.view.widget.TabMenuLayout;
 
 /**
@@ -175,12 +176,12 @@ public class QuickExaminationFragment extends BaseFragment {
 				.get(bodyViewPager.getCurrentItem());
 		String printData = baseFragment.getPrintData(examinationInfo
 				.getExaminationNo());
-		PrintManager printManager = new PrintManager(getActivity());
-
-		if (printManager.connectDevice()) {
-			printManager.print(printData);
-			printManager.closeDevice();
-		}
+//		PrintManager printManager = new PrintManager(getActivity());
+//		if (printManager.connectDevice()) {
+//			printManager.print(printData);
+//			printManager.closeDevice();
+//		}
+		printDataMethod(printData);
 	}
 
 	@Override
@@ -216,5 +217,70 @@ public class QuickExaminationFragment extends BaseFragment {
 		BaseFragment baseFragment = contentFragmentList.get(bodyViewPager
 				.getCurrentItem());
 		baseFragment.onReset();
+	}
+	
+	private boolean IsPrinting = false;
+	private void printDataMethod(String printData) {
+		if (!IsPrinting) {
+			IsPrinting = true;
+			new PrintTask(getActivity(),printData).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+		}
+	}
+	
+	
+	private class PrintTask extends AsyncTask<Void, Void, String> {
+		private Activity activity;
+		private PrintManager printManager;
+		private ProgressDialog progressDialog;
+		private String printData;
+		public PrintTask(Activity activity,String printData) {
+			this.activity = activity;
+			printManager = new PrintManager(activity);
+			this.printData=printData;
+		}
+
+		@Override
+		protected void onPreExecute() {
+			progressDialog = ProgressDialog.show(activity, "温馨提示", "正在打印。。。", false, true);
+			progressDialog.setOnCancelListener(new OnCancelListener() {
+				@Override
+				public void onCancel(DialogInterface dialog) {
+					PrintTask.this.cancel(true);
+				}
+			});
+		}
+
+		@Override
+		protected String doInBackground(Void... params) {
+			if (printManager.connectDevice()) {
+				printManager.print(printData);
+				printManager.closeDevice();
+				return "true";
+			}
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(String result) {
+			if (progressDialog != null) {
+				progressDialog.dismiss();
+			}
+			if (result != null) {
+
+			} else {
+				ToastUtils.showToast(activity, printManager.getTipsInfo());
+			}
+			printManager = null;
+			IsPrinting = false;
+		}
+
+		@Override
+		protected void onCancelled(String result) {
+			super.onCancelled(result);
+			if (printManager != null) {
+				printManager.closeDevice();
+				printManager = null;
+			}
+		}
 	}
 }

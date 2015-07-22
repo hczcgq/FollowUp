@@ -2,14 +2,13 @@ package com.shbestwin.followupmanager.fragment.examination.quick;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import android.R.bool;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,12 +22,17 @@ import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.common.util.ViewDataUtil;
 import com.shbestwin.followupmanager.manager.DeviceManager;
 import com.shbestwin.followupmanager.manager.ExaminationManager;
+import com.shbestwin.followupmanager.manager.FollowUpManager;
 import com.shbestwin.followupmanager.manager.device.BloodFatManager;
 import com.shbestwin.followupmanager.manager.device.BloodGlucoseManager1;
 import com.shbestwin.followupmanager.model.device.BloodFat;
 import com.shbestwin.followupmanager.model.device.BloodGlucose;
 import com.shbestwin.followupmanager.model.examination.ExaminationInfo;
+import com.shbestwin.followupmanager.model.report.ReportDiabetesMellitus;
 import com.shbestwin.followupmanager.model.setting.Device;
+import com.shbestwin.followupmanager.view.dialog.ReportConfirmDialog;
+import com.shbestwin.followupmanager.view.dialog.ReportConfirmDialog.OnConfirmClickListener;
+import com.shbestwin.followupmanager.view.dialog.followup.FollowupDiabetesMellitusReportDialog;
 import com.shbestwin.followupmanager.view.widget.MeasureTipsLayout;
 
 /**
@@ -141,12 +145,18 @@ public class BloodGlucoseFragment extends BaseQuickExaminationFragment {
 
 		@Override
 		protected BloodGlucose doInBackground(Void... params) {
-			if (bloodGlucoseManager.connectDevice()) {
-				BloodGlucose bloodGlucose = bloodGlucoseManager.readData();
-				bloodGlucoseManager.closeDevice();
-				return bloodGlucose;
-			}
-			return null;
+//			if (bloodGlucoseManager.connectDevice()) {
+//				BloodGlucose bloodGlucose = bloodGlucoseManager.readData();
+//				bloodGlucoseManager.closeDevice();
+//				return bloodGlucose;
+//			}
+//			return null;
+			
+			BloodGlucose bloodPressure = new BloodGlucose();
+			bloodPressure.setType(bloodGlucoseTypeSpinner
+					.getSelectedItemPosition());// 收缩压
+			bloodPressure.setBloodGlucose((float) 7.0);// 舒张压
+			return bloodPressure;
 		}
 
 		@Override
@@ -247,6 +257,38 @@ public class BloodGlucoseFragment extends BaseQuickExaminationFragment {
 					bloodGlucoseType, Float.parseFloat(bloodGlucoseStr)));
 		} else {
 			conclusionEditText.setText("");
+		}
+		
+		if((bloodGlucoseType==0&&(Float.parseFloat(bloodGlucoseStr)>=7.0))||(bloodGlucoseType==1&&(Float.parseFloat(bloodGlucoseStr)>=11.1))){
+
+			final ReportConfirmDialog medicationDialog = new ReportConfirmDialog("血糖");
+			medicationDialog.show(((FragmentActivity) getActivity())
+					.getSupportFragmentManager(), "medicationDialog");
+			medicationDialog
+					.setOnConfirmClickListener(new OnConfirmClickListener() {
+
+						@Override
+						public void onConfirmClick() {
+							final FollowupDiabetesMellitusReportDialog reportDialog = FollowupDiabetesMellitusReportDialog
+									.newInstance();
+							reportDialog.show(
+									((FragmentActivity) getActivity()).getSupportFragmentManager(),
+									"DiabetesMellitusReportDialog");
+							reportDialog
+									.setOnConfirmClickListener(new FollowupDiabetesMellitusReportDialog.OnConfirmClickListener() {
+
+										@Override
+										public void onConfirmClick() {
+											ReportDiabetesMellitus entity = reportDialog
+													.getReportDiabetesMellitus();
+											FollowUpManager.getInstance(getActivity()).saveOrUpdateReportDiabetesMellitus(entity);
+											reportDialog.hide();
+										}
+									});
+							medicationDialog.hide();
+						}
+					});
+		
 		}
 	}
 
