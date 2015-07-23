@@ -1,8 +1,8 @@
 package com.shbestwin.followupmanager.fragment.examination;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,14 +10,13 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.EditText;
-
 import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.DateUtils;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.fragment.BaseFragment;
 import com.shbestwin.followupmanager.manager.ExaminationManager;
-import com.shbestwin.followupmanager.model.examination.ExaminationInfo;
+import com.shbestwin.followupmanager.model.ArchiveInfo;
 import com.shbestwin.followupmanager.model.examination.GeneralExamination;
 import com.shbestwin.followupmanager.view.dialog.DatePickerDialog;
 import com.shbestwin.followupmanager.view.dialog.DatePickerDialog.OnDatePickerListener;
@@ -111,20 +110,19 @@ public class GeneralExaminationFragment extends BaseFragment {
 
 	@Override
 	public void onSave() {
+		ArchiveInfo archiveInfo = MyApplication.getInstance().getArchiveInfo();
+		if (archiveInfo == null) {
+			ToastUtils.showToast(getActivity(), "请先到档案信息中选择体检人！");
+			return;
+		}
+		
 		GeneralExamination generalExamination = MyApplication.getInstance().getGeneralExamination();
 		if (generalExamination == null) {
-			ExaminationInfo examinationInfo = MyApplication.getInstance().getExaminationInfo();
-			if (examinationInfo == null) {// 请先进行体检登记
-				ToastUtils.showToast(getActivity(), "请先进行体检登记!");
-				return;
-			}
-
 			generalExamination = new GeneralExamination();
-
+			// 身份证号，标示用户的唯一ID
+			generalExamination.setIdcard(archiveInfo.getIdcard());
 			// 设置体检编号
-			generalExamination.setExaminationNo(examinationInfo.getExaminationNo());
-			// 设置身份证号
-			generalExamination.setIdcard(examinationInfo.getIdcard());
+			generalExamination.setExaminationNo(new SimpleDateFormat("yyyyMMdd").format(new Date())+archiveInfo.getIdcard());
 
 			String date = System.currentTimeMillis() + "";
 			generalExamination.setCreateTime(date);
@@ -138,9 +136,7 @@ public class GeneralExaminationFragment extends BaseFragment {
 		generalExamination.setTjrq(tjrqEditText.getText().toString());
 
 		for (IBaseGeneralExaminationBody generalExaminationBody : generalExaminationBodyList) {
-//			if (!generalExaminationBody.validate()) {
-//				return;
-//			}
+
 			generalExaminationBody.getData(generalExamination);
 		}
 

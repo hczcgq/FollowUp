@@ -1,6 +1,8 @@
 package com.shbestwin.followupmanager.fragment.followup;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -77,10 +79,18 @@ public class MentalDiseaseFragment extends BaseFragment {
 
 	private void initData() {
 		FollowUpMentalDisease followUpMentalDisease = MyApplication.getInstance().getFollowUpMentalDisease();
+		if(followUpMentalDisease!=null){
+			String numberNo=new SimpleDateFormat("yyyyMMdd").format(new Date())+MyApplication.getInstance().getArchiveInfo().getIdcard();
+			if(numberNo.equals(followUpMentalDisease.getFollowUpNo())){
+				 MyApplication.getInstance().setFollowUpNo(numberNo);
+			}
+		}
 		for (IBaseMentalDiseaseBody mentalDiseaseBody : mentalDiseaseBodyList) {
 			mentalDiseaseBody.setData(followUpMentalDisease);
 			mentalDiseaseBody.setFragment(getChildFragmentManager());
 		}
+		
+		
 	}
 
 	@Override

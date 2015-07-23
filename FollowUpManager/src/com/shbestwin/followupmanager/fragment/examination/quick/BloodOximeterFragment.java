@@ -15,6 +15,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.manager.ExaminationManager;
@@ -197,12 +199,18 @@ public class BloodOximeterFragment extends BaseQuickExaminationFragment {
 				bloodOxygen.put("updateTime", date);
 			}
 
-			bloodOxygen.put("saturation", bloodOxygenEditText.getText()
-					.toString());
-			bloodOxygen
-					.put("pulseRate", pulseRateEditText.getText().toString());
-			bloodOxygen.put("conclusion", conclusionEditText.getText()
-					.toString());
+			if (bloodOxygenEditText != null) {
+				bloodOxygen.put("saturation", bloodOxygenEditText.getText()
+						.toString() + "");
+			}
+			if (pulseRateEditText != null) {
+				bloodOxygen.put("pulseRate", pulseRateEditText.getText()
+						.toString() + "");
+			}
+			if (conclusionEditText != null) {
+				bloodOxygen.put("conclusion", conclusionEditText.getText()
+						.toString());
+			}
 			examinationInfo.setBloodOxygen(bloodOxygen.toString());
 		} catch (JSONException e) {
 			e.printStackTrace();
@@ -210,13 +218,15 @@ public class BloodOximeterFragment extends BaseQuickExaminationFragment {
 	}
 
 	@Override
-	public void setSaveData(ExaminationInfo examinationInfo) {
+	public void setSaveData(ExaminationInfo examinationInfo1) {
+		ExaminationInfo examinationInfo = MyApplication.getInstance()
+				.getExaminationInfo();
 		if (examinationInfo != null) {
 			String msg = examinationInfo.getBloodOxygen();
 			if (TextUtils.isEmpty(msg)) {
-				bloodOxygenEditText.setText("");
-				pulseRateEditText.setText("");
-				conclusionEditText.setText("");
+				// bloodOxygenEditText.setText("");
+				// pulseRateEditText.setText("");
+				// conclusionEditText.setText("");
 				return;
 			}
 			try {

@@ -18,6 +18,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.manager.DeviceManager;
@@ -379,11 +381,10 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 				result = "单纯收缩期高血压";
 			}
 			conclusionEditText.setText(result);
-			
-			
 
 			if ((systolicPressure >= 140) || (diastolicPressure >= 90)) {
-				final ReportConfirmDialog medicationDialog =new ReportConfirmDialog("血压");
+				final ReportConfirmDialog medicationDialog = new ReportConfirmDialog(
+						"血压");
 				medicationDialog.show(((FragmentActivity) getActivity())
 						.getSupportFragmentManager(), "medicationDialog");
 				medicationDialog
@@ -394,7 +395,8 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 								final FollowupHypertensionReportDialog reportDialog = FollowupHypertensionReportDialog
 										.newInstance();
 								reportDialog.show(
-										((FragmentActivity) getActivity()).getSupportFragmentManager(),
+										((FragmentActivity) getActivity())
+												.getSupportFragmentManager(),
 										"HypertensionReportDialog");
 								reportDialog
 										.setOnConfirmClickListener(new FollowupHypertensionReportDialog.OnConfirmClickListener() {
@@ -403,8 +405,11 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 											public void onConfirmClick() {
 												ReportHyoertension entity = reportDialog
 														.getReportHyoertension();
-												FollowUpManager.getInstance(getActivity())
-														.saveOrUpdateReportHyoertension(entity);
+												FollowUpManager
+														.getInstance(
+																getActivity())
+														.saveOrUpdateReportHyoertension(
+																entity);
 												reportDialog.hide();
 											}
 										});
@@ -450,11 +455,18 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 				bloodPressure.put("updateTime", date);
 			}
 
-			bloodPressure.put("systolicPressure", systolicPressureEditText
-					.getText().toString());
-			bloodPressure.put("diastolicPressure", diastolicPressureEditText
-					.getText().toString());
-			bloodPressure.put("pulse", pulseRateEditText.getText().toString());
+			if (systolicPressureEditText != null) {
+				bloodPressure.put("systolicPressure", systolicPressureEditText
+						.getText().toString());
+			}
+			if (diastolicPressureEditText != null) {
+				bloodPressure.put("diastolicPressure",
+						diastolicPressureEditText.getText().toString());
+			}
+			if (pulseRateEditText != null) {
+				bloodPressure.put("pulse", pulseRateEditText.getText()
+						.toString());
+			}
 			bloodPressure.put("conclusion", conclusionEditText.getText()
 					.toString());
 			examinationInfo.setBloodPressure(bloodPressure.toString());
@@ -464,14 +476,16 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 	}
 
 	@Override
-	public void setSaveData(ExaminationInfo examinationInfo) {
+	public void setSaveData(ExaminationInfo examinationInfo1) {
+		ExaminationInfo examinationInfo = MyApplication.getInstance()
+				.getExaminationInfo();
 		if (examinationInfo != null) {
 			String msg = examinationInfo.getBloodPressure();
 			if (TextUtils.isEmpty(msg)) {
-				systolicPressureEditText.setText("");
-				diastolicPressureEditText.setText("");
-				pulseRateEditText.setText("");
-				conclusionEditText.setText("");
+				// systolicPressureEditText.setText("");
+				// diastolicPressureEditText.setText("");
+				// pulseRateEditText.setText("");
+				// conclusionEditText.setText("");
 				return;
 			}
 			try {

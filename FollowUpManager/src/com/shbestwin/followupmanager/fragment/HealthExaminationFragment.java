@@ -1,6 +1,8 @@
 package com.shbestwin.followupmanager.fragment;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import android.os.Bundle;
@@ -175,7 +177,9 @@ public class HealthExaminationFragment extends BaseIDCardInfoFragment {
 		saveTextView.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+//				examinationRegister();
 				BaseFragment baseFragment = contentFragmentList.get(contentViewPager.getCurrentItem());
+				baseFragment.onConclusion();
 				baseFragment.onSave();
 			}
 		});
@@ -218,7 +222,7 @@ public class HealthExaminationFragment extends BaseIDCardInfoFragment {
 		// 身份证号，标示用户的唯一ID
 		examinationInfo.setIdcard(archiveInfo.getIdcard());
 		// TODO 体检编号,暂时使用System.currentTimeMillis(),后面最好是服务器生成
-		examinationInfo.setExaminationNo(System.currentTimeMillis() + "");
+		examinationInfo.setExaminationNo(new SimpleDateFormat("yyyyMMdd").format(new Date())+archiveInfo.getIdcard());
 		long date = System.currentTimeMillis();
 		examinationInfo.setCreateTime(date + "");
 		examinationInfo.setUpdateTime(date + "");

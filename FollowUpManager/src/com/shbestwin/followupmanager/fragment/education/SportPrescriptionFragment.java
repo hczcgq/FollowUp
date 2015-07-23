@@ -52,7 +52,9 @@ public class SportPrescriptionFragment extends BaseFragment {
 			if (!TextUtils.isEmpty(msg)) {
 				try {
 					JSONObject jsonObject = new JSONObject(msg);
-					BMI = Double.parseDouble(jsonObject.getString("BMI"));
+					if (!TextUtils.isEmpty(jsonObject.getString("BMI"))) {
+						BMI = Double.parseDouble(jsonObject.getString("BMI"));
+					}
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}

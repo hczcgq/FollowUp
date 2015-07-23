@@ -85,8 +85,10 @@ public class MyApplication extends Application {
 
 	public void setArchiveInfo(ArchiveInfo archiveInfo) {
 		this.archiveInfo = archiveInfo;
-		if (TextUtils.isEmpty(this.archiveInfo.getCreateDate())) {
-			this.archiveInfo.setCreateDate(DateUtils.formatDate(new Date(), "yyyy-MM-dd"));
+		if(archiveInfo!=null){
+			if (TextUtils.isEmpty(this.archiveInfo.getCreateDate())) {
+				this.archiveInfo.setCreateDate(DateUtils.formatDate(new Date(), "yyyy-MM-dd"));
+			}
 		}
 	}
 

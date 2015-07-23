@@ -29,12 +29,18 @@
 
             <include layout="@layout/fragment_follow_up_manager_operate_layout" />
 
-            <android.support.v4.view.ViewPager
-                android:id="@+id/contentViewPager"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:flipInterval="30"
-                android:persistentDrawingCache="animation" />
+                android:layout_height="match_parent" >
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/contentViewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:flipInterval="30"
+                    android:persistentDrawingCache="animation" />
+                
+            </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
 

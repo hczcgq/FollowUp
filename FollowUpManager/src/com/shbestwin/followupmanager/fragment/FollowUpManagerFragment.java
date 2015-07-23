@@ -1,6 +1,8 @@
 package com.shbestwin.followupmanager.fragment;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import android.os.Bundle;
@@ -170,7 +172,7 @@ public class FollowUpManagerFragment extends BaseIDCardInfoFragment {
 				}
 				// TODO
 				// 重新生成随访编号，暂时使用System.currentTimeMillis()作为编号，以后最好使用服务器获取唯一ID
-				String followUpNo = System.currentTimeMillis() + "";
+				String followUpNo = new SimpleDateFormat("yyyyMMdd").format(new Date())+MyApplication.getInstance().getArchiveInfo().getIdcard();
 				MyApplication.getInstance().setFollowUpNo(followUpNo);
 				BaseFragment baseFragment = contentFragmentList.get(contentViewPager.getCurrentItem());
 				baseFragment.onReset();
@@ -202,11 +204,7 @@ public class FollowUpManagerFragment extends BaseIDCardInfoFragment {
 		reportCardTextView.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-//				// 如果没有随访编号，需要先生成随访编号
-//				if (TextUtils.isEmpty(MyApplication.getInstance().getFollowUpNo())) {
-//					ToastUtils.showToast(getActivity(), "随访信息为空");
-//					return;
-//				}
+				// 如果没有随访编号，需要先生成随访编号
 				BaseFragment baseFragment = contentFragmentList.get(contentViewPager.getCurrentItem());
 				baseFragment.onReport();
 			}

@@ -1,5 +1,7 @@
 package com.shbestwin.followupmanager.activity;
 
+import java.util.List;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,6 +13,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
+import com.shbestwin.followupmanager.manager.ArchiveInfoManager;
+import com.shbestwin.followupmanager.model.ArchiveInfo;
 
 /**
  * 

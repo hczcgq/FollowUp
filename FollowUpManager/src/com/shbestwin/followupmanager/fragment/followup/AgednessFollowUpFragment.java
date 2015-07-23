@@ -1,14 +1,13 @@
 package com.shbestwin.followupmanager.fragment.followup;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-
+import java.util.Date;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
-import android.widget.Adapter;
-
 import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
@@ -71,11 +70,18 @@ public class AgednessFollowUpFragment extends BaseFragment {
 
 	private void initData() {
 		FollowUpAged followUpAged = MyApplication.getInstance().getFollowUpAged();
-
+		if(followUpAged!=null){
+			String numberNo=new SimpleDateFormat("yyyyMMdd").format(new Date())+MyApplication.getInstance().getArchiveInfo().getIdcard();
+			if(numberNo.equals(followUpAged.getFollowUpNo())){
+				 MyApplication.getInstance().setFollowUpNo(numberNo);
+			}
+		}
 		for (IBaseAgednessBody agednessBody : agednessBodyList) {
 			agednessBody.setData(followUpAged);
 			agednessBody.setFragment(getChildFragmentManager());
 		}
+		
+		
 	}
 
 	@Override

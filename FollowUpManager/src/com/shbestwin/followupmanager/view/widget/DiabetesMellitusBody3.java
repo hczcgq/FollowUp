@@ -70,10 +70,12 @@ public class DiabetesMellitusBody3 extends LinearLayout implements
     public void setData(FollowUpDiabetesMellitus followUpDiabetesMellitus) {
         if (followUpDiabetesMellitus != null) {
             String xy = followUpDiabetesMellitus.getTz_xy();
-            if (xy.split("/").length != 0) {
+            if (xy.split("/").length == 1) {
                 et_xy_ssy.setText(xy.split("/")[0]);
+            }else if(xy.split("/").length == 2){
+            	et_xy_ssy.setText(xy.split("/")[0]);
                 et_xy_szy.setText(xy.split("/")[1]);
-            }
+			}
             et_xl.setText(followUpDiabetesMellitus.getTz_xl());
             et_sg.setText(followUpDiabetesMellitus.getTz_sg());
             String tz = followUpDiabetesMellitus.getTz_tz();

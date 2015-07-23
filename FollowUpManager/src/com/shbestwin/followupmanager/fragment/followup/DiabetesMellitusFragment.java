@@ -1,8 +1,9 @@
 package com.shbestwin.followupmanager.fragment.followup;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +15,6 @@ import com.shbestwin.followupmanager.fragment.BaseFragment;
 import com.shbestwin.followupmanager.manager.FollowUpManager;
 import com.shbestwin.followupmanager.model.ArchiveInfo;
 import com.shbestwin.followupmanager.model.followup.FollowUpDiabetesMellitus;
-import com.shbestwin.followupmanager.model.report.ReportDiabetesMellitus;
-import com.shbestwin.followupmanager.view.dialog.followup.FollowupDiabetesMellitusReportDialog;
 import com.shbestwin.followupmanager.view.widget.IBaseDiabetesMellitusBody;
 
 /**
@@ -99,10 +98,19 @@ public class DiabetesMellitusFragment extends BaseFragment {
 	private void initData() {
 		FollowUpDiabetesMellitus followUpDiabetesMellitus = MyApplication
 				.getInstance().getFollowUpDiabetesMellitus();
+		if(followUpDiabetesMellitus!=null){
+			String numberNo=new SimpleDateFormat("yyyyMMdd").format(new Date())+MyApplication.getInstance().getArchiveInfo().getIdcard();
+			if(numberNo.equals(followUpDiabetesMellitus.getFollowUpNo())){
+				 MyApplication.getInstance().setFollowUpNo(numberNo);
+			}
+		}
+		
 		for (IBaseDiabetesMellitusBody diabetesMellitusBody : diabetesMellitusBodiesList) {
 			diabetesMellitusBody.setData(followUpDiabetesMellitus);
 			diabetesMellitusBody.setFragment(getChildFragmentManager());
 		}
+		
+		
 	}
 
 	@Override
@@ -157,32 +165,5 @@ public class DiabetesMellitusFragment extends BaseFragment {
 	@Override
 	public void onReport() {
 		super.onReport();
-		ArchiveInfo archiveInfo = MyApplication.getInstance().getArchiveInfo();
-		if (archiveInfo == null) {
-			ToastUtils.showToast(getActivity(), "请先到档案信息中选择随访人！");
-			return;
-		}
-		FollowUpDiabetesMellitus followUpHypertension = MyApplication
-				.getInstance().getFollowUpDiabetesMellitus();
-		if (followUpHypertension == null) {
-			ToastUtils.showToast(getActivity(), "糖尿病信息为空！");
-			return;
-		}
-		final FollowupDiabetesMellitusReportDialog reportDialog = FollowupDiabetesMellitusReportDialog
-				.newInstance();
-		reportDialog.show(
-				((FragmentActivity) getActivity()).getSupportFragmentManager(),
-				"DiabetesMellitusReportDialog");
-		reportDialog
-				.setOnConfirmClickListener(new FollowupDiabetesMellitusReportDialog.OnConfirmClickListener() {
-
-					@Override
-					public void onConfirmClick() {
-						ReportDiabetesMellitus entity = reportDialog
-								.getReportDiabetesMellitus();
-						FollowUpManager.getInstance(getActivity()).saveOrUpdateReportDiabetesMellitus(entity);
-						reportDialog.hide();
-					}
-				});
 	}
 }

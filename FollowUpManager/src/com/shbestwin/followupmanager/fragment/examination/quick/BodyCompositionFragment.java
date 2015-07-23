@@ -16,6 +16,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.manager.ExaminationManager;
@@ -27,14 +29,17 @@ import com.shbestwin.followupmanager.view.widget.MeasureTipsLayout;
 /**
  * 
  * 人体成分
- *
+ * 
  * @version
  */
 public class BodyCompositionFragment extends BaseQuickExaminationFragment {
 	private MeasureTipsLayout measureTipsLayuout;
 	private Button getDataButton;
 
-	private EditText heightEditText, weightEditText, BMIEditText, bodyImpedanceEditText, KCALEditText, RKCALEditText, fatEditText, visceralFatEditText, muscleEditText, bodyWaterEditText, boneMassEditText, conclusionEditText;
+	private EditText heightEditText, weightEditText, BMIEditText,
+			bodyImpedanceEditText, KCALEditText, RKCALEditText, fatEditText,
+			visceralFatEditText, muscleEditText, bodyWaterEditText,
+			boneMassEditText, conclusionEditText;
 
 	public static BodyCompositionFragment newInstance() {
 		BodyCompositionFragment fragment = new BodyCompositionFragment();
@@ -42,22 +47,31 @@ public class BodyCompositionFragment extends BaseQuickExaminationFragment {
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fragment_quick_examination_body_composition, container, false);
-		measureTipsLayuout = (MeasureTipsLayout) rootView.findViewById(R.id.measureTipsLayuout);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		View rootView = inflater.inflate(
+				R.layout.fragment_quick_examination_body_composition,
+				container, false);
+		measureTipsLayuout = (MeasureTipsLayout) rootView
+				.findViewById(R.id.measureTipsLayuout);
 		getDataButton = (Button) rootView.findViewById(R.id.getDataButton);
 		heightEditText = (EditText) rootView.findViewById(R.id.heightEditText);
 		weightEditText = (EditText) rootView.findViewById(R.id.weightEditText);
 		BMIEditText = (EditText) rootView.findViewById(R.id.BMIEditText);
-		bodyImpedanceEditText = (EditText) rootView.findViewById(R.id.bodyImpedanceEditText);
+		bodyImpedanceEditText = (EditText) rootView
+				.findViewById(R.id.bodyImpedanceEditText);
 		KCALEditText = (EditText) rootView.findViewById(R.id.KCALEditText);
 		RKCALEditText = (EditText) rootView.findViewById(R.id.RKCALEditText);
 		fatEditText = (EditText) rootView.findViewById(R.id.fatEditText);
-		visceralFatEditText = (EditText) rootView.findViewById(R.id.visceralFatEditText);
+		visceralFatEditText = (EditText) rootView
+				.findViewById(R.id.visceralFatEditText);
 		muscleEditText = (EditText) rootView.findViewById(R.id.muscleEditText);
-		bodyWaterEditText = (EditText) rootView.findViewById(R.id.bodyWaterEditText);
-		boneMassEditText = (EditText) rootView.findViewById(R.id.boneMassEditText);
-		conclusionEditText = (EditText) rootView.findViewById(R.id.conclusionEditText);
+		bodyWaterEditText = (EditText) rootView
+				.findViewById(R.id.bodyWaterEditText);
+		boneMassEditText = (EditText) rootView
+				.findViewById(R.id.boneMassEditText);
+		conclusionEditText = (EditText) rootView
+				.findViewById(R.id.conclusionEditText);
 		return rootView;
 	}
 
@@ -75,18 +89,19 @@ public class BodyCompositionFragment extends BaseQuickExaminationFragment {
 
 	private boolean dataReading = false;
 	private ReadDataTask readDataTask;
+
 	private void readData() {
 		if (!dataReading) {
 			dataReading = true;
-//			new ReadDataTask(getActivity()).execute();
-			
+			// new ReadDataTask(getActivity()).execute();
+
 			if (readDataTask != null
-                    && readDataTask.getStatus() == AsyncTask.Status.RUNNING) {
-                readDataTask.cancel(true); // 如果Task还在运行，则先取消它
-            }
-            // 启动新的任务
-            readDataTask = new ReadDataTask(getActivity());
-            readDataTask.execute();
+					&& readDataTask.getStatus() == AsyncTask.Status.RUNNING) {
+				readDataTask.cancel(true); // 如果Task还在运行，则先取消它
+			}
+			// 启动新的任务
+			readDataTask = new ReadDataTask(getActivity());
+			readDataTask.execute();
 		}
 	}
 
@@ -102,13 +117,14 @@ public class BodyCompositionFragment extends BaseQuickExaminationFragment {
 
 		@Override
 		protected void onPreExecute() {
-			progressDialog = ProgressDialog.show(activity, "温馨提示", "获取中。。。", false, true);
+			progressDialog = ProgressDialog.show(activity, "温馨提示", "获取中。。。",
+					false, true);
 			progressDialog.setOnCancelListener(new OnCancelListener() {
 				@Override
 				public void onCancel(DialogInterface dialog) {
 					if (bodyCompositionManager != null) {
 						bodyCompositionManager.closeDevice();
-						dataReading=false;
+						dataReading = false;
 					}
 				}
 			});
@@ -117,7 +133,8 @@ public class BodyCompositionFragment extends BaseQuickExaminationFragment {
 		@Override
 		protected BodyComposition doInBackground(Void... params) {
 			if (bodyCompositionManager.connectDevice()) {
-				BodyComposition bodyComposition = bodyCompositionManager.readData();
+				BodyComposition bodyComposition = bodyCompositionManager
+						.readData();
 				bodyCompositionManager.closeDevice();
 				return bodyComposition;
 			}
@@ -142,7 +159,8 @@ public class BodyCompositionFragment extends BaseQuickExaminationFragment {
 				bodyWaterEditText.setText(df.format(result.getBodyWater()));
 				boneMassEditText.setText(df.format(result.getBoneMass()));
 			} else {
-				ToastUtils.showToast(activity, bodyCompositionManager.getTipsInfo());
+				ToastUtils.showToast(activity,
+						bodyCompositionManager.getTipsInfo());
 			}
 			bodyCompositionManager = null;
 			dataReading = false;
@@ -163,25 +181,31 @@ public class BodyCompositionFragment extends BaseQuickExaminationFragment {
 
 	@Override
 	public void onConclusion() {
-	    
+
 	}
 
 	@Override
 	public String getPrintData(String examinationNo) {
-		String printStr = ExaminationManager.getInstance(getActivity()).getPrintTemplate(R.raw.print_body_composition_template, examinationNo);
+		String printStr = ExaminationManager.getInstance(getActivity())
+				.getPrintTemplate(R.raw.print_body_composition_template,
+						examinationNo);
 		// 替换相关数据
-		printStr = printStr.replace("{height}", heightEditText.getText().toString())// 身高
-						   .replace("{weight}", weightEditText.getText().toString())// 体重
-						   .replace("{BMI}", BMIEditText.getText().toString())// BMI
-						   .replace("{body_impedance}", bodyImpedanceEditText.getText().toString())// 阻抗
-						   .replace("{KCAL}", KCALEditText.getText().toString())// 基础代谢
-						   .replace("{RKCAL}", RKCALEditText.getText().toString())// 相对基础代谢
-						   .replace("{fat}", fatEditText.getText().toString())// 体脂肪率
-						   .replace("{visceral_fat}", visceralFatEditText.getText().toString())// 内脏脂肪
-						   .replace("{muscle}", muscleEditText.getText().toString())// 肌肉含量
-						   .replace("{body_water}", bodyWaterEditText.getText().toString())// 水分含量
-						   .replace("{bone_mass}", boneMassEditText.getText().toString())// 骨含量
-						   .replace("{conclusion}", conclusionEditText.getText().toString());// 结论
+		printStr = printStr
+				.replace("{height}", heightEditText.getText().toString())// 身高
+				.replace("{weight}", weightEditText.getText().toString())// 体重
+				.replace("{BMI}", BMIEditText.getText().toString())// BMI
+				.replace("{body_impedance}",
+						bodyImpedanceEditText.getText().toString())// 阻抗
+				.replace("{KCAL}", KCALEditText.getText().toString())// 基础代谢
+				.replace("{RKCAL}", RKCALEditText.getText().toString())// 相对基础代谢
+				.replace("{fat}", fatEditText.getText().toString())// 体脂肪率
+				.replace("{visceral_fat}",
+						visceralFatEditText.getText().toString())// 内脏脂肪
+				.replace("{muscle}", muscleEditText.getText().toString())// 肌肉含量
+				.replace("{body_water}", bodyWaterEditText.getText().toString())// 水分含量
+				.replace("{bone_mass}", boneMassEditText.getText().toString())// 骨含量
+				.replace("{conclusion}",
+						conclusionEditText.getText().toString());// 结论
 		return printStr;
 	}
 
@@ -201,69 +225,106 @@ public class BodyCompositionFragment extends BaseQuickExaminationFragment {
 				bodyComposition.put("updateTime", date);
 			}
 
-			bodyComposition.put("height", heightEditText.getText().toString());
-			bodyComposition.put("weight", weightEditText.getText().toString());
-			bodyComposition.put("BMI", BMIEditText.getText().toString());
-			bodyComposition.put("bodyImpedance", bodyImpedanceEditText.getText().toString());
-			bodyComposition.put("KCAL", KCALEditText.getText().toString());
-			bodyComposition.put("RKCAL", RKCALEditText.getText().toString());
-			bodyComposition.put("fat", fatEditText.getText().toString());
-			bodyComposition.put("visceralFat", visceralFatEditText.getText().toString());
-			bodyComposition.put("muscle", muscleEditText.getText().toString());
-			bodyComposition.put("bodyWater", bodyWaterEditText.getText().toString());
-			bodyComposition.put("boneMass", boneMassEditText.getText().toString());
-			bodyComposition.put("conclusion", conclusionEditText.getText().toString());
+			if (heightEditText != null) {
+				bodyComposition.put("height", heightEditText.getText()
+						.toString());
+			}
+			if (weightEditText != null) {
+				bodyComposition.put("weight", weightEditText.getText()
+						.toString());
+			}
+			if (BMIEditText != null) {
+				bodyComposition.put("BMI", BMIEditText.getText().toString());
+			}
+			if (bodyImpedanceEditText != null) {
+				bodyComposition.put("bodyImpedance", bodyImpedanceEditText
+						.getText().toString());
+			}
+			if (KCALEditText != null) {
+				bodyComposition.put("KCAL", KCALEditText.getText().toString());
+			}
+			if (RKCALEditText != null) {
+				bodyComposition
+						.put("RKCAL", RKCALEditText.getText().toString());
+			}
+			if (fatEditText != null) {
+				bodyComposition.put("fat", fatEditText.getText().toString());
+			}
+			if (visceralFatEditText != null) {
+				bodyComposition.put("visceralFat", visceralFatEditText
+						.getText().toString());
+			}
+			if (muscleEditText != null) {
+				bodyComposition.put("muscle", muscleEditText.getText()
+						.toString());
+			}
+			if (bodyWaterEditText != null) {
+				bodyComposition.put("bodyWater", bodyWaterEditText.getText()
+						.toString());
+			}
+			if (boneMassEditText != null) {
+				bodyComposition.put("boneMass", boneMassEditText.getText()
+						.toString());
+			}
+			if (conclusionEditText != null) {
+				bodyComposition.put("conclusion", conclusionEditText.getText()
+						.toString());
+			}
 			examinationInfo.setBodyComposition(bodyComposition.toString());
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 	}
 
-    @Override
-    public void setSaveData(ExaminationInfo examinationInfo) {
-    	if (examinationInfo != null) {
-			String msg=examinationInfo.getBodyComposition();
-			if(TextUtils.isEmpty(msg)){
-				heightEditText.setText("");
-				weightEditText.setText("");
-				BMIEditText.setText("");
-				bodyImpedanceEditText.setText("");
-				KCALEditText.setText("");
-				RKCALEditText.setText("");
-				fatEditText.setText("");
-				visceralFatEditText.setText("");
-				muscleEditText.setText("");
-				bodyWaterEditText.setText("");
-				boneMassEditText.setText("");
-				conclusionEditText.setText("");
+	@Override
+	public void setSaveData(ExaminationInfo examinationInfo1) {
+		ExaminationInfo examinationInfo = MyApplication.getInstance()
+				.getExaminationInfo();
+		if (examinationInfo != null) {
+			String msg = examinationInfo.getBodyComposition();
+			if (TextUtils.isEmpty(msg)) {
+				// heightEditText.setText("");
+				// weightEditText.setText("");
+				// BMIEditText.setText("");
+				// bodyImpedanceEditText.setText("");
+				// KCALEditText.setText("");
+				// RKCALEditText.setText("");
+				// fatEditText.setText("");
+				// visceralFatEditText.setText("");
+				// muscleEditText.setText("");
+				// bodyWaterEditText.setText("");
+				// boneMassEditText.setText("");
+				// conclusionEditText.setText("");
 				return;
 			}
 			try {
-				JSONObject jsonObject =new JSONObject(msg);
+				JSONObject jsonObject = new JSONObject(msg);
 				heightEditText.setText(jsonObject.getString("height"));
 				weightEditText.setText(jsonObject.getString("weight"));
 				BMIEditText.setText(jsonObject.getString("BMI"));
-				bodyImpedanceEditText.setText(jsonObject.getString("bodyImpedance"));
+				bodyImpedanceEditText.setText(jsonObject
+						.getString("bodyImpedance"));
 				KCALEditText.setText(jsonObject.getString("KCAL"));
 				RKCALEditText.setText(jsonObject.getString("RKCAL"));
 				fatEditText.setText(jsonObject.getString("fat"));
-				visceralFatEditText.setText(jsonObject.getString("visceralFat"));
+				visceralFatEditText
+						.setText(jsonObject.getString("visceralFat"));
 				muscleEditText.setText(jsonObject.getString("muscle"));
 				bodyWaterEditText.setText(jsonObject.getString("bodyWater"));
 				boneMassEditText.setText(jsonObject.getString("boneMass"));
 				conclusionEditText.setText(jsonObject.getString("conclusion"));
-				
+
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
-			
+
 		}
-    }
-    
-    @Override
-    public void onReset() {
-    	super.onReset();
-    	heightEditText.setText("");
+	}
+
+	@Override
+	public void onReset() {
+		super.onReset();
+		heightEditText.setText("");
 		weightEditText.setText("");
 		BMIEditText.setText("");
 		bodyImpedanceEditText.setText("");
@@ -275,5 +336,5 @@ public class BodyCompositionFragment extends BaseQuickExaminationFragment {
 		bodyWaterEditText.setText("");
 		boneMassEditText.setText("");
 		conclusionEditText.setText("");
-    }
+	}
 }

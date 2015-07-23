@@ -1,6 +1,8 @@
 package com.shbestwin.followupmanager.fragment.examination;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -32,6 +34,7 @@ import com.shbestwin.followupmanager.fragment.examination.quick.Electrocardiogra
 import com.shbestwin.followupmanager.fragment.examination.quick.RoutineExaminationFragment;
 import com.shbestwin.followupmanager.manager.ExaminationManager;
 import com.shbestwin.followupmanager.manager.device.PrintManager;
+import com.shbestwin.followupmanager.model.ArchiveInfo;
 import com.shbestwin.followupmanager.model.examination.ExaminationInfo;
 import com.shbestwin.followupmanager.view.widget.TabMenuLayout;
 
@@ -114,6 +117,9 @@ public class QuickExaminationFragment extends BaseFragment {
 		bodyViewPager.setCurrentItem(0);// 设置当前显示标签页为第一页
 
 		generalExamination = MyApplication.getInstance().getExaminationInfo();
+		if(generalExamination!=null){
+			MyApplication.getInstance().setExaminationInfo(generalExamination);
+		}
 
 		bodyViewPager.setOnPageChangeListener(new OnPageChangeListener() {
 			@Override
@@ -186,21 +192,39 @@ public class QuickExaminationFragment extends BaseFragment {
 
 	@Override
 	public void onSave() {
+		ArchiveInfo archiveInfo = MyApplication.getInstance().getArchiveInfo();
+		if (archiveInfo == null) {
+			ToastUtils.showToast(getActivity(), "请先到档案信息中选择体检人！");
+			return;
+		}
+		
 		ExaminationInfo examinationInfo = MyApplication.getInstance()
 				.getExaminationInfo();
 		if (examinationInfo == null) {
-			ToastUtils.showToast(getActivity(), "请先进行体检登记!");
-			return;
+			examinationInfo=new ExaminationInfo();
+			// 身份证号，标示用户的唯一ID
+			examinationInfo.setIdcard(archiveInfo.getIdcard());
+			// TODO 体检编号,暂时使用System.currentTimeMillis(),后面最好是服务器生成
+			examinationInfo.setExaminationNo(new SimpleDateFormat("yyyyMMdd").format(new Date())+archiveInfo.getIdcard());
+			long date = System.currentTimeMillis();
+			examinationInfo.setCreateTime(date + "");
+			examinationInfo.setUpdateTime(date + "");
+		}else {
+			String date = System.currentTimeMillis() + "";
+			generalExamination.setUpdateTime(date);
 		}
 
-		BaseQuickExaminationFragment baseFragment = contentFragmentList
-				.get(bodyViewPager.getCurrentItem());
-		baseFragment.getSaveData(examinationInfo);
+		
+		for (BaseQuickExaminationFragment baseFragment : contentFragmentList) {
+			baseFragment.getSaveData(examinationInfo);
+		}
+
 
 		ExaminationManager.getInstance(getActivity())
 				.saveOrUpdateExaminationInfo(examinationInfo);
 		ToastUtils.showToast(getActivity(), "保存数据成功！");
 		MyApplication.getInstance().setExaminationInfo(examinationInfo);
+		
 	}
 
 	@Override

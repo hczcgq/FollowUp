@@ -71,10 +71,12 @@ public class ObesityAnalysisFragment extends BaseFragment {
 			if (!TextUtils.isEmpty(msg)) {
 				try {
 					JSONObject jsonObject = new JSONObject(msg);
-					BMI = Double.parseDouble(jsonObject.getString("BMI"));
+					if(!TextUtils.isEmpty(jsonObject.getString("BMI"))){
+						BMI = Double.parseDouble(jsonObject.getString("BMI"));
+					}
 					heightTextView.setText(jsonObject.getString("height"));
 					weightTextView.setText(jsonObject.getString("weight"));
-					BMITextView.setText(jsonObject.getString("BMI"));
+					BMITextView.setText(BMI+"");
 					bodyImpedanceTextView.setText(jsonObject
 							.getString("bodyImpedance"));
 					fatTextView.setText(jsonObject.getString("KCAL"));

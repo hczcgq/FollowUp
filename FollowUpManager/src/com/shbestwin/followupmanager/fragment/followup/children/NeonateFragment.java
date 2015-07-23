@@ -1,6 +1,8 @@
 package com.shbestwin.followupmanager.fragment.followup.children;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -74,11 +76,18 @@ public class NeonateFragment extends BaseFragment {
 	private void initData() {
 
 		FollowUpNewborn followUpNewborn = MyApplication.getInstance().getFollowUpNewborn();
-
+		if(followUpNewborn!=null){
+			String numberNo=new SimpleDateFormat("yyyyMMdd").format(new Date())+MyApplication.getInstance().getArchiveInfo().getIdcard();
+			if(numberNo.equals(followUpNewborn.getFollowUpNo())){
+				 MyApplication.getInstance().setFollowUpNo(numberNo);
+			}
+		}
 		for (IBaseNeonateBody neonateBody : neonateBodyList) {
 			neonateBody.setData(followUpNewborn);
 			neonateBody.setFragment(getChildFragmentManager());
 		}
+		
+		
 	}
 
 	@Override

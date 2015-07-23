@@ -288,7 +288,11 @@ public class ArchiveInfoFragment extends BaseFragment {
 			ToastUtils.showToast(getActivity(), "请填写身份证号！");
 			return false;
 		}
-
+		
+		ArchiveInfo info=MyApplication.getInstance().getArchiveInfo();
+		if(!nameACEditText.getText().toString().equals(info.getName())&&!idcardACEditText.getText().toString().equals(info.getCardNo())){
+			MyApplication.getInstance().setArchiveInfo(null);
+		}
 		return true;
 	}
 
@@ -418,5 +422,27 @@ public class ArchiveInfoFragment extends BaseFragment {
 		for (BaseArchiveFragment fragment : contentFragmentList) {
 			fragment.refreshData();
 		}
+		
+		
+		MyApplication.getInstance().setFollowUpNo(null);
+		MyApplication.getInstance().setExaminationInfo(null);
+		MyApplication.getInstance().setGeneralExamination(null);
+		MyApplication.getInstance().setFollowUpHypertension(null);
+		MyApplication.getInstance().setFollowUpDiabetesMellitus(null);
+		MyApplication.getInstance().setFollowUpAged(null);
+		MyApplication.getInstance().setFollowUpMentalDisease(null);
+		MyApplication.getInstance().setFollowUpDisabledPerson(null);
+		MyApplication.getInstance().setFollowUpNewborn(null);
+		MyApplication.getInstance().setFollowUpOneNewborn(null);
+		MyApplication.getInstance().setFollowUpOneTwoNewborn(null);
+		MyApplication.getInstance().setFollowUpThreeSixNewborn(null);
+		MyApplication.getInstance().setFollowUpFirstPregnancy(null);
+		MyApplication.getInstance().setFollowUpTwoToFivePregnancy(null);
+		MyApplication.getInstance().setFollowUpFortyTwo(null);
+		MyApplication.getInstance().setFollowUpPostpartum(null);
+		MyApplication.getInstance().setFollowUpStroke(null);
+		
+		
+		
 	}
 }

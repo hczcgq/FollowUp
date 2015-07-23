@@ -46,6 +46,7 @@ public class ArchiveInfoManager {
 
 	public ArchiveInfo getArchiveInfoById(String idcard) {
 		return mArchiveInfoDao.load(idcard);
+		
 	}
 
 	public List<ArchiveInfo> getArchiveInfoList(String name, String idcard, String cardNo) {
@@ -73,6 +74,10 @@ public class ArchiveInfoManager {
 			return new ArrayList<ArchiveInfo>();
 		}
 		return mArchiveInfoDao.queryRaw(where.toString(), selectionArg.toArray(new String[selectionArg.size()]));
+	}
+	
+	public List<ArchiveInfo> getArchiveInfoList() {
+		return mArchiveInfoDao.loadAll();
 	}
 
 }

@@ -20,7 +20,7 @@ import com.shbestwin.followupmanager.model.examination.ExaminationInfo;
 /**
  * 
  * 综合评估
- *
+ * 
  * @version
  */
 public class ComprehensiveEvaluationFragment extends BaseFragment {
@@ -32,10 +32,15 @@ public class ComprehensiveEvaluationFragment extends BaseFragment {
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fragment_education_comprehensive_evaluation, container, false);
-		obesityAnalysisTextView = (TextView) rootView.findViewById(R.id.obesityAnalysisTextView);
-		riskFactorTextView = (TextView) rootView.findViewById(R.id.riskFactorTextView);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		View rootView = inflater.inflate(
+				R.layout.fragment_education_comprehensive_evaluation,
+				container, false);
+		obesityAnalysisTextView = (TextView) rootView
+				.findViewById(R.id.obesityAnalysisTextView);
+		riskFactorTextView = (TextView) rootView
+				.findViewById(R.id.riskFactorTextView);
 		return rootView;
 	}
 
@@ -43,87 +48,100 @@ public class ComprehensiveEvaluationFragment extends BaseFragment {
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 
-		
-		 // 1、血压信息
-        double systolicPressure = 123;// 收缩压
-        double diastolicPressure = 85;// 舒张压
-        // 2、血糖信息
-        int bloodGlucoseType = 0;
-        double bloodGlucose = 6.5;
+		// 1、血压信息
+		double systolicPressure = 123;// 收缩压
+		double diastolicPressure = 85;// 舒张压
+		// 2、血糖信息
+		int bloodGlucoseType = 0;
+		double bloodGlucose = 6.5;
 
-        // 3、肥胖
-        double BMI = 28.5;
-        
-        // 4、甘油三酯
-        double bloodTg = 1.7;
-        
-        // 5、高密度脂蛋白
-        double bloodHdl = 1.43;
-        
-        // 6、低密度脂蛋白
-        double bloodLdl = 2.0;
-        
-        // 7、血总胆固醇
-        double bloodChol = 2.81;
-        
+		// 3、肥胖
+		double BMI = 28.5;
 
-        ExaminationInfo generalExamination = MyApplication.getInstance()
-                .getExaminationInfo();
-        if (generalExamination != null) {
-            String msg = generalExamination.getBloodPressure();
-            if (!TextUtils.isEmpty(msg)) {
-                try {
-                    JSONObject json = new JSONObject(msg);
-                    systolicPressure = Double.parseDouble(json
-                            .getString("systolicPressure"));// 收缩压
-                    diastolicPressure = Double.parseDouble(json
-                            .getString("diastolicPressure"));// 舒张压
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
+		// 4、甘油三酯
+		double bloodTg = 1.7;
 
-            String msg1 = generalExamination.getBloodSugar();
-            if (!TextUtils.isEmpty(msg1)) {
-                try {
-                    JSONObject json = new JSONObject(msg1);
-                    if (json.getString("type").equals(
-                            BloodGlucose.TYPE_EMPTY_STOMACH)) {
-                        bloodGlucoseType = 0;
-                    } else {
-                        bloodGlucoseType = 1;
-                    }
-                    bloodGlucose = Double.parseDouble(json.getString("value"));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            
-            String msg2 = generalExamination.getBodyComposition();
-            if (!TextUtils.isEmpty(msg2)) {
-                try {
-                    JSONObject json = new JSONObject(msg2);
-                    BMI = Double.parseDouble(json.getString("BMI"));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            
-            String msg3 = generalExamination.getBloodFat();
-            if (!TextUtils.isEmpty(msg2)) {
-                try {
-                    JSONObject json = new JSONObject(msg3);
-                    bloodChol = Float.parseFloat(json.getString("CHOL"));// 胆固醇
-                    bloodTg = Float.parseFloat(json.getString("HDL"));// 甘油三脂
-                    bloodHdl= Float.parseFloat(json.getString("LDL"));// 高密度脂蛋白
-                    bloodLdl = bloodChol - bloodHdl - bloodLdl / 2.2F;
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
+		// 5、高密度脂蛋白
+		double bloodHdl = 1.43;
 
-        }
-		
+		// 6、低密度脂蛋白
+		double bloodLdl = 2.0;
+
+		// 7、血总胆固醇
+		double bloodChol = 2.81;
+
+		ExaminationInfo generalExamination = MyApplication.getInstance()
+				.getExaminationInfo();
+		if (generalExamination != null) {
+			String msg = generalExamination.getBloodPressure();
+			if (!TextUtils.isEmpty(msg)) {
+				try {
+					JSONObject json = new JSONObject(msg);
+					if (!TextUtils.isEmpty(json.getString("systolicPressure"))) {
+						systolicPressure = Double.parseDouble(json
+								.getString("systolicPressure"));// 收缩压
+					}
+					if (!TextUtils.isEmpty(json.getString("diastolicPressure"))) {
+						diastolicPressure = Double.parseDouble(json
+								.getString("diastolicPressure"));// 舒张压
+					}
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+			}
+
+			String msg1 = generalExamination.getBloodSugar();
+			if (!TextUtils.isEmpty(msg1)) {
+				try {
+					JSONObject json = new JSONObject(msg1);
+					if (json.getString("type").equals(
+							BloodGlucose.TYPE_EMPTY_STOMACH)) {
+						bloodGlucoseType = 0;
+					} else {
+						bloodGlucoseType = 1;
+					}
+					if (!TextUtils.isEmpty(json.getString("value"))) {
+						bloodGlucose = Double.parseDouble(json
+								.getString("value"));
+					}
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+			}
+
+			String msg2 = generalExamination.getBodyComposition();
+			if (!TextUtils.isEmpty(msg2)) {
+				try {
+					JSONObject json = new JSONObject(msg2);
+					if (!TextUtils.isEmpty(json.getString("BMI"))) {
+						BMI = Double.parseDouble(json.getString("BMI"));
+					}
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+			}
+
+			String msg3 = generalExamination.getBloodFat();
+			if (!TextUtils.isEmpty(msg2)) {
+				try {
+					JSONObject json = new JSONObject(msg3);
+					if (!TextUtils.isEmpty(json.getString("CHOL"))) {
+						bloodChol = Float.parseFloat(json.getString("CHOL"));// 胆固醇
+					}
+					if (!TextUtils.isEmpty(json.getString("HDL"))) {
+						bloodTg = Float.parseFloat(json.getString("HDL"));// 甘油三脂
+					}
+					if (!TextUtils.isEmpty(json.getString("LDL"))) {
+						bloodHdl = Float.parseFloat(json.getString("LDL"));// 高密度脂蛋白
+					}
+					bloodLdl = bloodChol - bloodHdl - bloodLdl / 2.2F;
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
+
 		// 过轻：低于18.5
 		// 正常：18.5-24.99
 		// 过重：25-28
@@ -149,20 +167,33 @@ public class ComprehensiveEvaluationFragment extends BaseFragment {
 		// 1、血压信息
 		if ((systolicPressure < 120) && (diastolicPressure < 80)) {
 			index++;
-			riskFactor.append("（" + index + "）、").append(getString(R.string.jkjy_fxys_tips_hypopiesia)).append("<br/>");
-		} else if (((120 < systolicPressure) && (systolicPressure < 139)) || ((diastolicPressure > 80) && (diastolicPressure < 89))) {
-		} else if (((140 < systolicPressure) && (systolicPressure < 159)) || ((diastolicPressure > 90) && (diastolicPressure < 99))) {
+			riskFactor.append("（" + index + "）、")
+					.append(getString(R.string.jkjy_fxys_tips_hypopiesia))
+					.append("<br/>");
+		} else if (((120 < systolicPressure) && (systolicPressure < 139))
+				|| ((diastolicPressure > 80) && (diastolicPressure < 89))) {
+		} else if (((140 < systolicPressure) && (systolicPressure < 159))
+				|| ((diastolicPressure > 90) && (diastolicPressure < 99))) {
 			index++;
-			riskFactor.append("（" + index + "）、").append(getString(R.string.jkjy_fxys_tips_hypertension)).append("<br/>");
-		} else if (((160 < systolicPressure) && (systolicPressure < 179)) || ((diastolicPressure > 100) && (diastolicPressure < 109))) {
+			riskFactor.append("（" + index + "）、")
+					.append(getString(R.string.jkjy_fxys_tips_hypertension))
+					.append("<br/>");
+		} else if (((160 < systolicPressure) && (systolicPressure < 179))
+				|| ((diastolicPressure > 100) && (diastolicPressure < 109))) {
 			index++;
-			riskFactor.append("（" + index + "）、").append(getString(R.string.jkjy_fxys_tips_hypertension)).append("<br/>");
+			riskFactor.append("（" + index + "）、")
+					.append(getString(R.string.jkjy_fxys_tips_hypertension))
+					.append("<br/>");
 		} else if ((systolicPressure > 160) || (diastolicPressure > 110)) {
 			index++;
-			riskFactor.append("（" + index + "）、").append(getString(R.string.jkjy_fxys_tips_hypertension)).append("<br/>");
+			riskFactor.append("（" + index + "）、")
+					.append(getString(R.string.jkjy_fxys_tips_hypertension))
+					.append("<br/>");
 		} else if ((systolicPressure >= 140) && (diastolicPressure < 90)) {
 			index++;
-			riskFactor.append("（" + index + "）、").append(getString(R.string.jkjy_fxys_tips_ISH)).append("<br/>");
+			riskFactor.append("（" + index + "）、")
+					.append(getString(R.string.jkjy_fxys_tips_ISH))
+					.append("<br/>");
 		}
 
 		// 2、血糖信息
@@ -171,19 +202,31 @@ public class ComprehensiveEvaluationFragment extends BaseFragment {
 		case BloodGlucose.TYPE_EMPTY_STOMACH:
 			if (bloodGlucose < 3.9) {
 				index++;
-				riskFactor.append("（" + index + "）、").append(getString(R.string.jkjy_fxys_tips_blood_glucose_low)).append("<br/>");
+				riskFactor
+						.append("（" + index + "）、")
+						.append(getString(R.string.jkjy_fxys_tips_blood_glucose_low))
+						.append("<br/>");
 			} else if (bloodGlucose >= 6.1) {
 				index++;
-				riskFactor.append("（" + index + "）、").append(getString(R.string.jkjy_fxys_tips_blood_glucose_over)).append("<br/>");
+				riskFactor
+						.append("（" + index + "）、")
+						.append(getString(R.string.jkjy_fxys_tips_blood_glucose_over))
+						.append("<br/>");
 			}
 			// 餐后2小时血糖：餐后2小时：正常为3.9～7.8毫摩尔/升，小于3.9毫摩尔/升为低血糖，,大于7.8-11mmol/L为血糖偏高，大于11.1mmol/L为高血糖
 		case BloodGlucose.TYPE_AFTER_2HOUR:
 			if (bloodGlucose < 3.9) {
 				index++;
-				riskFactor.append("（" + index + "）、").append(getString(R.string.jkjy_fxys_tips_blood_glucose_low)).append("<br/>");
+				riskFactor
+						.append("（" + index + "）、")
+						.append(getString(R.string.jkjy_fxys_tips_blood_glucose_low))
+						.append("<br/>");
 			} else if (bloodGlucose >= 7.9) {
 				index++;
-				riskFactor.append("（" + index + "）、").append(getString(R.string.jkjy_fxys_tips_blood_glucose_over)).append("<br/>");
+				riskFactor
+						.append("（" + index + "）、")
+						.append(getString(R.string.jkjy_fxys_tips_blood_glucose_over))
+						.append("<br/>");
 			}
 		}
 
@@ -195,37 +238,57 @@ public class ComprehensiveEvaluationFragment extends BaseFragment {
 		// 非常肥胖, 高于32
 		if (BMI < 18.5) {
 			index++;
-			riskFactor.append("（" + index + "）、").append(getString(R.string.jkjy_fxys_tips_low_weight)).append("<br/>");
+			riskFactor.append("（" + index + "）、")
+					.append(getString(R.string.jkjy_fxys_tips_low_weight))
+					.append("<br/>");
 		} else if (BMI < 24) {// 体重正常
 		} else if (BMI <= 28) {// 超重
 			index++;
-			riskFactor.append("（" + index + "）、").append(getString(R.string.jkjy_fxys_tips_over_weight)).append("<br/>");
+			riskFactor.append("（" + index + "）、")
+					.append(getString(R.string.jkjy_fxys_tips_over_weight))
+					.append("<br/>");
 		} else if (BMI <= 32) {// 肥胖
 			index++;
-			riskFactor.append("（" + index + "）、").append(getString(R.string.jkjy_fxys_tips_obesity)).append("<br/>");
+			riskFactor.append("（" + index + "）、")
+					.append(getString(R.string.jkjy_fxys_tips_obesity))
+					.append("<br/>");
 		} else {
 			index++;
-			riskFactor.append("（" + index + "）、").append(getString(R.string.jkjy_fxys_tips_obesity_over)).append("<br/>");
+			riskFactor.append("（" + index + "）、")
+					.append(getString(R.string.jkjy_fxys_tips_obesity_over))
+					.append("<br/>");
 		}
 
 		// 4、甘油三酯
 		// 0.56-1.70mmol/L
 		if (bloodTg < 0.56) {
 			index++;
-			riskFactor.append("（" + index + "）、").append(getString(R.string.jkjy_fxys_tips_glycerin_trilaurate_low)).append("<br/>");
+			riskFactor
+					.append("（" + index + "）、")
+					.append(getString(R.string.jkjy_fxys_tips_glycerin_trilaurate_low))
+					.append("<br/>");
 		} else if (bloodTg > 1.70) {
 			index++;
-			riskFactor.append("（" + index + "）、").append(getString(R.string.jkjy_fxys_tips_glycerin_trilaurate_over)).append("<br/>");
+			riskFactor
+					.append("（" + index + "）、")
+					.append(getString(R.string.jkjy_fxys_tips_glycerin_trilaurate_over))
+					.append("<br/>");
 		}
 
 		// 5、高密度脂蛋白
 		// 1.16-1.42mmol/L
 		if (bloodHdl < 1.16) {
 			index++;
-			riskFactor.append("（" + index + "）、").append(getString(R.string.jkjy_fxys_tips_high_density_lipoprotein_low)).append("<br/>");
+			riskFactor
+					.append("（" + index + "）、")
+					.append(getString(R.string.jkjy_fxys_tips_high_density_lipoprotein_low))
+					.append("<br/>");
 		} else if (bloodHdl > 1.42) {
 			index++;
-			riskFactor.append("（" + index + "）、").append(getString(R.string.jkjy_fxys_tips_high_density_lipoprotein_over)).append("<br/>");
+			riskFactor
+					.append("（" + index + "）、")
+					.append(getString(R.string.jkjy_fxys_tips_high_density_lipoprotein_over))
+					.append("<br/>");
 		}
 
 		// 6、低密度脂蛋白
@@ -233,20 +296,31 @@ public class ComprehensiveEvaluationFragment extends BaseFragment {
 		// 正常参考范围：2.1-3.1。
 		if (bloodLdl < 2.1) {
 			index++;
-			riskFactor.append("（" + index + "）、").append(getString(R.string.jkjy_fxys_tips_low_density_lipoprotein_low)).append("<br/>");
+			riskFactor
+					.append("（" + index + "）、")
+					.append(getString(R.string.jkjy_fxys_tips_low_density_lipoprotein_low))
+					.append("<br/>");
 		} else if (bloodLdl > 3.1) {
 			index++;
-			riskFactor.append("（" + index + "）、").append(getString(R.string.jkjy_fxys_tips_low_density_lipoprotein_over)).append("<br/>");
+			riskFactor
+					.append("（" + index + "）、")
+					.append(getString(R.string.jkjy_fxys_tips_low_density_lipoprotein_over))
+					.append("<br/>");
 		}
 
 		// 7、血总胆固醇
 		// 2.82-5.95mmol/L
 		if (bloodChol < 2.82) {
 			index++;
-			riskFactor.append("（" + index + "）、").append(getString(R.string.jkjy_fxys_tips_cholesterin_low)).append("<br/>");
+			riskFactor.append("（" + index + "）、")
+					.append(getString(R.string.jkjy_fxys_tips_cholesterin_low))
+					.append("<br/>");
 		} else if (bloodChol > 5.95) {
 			index++;
-			riskFactor.append("（" + index + "）、").append(getString(R.string.jkjy_fxys_tips_cholesterin_over)).append("<br/>");
+			riskFactor
+					.append("（" + index + "）、")
+					.append(getString(R.string.jkjy_fxys_tips_cholesterin_over))
+					.append("<br/>");
 		}
 
 		if (index > 0) {

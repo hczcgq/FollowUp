@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.CollectionUtils;
 import com.shbestwin.followupmanager.common.util.DateUtils;
@@ -372,22 +373,42 @@ public class ElectrocardiogramAnalyzerFragment extends
 				String date = System.currentTimeMillis() + "";
 				ecgAnalysis.put("updateTime", date);
 			}
-			ecgAnalysis
-					.put("checkTime", checkTimeEditText.getText().toString());
-			ecgAnalysis
-					.put("pulseRate", heartRateEditText.getText().toString());
-			ecgAnalysis.put("PROfAVR", PROfAVREditText.getText().toString());
-			ecgAnalysis.put("QTOfAVR", QTOfAVREditText.getText().toString());
-			ecgAnalysis.put("RvoltOfAVR", RvoltOfAVREditText.getText()
-					.toString());
-			ecgAnalysis.put("PvoltOfAVR", PvoltOfAVREditText.getText()
-					.toString());
-			ecgAnalysis.put("TvoltOfAVR", TvoltOfAVREditText.getText()
-					.toString());
-			ecgAnalysis.put("STvoltOfAVR", STvoltOfAVREditText.getText()
-					.toString());
-			ecgAnalysis.put("conclusion", conclusionEditText.getText()
-					.toString());
+			if (checkTimeEditText != null) {
+				ecgAnalysis.put("checkTime", checkTimeEditText.getText()
+						.toString());
+			}
+			if (heartRateEditText != null) {
+				ecgAnalysis.put("pulseRate", heartRateEditText.getText()
+						.toString());
+			}
+			if (PROfAVREditText != null) {
+				ecgAnalysis
+						.put("PROfAVR", PROfAVREditText.getText().toString());
+			}
+			if (QTOfAVREditText != null) {
+				ecgAnalysis
+						.put("QTOfAVR", QTOfAVREditText.getText().toString());
+			}
+			if (RvoltOfAVREditText != null) {
+				ecgAnalysis.put("RvoltOfAVR", RvoltOfAVREditText.getText()
+						.toString());
+			}
+			if (PvoltOfAVREditText != null) {
+				ecgAnalysis.put("PvoltOfAVR", PvoltOfAVREditText.getText()
+						.toString());
+			}
+			if (TvoltOfAVREditText != null) {
+				ecgAnalysis.put("TvoltOfAVR", TvoltOfAVREditText.getText()
+						.toString());
+			}
+			if (STvoltOfAVREditText != null) {
+				ecgAnalysis.put("STvoltOfAVR", STvoltOfAVREditText.getText()
+						.toString());
+			}
+			if (conclusionEditText != null) {
+				ecgAnalysis.put("conclusion", conclusionEditText.getText()
+						.toString());
+			}
 			// ecgAnalysis.put("point", points);
 			examinationInfo.setEcgAnalysis(ecgAnalysis.toString());
 		} catch (JSONException e) {
@@ -396,19 +417,21 @@ public class ElectrocardiogramAnalyzerFragment extends
 	}
 
 	@Override
-	public void setSaveData(ExaminationInfo examinationInfo) {
+	public void setSaveData(ExaminationInfo examinationInfo1) {
+		ExaminationInfo examinationInfo = MyApplication.getInstance()
+				.getExaminationInfo();
 		if (examinationInfo != null) {
 			String msg = examinationInfo.getEcgAnalysis();
 			if (TextUtils.isEmpty(msg)) {
-				checkTimeEditText.setText("");
-				heartRateEditText.setText("");
-				PROfAVREditText.setText("");
-				QTOfAVREditText.setText("");
-				RvoltOfAVREditText.setText("");
-				PvoltOfAVREditText.setText("");
-				TvoltOfAVREditText.setText("");
-				STvoltOfAVREditText.setText("");
-				conclusionEditText.setText("");
+				// checkTimeEditText.setText("");
+				// heartRateEditText.setText("");
+				// PROfAVREditText.setText("");
+				// QTOfAVREditText.setText("");
+				// RvoltOfAVREditText.setText("");
+				// PvoltOfAVREditText.setText("");
+				// TvoltOfAVREditText.setText("");
+				// STvoltOfAVREditText.setText("");
+				// conclusionEditText.setText("");
 				return;
 			}
 			try {

@@ -1,6 +1,8 @@
 package com.shbestwin.followupmanager.fragment.followup.maternal;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -72,11 +74,18 @@ public class Inspect42Fragment extends BaseFragment {
 
 	private void initData() {
 		FollowUpFortyTwo followUpFortyTwo = MyApplication.getInstance().getFollowUpFortyTwo();
-
+		if(followUpFortyTwo!=null){
+			String numberNo=new SimpleDateFormat("yyyyMMdd").format(new Date())+MyApplication.getInstance().getArchiveInfo().getIdcard();
+			if(numberNo.equals(followUpFortyTwo.getFollowUpNo())){
+				 MyApplication.getInstance().setFollowUpNo(numberNo);
+			}
+		}
 		for (IBaseInspect42Body inspect42Body : inspect42BodyList) {
 			inspect42Body.setData(followUpFortyTwo);
 			inspect42Body.setFragment(getChildFragmentManager());
 		}
+		
+		
 	}
 
 	@Override

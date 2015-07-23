@@ -56,8 +56,10 @@ public class HypertensionBody4 extends LinearLayout  implements IBaseHypertensio
 	public void setData(FollowUpHypertension followUpHypertension) {
 	    if(followUpHypertension!=null){
 	       String smoking=followUpHypertension.getShzdfs_rxyl();
-	       if(smoking.split("/").length>0) {
+	       if(smoking.split("/").length==1) {
 	           et_rxyl_dqz.setText(smoking.split("/")[0]);
+	       }else if(smoking.split("/").length==2){
+	    	   et_rxyl_dqz.setText(smoking.split("/")[0]);
 	           et_rxyl_mbz.setText(smoking.split("/")[1]);
 	       }
 	       

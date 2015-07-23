@@ -1,14 +1,13 @@
 package com.shbestwin.followupmanager.fragment.followup;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-
+import java.util.Date;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
-
 import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
@@ -16,12 +15,6 @@ import com.shbestwin.followupmanager.fragment.BaseFragment;
 import com.shbestwin.followupmanager.manager.FollowUpManager;
 import com.shbestwin.followupmanager.model.ArchiveInfo;
 import com.shbestwin.followupmanager.model.followup.FollowUpHypertension;
-import com.shbestwin.followupmanager.model.followup.Inspection;
-import com.shbestwin.followupmanager.model.report.ReportDiabetesMellitus;
-import com.shbestwin.followupmanager.model.report.ReportHyoertension;
-import com.shbestwin.followupmanager.view.dialog.BaseDialogFragment.OnConfirmClickListener;
-import com.shbestwin.followupmanager.view.dialog.followup.FollowupHypertensionReportDialog;
-import com.shbestwin.followupmanager.view.dialog.followup.InspectionDialog;
 import com.shbestwin.followupmanager.view.widget.IBaseHypertensionBody;
 
 /**
@@ -106,10 +99,20 @@ public class HypertensionFragment extends BaseFragment {
 	private void initData() {
 		FollowUpHypertension followUpHypertension = MyApplication.getInstance()
 				.getFollowUpHypertension();
+		if(followUpHypertension!=null){
+			String numberNo=new SimpleDateFormat("yyyyMMdd").format(new Date())+MyApplication.getInstance().getArchiveInfo().getIdcard();
+			if(numberNo.equals(followUpHypertension.getFollowUpNo())){
+				 MyApplication.getInstance().setFollowUpNo(numberNo);
+			}
+		}
 		for (IBaseHypertensionBody hypertensionBody : hypertensionBodyList) {
 			hypertensionBody.setData(followUpHypertension);
 			hypertensionBody.setFragment(getChildFragmentManager());
 		}
+		
+		
+		
+		
 	}
 
 	@Override
@@ -124,7 +127,6 @@ public class HypertensionFragment extends BaseFragment {
 				.getFollowUpHypertension();
 		if (followUpHypertension == null) {
 			followUpHypertension = new FollowUpHypertension();
-
 			// 设置体检编号
 			followUpHypertension.setFollowUpNo(MyApplication.getInstance()
 					.getFollowUpNo());
@@ -159,33 +161,5 @@ public class HypertensionFragment extends BaseFragment {
 	@Override
 	public void onReport() {
 		super.onReport();
-		ArchiveInfo archiveInfo = MyApplication.getInstance().getArchiveInfo();
-		if (archiveInfo == null) {
-			ToastUtils.showToast(getActivity(), "请先到档案信息中选择随访人！");
-			return;
-		}
-		FollowUpHypertension followUpHypertension = MyApplication.getInstance()
-				.getFollowUpHypertension();
-		if (followUpHypertension == null) {
-			ToastUtils.showToast(getActivity(), "高血压信息为空！");
-			return;
-		}
-		final FollowupHypertensionReportDialog reportDialog = FollowupHypertensionReportDialog
-				.newInstance();
-		reportDialog.show(
-				((FragmentActivity) getActivity()).getSupportFragmentManager(),
-				"HypertensionReportDialog");
-		reportDialog
-				.setOnConfirmClickListener(new FollowupHypertensionReportDialog.OnConfirmClickListener() {
-
-					@Override
-					public void onConfirmClick() {
-						ReportHyoertension entity = reportDialog
-								.getReportHyoertension();
-						FollowUpManager.getInstance(getActivity())
-								.saveOrUpdateReportHyoertension(entity);
-						reportDialog.hide();
-					}
-				});
 	}
 }

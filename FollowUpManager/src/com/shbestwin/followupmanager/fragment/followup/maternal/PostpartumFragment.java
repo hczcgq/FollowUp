@@ -1,6 +1,8 @@
 package com.shbestwin.followupmanager.fragment.followup.maternal;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -72,10 +74,18 @@ public class PostpartumFragment extends BaseFragment {
 
 	private void initData() {
 		FollowUpPostpartum followUpPostpartum = MyApplication.getInstance().getFollowUpPostpartum();
+		if(followUpPostpartum!=null){
+			String numberNo=new SimpleDateFormat("yyyyMMdd").format(new Date())+MyApplication.getInstance().getArchiveInfo().getIdcard();
+			if(numberNo.equals(followUpPostpartum.getFollowUpNo())){
+				 MyApplication.getInstance().setFollowUpNo(numberNo);
+			}
+		}
 		for (IBasePostpartumBody postpartumBody : postpartumBodyList) {
 			postpartumBody.setData(followUpPostpartum);
 			postpartumBody.setFragment(getChildFragmentManager());
 		}
+		
+		
 	}
 
 	@Override

@@ -1,6 +1,8 @@
 package com.shbestwin.followupmanager.fragment.followup.maternal;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -71,10 +73,18 @@ public class Antenatal2_5Fragment extends BaseFragment {
 
 	private void initData() {
 		FollowUpTwoToFivePregnancy followUpTwoToFivePregnancy = MyApplication.getInstance().getFollowUpTwoToFivePregnancy();
+		if(followUpTwoToFivePregnancy!=null){
+			String numberNo=new SimpleDateFormat("yyyyMMdd").format(new Date())+MyApplication.getInstance().getArchiveInfo().getIdcard();
+			if(numberNo.equals(followUpTwoToFivePregnancy.getFollowUpNo())){
+				 MyApplication.getInstance().setFollowUpNo(numberNo);
+			}
+		}
 		for (IBaseAntenatal2_5Body antenatal2_5Body : antenatal2_5BodyList) {
 			antenatal2_5Body.setData(followUpTwoToFivePregnancy);
 			antenatal2_5Body.setFragment(getChildFragmentManager());
 		}
+		
+		
 	}
 
 	@Override

@@ -1,6 +1,8 @@
 package com.shbestwin.followupmanager.fragment.followup;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -73,11 +75,18 @@ public class CerebralApoplexyFragment extends BaseFragment {
 	private void initData() {
 
 		FollowUpStroke followUpStroke = MyApplication.getInstance().getFollowUpStroke();
-
+		if(followUpStroke!=null){
+			String numberNo=new SimpleDateFormat("yyyyMMdd").format(new Date())+MyApplication.getInstance().getArchiveInfo().getIdcard();
+			if(numberNo.equals(followUpStroke.getFollowUpNo())){
+				 MyApplication.getInstance().setFollowUpNo(numberNo);
+			}
+		}
 		for (IBaseCerebralApoplexyBody cerebralApoplexyBody : cerebralApoplexyBodyList) {
 			cerebralApoplexyBody.setData(followUpStroke);
 			cerebralApoplexyBody.setFragment(getChildFragmentManager());
 		}
+		
+		
 
 	}
 

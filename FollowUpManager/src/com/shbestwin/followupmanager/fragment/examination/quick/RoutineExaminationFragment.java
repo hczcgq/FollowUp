@@ -318,23 +318,48 @@ public class RoutineExaminationFragment extends BaseQuickExaminationFragment {
 				String date = System.currentTimeMillis() + "";
 				routineCheckups.put("updateTime", date);
 			}
-			routineCheckups.put("temperature", temperatureEditText.getText()
-					.toString());
-			routineCheckups.put("temperatureConclusion",
-					temperatureConclusionEditText.getText().toString());
-			routineCheckups.put("height", heightEditText.getText().toString());
-			routineCheckups.put("weight", weightEditText.getText().toString());
-			routineCheckups.put("BMI", BMIEditText.getText().toString());
-			routineCheckups.put("constitutionalIndexConclusion",
-					physiqueConclusionEditText.getText().toString());
-			routineCheckups
-					.put("waist", waistlineEditText.getText().toString());
-			routineCheckups.put("hips", hiplineEditText.getText().toString());
-			routineCheckups.put("bust", bustEditText.getText().toString());
-			routineCheckups.put("waistToHipratio", waistToHipratioEditText
-					.getText().toString());
-			routineCheckups.put("BWHConclusion", BWHConclusionEditText
-					.getText().toString());
+			if (temperatureEditText != null) {
+				routineCheckups.put("temperature", temperatureEditText
+						.getText().toString());
+			}
+			if (temperatureConclusionEditText != null) {
+				routineCheckups.put("temperatureConclusion",
+						temperatureConclusionEditText.getText().toString());
+			}
+			if (heightEditText != null) {
+				routineCheckups.put("height", heightEditText.getText()
+						.toString());
+			}
+			if (weightEditText != null) {
+				routineCheckups.put("weight", weightEditText.getText()
+						.toString());
+			}
+			if (BMIEditText != null) {
+				routineCheckups.put("BMI", BMIEditText.getText().toString());
+			}
+			if (physiqueConclusionEditText != null) {
+				routineCheckups.put("constitutionalIndexConclusion",
+						physiqueConclusionEditText.getText().toString());
+			}
+			if (waistlineEditText != null) {
+				routineCheckups.put("waist", waistlineEditText.getText()
+						.toString());
+			}
+			if (hiplineEditText != null) {
+				routineCheckups.put("hips", hiplineEditText.getText()
+						.toString());
+			}
+			if (bustEditText != null) {
+				routineCheckups.put("bust", bustEditText.getText().toString());
+			}
+			if (waistToHipratioEditText != null) {
+				routineCheckups.put("waistToHipratio", waistToHipratioEditText
+						.getText().toString());
+			}
+			if (BWHConclusionEditText != null) {
+				routineCheckups.put("BWHConclusion", BWHConclusionEditText
+						.getText().toString());
+			}
 			examinationInfo.setRoutineCheckups(routineCheckups.toString());
 		} catch (JSONException e) {
 			e.printStackTrace();
@@ -342,44 +367,51 @@ public class RoutineExaminationFragment extends BaseQuickExaminationFragment {
 	}
 
 	@Override
-	public void setSaveData(ExaminationInfo examinationInfo) {
+	public void setSaveData(ExaminationInfo examinationInfo1) {
+		ExaminationInfo examinationInfo = MyApplication.getInstance()
+				.getExaminationInfo();
 		if (examinationInfo != null) {
-			String msg=examinationInfo.getRoutineCheckups();
-			if(TextUtils.isEmpty(msg)){
-				temperatureEditText.setText("");
-				temperatureConclusionEditText.setText("");
-				heightEditText.setText("");
-				weightEditText.setText("");
-				BMIEditText.setText("");
-				physiqueConclusionEditText.setText("");
-				waistlineEditText.setText("");
-				hiplineEditText.setText("");
-				bustEditText.setText("");
-				waistToHipratioEditText.setText("");
-				BWHConclusionEditText.setText("");
+			String msg = examinationInfo.getRoutineCheckups();
+			if (TextUtils.isEmpty(msg)) {
+				// temperatureEditText.setText("");
+				// temperatureConclusionEditText.setText("");
+				// heightEditText.setText("");
+				// weightEditText.setText("");
+				// BMIEditText.setText("");
+				// physiqueConclusionEditText.setText("");
+				// waistlineEditText.setText("");
+				// hiplineEditText.setText("");
+				// bustEditText.setText("");
+				// waistToHipratioEditText.setText("");
+				// BWHConclusionEditText.setText("");
 				return;
 			}
 			try {
-				JSONObject jsonObject =new JSONObject(msg);
-				temperatureEditText.setText(jsonObject.getString("temperature").toString());
-				temperatureConclusionEditText.setText(jsonObject.getString("temperatureConclusion"));
+				JSONObject jsonObject = new JSONObject(msg);
+				temperatureEditText.setText(jsonObject.getString("temperature")
+						.toString());
+				temperatureConclusionEditText.setText(jsonObject
+						.getString("temperatureConclusion"));
 				heightEditText.setText(jsonObject.getString("height"));
 				weightEditText.setText(jsonObject.getString("weight"));
 				BMIEditText.setText(jsonObject.getString("BMI"));
-				physiqueConclusionEditText.setText(jsonObject.getString("constitutionalIndexConclusion"));
+				physiqueConclusionEditText.setText(jsonObject
+						.getString("constitutionalIndexConclusion"));
 				waistlineEditText.setText(jsonObject.getString("waist"));
 				hiplineEditText.setText(jsonObject.getString("hips"));
 				bustEditText.setText(jsonObject.getString("bust"));
-				waistToHipratioEditText.setText(jsonObject.getString("waistToHipratio"));
-				BWHConclusionEditText.setText(jsonObject.getString("BWHConclusion"));
+				waistToHipratioEditText.setText(jsonObject
+						.getString("waistToHipratio"));
+				BWHConclusionEditText.setText(jsonObject
+						.getString("BWHConclusion"));
 				onConclusion();
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
-			
+
 		}
 	}
-	
+
 	@Override
 	public void onReset() {
 		super.onReset();

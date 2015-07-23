@@ -16,6 +16,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.manager.ExaminationManager;
@@ -27,15 +29,17 @@ import com.shbestwin.followupmanager.view.widget.MeasureTipsLayout;
 /**
  * 
  * 血脂
- *
+ * 
  * @version
  */
 public class BloodFatFragment extends BaseQuickExaminationFragment {
 	private MeasureTipsLayout measureTipsLayuout;
 
 	private Button getDataButton;
-	private EditText bloodCHOLEditText, bloodTGEditText, bloodHDLEditText, bloodLDLEditText;
-	private EditText bloodCHOLConclusionEditText, bloodTGConclusionEditText, bloodHDLConclusionEditText, bloodLDLConclusionEditText;
+	private EditText bloodCHOLEditText, bloodTGEditText, bloodHDLEditText,
+			bloodLDLEditText;
+	private EditText bloodCHOLConclusionEditText, bloodTGConclusionEditText,
+			bloodHDLConclusionEditText, bloodLDLConclusionEditText;
 
 	private BloodFat bloodFat = new BloodFat();
 
@@ -45,19 +49,31 @@ public class BloodFatFragment extends BaseQuickExaminationFragment {
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fragment_quick_examination_blood_fat, container, false);
-		measureTipsLayuout = (MeasureTipsLayout) rootView.findViewById(R.id.measureTipsLayuout);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		View rootView = inflater
+				.inflate(R.layout.fragment_quick_examination_blood_fat,
+						container, false);
+		measureTipsLayuout = (MeasureTipsLayout) rootView
+				.findViewById(R.id.measureTipsLayuout);
 		getDataButton = (Button) rootView.findViewById(R.id.getDataButton);
-		bloodCHOLEditText = (EditText) rootView.findViewById(R.id.bloodCHOLEditText);
-		bloodTGEditText = (EditText) rootView.findViewById(R.id.bloodTGEditText);
-		bloodHDLEditText = (EditText) rootView.findViewById(R.id.bloodHDLEditText);
-		bloodLDLEditText = (EditText) rootView.findViewById(R.id.bloodLDLEditText);
+		bloodCHOLEditText = (EditText) rootView
+				.findViewById(R.id.bloodCHOLEditText);
+		bloodTGEditText = (EditText) rootView
+				.findViewById(R.id.bloodTGEditText);
+		bloodHDLEditText = (EditText) rootView
+				.findViewById(R.id.bloodHDLEditText);
+		bloodLDLEditText = (EditText) rootView
+				.findViewById(R.id.bloodLDLEditText);
 
-		bloodCHOLConclusionEditText = (EditText) rootView.findViewById(R.id.bloodCHOLConclusionEditText);
-		bloodTGConclusionEditText = (EditText) rootView.findViewById(R.id.bloodTGConclusionEditText);
-		bloodHDLConclusionEditText = (EditText) rootView.findViewById(R.id.bloodHDLConclusionEditText);
-		bloodLDLConclusionEditText = (EditText) rootView.findViewById(R.id.bloodLDLConclusionEditText);
+		bloodCHOLConclusionEditText = (EditText) rootView
+				.findViewById(R.id.bloodCHOLConclusionEditText);
+		bloodTGConclusionEditText = (EditText) rootView
+				.findViewById(R.id.bloodTGConclusionEditText);
+		bloodHDLConclusionEditText = (EditText) rootView
+				.findViewById(R.id.bloodHDLConclusionEditText);
+		bloodLDLConclusionEditText = (EditText) rootView
+				.findViewById(R.id.bloodLDLConclusionEditText);
 
 		bloodFat.setType(BloodFat.TYPE_BLOOD_LDL);
 		return rootView;
@@ -78,18 +94,19 @@ public class BloodFatFragment extends BaseQuickExaminationFragment {
 
 	private boolean dataReading = false;
 	private ReadDataTask readDataTask;
+
 	private void readData() {
 		if (!dataReading) {
 			dataReading = true;
-//			new ReadDataTask(getActivity()).execute();
-			
+			// new ReadDataTask(getActivity()).execute();
+
 			if (readDataTask != null
-                    && readDataTask.getStatus() == AsyncTask.Status.RUNNING) {
-                readDataTask.cancel(true); // 如果Task还在运行，则先取消它
-            }
-            // 启动新的任务
-            readDataTask = new ReadDataTask(getActivity());
-            readDataTask.execute();
+					&& readDataTask.getStatus() == AsyncTask.Status.RUNNING) {
+				readDataTask.cancel(true); // 如果Task还在运行，则先取消它
+			}
+			// 启动新的任务
+			readDataTask = new ReadDataTask(getActivity());
+			readDataTask.execute();
 		}
 	}
 
@@ -105,13 +122,14 @@ public class BloodFatFragment extends BaseQuickExaminationFragment {
 
 		@Override
 		protected void onPreExecute() {
-			progressDialog = ProgressDialog.show(activity, "温馨提示", "获取中。。。", false, true);
+			progressDialog = ProgressDialog.show(activity, "温馨提示", "获取中。。。",
+					false, true);
 			progressDialog.setOnCancelListener(new OnCancelListener() {
 				@Override
 				public void onCancel(DialogInterface dialog) {
 					if (bloodFatManager != null) {
 						bloodFatManager.closeDevice();
-						dataReading=false;
+						dataReading = false;
 					}
 				}
 			});
@@ -191,7 +209,8 @@ public class BloodFatFragment extends BaseQuickExaminationFragment {
 		// 胆固醇
 		if (!TextUtils.isEmpty(bloodCHOLStr)) {
 			flag++;
-			bloodCHOLConclusionEditText.setText(BloodFat.getConclusion(BloodFat.TYPE_BLOOD_CHOL, Float.parseFloat(bloodCHOLStr)));
+			bloodCHOLConclusionEditText.setText(BloodFat.getConclusion(
+					BloodFat.TYPE_BLOOD_CHOL, Float.parseFloat(bloodCHOLStr)));
 		} else {
 			bloodCHOLConclusionEditText.setText("");
 		}
@@ -199,7 +218,8 @@ public class BloodFatFragment extends BaseQuickExaminationFragment {
 		// 甘油三脂
 		if (!TextUtils.isEmpty(bloodTGStr)) {
 			flag++;
-			bloodTGConclusionEditText.setText(BloodFat.getConclusion(BloodFat.TYPE_BLOOD_TG, Float.parseFloat(bloodTGStr)));
+			bloodTGConclusionEditText.setText(BloodFat.getConclusion(
+					BloodFat.TYPE_BLOOD_TG, Float.parseFloat(bloodTGStr)));
 		} else {
 			bloodTGConclusionEditText.setText("");
 		}
@@ -207,7 +227,8 @@ public class BloodFatFragment extends BaseQuickExaminationFragment {
 		// 高密度脂蛋白
 		if (!TextUtils.isEmpty(bloodHDLStr)) {
 			flag++;
-			bloodHDLConclusionEditText.setText(BloodFat.getConclusion(BloodFat.TYPE_BLOOD_HDL, Float.parseFloat(bloodHDLStr)));
+			bloodHDLConclusionEditText.setText(BloodFat.getConclusion(
+					BloodFat.TYPE_BLOOD_HDL, Float.parseFloat(bloodHDLStr)));
 		} else {
 			bloodHDLConclusionEditText.setText("");
 		}
@@ -222,7 +243,8 @@ public class BloodFatFragment extends BaseQuickExaminationFragment {
 			String format = "0.00";
 			DecimalFormat df = new DecimalFormat(format);
 			bloodLDLEditText.setText(df.format(bloodLDL));// 低密度脂蛋白
-			bloodLDLConclusionEditText.setText(BloodFat.getConclusion(BloodFat.TYPE_BLOOD_LDL, bloodLDL));
+			bloodLDLConclusionEditText.setText(BloodFat.getConclusion(
+					BloodFat.TYPE_BLOOD_LDL, bloodLDL));
 		} else {
 			bloodLDLConclusionEditText.setText("");
 		}
@@ -231,16 +253,24 @@ public class BloodFatFragment extends BaseQuickExaminationFragment {
 
 	@Override
 	public String getPrintData(String examinationNo) {
-		String printStr = ExaminationManager.getInstance(getActivity()).getPrintTemplate(R.raw.print_blood_fat_template, examinationNo);
+		String printStr = ExaminationManager
+				.getInstance(getActivity())
+				.getPrintTemplate(R.raw.print_blood_fat_template, examinationNo);
 		// 替换相关数据
-		printStr=printStr.replace("{cholesterin}", bloodCHOLEditText.getText().toString())// 胆固醇
-						 .replace("{cholesterin_conclusion}", bloodCHOLConclusionEditText.getText().toString())// 胆固醇结论
-						 .replace("{triglyceride}", bloodTGEditText.getText().toString())// 甘油三酯
-						 .replace("{triglyceride_conclusion}", bloodTGConclusionEditText.getText().toString())// 甘油三酯结论
-						 .replace("{HDL}", bloodHDLEditText.getText().toString())// 高密度脂蛋白
-						 .replace("{HDL_conclusion}", bloodHDLConclusionEditText.getText().toString())// 高密度脂蛋白结论
-						 .replace("{LDL}", bloodLDLEditText.getText().toString())// 低密度脂蛋白
-						 .replace("{LDL_conclusion}", bloodLDLConclusionEditText.getText().toString());// 低密度脂蛋白结论
+		printStr = printStr
+				.replace("{cholesterin}",
+						bloodCHOLEditText.getText().toString())// 胆固醇
+				.replace("{cholesterin_conclusion}",
+						bloodCHOLConclusionEditText.getText().toString())// 胆固醇结论
+				.replace("{triglyceride}", bloodTGEditText.getText().toString())// 甘油三酯
+				.replace("{triglyceride_conclusion}",
+						bloodTGConclusionEditText.getText().toString())// 甘油三酯结论
+				.replace("{HDL}", bloodHDLEditText.getText().toString())// 高密度脂蛋白
+				.replace("{HDL_conclusion}",
+						bloodHDLConclusionEditText.getText().toString())// 高密度脂蛋白结论
+				.replace("{LDL}", bloodLDLEditText.getText().toString())// 低密度脂蛋白
+				.replace("{LDL_conclusion}",
+						bloodLDLConclusionEditText.getText().toString());// 低密度脂蛋白结论
 		return printStr;
 	}
 
@@ -259,58 +289,83 @@ public class BloodFatFragment extends BaseQuickExaminationFragment {
 				String date = System.currentTimeMillis() + "";
 				bloodFat.put("updateTime", date);
 			}
-
-			bloodFat.put("CHOL", bloodCHOLEditText.getText().toString());
-			bloodFat.put("CHOLConclusion", bloodCHOLConclusionEditText.getText().toString());
-			bloodFat.put("TG", bloodTGEditText.getText().toString());
-			bloodFat.put("TGConclusion", bloodTGConclusionEditText.getText().toString());
-			bloodFat.put("HDL", bloodHDLEditText.getText().toString());
-			bloodFat.put("HDLConclusion", bloodHDLConclusionEditText.getText().toString());
-			bloodFat.put("LDL", bloodLDLEditText.getText().toString());
-			bloodFat.put("LDLConclusion", bloodLDLConclusionEditText.getText().toString());
-			
+			if (bloodCHOLEditText != null) {
+				bloodFat.put("CHOL", bloodCHOLEditText.getText().toString());
+			}
+			if (bloodCHOLConclusionEditText != null) {
+				bloodFat.put("CHOLConclusion", bloodCHOLConclusionEditText
+						.getText().toString());
+			}
+			if (bloodTGEditText != null) {
+				bloodFat.put("TG", bloodTGEditText.getText().toString());
+			}
+			if (bloodTGConclusionEditText != null) {
+				bloodFat.put("TGConclusion", bloodTGConclusionEditText
+						.getText().toString());
+			}
+			if (bloodHDLEditText != null) {
+				bloodFat.put("HDL", bloodHDLEditText.getText().toString());
+			}
+			if (bloodHDLConclusionEditText != null) {
+				bloodFat.put("HDLConclusion", bloodHDLConclusionEditText
+						.getText().toString());
+			}
+			if (bloodLDLEditText != null) {
+				bloodFat.put("LDL", bloodLDLEditText.getText().toString());
+			}
+			if (bloodLDLConclusionEditText != null) {
+				bloodFat.put("LDLConclusion", bloodLDLConclusionEditText
+						.getText().toString());
+			}
 			examinationInfo.setBloodFat(bloodFat.toString());
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 	}
 
-    @Override
-    public void setSaveData(ExaminationInfo examinationInfo) {
-    	if (examinationInfo != null) {
-			String msg=examinationInfo.getBloodFat();
-			if(TextUtils.isEmpty(msg)){
-				bloodCHOLEditText.setText("");
-				bloodCHOLConclusionEditText.setText("");
-				bloodTGEditText.setText("");
-				bloodTGConclusionEditText.setText("");
-				bloodHDLEditText.setText("");
-				bloodHDLConclusionEditText.setText("");
-				bloodLDLEditText.setText("");
-				bloodLDLConclusionEditText.setText("");
+	@Override
+	public void setSaveData(ExaminationInfo examinationInfo1) {
+		ExaminationInfo examinationInfo = MyApplication.getInstance()
+				.getExaminationInfo();
+		System.out.println(examinationInfo);
+		if (examinationInfo != null) {
+			String msg = examinationInfo.getBloodFat();
+			if (TextUtils.isEmpty(msg)) {
+				// bloodCHOLEditText.setText("");
+				// bloodCHOLConclusionEditText.setText("");
+				// bloodTGEditText.setText("");
+				// bloodTGConclusionEditText.setText("");
+				// bloodHDLEditText.setText("");
+				// bloodHDLConclusionEditText.setText("");
+				// bloodLDLEditText.setText("");
+				// bloodLDLConclusionEditText.setText("");
 				return;
 			}
 			try {
-				JSONObject jsonObject =new JSONObject(msg);
+				JSONObject jsonObject = new JSONObject(msg);
 				bloodCHOLEditText.setText(jsonObject.getString("CHOL"));
-				bloodCHOLConclusionEditText.setText(jsonObject.getString("CHOLConclusion"));
+				bloodCHOLConclusionEditText.setText(jsonObject
+						.getString("CHOLConclusion"));
 				bloodTGEditText.setText(jsonObject.getString("TG"));
-				bloodTGConclusionEditText.setText(jsonObject.getString("TGConclusion"));
+				bloodTGConclusionEditText.setText(jsonObject
+						.getString("TGConclusion"));
 				bloodHDLEditText.setText(jsonObject.getString("HDL"));
-				bloodHDLConclusionEditText.setText(jsonObject.getString("HDLConclusion"));
+				bloodHDLConclusionEditText.setText(jsonObject
+						.getString("HDLConclusion"));
 				bloodLDLEditText.setText(jsonObject.getString("LDL"));
-				bloodLDLConclusionEditText.setText(jsonObject.getString("LDLConclusion"));
+				bloodLDLConclusionEditText.setText(jsonObject
+						.getString("LDLConclusion"));
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
-			
+
 		}
-    }
-    
-    @Override
-    public void onReset() {
-    	super.onReset();
-    	bloodCHOLEditText.setText("");
+	}
+
+	@Override
+	public void onReset() {
+		super.onReset();
+		bloodCHOLEditText.setText("");
 		bloodCHOLConclusionEditText.setText("");
 		bloodTGEditText.setText("");
 		bloodTGConclusionEditText.setText("");
@@ -318,5 +373,5 @@ public class BloodFatFragment extends BaseQuickExaminationFragment {
 		bloodHDLConclusionEditText.setText("");
 		bloodLDLEditText.setText("");
 		bloodLDLConclusionEditText.setText("");
-    }
+	}
 }
