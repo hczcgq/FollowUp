@@ -211,7 +211,7 @@ public class QuickExaminationFragment extends BaseFragment {
 			examinationInfo.setUpdateTime(date + "");
 		}else {
 			String date = System.currentTimeMillis() + "";
-			generalExamination.setUpdateTime(date);
+			examinationInfo.setUpdateTime(date);
 		}
 
 		

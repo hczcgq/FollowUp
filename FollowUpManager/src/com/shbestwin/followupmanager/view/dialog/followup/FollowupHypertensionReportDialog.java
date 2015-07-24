@@ -14,7 +14,8 @@ import com.shbestwin.followupmanager.common.util.DateUtils;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.common.util.ViewDataUtil;
 import com.shbestwin.followupmanager.model.ArchiveInfo;
-import com.shbestwin.followupmanager.model.report.ReportDiabetesMellitus;
+import com.shbestwin.followupmanager.model.device.BloodPressure;
+import com.shbestwin.followupmanager.model.examination.ExaminationInfo;
 import com.shbestwin.followupmanager.model.report.ReportHyoertension;
 import com.shbestwin.followupmanager.view.dialog.BaseDialogReportFragment;
 import com.shbestwin.followupmanager.view.dialog.DatePickerDialog;
@@ -39,6 +40,7 @@ public class FollowupHypertensionReportDialog extends BaseDialogReportFragment {
 			nextFollowupTimeEditText, descibeEditText;
 	private TextView confirmView, cancelView;
 	private LinearLayout familyHistoryLayout;
+	private BloodPressure bloodPressure;
 
 	public static FollowupHypertensionReportDialog newInstance() {
 		FollowupHypertensionReportDialog dialog = new FollowupHypertensionReportDialog();
@@ -47,6 +49,9 @@ public class FollowupHypertensionReportDialog extends BaseDialogReportFragment {
 
 	public FollowupHypertensionReportDialog() {
 
+	}
+	public FollowupHypertensionReportDialog(BloodPressure bloodPressure) {
+	    this.bloodPressure=bloodPressure;
 	}
 
 	@Override
@@ -187,7 +192,7 @@ public class FollowupHypertensionReportDialog extends BaseDialogReportFragment {
 	}
 
 	private void initDate() {
-
+	    
 		ArchiveInfo archiveInfo = MyApplication.getInstance().getArchiveInfo();
 		if (archiveInfo != null) {
 			cardIDEditText.setText(archiveInfo.getIdcard());
@@ -197,6 +202,15 @@ public class FollowupHypertensionReportDialog extends BaseDialogReportFragment {
 			telephoneEditText.setText(archiveInfo.getTelephone());
 			ViewDataUtil.setSpinnerData(ethnicSpinner, archiveInfo.getEthnic());
 
+			
+			ExaminationInfo examinationInfo = MyApplication.getInstance().getExaminationInfo();
+			if(examinationInfo!=null) {
+			    
+			}
+			
+			if(bloodPressure!=null) {
+			    
+			}
 		}
 	}
 	
@@ -224,6 +238,7 @@ public class FollowupHypertensionReportDialog extends BaseDialogReportFragment {
 		entity.setHistory_msg(ViewDataUtil.getCheckboxData(familyHistoryLayout, null));
 		entity.setNext_followup_date(nextFollowupTimeEditText.getText().toString());
 		entity.setDescribe(descibeEditText.getText().toString());
+		entity.setUpdateTime(System.currentTimeMillis() + "");
 		return entity;
 	}
 	

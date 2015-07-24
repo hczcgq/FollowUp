@@ -128,6 +128,10 @@ public class FollowUpManager {
 	public void saveOrUpdateFollowUpHypertension(FollowUpHypertension followUpHypertension) {
 		this.mFollowUpHypertensionDao.insertOrReplace(followUpHypertension);
 	}
+	public List<FollowUpHypertension> getFollowUpHypertensionList(){
+        return mFollowUpHypertensionDao.loadAll();
+    }
+	
 
 	public FollowUpDiabetesMellitus getFollowUpDiabetesMellitus(String followUpNo) {
 		return mFollowUpDiabetesMellitusDao.load(followUpNo);
@@ -147,6 +151,11 @@ public class FollowUpManager {
 	public void saveOrUpdateFollowUpDiabetesMellitus(FollowUpDiabetesMellitus followUpDiabetesMellitus) {
 		this.mFollowUpDiabetesMellitusDao.insertOrReplace(followUpDiabetesMellitus);
 	}
+	public List<FollowUpDiabetesMellitus> getFollowUpDiabetesMellitusList(){
+        return mFollowUpDiabetesMellitusDao.loadAll();
+    }
+	
+	
 
 	public FollowUpStroke getFollowUpStroke(String followUpNo) {
 		return mFollowUpStrokeDao.load(followUpNo);
@@ -166,6 +175,11 @@ public class FollowUpManager {
 	public void saveOrUpdateFollowUpStroke(FollowUpStroke followUpStroke) {
 		this.mFollowUpStrokeDao.insertOrReplace(followUpStroke);
 	}
+	public List<FollowUpStroke> getFollowUpStrokeList(){
+        return mFollowUpStrokeDao.loadAll();
+    }
+	
+	
 
 	public FollowUpMentalDisease getFollowUpMentalDisease(String followUpNo) {
 		return mFollowUpMentalDiseaseDao.load(followUpNo);
@@ -185,6 +199,11 @@ public class FollowUpManager {
 	public void saveOrUpdateFollowUpMentalDisease(FollowUpMentalDisease followUpMentalDisease) {
 		this.mFollowUpMentalDiseaseDao.insertOrReplace(followUpMentalDisease);
 	}
+	public List<FollowUpMentalDisease> getFollowUpMentalDiseaseList(){
+        return mFollowUpMentalDiseaseDao.loadAll();
+    }
+	
+	
 
 	public FollowUpFirstPregnancy getFollowUpFirstPregnancy(String followUpNo) {
 		return mFollowUpFirstPregnancyDao.load(followUpNo);
@@ -204,6 +223,11 @@ public class FollowUpManager {
 	public void saveOrUpdateFollowUpFirstPregnancy(FollowUpFirstPregnancy followUpFirstPregnancy) {
 		this.mFollowUpFirstPregnancyDao.insertOrReplace(followUpFirstPregnancy);
 	}
+	public List<FollowUpFirstPregnancy> getFollowUpFirstPregnancyList(){
+        return mFollowUpFirstPregnancyDao.loadAll();
+    }
+	
+	
 
 	public FollowUpTwoToFivePregnancy getFollowUpTwoToFivePregnancy(String followUpNo) {
 		return mFollowUpTwoToFivePregnancyDao.load(followUpNo);
@@ -223,6 +247,10 @@ public class FollowUpManager {
 	public void saveOrUpdateFollowUpTwoToFivePregnancy(FollowUpTwoToFivePregnancy followUpTwoToFivePregnancy) {
 		this.mFollowUpTwoToFivePregnancyDao.insertOrReplace(followUpTwoToFivePregnancy);
 	}
+	public List<FollowUpTwoToFivePregnancy> getFollowUpTwoToFivePregnancyList(){
+        return mFollowUpTwoToFivePregnancyDao.loadAll();
+    }
+	
 
 	public FollowUpPostpartum getFollowUpPostpartum(String followUpNo) {
 		return mFollowUpPostpartumDao.load(followUpNo);
@@ -242,6 +270,10 @@ public class FollowUpManager {
 	public void saveOrUpdateFollowUpPostpartum(FollowUpPostpartum followUpPostpartum) {
 		this.mFollowUpPostpartumDao.insertOrReplace(followUpPostpartum);
 	}
+	public List<FollowUpPostpartum> getFollowUpPostpartumList(){
+        return mFollowUpPostpartumDao.loadAll();
+    }
+	
 
 	public FollowUpFortyTwo getFollowUpFortyTwo(String followUpNo) {
 		return mFollowUpFortyTwoDao.load(followUpNo);
@@ -261,6 +293,10 @@ public class FollowUpManager {
 	public void saveOrUpdateFollowUpFortyTwo(FollowUpFortyTwo followUpFortyTwo) {
 		this.mFollowUpFortyTwoDao.insertOrReplace(followUpFortyTwo);
 	}
+	public List<FollowUpFortyTwo> getFollowUpFortyTwoList(){
+        return mFollowUpFortyTwoDao.loadAll();
+    }
+	
 
 	public FollowUpNewborn getFollowUpNewborn(String followUpNo) {
 		return mFollowUpNewbornDao.load(followUpNo);
@@ -280,6 +316,10 @@ public class FollowUpManager {
 	public void saveOrUpdateFollowUpNewborn(FollowUpNewborn followUpNewborn) {
 		this.mFollowUpNewbornDao.insertOrReplace(followUpNewborn);
 	}
+	public List<FollowUpNewborn> getFollowUpNewbornList(){
+        return mFollowUpNewbornDao.loadAll();
+    }
+	
 
 	public FollowUpOneNewborn getFollowUpOneNewborn(String followUpNo) {
 		return mFollowUpOneNewbornDao.load(followUpNo);
@@ -299,6 +339,10 @@ public class FollowUpManager {
 	public void saveOrUpdateFollowUpOneNewborn(FollowUpOneNewborn followUpOneNewborn) {
 		this.mFollowUpOneNewbornDao.insertOrReplace(followUpOneNewborn);
 	}
+	public List<FollowUpOneNewborn> getFollowUpOneNewbornList(){
+        return mFollowUpOneNewbornDao.loadAll();
+    }
+	
 
 	public FollowUpOneTwoNewborn getFollowUpOneTwoNewborn(String followUpNo) {
 		return mFollowUpOneTwoNewbornDao.load(followUpNo);
@@ -318,6 +362,10 @@ public class FollowUpManager {
 	public void saveOrUpdateFollowUpOneTwoNewborn(FollowUpOneTwoNewborn followUpOneTwoNewborn) {
 		this.mFollowUpOneTwoNewbornDao.insertOrReplace(followUpOneTwoNewborn);
 	}
+	public List<FollowUpOneTwoNewborn> getFollowUpOneTwoNewbornList(){
+        return mFollowUpOneTwoNewbornDao.loadAll();
+    }
+	
 
 	public FollowUpThreeSixNewborn getFollowUpThreeSixNewborn(String followUpNo) {
 		return mFollowUpThreeSixNewbornDao.load(followUpNo);
@@ -337,6 +385,9 @@ public class FollowUpManager {
 	public void saveOrUpdateFollowUpThreeSixNewborn(FollowUpThreeSixNewborn followUpThreeSixNewborn) {
 		this.mFollowUpThreeSixNewbornDao.insertOrReplace(followUpThreeSixNewborn);
 	}
+	public List<FollowUpThreeSixNewborn> getFollowUpThreeSixNewbornList(){
+        return mFollowUpThreeSixNewbornDao.loadAll();
+    }
 
 	public FollowUpAged getFollowUpAged(String followUpNo) {
 		return mFollowUpAgedDao.load(followUpNo);
@@ -356,6 +407,9 @@ public class FollowUpManager {
 	public void saveOrUpdateFollowUpAged(FollowUpAged followUpAged) {
 		this.mFollowUpAgedDao.insertOrReplace(followUpAged);
 	}
+	public List<FollowUpAged> getFollowUpAgedList(){
+        return mFollowUpAgedDao.loadAll();
+    }
 
 	public FollowUpDisabledPerson getFollowUpDisabledPerson(String followUpNo) {
 		return mFollowUpDisabledPersonDao.load(followUpNo);
@@ -375,6 +429,10 @@ public class FollowUpManager {
 	public void saveOrUpdateFollowUpDisabledPerson(FollowUpDisabledPerson followUpDisabledPerson) {
 		this.mFollowUpDisabledPersonDao.insertOrReplace(followUpDisabledPerson);
 	}
+	
+	public List<FollowUpDisabledPerson> getFollowUpDisabledPersonList(){
+        return mFollowUpDisabledPersonDao.loadAll();
+    }
 	
 	
 	
@@ -398,6 +456,11 @@ public class FollowUpManager {
     public void saveOrUpdateReportHyoertension(ReportHyoertension reportHyoertension) {
         this.mReportHypertensionDao.insertOrReplace(reportHyoertension);
     }
+    public List<ReportHyoertension> getReportHyoertensionList(){
+        return mReportHypertensionDao.loadAll();
+    }
+    
+    
     
     
     public ReportDiabetesMellitus getReportDiabetesMellitus(String followUpNo) {
@@ -417,6 +480,10 @@ public class FollowUpManager {
 
     public void saveOrUpdateReportDiabetesMellitus(ReportDiabetesMellitus reportDiabetesMellitus) {
         this.mReportDiabetesMellitusDao.insertOrReplace(reportDiabetesMellitus);
+    }
+    
+    public List<ReportDiabetesMellitus> getReportDiabetesMellitusList(){
+        return mReportDiabetesMellitusDao.loadAll();
     }
 
 }

@@ -18,7 +18,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-
 import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
@@ -153,18 +152,18 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 
 		@Override
 		protected BloodPressure doInBackground(Void... params) {
-			// if (bloodPressureManager.connectDevice()) {
-			// BloodPressure bloodPressure = bloodPressureManager.readData();
-			// bloodPressureManager.closeDevice();
-			// return bloodPressure;
-			// }
-			// return null;
+			 if (bloodPressureManager.connectDevice()) {
+			 BloodPressure bloodPressure = bloodPressureManager.readData();
+			 bloodPressureManager.closeDevice();
+			 return bloodPressure;
+			 }
+			 return null;
 
-			BloodPressure bloodPressure = new BloodPressure();
-			bloodPressure.setSystolicPressure(165);// 收缩压
-			bloodPressure.setDiastolicPressure(82);// 舒张压
-			bloodPressure.setPulseRate(76);// 脉搏
-			return bloodPressure;
+//			BloodPressure bloodPressure = new BloodPressure();
+//			bloodPressure.setSystolicPressure(165);// 收缩压
+//			bloodPressure.setDiastolicPressure(82);// 舒张压
+//			bloodPressure.setPulseRate(76);// 脉搏
+//			return bloodPressure;
 		}
 
 		@Override
@@ -359,6 +358,7 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 				.toString();// 收缩压
 		String diastolicPressureStr = diastolicPressureEditText.getText()
 				.toString(); // 舒张压
+		String pulseRateStr=pulseRateEditText.getText().toString();
 		if (!TextUtils.isEmpty(systolicPressureStr)
 				&& !TextUtils.isEmpty(diastolicPressureStr)) {
 			double systolicPressure = Double.parseDouble(systolicPressureStr);// 收缩压
@@ -381,6 +381,14 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 				result = "单纯收缩期高血压";
 			}
 			conclusionEditText.setText(result);
+			
+			final BloodPressure bloodPressure=new BloodPressure();
+			bloodPressure.setSystolicPressure((int)systolicPressure);
+			bloodPressure.setDiastolicPressure((int)diastolicPressure);
+			if(!TextUtils.isEmpty(pulseRateStr)) {
+			    bloodPressure.setPulseRate(Integer.parseInt(pulseRateStr));
+			}
+		
 
 			if ((systolicPressure >= 140) || (diastolicPressure >= 90)) {
 				final ReportConfirmDialog medicationDialog = new ReportConfirmDialog(
@@ -392,8 +400,7 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 
 							@Override
 							public void onConfirmClick() {
-								final FollowupHypertensionReportDialog reportDialog = FollowupHypertensionReportDialog
-										.newInstance();
+								final FollowupHypertensionReportDialog reportDialog =new  FollowupHypertensionReportDialog(bloodPressure);
 								reportDialog.show(
 										((FragmentActivity) getActivity())
 												.getSupportFragmentManager(),
@@ -482,10 +489,6 @@ public class BloodPressureFragment extends BaseQuickExaminationFragment {
 		if (examinationInfo != null) {
 			String msg = examinationInfo.getBloodPressure();
 			if (TextUtils.isEmpty(msg)) {
-				// systolicPressureEditText.setText("");
-				// diastolicPressureEditText.setText("");
-				// pulseRateEditText.setText("");
-				// conclusionEditText.setText("");
 				return;
 			}
 			try {

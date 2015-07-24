@@ -6,6 +6,7 @@ import java.io.OutputStream;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.UUID;
+
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -14,6 +15,7 @@ import android.bluetooth.BluetoothSocket;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
+
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.bluetooth.BluetoothConnector;
 import com.shbestwin.followupmanager.bluetooth.BluetoothSocketWrapper;
@@ -199,6 +201,8 @@ public class BloodPressureManager1 {
 			} else {
 				log.i(TAG, "会话结束失败！");
 			}
+			bloodPressure = parseData(HexBinary.bytesToHexString(buffer, 0, length));
+			
 		} catch (IOException e) {
 			log.e(TAG, "class=" + e.getClass());
 			log.e(TAG, e.getMessage());
@@ -220,6 +224,45 @@ public class BloodPressureManager1 {
 		// }
 		// });
 	}
+	
+	private BloodPressure parseData(String data) {
+        if (!data.substring(0, 2).equalsIgnoreCase("BB")) {
+            return null;
+        }
+        BloodPressure bloodPressure = new BloodPressure();
+        int index = 1;
+        for (int i = 0; i < data.length(); i += 30) {
+            // 获取收缩压的值
+            String shousuo = data.substring(i + 22, i + 24);
+            int gao = Integer.parseInt(shousuo, 16);
+
+            // 获取舒张压的值
+            String shuzhang = data.substring(i + 24, i + 26);
+            int di = Integer.parseInt(shuzhang, 16);
+
+            // 获取脉搏的值
+            String maibo = data.substring(i + 26, i + 28);
+            int mai = Integer.parseInt(maibo, 16);
+
+            String date = format(Integer.parseInt(data.substring(i + 8, i + 10), 16)) + "" + format(Integer.parseInt(data.substring(i + 10, i + 12), 16)) + "年" + format(Integer.parseInt(data.substring(i + 12, i + 14), 16)) + "月"
+                    + format(Integer.parseInt(data.substring(i + 14, i + 16), 16)) + "日 " + format(Integer.parseInt(data.substring(i + 16, i + 18), 16)) + ":" + format(Integer.parseInt(data.substring(i + 18, i + 20), 16));
+            log.i(TAG, "index=" + index + ",gao=" + gao + ",di=" + di + ",mai=" + mai + ",date=" + date);
+            index++;
+            
+            bloodPressure.setSystolicPressure(gao);//收缩压
+            bloodPressure.setDiastolicPressure(di);//舒张压
+            bloodPressure.setPulseRate(mai);//脉搏
+            break;
+        }
+        return bloodPressure;
+    }
+	
+	private static String format(int number) {
+        if (number < 10) {
+            return "0" + number;
+        }
+        return "" + number;
+    }
 
 	private void showTips(String tipsInfo) {
 		mTipsInfo = tipsInfo;

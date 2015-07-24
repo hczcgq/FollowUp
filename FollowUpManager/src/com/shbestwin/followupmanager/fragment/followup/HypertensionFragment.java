@@ -3,15 +3,19 @@ package com.shbestwin.followupmanager.fragment.followup;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
+
 import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.fragment.BaseFragment;
+import com.shbestwin.followupmanager.manager.ArchiveInfoManager;
 import com.shbestwin.followupmanager.manager.FollowUpManager;
 import com.shbestwin.followupmanager.model.ArchiveInfo;
 import com.shbestwin.followupmanager.model.followup.FollowUpHypertension;
@@ -111,7 +115,15 @@ public class HypertensionFragment extends BaseFragment {
 		}
 		
 		
+		List<ArchiveInfo> archiveInfoList=ArchiveInfoManager.getInstance(getActivity()).getArchiveInfoList();
+		List<FollowUpHypertension> followUpHypertensionList=FollowUpManager.getInstance(getActivity()).getFollowUpHypertensionList();
 		
+		if(archiveInfoList!=null) {
+		    System.out.println("本月应随访："+archiveInfoList.size());
+		}
+		if(followUpHypertensionList!=null) {
+		    System.out.println("已随访："+followUpHypertensionList.size());
+		}
 		
 	}
 

@@ -290,7 +290,7 @@ public class ArchiveInfoFragment extends BaseFragment {
 		}
 		
 		ArchiveInfo info=MyApplication.getInstance().getArchiveInfo();
-		if(!nameACEditText.getText().toString().equals(info.getName())&&!idcardACEditText.getText().toString().equals(info.getCardNo())){
+		if(info!=null&&!nameACEditText.getText().toString().equals(info.getName())&&!idcardACEditText.getText().toString().equals(info.getCardNo())){
 			MyApplication.getInstance().setArchiveInfo(null);
 		}
 		return true;
