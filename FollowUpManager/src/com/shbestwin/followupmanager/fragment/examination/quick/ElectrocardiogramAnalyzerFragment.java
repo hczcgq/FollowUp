@@ -423,29 +423,44 @@ public class ElectrocardiogramAnalyzerFragment extends
 		if (examinationInfo != null) {
 			String msg = examinationInfo.getEcgAnalysis();
 			if (TextUtils.isEmpty(msg)) {
-				// checkTimeEditText.setText("");
-				// heartRateEditText.setText("");
-				// PROfAVREditText.setText("");
-				// QTOfAVREditText.setText("");
-				// RvoltOfAVREditText.setText("");
-				// PvoltOfAVREditText.setText("");
-				// TvoltOfAVREditText.setText("");
-				// STvoltOfAVREditText.setText("");
-				// conclusionEditText.setText("");
 				return;
 			}
 			try {
 				JSONObject jsonObject = new JSONObject(msg);
-				checkTimeEditText.setText(jsonObject.getString("checkTime"));
-				heartRateEditText.setText(jsonObject.getString("pulseRate"));
-				PROfAVREditText.setText(jsonObject.getString("PROfAVR"));
-				QTOfAVREditText.setText(jsonObject.getString("QTOfAVR"));
-				RvoltOfAVREditText.setText(jsonObject.getString("RvoltOfAVR"));
-				PvoltOfAVREditText.setText(jsonObject.getString("PvoltOfAVR"));
-				TvoltOfAVREditText.setText(jsonObject.getString("TvoltOfAVR"));
-				STvoltOfAVREditText
-						.setText(jsonObject.getString("STvoltOfAVR"));
-				conclusionEditText.setText(jsonObject.getString("conclusion"));
+				if (!TextUtils.isEmpty(jsonObject.getString("checkTime"))) {
+					checkTimeEditText
+							.setText(jsonObject.getString("checkTime"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("pulseRate"))) {
+					heartRateEditText
+							.setText(jsonObject.getString("pulseRate"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("PROfAVR"))) {
+					PROfAVREditText.setText(jsonObject.getString("PROfAVR"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("QTOfAVR"))) {
+					QTOfAVREditText.setText(jsonObject.getString("QTOfAVR"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("RvoltOfAVR"))) {
+					RvoltOfAVREditText.setText(jsonObject
+							.getString("RvoltOfAVR"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("PvoltOfAVR"))) {
+					PvoltOfAVREditText.setText(jsonObject
+							.getString("PvoltOfAVR"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("TvoltOfAVR"))) {
+					TvoltOfAVREditText.setText(jsonObject
+							.getString("TvoltOfAVR"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("STvoltOfAVR"))) {
+					STvoltOfAVREditText.setText(jsonObject
+							.getString("STvoltOfAVR"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("conclusion"))) {
+					conclusionEditText.setText(jsonObject
+							.getString("conclusion"));
+				}
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}

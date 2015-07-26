@@ -14,7 +14,9 @@ import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.fragment.BaseFragment;
+import com.shbestwin.followupmanager.manager.AccompanyManager;
 import com.shbestwin.followupmanager.manager.FollowUpManager;
+import com.shbestwin.followupmanager.model.Accompany;
 import com.shbestwin.followupmanager.model.ArchiveInfo;
 import com.shbestwin.followupmanager.model.followup.FollowUpStroke;
 import com.shbestwin.followupmanager.view.widget.IBaseCerebralApoplexyBody;
@@ -130,6 +132,8 @@ public class CerebralApoplexyFragment extends BaseFragment {
 		// 保存数据
 		FollowUpManager.getInstance(getActivity()).saveOrUpdateFollowUpStroke(followUpStroke);
 		ToastUtils.showToast(getActivity(), "保存脑卒中数据成功！");
+		
+		AccompanyManager.getInstance(getActivity()).addAccompany(followUpStroke.getGrxx_sfrq(),followUpStroke.getGrxx_sfrq(), Accompany.ACNO_CEREBRALAPOPLWXY);
 	}
 
 	@Override

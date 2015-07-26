@@ -167,7 +167,6 @@ public class AgednessBody4 extends LinearLayout implements IBaseAgednessBody {
             String yj = followUpAged.getShfszd_sfyjms();
             if (yj.split("/").length ==1) {
                 ViewDataUtil.setSpinnerData(sn_drinking, yj.split("/")[0]);
-                et_drinking.setText(yj.split("/")[1]);
             }else if (yj.split("/").length == 2) {
                 ViewDataUtil.setSpinnerData(sn_drinking, yj.split("/")[0]);
                 et_drinking.setText(yj.split("/")[1]);

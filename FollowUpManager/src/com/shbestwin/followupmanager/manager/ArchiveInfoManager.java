@@ -79,5 +79,8 @@ public class ArchiveInfoManager {
 	public List<ArchiveInfo> getArchiveInfoList() {
 		return mArchiveInfoDao.loadAll();
 	}
+	
+	
+	
 
 }

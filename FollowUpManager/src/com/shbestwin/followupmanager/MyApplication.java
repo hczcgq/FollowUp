@@ -1,6 +1,7 @@
 package com.shbestwin.followupmanager;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import android.app.Application;
@@ -11,8 +12,10 @@ import com.shbestwin.followupmanager.common.log.Log;
 import com.shbestwin.followupmanager.common.util.ActivityStackHelper;
 import com.shbestwin.followupmanager.common.util.DateUtils;
 import com.shbestwin.followupmanager.common.util.SystemUtils;
+import com.shbestwin.followupmanager.manager.AccompanyManager;
 import com.shbestwin.followupmanager.manager.ExaminationManager;
 import com.shbestwin.followupmanager.manager.FollowUpManager;
+import com.shbestwin.followupmanager.model.Accompany;
 import com.shbestwin.followupmanager.model.ArchiveInfo;
 import com.shbestwin.followupmanager.model.examination.ExaminationInfo;
 import com.shbestwin.followupmanager.model.examination.GeneralExamination;
@@ -61,6 +64,8 @@ public class MyApplication extends Application {
 
 	private FollowUpAged followUpAged;// 老年随访
 	private FollowUpDisabledPerson followUpDisabledPerson;// 残疾随访
+	
+
 
 	public static MyApplication getInstance() {
 		return mInstance;
@@ -384,6 +389,16 @@ public class MyApplication extends Application {
 	public void setFollowUpDisabledPerson(FollowUpDisabledPerson followUpDisabledPerson) {
 		this.followUpDisabledPerson = followUpDisabledPerson;
 	}
+	
+	
+	
+	public Accompany getAccompany(int tag) {
+		if (archiveInfo != null) {
+			return  AccompanyManager.getInstance(this).getAccompanyById(new SimpleDateFormat("yyyyMMdd").format(new Date())+archiveInfo.getIdcard()+tag);
+		}
+		return null;
+	}
+	
 
 	/**
 	 * 

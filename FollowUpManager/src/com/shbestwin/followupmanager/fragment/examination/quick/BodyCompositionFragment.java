@@ -283,36 +283,50 @@ public class BodyCompositionFragment extends BaseQuickExaminationFragment {
 		if (examinationInfo != null) {
 			String msg = examinationInfo.getBodyComposition();
 			if (TextUtils.isEmpty(msg)) {
-				// heightEditText.setText("");
-				// weightEditText.setText("");
-				// BMIEditText.setText("");
-				// bodyImpedanceEditText.setText("");
-				// KCALEditText.setText("");
-				// RKCALEditText.setText("");
-				// fatEditText.setText("");
-				// visceralFatEditText.setText("");
-				// muscleEditText.setText("");
-				// bodyWaterEditText.setText("");
-				// boneMassEditText.setText("");
-				// conclusionEditText.setText("");
 				return;
 			}
 			try {
 				JSONObject jsonObject = new JSONObject(msg);
-				heightEditText.setText(jsonObject.getString("height"));
-				weightEditText.setText(jsonObject.getString("weight"));
-				BMIEditText.setText(jsonObject.getString("BMI"));
-				bodyImpedanceEditText.setText(jsonObject
-						.getString("bodyImpedance"));
-				KCALEditText.setText(jsonObject.getString("KCAL"));
-				RKCALEditText.setText(jsonObject.getString("RKCAL"));
-				fatEditText.setText(jsonObject.getString("fat"));
-				visceralFatEditText
-						.setText(jsonObject.getString("visceralFat"));
-				muscleEditText.setText(jsonObject.getString("muscle"));
-				bodyWaterEditText.setText(jsonObject.getString("bodyWater"));
-				boneMassEditText.setText(jsonObject.getString("boneMass"));
-				conclusionEditText.setText(jsonObject.getString("conclusion"));
+				if (!TextUtils.isEmpty(jsonObject.getString("height"))) {
+					heightEditText.setText(jsonObject.getString("height"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("weight"))) {
+					weightEditText.setText(jsonObject.getString("weight"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("BMI"))) {
+					BMIEditText.setText(jsonObject.getString("BMI"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("bodyImpedance"))) {
+					bodyImpedanceEditText.setText(jsonObject
+							.getString("bodyImpedance"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("KCAL"))) {
+					KCALEditText.setText(jsonObject.getString("KCAL"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("RKCAL"))) {
+					RKCALEditText.setText(jsonObject.getString("RKCAL"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("fat"))) {
+					fatEditText.setText(jsonObject.getString("fat"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("visceralFat"))) {
+					visceralFatEditText.setText(jsonObject
+							.getString("visceralFat"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("muscle"))) {
+					muscleEditText.setText(jsonObject.getString("muscle"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("bodyWater"))) {
+					bodyWaterEditText
+							.setText(jsonObject.getString("bodyWater"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("boneMass"))) {
+					boneMassEditText.setText(jsonObject.getString("boneMass"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("conclusion"))) {
+					conclusionEditText.setText(jsonObject
+							.getString("conclusion"));
+				}
 
 			} catch (JSONException e) {
 				e.printStackTrace();

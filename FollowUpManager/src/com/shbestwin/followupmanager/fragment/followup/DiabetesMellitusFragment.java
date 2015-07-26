@@ -12,7 +12,9 @@ import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.fragment.BaseFragment;
+import com.shbestwin.followupmanager.manager.AccompanyManager;
 import com.shbestwin.followupmanager.manager.FollowUpManager;
+import com.shbestwin.followupmanager.model.Accompany;
 import com.shbestwin.followupmanager.model.ArchiveInfo;
 import com.shbestwin.followupmanager.model.followup.FollowUpDiabetesMellitus;
 import com.shbestwin.followupmanager.view.widget.IBaseDiabetesMellitusBody;
@@ -156,6 +158,8 @@ public class DiabetesMellitusFragment extends BaseFragment {
 		FollowUpManager.getInstance(getActivity())
 				.saveOrUpdateFollowUpDiabetesMellitus(followUpDiabetesMellitus);
 		ToastUtils.showToast(getActivity(), "保存糖尿病数据成功！");
+		
+		AccompanyManager.getInstance(getActivity()).addAccompany(followUpDiabetesMellitus.getGrxx_sfrq(),followUpDiabetesMellitus.getZzhf_xcsfrq(), Accompany.ACNO_DIABETESMELLITUS);
 	}
 
 	@Override

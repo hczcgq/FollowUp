@@ -4,6 +4,7 @@ import java.util.Map;
 
 import android.database.sqlite.SQLiteDatabase;
 
+import com.shbestwin.followupmanager.model.Accompany;
 import com.shbestwin.followupmanager.model.ArchiveInfo;
 import com.shbestwin.followupmanager.model.examination.ExaminationInfo;
 import com.shbestwin.followupmanager.model.examination.GeneralExamination;
@@ -57,6 +58,7 @@ public class DaoSession extends AbstractDaoSession {
     private final DaoConfig followUpDisabledPersonDaoConfig;
     private final DaoConfig reportHypertensionDaoConfig;
     private final DaoConfig reportDiabetesMellitusDaoConfig;
+    private final DaoConfig accompanyDaoConfig;
 
     private final ArchiveInfoDao archiveInfoDao;
     private final GeneralExaminationDao generalExaminationDao;
@@ -77,6 +79,7 @@ public class DaoSession extends AbstractDaoSession {
     private final FollowUpDisabledPersonDao followUpDisabledPersonDao;
     private final ReportHypertensionDao reportHypertensionDao;
     private final ReportDiabetesMellitusDao reportDiabetesMellitusDao;
+    private final AccompanyDao accompanyDao;
 
     public DaoSession(SQLiteDatabase db, IdentityScopeType type, Map<Class<? extends AbstractDao<?, ?>>, DaoConfig>
             daoConfigMap) {
@@ -138,6 +141,9 @@ public class DaoSession extends AbstractDaoSession {
         
         reportDiabetesMellitusDaoConfig = daoConfigMap.get(ReportDiabetesMellitusDao.class).clone();
         reportDiabetesMellitusDaoConfig.initIdentityScope(type);
+        
+        accompanyDaoConfig = daoConfigMap.get(AccompanyDao.class).clone();
+        accompanyDaoConfig.initIdentityScope(type);
 
         archiveInfoDao = new ArchiveInfoDao(archiveInfoDaoConfig, this);
         generalExaminationDao = new GeneralExaminationDao(generalExaminationDaoConfig, this);
@@ -158,6 +164,7 @@ public class DaoSession extends AbstractDaoSession {
         followUpDisabledPersonDao = new FollowUpDisabledPersonDao(followUpDisabledPersonDaoConfig, this);
         reportHypertensionDao = new ReportHypertensionDao(reportHypertensionDaoConfig, this);
         reportDiabetesMellitusDao = new ReportDiabetesMellitusDao(reportDiabetesMellitusDaoConfig, this);
+        accompanyDao = new AccompanyDao(accompanyDaoConfig, this);
 
         registerDao(ArchiveInfo.class, archiveInfoDao);
         registerDao(GeneralExamination.class, generalExaminationDao);
@@ -178,6 +185,7 @@ public class DaoSession extends AbstractDaoSession {
         registerDao(FollowUpDisabledPerson.class, followUpDisabledPersonDao);
         registerDao(ReportHyoertension.class, reportHypertensionDao);
         registerDao(ReportDiabetesMellitus.class, reportDiabetesMellitusDao);
+        registerDao(Accompany.class, accompanyDao);
     }
     
     public void clear() {
@@ -200,6 +208,7 @@ public class DaoSession extends AbstractDaoSession {
         followUpDisabledPersonDaoConfig.getIdentityScope().clear();
         reportHypertensionDaoConfig.getIdentityScope().clear();
         reportDiabetesMellitusDaoConfig.getIdentityScope().clear();
+        accompanyDaoConfig.getIdentityScope().clear();
     }
 
     public ArchiveInfoDao getArchiveInfoDao() {
@@ -276,6 +285,10 @@ public class DaoSession extends AbstractDaoSession {
     
     public ReportDiabetesMellitusDao getReportDiabetesMellitusDao() {
         return reportDiabetesMellitusDao;
+    }
+    
+    public AccompanyDao getAccompanyDao() {
+    	return accompanyDao;
     }
 
 }

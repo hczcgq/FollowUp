@@ -2,9 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:focusable="true"
     android:focusableInTouchMode="true"
+    android:orientation="vertical"
     tools:context="com.shbestwin.followupmanager.activity.MainActivity" >
 
     <fragment
@@ -19,9 +19,141 @@
         android:layout_height="wrap_content"
         android:background="@drawable/shadow_bottom" />
 
-    <FrameLayout
-        android:id="@+id/mainlayout"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent" >
+
+        <FrameLayout
+            android:id="@+id/mainlayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="200dp"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/switchMenuImageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@null"
+                android:scaleType="fitEnd"
+                android:src="@drawable/button_menu_open" />
+
+            <LinearLayout
+                android:id="@+id/buttonLayout"
+                android:layout_width="fill_parent"
+                android:layout_height="80dp"
+                android:background="#EBEBE5"				android:weightSum="4"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:visibility="gone" >
+
+                <LinearLayout
+                    android:layout_width="250dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center|left"
+                    android:gravity="center|left"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/dp24"
+                        android:text="本月应随访：" />
+
+                    <TextView
+                        android:id="@+id/TextView01"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="0人"
+                         android:textSize="@dimen/dp24"
+                        android:textStyle="bold"
+                        android:textColor="#648D8C" />
+                </LinearLayout>
+
+                 <LinearLayout
+                     android:layout_width="220dp"
+                     android:layout_height="match_parent"
+                     android:layout_gravity="center|left"
+                     android:gravity="center|left"
+                     android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                         android:textSize="@dimen/dp24"
+                        android:text="已随访：" />
+
+                    <TextView
+                        android:id="@+id/TextView02"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="0人"
+                         android:textSize="@dimen/dp24"
+                        android:textStyle="bold"
+                        android:textColor="#648D8C" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="220dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center|left"
+                    android:gravity="center|left"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                         android:textSize="@dimen/dp24"
+                        android:text="未随访：" />
+
+                    <TextView
+                        android:id="@+id/TextView03"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="0人"
+                         android:textSize="@dimen/dp24"
+                        android:textStyle="bold"
+                        android:textColor="#648D8C" />
+                </LinearLayout>
+
+                 <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center|left"
+                    android:gravity="center|left"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                         android:textSize="@dimen/dp24"
+                        android:text="下次随访时间：" />
+
+                    <TextView
+                        android:id="@+id/TextView04"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="2015-09-11"
+                        android:textSize="@dimen/dp24"
+                        android:textStyle="bold"
+                        android:textColor="#648D8C" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
 
 </LinearLayout>

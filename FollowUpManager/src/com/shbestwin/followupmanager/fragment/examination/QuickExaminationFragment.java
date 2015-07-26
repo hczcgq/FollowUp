@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -11,10 +13,12 @@ import android.content.DialogInterface.OnCancelListener;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,10 +36,21 @@ import com.shbestwin.followupmanager.fragment.examination.quick.BloodPressureFra
 import com.shbestwin.followupmanager.fragment.examination.quick.BodyCompositionFragment;
 import com.shbestwin.followupmanager.fragment.examination.quick.ElectrocardiogramAnalyzerFragment;
 import com.shbestwin.followupmanager.fragment.examination.quick.RoutineExaminationFragment;
+import com.shbestwin.followupmanager.manager.AccompanyManager;
 import com.shbestwin.followupmanager.manager.ExaminationManager;
+import com.shbestwin.followupmanager.manager.FollowUpManager;
 import com.shbestwin.followupmanager.manager.device.PrintManager;
+import com.shbestwin.followupmanager.model.Accompany;
 import com.shbestwin.followupmanager.model.ArchiveInfo;
+import com.shbestwin.followupmanager.model.device.BloodGlucose;
+import com.shbestwin.followupmanager.model.device.BloodPressure;
 import com.shbestwin.followupmanager.model.examination.ExaminationInfo;
+import com.shbestwin.followupmanager.model.report.ReportDiabetesMellitus;
+import com.shbestwin.followupmanager.model.report.ReportHyoertension;
+import com.shbestwin.followupmanager.view.dialog.ReportConfirmDialog;
+import com.shbestwin.followupmanager.view.dialog.ReportConfirmDialog.OnConfirmClickListener;
+import com.shbestwin.followupmanager.view.dialog.followup.FollowupDiabetesMellitusReportDialog;
+import com.shbestwin.followupmanager.view.dialog.followup.FollowupHypertensionReportDialog;
 import com.shbestwin.followupmanager.view.widget.TabMenuLayout;
 
 /**
@@ -117,7 +132,7 @@ public class QuickExaminationFragment extends BaseFragment {
 		bodyViewPager.setCurrentItem(0);// 设置当前显示标签页为第一页
 
 		generalExamination = MyApplication.getInstance().getExaminationInfo();
-		if(generalExamination!=null){
+		if (generalExamination != null) {
 			MyApplication.getInstance().setExaminationInfo(generalExamination);
 		}
 
@@ -127,7 +142,7 @@ public class QuickExaminationFragment extends BaseFragment {
 				tabMenuLayout.checkItem(position);
 				if (generalExamination != null) {
 					BaseQuickExaminationFragment baseFragment = contentFragmentList
-							.get(bodyViewPager.getCurrentItem());
+							.get(position);
 					baseFragment.setSaveData(generalExamination);
 				}
 			}
@@ -182,11 +197,11 @@ public class QuickExaminationFragment extends BaseFragment {
 				.get(bodyViewPager.getCurrentItem());
 		String printData = baseFragment.getPrintData(examinationInfo
 				.getExaminationNo());
-//		PrintManager printManager = new PrintManager(getActivity());
-//		if (printManager.connectDevice()) {
-//			printManager.print(printData);
-//			printManager.closeDevice();
-//		}
+		// PrintManager printManager = new PrintManager(getActivity());
+		// if (printManager.connectDevice()) {
+		// printManager.print(printData);
+		// printManager.closeDevice();
+		// }
 		printDataMethod(printData);
 	}
 
@@ -197,34 +212,38 @@ public class QuickExaminationFragment extends BaseFragment {
 			ToastUtils.showToast(getActivity(), "请先到档案信息中选择体检人！");
 			return;
 		}
-		
+
 		ExaminationInfo examinationInfo = MyApplication.getInstance()
 				.getExaminationInfo();
 		if (examinationInfo == null) {
-			examinationInfo=new ExaminationInfo();
+			examinationInfo = new ExaminationInfo();
 			// 身份证号，标示用户的唯一ID
 			examinationInfo.setIdcard(archiveInfo.getIdcard());
 			// TODO 体检编号,暂时使用System.currentTimeMillis(),后面最好是服务器生成
-			examinationInfo.setExaminationNo(new SimpleDateFormat("yyyyMMdd").format(new Date())+archiveInfo.getIdcard());
+			examinationInfo.setExaminationNo(new SimpleDateFormat("yyyyMMdd")
+					.format(new Date()) + archiveInfo.getIdcard());
 			long date = System.currentTimeMillis();
 			examinationInfo.setCreateTime(date + "");
 			examinationInfo.setUpdateTime(date + "");
-		}else {
+		} else {
 			String date = System.currentTimeMillis() + "";
 			examinationInfo.setUpdateTime(date);
 		}
-
-		
 		for (BaseQuickExaminationFragment baseFragment : contentFragmentList) {
 			baseFragment.getSaveData(examinationInfo);
 		}
 
+		try {
+			ShowMessage(examinationInfo);
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
 
 		ExaminationManager.getInstance(getActivity())
 				.saveOrUpdateExaminationInfo(examinationInfo);
 		ToastUtils.showToast(getActivity(), "保存数据成功！");
 		MyApplication.getInstance().setExaminationInfo(examinationInfo);
-		
+
 	}
 
 	@Override
@@ -242,30 +261,33 @@ public class QuickExaminationFragment extends BaseFragment {
 				.getCurrentItem());
 		baseFragment.onReset();
 	}
-	
+
 	private boolean IsPrinting = false;
+
 	private void printDataMethod(String printData) {
 		if (!IsPrinting) {
 			IsPrinting = true;
-			new PrintTask(getActivity(),printData).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+			new PrintTask(getActivity(), printData)
+					.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 		}
 	}
-	
-	
+
 	private class PrintTask extends AsyncTask<Void, Void, String> {
 		private Activity activity;
 		private PrintManager printManager;
 		private ProgressDialog progressDialog;
 		private String printData;
-		public PrintTask(Activity activity,String printData) {
+
+		public PrintTask(Activity activity, String printData) {
 			this.activity = activity;
 			printManager = new PrintManager(activity);
-			this.printData=printData;
+			this.printData = printData;
 		}
 
 		@Override
 		protected void onPreExecute() {
-			progressDialog = ProgressDialog.show(activity, "温馨提示", "正在打印。。。", false, true);
+			progressDialog = ProgressDialog.show(activity, "温馨提示", "正在打印。。。",
+					false, true);
 			progressDialog.setOnCancelListener(new OnCancelListener() {
 				@Override
 				public void onCancel(DialogInterface dialog) {
@@ -306,5 +328,127 @@ public class QuickExaminationFragment extends BaseFragment {
 				printManager = null;
 			}
 		}
+	}
+
+	private void ShowMessage(ExaminationInfo info) throws JSONException {
+		String msgBloodPressure = info.getBloodPressure();
+		if (!TextUtils.isEmpty(msgBloodPressure)) {
+			BloodPressure bloodPressure = new BloodPressure();
+			JSONObject json = new JSONObject(msgBloodPressure);
+			if (!TextUtils.isEmpty(json.getString("systolicPressure"))) {
+				bloodPressure.setSystolicPressure(Integer.parseInt(json
+						.getString("systolicPressure")));
+			}
+			if (!TextUtils.isEmpty(json.getString("diastolicPressure"))) {
+				bloodPressure.setDiastolicPressure(Integer.parseInt(json
+						.getString("diastolicPressure")));
+			}
+			if (!TextUtils.isEmpty(json.getString("pulse"))) {
+				bloodPressure.setPulseRate(Integer.parseInt(json
+						.getString("pulse")));
+			}
+			System.out.println(bloodPressure.getSystolicPressure()+"---"+bloodPressure.getSystolicPressure());
+			if ((bloodPressure.getSystolicPressure() >= 140)
+					|| (bloodPressure.getSystolicPressure() >= 90)) {
+				showBloodPress(bloodPressure);
+			}
+		}
+
+		String msgBloodSugar = info.getBloodSugar();
+		if (!TextUtils.isEmpty(msgBloodSugar)) {
+			BloodGlucose bloodGlucose = new BloodGlucose();
+			JSONObject json = new JSONObject(msgBloodSugar);
+			if (!TextUtils.isEmpty(json.getString("type"))) {
+
+				if (json.getString("type").equals("空腹血糖")) {
+					bloodGlucose.setType(0);
+				} else {
+					bloodGlucose.setType(1);
+				}
+			}
+			if (!TextUtils.isEmpty(json.getString("value"))) {
+				bloodGlucose.setBloodGlucose(Float.parseFloat(json
+						.getString("value")));// 舒张压
+			}
+			if ((bloodGlucose.getType() == 0 && (bloodGlucose.getBloodGlucose() >= 7.0))
+					|| (bloodGlucose.getType() == 1 && (bloodGlucose
+							.getBloodGlucose() >= 11.1))) {
+				showBloodSugar(bloodGlucose);
+			}
+		}
+
+	}
+
+	private void showBloodPress(final BloodPressure bloodPressure) {
+		final ReportConfirmDialog medicationDialog = new ReportConfirmDialog(
+				"血压");
+		medicationDialog.show(
+				((FragmentActivity) getActivity()).getSupportFragmentManager(),
+				"medicationDialog");
+		medicationDialog
+				.setOnConfirmClickListener(new OnConfirmClickListener() {
+
+					@Override
+					public void onConfirmClick() {
+						final FollowupHypertensionReportDialog reportDialog = new FollowupHypertensionReportDialog(
+								bloodPressure);
+						reportDialog.show(((FragmentActivity) getActivity())
+								.getSupportFragmentManager(),
+								"HypertensionReportDialog");
+						reportDialog
+								.setOnConfirmClickListener(new FollowupHypertensionReportDialog.OnConfirmClickListener() {
+
+									@Override
+									public void onConfirmClick() {
+										ReportHyoertension entity = reportDialog
+												.getReportHyoertension();
+										FollowUpManager
+												.getInstance(getActivity())
+												.saveOrUpdateReportHyoertension(
+														entity);
+										AccompanyManager.getInstance(getActivity()).addAccompany(null,entity.getNext_followup_date(), Accompany.ACNO_REPORTHYPERTENSION);
+										reportDialog.hide();
+									}
+								});
+						medicationDialog.hide();
+					}
+				});
+	}
+
+	private void showBloodSugar(final BloodGlucose bloodPressure) {
+		final ReportConfirmDialog medicationDialog = new ReportConfirmDialog(
+				"血糖");
+		medicationDialog.show(
+				((FragmentActivity) getActivity()).getSupportFragmentManager(),
+				"medicationDialog");
+		medicationDialog
+				.setOnConfirmClickListener(new OnConfirmClickListener() {
+
+					@Override
+					public void onConfirmClick() {
+						final FollowupDiabetesMellitusReportDialog reportDialog = FollowupDiabetesMellitusReportDialog
+								.newInstance();
+						reportDialog.show(((FragmentActivity) getActivity())
+								.getSupportFragmentManager(),
+								"DiabetesMellitusReportDialog");
+						reportDialog
+								.setOnConfirmClickListener(new FollowupDiabetesMellitusReportDialog.OnConfirmClickListener() {
+
+									@Override
+									public void onConfirmClick() {
+										ReportDiabetesMellitus entity = reportDialog
+												.getReportDiabetesMellitus();
+										FollowUpManager
+												.getInstance(getActivity())
+												.saveOrUpdateReportDiabetesMellitus(
+														entity);
+										AccompanyManager.getInstance(getActivity()).addAccompany(null,entity.getNext_followup_date(), Accompany.ACNO_REPORTDIABETESMELLITUS);
+										reportDialog.hide();
+									}
+								});
+						medicationDialog.hide();
+					}
+				});
+
 	}
 }

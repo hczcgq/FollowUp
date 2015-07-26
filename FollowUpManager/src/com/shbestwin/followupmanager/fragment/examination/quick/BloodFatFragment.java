@@ -327,34 +327,41 @@ public class BloodFatFragment extends BaseQuickExaminationFragment {
 	public void setSaveData(ExaminationInfo examinationInfo1) {
 		ExaminationInfo examinationInfo = MyApplication.getInstance()
 				.getExaminationInfo();
-		System.out.println(examinationInfo);
 		if (examinationInfo != null) {
 			String msg = examinationInfo.getBloodFat();
 			if (TextUtils.isEmpty(msg)) {
-				// bloodCHOLEditText.setText("");
-				// bloodCHOLConclusionEditText.setText("");
-				// bloodTGEditText.setText("");
-				// bloodTGConclusionEditText.setText("");
-				// bloodHDLEditText.setText("");
-				// bloodHDLConclusionEditText.setText("");
-				// bloodLDLEditText.setText("");
-				// bloodLDLConclusionEditText.setText("");
 				return;
 			}
 			try {
 				JSONObject jsonObject = new JSONObject(msg);
-				bloodCHOLEditText.setText(jsonObject.getString("CHOL"));
-				bloodCHOLConclusionEditText.setText(jsonObject
-						.getString("CHOLConclusion"));
-				bloodTGEditText.setText(jsonObject.getString("TG"));
-				bloodTGConclusionEditText.setText(jsonObject
-						.getString("TGConclusion"));
-				bloodHDLEditText.setText(jsonObject.getString("HDL"));
-				bloodHDLConclusionEditText.setText(jsonObject
-						.getString("HDLConclusion"));
-				bloodLDLEditText.setText(jsonObject.getString("LDL"));
-				bloodLDLConclusionEditText.setText(jsonObject
-						.getString("LDLConclusion"));
+				if (!TextUtils.isEmpty(jsonObject.getString("CHOL"))) {
+					bloodCHOLEditText.setText(jsonObject.getString("CHOL"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("CHOLConclusion"))) {
+					bloodCHOLConclusionEditText.setText(jsonObject
+							.getString("CHOLConclusion"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("TG"))) {
+					bloodTGEditText.setText(jsonObject.getString("TG"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("TGConclusion"))) {
+					bloodTGConclusionEditText.setText(jsonObject
+							.getString("TGConclusion"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("HDL"))) {
+					bloodHDLEditText.setText(jsonObject.getString("HDL"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("HDLConclusion"))) {
+					bloodHDLConclusionEditText.setText(jsonObject
+							.getString("HDLConclusion"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("LDL"))) {
+					bloodLDLEditText.setText(jsonObject.getString("LDL"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("LDLConclusion"))) {
+					bloodLDLConclusionEditText.setText(jsonObject
+							.getString("LDLConclusion"));
+				}
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}

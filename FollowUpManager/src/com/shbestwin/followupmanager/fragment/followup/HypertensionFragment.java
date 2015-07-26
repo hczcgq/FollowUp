@@ -15,8 +15,10 @@ import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.fragment.BaseFragment;
+import com.shbestwin.followupmanager.manager.AccompanyManager;
 import com.shbestwin.followupmanager.manager.ArchiveInfoManager;
 import com.shbestwin.followupmanager.manager.FollowUpManager;
+import com.shbestwin.followupmanager.model.Accompany;
 import com.shbestwin.followupmanager.model.ArchiveInfo;
 import com.shbestwin.followupmanager.model.followup.FollowUpHypertension;
 import com.shbestwin.followupmanager.view.widget.IBaseHypertensionBody;
@@ -164,6 +166,8 @@ public class HypertensionFragment extends BaseFragment {
 		FollowUpManager.getInstance(getActivity())
 				.saveOrUpdateFollowUpHypertension(followUpHypertension);
 		ToastUtils.showToast(getActivity(), "保存高血压数据成功！");
+		
+		AccompanyManager.getInstance(getActivity()).addAccompany(followUpHypertension.getGrxx_sfrq(),followUpHypertension.getZzhf_xcsfrq(), Accompany.ACNO_HYPERTENSION);
 	}
 
 	@Override

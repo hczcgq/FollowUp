@@ -14,7 +14,9 @@ import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.fragment.BaseFragment;
+import com.shbestwin.followupmanager.manager.AccompanyManager;
 import com.shbestwin.followupmanager.manager.FollowUpManager;
+import com.shbestwin.followupmanager.model.Accompany;
 import com.shbestwin.followupmanager.model.ArchiveInfo;
 import com.shbestwin.followupmanager.model.followup.FollowUpTwoToFivePregnancy;
 import com.shbestwin.followupmanager.view.widget.IBaseAntenatal2_5Body;
@@ -127,6 +129,7 @@ public class Antenatal2_5Fragment extends BaseFragment {
 		// 保存数据
 		FollowUpManager.getInstance(getActivity()).saveOrUpdateFollowUpTwoToFivePregnancy(followUpTwoToFivePregnancy);
 		ToastUtils.showToast(getActivity(), "保存孕产访视第2-5次产前数据成功！");
+		AccompanyManager.getInstance(getActivity()).addAccompany(followUpTwoToFivePregnancy.getGrxx_fsrq(),followUpTwoToFivePregnancy.getZz_xcsfrq(), Accompany.ACNO_ANTENATAL2_5);
 	}
 
 	@Override

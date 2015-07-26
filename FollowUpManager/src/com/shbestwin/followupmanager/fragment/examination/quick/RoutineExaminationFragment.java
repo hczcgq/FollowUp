@@ -373,37 +373,51 @@ public class RoutineExaminationFragment extends BaseQuickExaminationFragment {
 		if (examinationInfo != null) {
 			String msg = examinationInfo.getRoutineCheckups();
 			if (TextUtils.isEmpty(msg)) {
-				// temperatureEditText.setText("");
-				// temperatureConclusionEditText.setText("");
-				// heightEditText.setText("");
-				// weightEditText.setText("");
-				// BMIEditText.setText("");
-				// physiqueConclusionEditText.setText("");
-				// waistlineEditText.setText("");
-				// hiplineEditText.setText("");
-				// bustEditText.setText("");
-				// waistToHipratioEditText.setText("");
-				// BWHConclusionEditText.setText("");
 				return;
 			}
 			try {
 				JSONObject jsonObject = new JSONObject(msg);
-				temperatureEditText.setText(jsonObject.getString("temperature")
-						.toString());
-				temperatureConclusionEditText.setText(jsonObject
-						.getString("temperatureConclusion"));
-				heightEditText.setText(jsonObject.getString("height"));
-				weightEditText.setText(jsonObject.getString("weight"));
-				BMIEditText.setText(jsonObject.getString("BMI"));
-				physiqueConclusionEditText.setText(jsonObject
-						.getString("constitutionalIndexConclusion"));
-				waistlineEditText.setText(jsonObject.getString("waist"));
-				hiplineEditText.setText(jsonObject.getString("hips"));
-				bustEditText.setText(jsonObject.getString("bust"));
-				waistToHipratioEditText.setText(jsonObject
-						.getString("waistToHipratio"));
-				BWHConclusionEditText.setText(jsonObject
-						.getString("BWHConclusion"));
+				if (!TextUtils.isEmpty(jsonObject.getString("temperature")
+						.toString())) {
+					temperatureEditText.setText(jsonObject.getString(
+							"temperature").toString());
+				}
+				if (!TextUtils.isEmpty(jsonObject
+						.getString("temperatureConclusion"))) {
+					temperatureConclusionEditText.setText(jsonObject
+							.getString("temperatureConclusion"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("height"))) {
+					heightEditText.setText(jsonObject.getString("height"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("weight"))) {
+					weightEditText.setText(jsonObject.getString("weight"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("BMI"))) {
+					BMIEditText.setText(jsonObject.getString("BMI"));
+				}
+				if (!TextUtils.isEmpty(jsonObject
+						.getString("constitutionalIndexConclusion"))) {
+					physiqueConclusionEditText.setText(jsonObject
+							.getString("constitutionalIndexConclusion"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("waist"))) {
+					waistlineEditText.setText(jsonObject.getString("waist"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("hips"))) {
+					hiplineEditText.setText(jsonObject.getString("hips"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("bust"))) {
+					bustEditText.setText(jsonObject.getString("bust"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("waistToHipratio"))) {
+					waistToHipratioEditText.setText(jsonObject
+							.getString("waistToHipratio"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("BWHConclusion"))) {
+					BWHConclusionEditText.setText(jsonObject
+							.getString("BWHConclusion"));
+				}
 				onConclusion();
 			} catch (JSONException e) {
 				e.printStackTrace();

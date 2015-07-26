@@ -14,7 +14,9 @@ import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.fragment.BaseFragment;
+import com.shbestwin.followupmanager.manager.AccompanyManager;
 import com.shbestwin.followupmanager.manager.FollowUpManager;
+import com.shbestwin.followupmanager.model.Accompany;
 import com.shbestwin.followupmanager.model.ArchiveInfo;
 import com.shbestwin.followupmanager.model.followup.FollowUpPostpartum;
 import com.shbestwin.followupmanager.view.widget.IBasePostpartumBody;
@@ -128,6 +130,7 @@ public class PostpartumFragment extends BaseFragment {
 		// 保存数据
 		FollowUpManager.getInstance(getActivity()).saveOrUpdateFollowUpPostpartum(followUpPostpartum);
 		ToastUtils.showToast(getActivity(), "保存孕产访视产后访视前数据成功！");
+		AccompanyManager.getInstance(getActivity()).addAccompany(followUpPostpartum.getGrxx_fsrq(),followUpPostpartum.getZz_xcsfrq(), Accompany.ACNO_POSTPARTUM);
 	}
 
 	@Override

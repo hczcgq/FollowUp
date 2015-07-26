@@ -273,6 +273,8 @@ public class ArchiveInfoFragment extends BaseFragment {
 					ToastUtils.showToast(getActivity(), "保存成功！");
 					// 刷新本地缓存的数据
 					MyApplication.getInstance().setArchiveInfo(archiveInfo);
+					
+					
 				}
 			}
 		}

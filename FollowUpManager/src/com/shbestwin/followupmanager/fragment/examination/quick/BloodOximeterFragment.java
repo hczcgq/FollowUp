@@ -224,16 +224,22 @@ public class BloodOximeterFragment extends BaseQuickExaminationFragment {
 		if (examinationInfo != null) {
 			String msg = examinationInfo.getBloodOxygen();
 			if (TextUtils.isEmpty(msg)) {
-				// bloodOxygenEditText.setText("");
-				// pulseRateEditText.setText("");
-				// conclusionEditText.setText("");
 				return;
 			}
 			try {
 				JSONObject jsonObject = new JSONObject(msg);
-				bloodOxygenEditText.setText(jsonObject.getString("saturation"));
-				pulseRateEditText.setText(jsonObject.getString("pulseRate"));
-				conclusionEditText.setText(jsonObject.getString("conclusion"));
+				if (!TextUtils.isEmpty(jsonObject.getString("saturation"))) {
+					bloodOxygenEditText.setText(jsonObject
+							.getString("saturation"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("pulseRate"))) {
+					pulseRateEditText
+							.setText(jsonObject.getString("pulseRate"));
+				}
+				if (!TextUtils.isEmpty(jsonObject.getString("conclusion"))) {
+					conclusionEditText.setText(jsonObject
+							.getString("conclusion"));
+				}
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}

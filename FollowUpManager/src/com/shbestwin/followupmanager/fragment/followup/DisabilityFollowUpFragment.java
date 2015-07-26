@@ -14,7 +14,9 @@ import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.fragment.BaseFragment;
+import com.shbestwin.followupmanager.manager.AccompanyManager;
 import com.shbestwin.followupmanager.manager.FollowUpManager;
+import com.shbestwin.followupmanager.model.Accompany;
 import com.shbestwin.followupmanager.model.ArchiveInfo;
 import com.shbestwin.followupmanager.model.followup.FollowUpDisabledPerson;
 import com.shbestwin.followupmanager.view.widget.IBaseDisabilityBody;
@@ -121,6 +123,8 @@ public class DisabilityFollowUpFragment extends BaseFragment {
 		// 保存数据
 		FollowUpManager.getInstance(getActivity()).saveOrUpdateFollowUpDisabledPerson(followUpDisabledPerson);
 		ToastUtils.showToast(getActivity(), "保存残疾随访数据成功！");
+		
+		AccompanyManager.getInstance(getActivity()).addAccompany(followUpDisabledPerson.getGrxx_sfrq(),followUpDisabledPerson.getShfszd_xcsfrq(), Accompany.ACNO_DISABILITY);
 	}
 
 	@Override

@@ -14,7 +14,9 @@ import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.fragment.BaseFragment;
+import com.shbestwin.followupmanager.manager.AccompanyManager;
 import com.shbestwin.followupmanager.manager.FollowUpManager;
+import com.shbestwin.followupmanager.model.Accompany;
 import com.shbestwin.followupmanager.model.ArchiveInfo;
 import com.shbestwin.followupmanager.model.followup.FollowUpOneTwoNewborn;
 import com.shbestwin.followupmanager.view.widget.IBaseYearsOld1_2Body;
@@ -136,6 +138,7 @@ public class YearsOld1_2Fragment extends BaseFragment {
 		// 保存数据
 		FollowUpManager.getInstance(getActivity()).saveOrUpdateFollowUpOneTwoNewborn(followUpOneTwoNewborn);
 		ToastUtils.showToast(getActivity(), "保存儿童访视1-2岁数据成功！");
+		AccompanyManager.getInstance(getActivity()).addAccompany(followUpOneTwoNewborn.getGrxx_fsrq(),followUpOneTwoNewborn.getZd_xcsfrq(), Accompany.ACNO_YEAESONLD1_2);
 	}
 
 	@Override

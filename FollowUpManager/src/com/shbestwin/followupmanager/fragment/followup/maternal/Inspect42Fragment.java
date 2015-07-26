@@ -14,7 +14,9 @@ import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.fragment.BaseFragment;
+import com.shbestwin.followupmanager.manager.AccompanyManager;
 import com.shbestwin.followupmanager.manager.FollowUpManager;
+import com.shbestwin.followupmanager.model.Accompany;
 import com.shbestwin.followupmanager.model.ArchiveInfo;
 import com.shbestwin.followupmanager.model.followup.FollowUpFortyTwo;
 import com.shbestwin.followupmanager.view.widget.IBaseInspect42Body;
@@ -128,6 +130,7 @@ public class Inspect42Fragment extends BaseFragment {
 		// 保存数据
 		FollowUpManager.getInstance(getActivity()).saveOrUpdateFollowUpFortyTwo(followUpFortyTwo);
 		ToastUtils.showToast(getActivity(), "保存孕产访视42天检查数据成功！");
+		AccompanyManager.getInstance(getActivity()).addAccompany(followUpFortyTwo.getGrxx_sfrq(),followUpFortyTwo.getZz_xcsfrq(), Accompany.ACNO_INSPECT42);
 	}
 
 	@Override

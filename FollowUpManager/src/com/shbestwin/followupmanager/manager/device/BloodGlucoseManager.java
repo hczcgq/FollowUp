@@ -93,7 +93,6 @@ public class BloodGlucoseManager implements iGateCallBacks {
 		try {
 			final String tmpValue = new String(data, "UTF-8");
 			if (sendType == 1) {
-				log.i(TAG, "meter id data=" + tmpValue);
 				sendType = 2;
 				mIgate.iGateDeviceSendData(deviceAddress, CMD_DATA.getBytes());
 			} else {

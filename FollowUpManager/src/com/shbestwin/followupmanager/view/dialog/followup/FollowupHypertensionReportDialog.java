@@ -1,6 +1,11 @@
 package com.shbestwin.followupmanager.view.dialog.followup;
 
 import java.util.Date;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -201,15 +206,32 @@ public class FollowupHypertensionReportDialog extends BaseDialogReportFragment {
 			birthdayEditText.setText(archiveInfo.getBirthday());
 			telephoneEditText.setText(archiveInfo.getTelephone());
 			ViewDataUtil.setSpinnerData(ethnicSpinner, archiveInfo.getEthnic());
-
 			
 			ExaminationInfo examinationInfo = MyApplication.getInstance().getExaminationInfo();
 			if(examinationInfo!=null) {
-			    
+				String routineCheckups = examinationInfo.getRoutineCheckups();
+				if (!TextUtils.isEmpty(routineCheckups)) {
+					try {
+						JSONObject jsonObject = new JSONObject(routineCheckups);
+						if (!TextUtils.isEmpty(jsonObject.getString("height"))) {
+							heightEditText.setText(jsonObject.getString("height"));
+						}
+						if (!TextUtils.isEmpty(jsonObject.getString("weight"))) {
+							weightEditText.setText(jsonObject.getString("weight"));
+						}
+					} catch (JSONException e) {
+						e.printStackTrace();
+					}
+				}
 			}
 			
 			if(bloodPressure!=null) {
-			    
+			    bloodPressCheckEditText1.setText(bloodPressure.getSystolicPressure()+"");
+			    bloodPressCheckEditText2.setText(bloodPressure.getDiastolicPressure()+"");
+			    bloodPressEditText1.setText(bloodPressure.getSystolicPressure()+"");
+			    bloodPressEditText2.setText(bloodPressure.getDiastolicPressure()+"");
+			    pluseEditText.setText(bloodPressure.getPulseRate()+"");
+			    bloodPressTypeEditText.setText(bloodPressure.getConclusion());
 			}
 		}
 	}

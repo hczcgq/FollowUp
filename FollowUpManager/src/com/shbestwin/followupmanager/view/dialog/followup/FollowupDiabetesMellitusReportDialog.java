@@ -235,13 +235,14 @@ public class FollowupDiabetesMellitusReportDialog extends
 			birthdayEditText.setText(archiveInfo.getBirthday());
 			telephoneEditText.setText(archiveInfo.getTelephone());
 			ViewDataUtil.setSpinnerData(ethnicSpinner, archiveInfo.getEthnic());
+			familyAddressEditText.setText(archiveInfo.getFamilyAddress());
 
 		}
 	}
 
 	private void setCheckBoxStatus(ViewGroup familyHistory,
 			boolean isChecked) {
-		for (int i = 1; i < familyHistory.getChildCount(); i++) {
+		for (int i = 2; i < familyHistory.getChildCount(); i++) {
 			View item = familyHistory.getChildAt(i);
 			if (item instanceof CheckBox) {
 				((CheckBox) item).setEnabled(!isChecked);
