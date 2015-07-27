@@ -34,6 +34,7 @@ public class Accompany {
 	private String accompany_item;// 随访项
 	private String create_time;// 创建时间
 	private String update_time;// 更新时间
+	private String reported;// 是否随访
 
 	
 	
@@ -45,7 +46,7 @@ public class Accompany {
 	public Accompany(String accompanyNo,String idcard, String name, String gender,
 			String birthday, String ethnic, String telephone, String address,
 			String current_time, String next_time, String accompany_item,
-			String create_time, String update_time) {
+			String create_time, String update_time,String reported) {
 		super();
 		this.accompanyNo=accompanyNo;
 		this.idcard = idcard;
@@ -60,6 +61,7 @@ public class Accompany {
 		this.accompany_item = accompany_item;
 		this.create_time = create_time;
 		this.update_time = update_time;
+		this.reported = reported;
 	}
 
 	public String getAccompanyNo() {
@@ -166,4 +168,11 @@ public class Accompany {
 		this.update_time = update_time;
 	}
 
+    public String getReported() {
+        return reported;
+    }
+
+    public void setReported(String reported) {
+        this.reported = reported;
+    }
 }

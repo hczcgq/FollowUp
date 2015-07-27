@@ -12,17 +12,18 @@ import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.SystemUtils;
 
 public class ReportConfirmDialog extends DialogFragment {
-	private TextView confirmView, cancelView,tv_name;
+	private TextView confirmView, cancelView,tv_name,tv_msg;
 	private FrameLayout bodyLayout;
-	private String name;
+	private String name,msg;
 
 	public static ReportConfirmDialog newInstance() {
 		ReportConfirmDialog dialog = new ReportConfirmDialog();
 		return dialog;
 	}
 	
-	public ReportConfirmDialog(String name){
+	public ReportConfirmDialog(String name,String msg){
 		this.name=name;
+		this.msg=msg;
 	}
 	
 	public static ReportConfirmDialog newInstance(int messageResId) {
@@ -63,7 +64,9 @@ public class ReportConfirmDialog extends DialogFragment {
 		confirmView = (TextView) rootView.findViewById(R.id.confirmView);
 		cancelView = (TextView) rootView.findViewById(R.id.cancelView);
 		tv_name = (TextView) rootView.findViewById(R.id.tv_name);
-		tv_name.setText(name+"超出标准范围");
+		tv_msg = (TextView) rootView.findViewById(R.id.tv_msg);
+		tv_name.setText(name);
+		tv_msg.setText(msg);
 
 		confirmView.setOnClickListener(new OnClickListener() {
 			@Override

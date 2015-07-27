@@ -1,7 +1,6 @@
 package com.shbestwin.followupmanager.manager;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import org.apache.http.util.TextUtils;
@@ -64,7 +63,7 @@ public class AccompanyManager {
 	
 	public List<Accompany> getAccompanyListAlready() {
 		StringBuilder where = new StringBuilder(" where ");
-		where.append(Properties.Current_time.columnName).append(" = ").append(Properties.Next_time.columnName).append(" group by CRURRENT_TIME,IDCARD ");
+		where.append(Properties.reported.columnName).append(" = ").append("1").append(" group by CRURRENT_TIME,IDCARD ");
 		return mAccompanyDao.queryRaw(where.toString(), new String[]{});
 	}
 	
@@ -98,11 +97,13 @@ public class AccompanyManager {
 				accompany.setAccompany_item(getTagName(tag));
 				accompany.setCreate_time(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
 				accompany.setUpdate_time(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+				accompany.setReported("1");
 			}
 		}else {
 			accompany.setUpdate_time(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
 			accompany.setCurrent_time(current_date);
 			accompany.setNext_time(next_date);
+			accompany.setReported("1");
 		}
 		saveOrUpdateAccompany(accompany);
 	}

@@ -381,7 +381,7 @@ public class QuickExaminationFragment extends BaseFragment {
 
 	private void showBloodPress(final BloodPressure bloodPressure) {
 		final ReportConfirmDialog medicationDialog = new ReportConfirmDialog(
-				"血压");
+				"血压超出标准范围","请确认是否需要报卡");
 		medicationDialog.show(
 				((FragmentActivity) getActivity()).getSupportFragmentManager(),
 				"medicationDialog");
@@ -417,7 +417,7 @@ public class QuickExaminationFragment extends BaseFragment {
 
 	private void showBloodSugar(final BloodGlucose bloodPressure) {
 		final ReportConfirmDialog medicationDialog = new ReportConfirmDialog(
-				"血糖");
+				"血糖超出标准范围","请确认是否需要报卡");
 		medicationDialog.show(
 				((FragmentActivity) getActivity()).getSupportFragmentManager(),
 				"medicationDialog");

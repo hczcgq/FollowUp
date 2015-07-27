@@ -76,10 +76,10 @@ public class MainActivity extends AbsBaseActivity implements TopBarFragment.OnTa
 					
 					List<Accompany> accompanyListed=AccompanyManager.getInstance(MainActivity.this).getAccompanyListAlready();
 					if(accompanyListed!=null&&accompanyListed.size()>0){
-						textView03.setText(accompanyListed.size()+"人");
+						textView02.setText(accompanyListed.size()+"人");
 					}
 					
-					textView02.setText(accompanyList.size()-accompanyListed.size()+"人");
+					textView03.setText(accompanyList.size()-accompanyListed.size()+"人");
 					
 					List<Accompany> accompanyListTime=AccompanyManager.getInstance(MainActivity.this).getAccompanyListAlready();
 					if(accompanyListTime!=null&&accompanyListTime.size()>0){

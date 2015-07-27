@@ -48,7 +48,7 @@ public class LoginActivity extends AbsBaseActivity {
 		localLoginButton = (Button) findViewById(R.id.localLoginButton);
 		ck_remember = (CheckBox) findViewById(R.id.ck_remember);
 
-		new GetDataTask().execute();
+//		new GetDataTask().execute();
 	}
 
 	@Override

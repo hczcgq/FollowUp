@@ -25,6 +25,7 @@ public class AccompanyDao extends AbstractDao<Accompany, String> {
 		public final static Property Accompany_item = new Property(10,String.class, "accompany_item", false, "ACCOMPANY_ITEM");
 		public final static Property CreateTime = new Property(11,String.class, "createTime", false, "CREATE_TIME");
 		public final static Property UpdateTime = new Property(12,String.class, "updateTime", false, "UPDATE_TIME");
+		public final static Property reported = new Property(13,String.class, "reported", false, "REPORTED");
 
 	};
 
@@ -51,7 +52,8 @@ public class AccompanyDao extends AbstractDao<Accompany, String> {
 				+ "'NEXT_TIME' TEXT ,"
 				+ "'ACCOMPANY_ITEM' TEXT  ," 
 				+ "'CREATE_TIME' TEXT,"
-				+ "'UPDATE_TIME' TEXT);");
+				+ "'UPDATE_TIME' TEXT,"
+				+ "'REPORTED' TEXT);");
 	}
 	
 	public static void dropTable(SQLiteDatabase db, boolean ifExists) {
@@ -115,6 +117,11 @@ public class AccompanyDao extends AbstractDao<Accompany, String> {
 	        if (updateTime != null) {
 	            stmt.bindString(13, updateTime);
 	        }
+	        
+	        String reported = entity.getReported();
+	        if (reported != null) {
+	            stmt.bindString(14, reported);
+	        }
 	    }
 
 	 @Override
@@ -137,7 +144,8 @@ public class AccompanyDao extends AbstractDao<Accompany, String> {
          cursor.getString(offset + 9), 
          cursor.getString(offset + 10), 
          cursor.isNull(offset + 11) ? null : cursor.getString(offset + 11), 
-         cursor.isNull(offset + 12) ? null : cursor.getString(offset + 12) 
+         cursor.isNull(offset + 12) ? null : cursor.getString(offset + 12), 
+         cursor.isNull(offset + 13) ? null : cursor.getString(offset + 13) 
          );
         return entity;
      }
@@ -157,6 +165,7 @@ public class AccompanyDao extends AbstractDao<Accompany, String> {
 		  entity.setAccompany_item(cursor.isNull(offset + 10) ? null : cursor.getString(offset + 10));
 		  entity.setCreate_time(cursor.isNull(offset + 11) ? null : cursor.getString(offset + 11));
 		  entity.setUpdate_time(cursor.isNull(offset + 12) ? null : cursor.getString(offset + 12));
+		  entity.setReported(cursor.isNull(offset + 13) ? null : cursor.getString(offset + 13));
       }
 	  
 	  /** @inheritdoc */
