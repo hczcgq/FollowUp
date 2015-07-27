@@ -1,9 +1,6 @@
 package com.shbestwin.followupmanager.activity;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.HashMap;
 import android.content.Context;
 import android.content.Intent;
@@ -129,27 +126,32 @@ public class LoginActivity extends AbsBaseActivity {
 				return false;
 			}
 		}
-		return true;
+		return true; 
 	}
 
 	private class GetDataTask extends AsyncTask<String, Void, String> {
 
 		@Override
 		protected String doInBackground(String... params) {
-//			File file=getApplication().getDatabasePath("follow_up_manager.db");
+			File file=getApplication().getDatabasePath("follow_up_manager.db");
 			String result = null;
+			//上传
 //			HashMap<String, String> hashParams = new HashMap<String, String>();
 //			hashParams.put("username", "t_user");
 //			hashParams.put("password ", "t_password");
 //			hashParams.put("datafile ", file.getAbsolutePath());
 //			try {
-//				result=HttpHelper.postVoiceByHttpClient(LoginActivity.this, "http://180.153.53.247:82/ylms/inter/upDataFile", hashParams, file.getAbsolutePath());
+//				result=HttpHelper.uploadHttpClient(LoginActivity.this, "http://180.153.53.247:82/ylms/inter/upDataFile", hashParams, file.getAbsolutePath());
 //			} catch (Exception e) {
 //				e.printStackTrace();
 //			}
 			
 			
-			result=HttpHelper.PostFromWebByHttpClient(LoginActivity.this, "http://180.153.53.247:82/ylms/inter/downFile", "t_user", "t_password");
+			//下载
+			HashMap<String, String> hashParams = new HashMap<String, String>();
+			hashParams.put("username", "t_user");
+			hashParams.put("password ", "t_password");
+			result=HttpHelper.DowmloadHttpClient(LoginActivity.this, "http://180.153.53.247:82/ylms/inter/downFile",hashParams,file);
 			return result;
 		}
 
