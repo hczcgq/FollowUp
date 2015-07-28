@@ -81,7 +81,7 @@ public class MainActivity extends AbsBaseActivity implements TopBarFragment.OnTa
 					
 					textView03.setText(accompanyList.size()-accompanyListed.size()+"人");
 					
-					List<Accompany> accompanyListTime=AccompanyManager.getInstance(MainActivity.this).getAccompanyListAlready();
+					List<Accompany> accompanyListTime=AccompanyManager.getInstance(MainActivity.this).getAccompanyNextDate();
 					if(accompanyListTime!=null&&accompanyListTime.size()>0){
 						textView04.setText(accompanyListTime.get(0).getNext_time());
 					}

@@ -63,12 +63,12 @@ public class AccompanyManager {
 	
 	public List<Accompany> getAccompanyListAlready() {
 		StringBuilder where = new StringBuilder(" where ");
-		where.append(Properties.reported.columnName).append(" = ").append("1").append(" group by CRURRENT_TIME,IDCARD ");
+		where.append(Properties.reported.columnName).append(" = ").append("1").append(" group by IDCARD,CRURRENT_TIME ");
 		return mAccompanyDao.queryRaw(where.toString(), new String[]{});
 	}
 	
 	public List<Accompany> getAccompanyNextDate() {
-		StringBuilder where = new StringBuilder(" where NEXT_TIME  not null order by next_time asc limit 1  ");
+		StringBuilder where = new StringBuilder(" where NEXT_TIME!=CRURRENT_TIME AND NEXT_TIME  not null order by next_time asc limit 1  ");
 		return mAccompanyDao.queryRaw(where.toString(), new String[]{});
 	}
 
@@ -101,7 +101,11 @@ public class AccompanyManager {
 			}
 		}else {
 			accompany.setUpdate_time(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
-			accompany.setCurrent_time(current_date);
+			if(TextUtils.isEmpty(current_date)){
+                accompany.setCurrent_time(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+            }else {
+                accompany.setCurrent_time(current_date);
+            }
 			accompany.setNext_time(next_date);
 			accompany.setReported("1");
 		}

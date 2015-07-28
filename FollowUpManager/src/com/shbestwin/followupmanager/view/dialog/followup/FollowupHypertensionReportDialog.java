@@ -1,5 +1,6 @@
 package com.shbestwin.followupmanager.view.dialog.followup;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.json.JSONException;
@@ -13,6 +14,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+
 import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.DateUtils;
@@ -239,7 +241,8 @@ public class FollowupHypertensionReportDialog extends BaseDialogReportFragment {
 	
 	public ReportHyoertension getReportHyoertension(){
 		ReportHyoertension entity=new ReportHyoertension();
-		entity.setReportno(System.currentTimeMillis() + "");
+		entity.setReportno(new SimpleDateFormat("yyyyMMdd")
+        .format(new Date()) + cardIDEditText.getText());
 		entity.setIdcard(cardIDEditText.getText().toString());
 		entity.setName(nameEditText.getText().toString());
 		entity.setSex(ViewDataUtil.getSpinnerData(genderSpinner));

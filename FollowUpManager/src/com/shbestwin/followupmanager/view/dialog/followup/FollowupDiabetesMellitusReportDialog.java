@@ -1,6 +1,8 @@
 package com.shbestwin.followupmanager.view.dialog.followup;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -257,7 +259,8 @@ public class FollowupDiabetesMellitusReportDialog extends
 	
 	public ReportDiabetesMellitus getReportDiabetesMellitus(){
 		ReportDiabetesMellitus entity=new ReportDiabetesMellitus();
-		entity.setReportno(System.currentTimeMillis() + "");
+		entity.setReportno(new SimpleDateFormat("yyyyMMdd")
+        .format(new Date()) + cardIDEditText.getText());
 		entity.setIdcard(cardIDEditText.getText().toString());
 		entity.setName(nameEditText.getText().toString());
 		entity.setSex(ViewDataUtil.getSpinnerData(genderSpinner));
@@ -277,6 +280,7 @@ public class FollowupDiabetesMellitusReportDialog extends
 		entity.setHistory_msg(ViewDataUtil.getCheckboxData(familyHistoryLayout, null));
 		entity.setNext_followup_date(nextFollowupTimeEditText.getText().toString());
 		entity.setDescribe(descibeEditText.getText().toString());
+		entity.setUpdateTime(System.currentTimeMillis() + "");
 		return entity;
 	}
 

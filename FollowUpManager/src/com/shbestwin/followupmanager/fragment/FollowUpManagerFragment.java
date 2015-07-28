@@ -176,6 +176,8 @@ public class FollowUpManagerFragment extends BaseIDCardInfoFragment {
 				MyApplication.getInstance().setFollowUpNo(followUpNo);
 				BaseFragment baseFragment = contentFragmentList.get(contentViewPager.getCurrentItem());
 				baseFragment.onReset();
+				
+				ToastUtils.showToast(getActivity(), "新增随访成功！");
 			}
 		});
 

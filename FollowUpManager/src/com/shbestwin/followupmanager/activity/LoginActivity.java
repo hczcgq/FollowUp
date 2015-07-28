@@ -1,13 +1,8 @@
 package com.shbestwin.followupmanager.activity;
 
-import java.io.File;
-import java.util.HashMap;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -16,7 +11,6 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
-import com.shbestwin.followupmanager.http.HttpHelper;
 
 /**
  * 
@@ -48,7 +42,7 @@ public class LoginActivity extends AbsBaseActivity {
 		localLoginButton = (Button) findViewById(R.id.localLoginButton);
 		ck_remember = (CheckBox) findViewById(R.id.ck_remember);
 
-//		new GetDataTask().execute();
+
 	}
 
 	@Override
@@ -128,52 +122,5 @@ public class LoginActivity extends AbsBaseActivity {
 		}
 		return true; 
 	}
-
-	private class GetDataTask extends AsyncTask<String, Void, String> {
-
-		@Override
-		protected String doInBackground(String... params) {
-			File file=getApplication().getDatabasePath("follow_up_manager.db");
-			String result = null;
-			//上传
-//			HashMap<String, String> hashParams = new HashMap<String, String>();
-//			hashParams.put("username", "t_user");
-//			hashParams.put("password ", "t_password");
-//			hashParams.put("datafile ", file.getAbsolutePath());
-//			try {
-//				result=HttpHelper.uploadHttpClient(LoginActivity.this, "http://180.153.53.247:82/ylms/inter/upDataFile", hashParams, file.getAbsolutePath());
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-			
-			
-			//下载
-			HashMap<String, String> hashParams = new HashMap<String, String>();
-			hashParams.put("username", "t_user");
-			hashParams.put("password ", "t_password");
-			result=HttpHelper.DowmloadHttpClient(LoginActivity.this, "http://180.153.53.247:82/ylms/inter/downFile",hashParams,file);
-			return result;
-		}
-
-		@Override
-		protected void onPostExecute(String result) {
-			super.onPostExecute(result);
-			if (result != null) {
-				System.out.println("请求结果：" + result);
-			}
-		}
-	}
-
 	
-
-	public static boolean isNetworkAvailable(Context context) {
-		boolean value = false;
-		ConnectivityManager manager = (ConnectivityManager) context
-				.getSystemService(Context.CONNECTIVITY_SERVICE);
-		NetworkInfo info = manager.getActiveNetworkInfo();
-		if (info != null && info.isAvailable()) {
-			value = true;
-		}
-		return value;
-	}
 }

@@ -6,9 +6,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.SocketTimeoutException;
-import java.net.URL;
-import java.net.URLConnection;
-import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -42,9 +39,10 @@ import org.apache.http.params.HttpParams;
 import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.util.EntityUtils;
 
+import com.google.gson.Gson;
+import com.shbestwin.followupmanager.model.MessageItem;
+
 import android.content.Context;
-import android.os.Handler;
-import android.os.Message;
 
 public class HttpHelper {
     private static final int DEFAULT_MAX_CONNECTIONS = 30;
@@ -176,7 +174,6 @@ public class HttpHelper {
             }
         }
         url = url.replaceAll(" ", "");
-        System.out.println("url---------" + url);
         HttpGet get = new HttpGet(url);
         // 设置头文件
         Map<String, String> headers = getHeader();
@@ -190,12 +187,8 @@ public class HttpHelper {
         try {
             HttpResponse response = client.execute(get);
             if (response.getStatusLine().getStatusCode() == 200) {
-                if (!file.exists()) {
-                    try {
-                        file.createNewFile();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                if(!file.exists()) {
+                    file.createNewFile();
                 }
                 FileOutputStream fos = new FileOutputStream(file);
                 // 得到网络资源并写入文件
@@ -207,6 +200,11 @@ public class HttpHelper {
                 }
                 fos.flush();
                 fos.close();
+                MessageItem item=new MessageItem("true","下载成功");
+                result=new Gson().toJson(item);
+            }else {
+                MessageItem item=new MessageItem("false","下载失败");
+                result=new Gson().toJson(item);
             }
         } catch (ClientProtocolException e) {
             e.printStackTrace();

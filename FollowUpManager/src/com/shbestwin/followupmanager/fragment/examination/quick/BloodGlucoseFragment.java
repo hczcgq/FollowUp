@@ -244,8 +244,7 @@ public class BloodGlucoseFragment extends BaseQuickExaminationFragment {
 
 	@Override
 	public void onConclusion() {
-		int bloodGlucoseType = bloodGlucoseTypeSpinner
-				.getSelectedItemPosition();
+		int bloodGlucoseType = bloodGlucoseTypeSpinner.getSelectedItemPosition();
 		String bloodGlucoseStr = bloodGlucoseEditText.getText().toString();
 		if (!TextUtils.isEmpty(bloodGlucoseStr)) {
 			conclusionEditText.setText(BloodGlucose.getConclusion(

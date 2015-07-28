@@ -12,23 +12,15 @@
        android:layout_gravity="center"
        android:orientation="horizontal">
        <Button
-           android:id="@+id/btn_people"
+           android:id="@+id/btn_background"
            android:layout_width="150dp"
            android:layout_height="fill_parent" 
            android:background="@drawable/date_manage_button_selector"
-           android:text="居民查询"
+           android:text="后台管理"
            android:enabled="false"
            android:textColor="@color/date_manage_font_selector"
            android:textSize="@dimen/global_font_size_large"/>
-       <Button
-           android:id="@+id/btn_work"
-           android:layout_width="150dp"
-           android:layout_height="fill_parent" 
-           android:background="@drawable/date_manage_button_selector"
-           android:text="工作管理"
-           android:textColor="@color/date_manage_font_selector"
-           android:enabled="true"
-           android:textSize="@dimen/global_font_size_large"/>
+
        <Button
            android:id="@+id/btn_upload"
            android:layout_width="150dp"

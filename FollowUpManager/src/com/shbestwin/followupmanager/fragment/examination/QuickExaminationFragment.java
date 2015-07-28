@@ -231,6 +231,7 @@ public class QuickExaminationFragment extends BaseFragment {
 		}
 		for (BaseQuickExaminationFragment baseFragment : contentFragmentList) {
 			baseFragment.getSaveData(examinationInfo);
+//			baseFragment.onConclusion();
 		}
 
 		try {
