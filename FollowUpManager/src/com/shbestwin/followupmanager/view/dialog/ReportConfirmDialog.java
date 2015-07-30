@@ -1,5 +1,7 @@
 package com.shbestwin.followupmanager.view.dialog;
 
+import org.apache.http.util.TextUtils;
+
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
@@ -14,7 +16,7 @@ import com.shbestwin.followupmanager.common.util.SystemUtils;
 public class ReportConfirmDialog extends DialogFragment {
 	private TextView confirmView, cancelView,tv_name,tv_msg;
 	private FrameLayout bodyLayout;
-	private String name,msg;
+	private String name,msg,confirm;
 
 	public static ReportConfirmDialog newInstance() {
 		ReportConfirmDialog dialog = new ReportConfirmDialog();
@@ -24,6 +26,12 @@ public class ReportConfirmDialog extends DialogFragment {
 	public ReportConfirmDialog(String name,String msg){
 		this.name=name;
 		this.msg=msg;
+	}
+	
+	public ReportConfirmDialog(String name,String msg,String confirm){
+		this.name=name;
+		this.msg=msg;
+		this.confirm=confirm;
 	}
 	
 	public static ReportConfirmDialog newInstance(int messageResId) {
@@ -67,6 +75,9 @@ public class ReportConfirmDialog extends DialogFragment {
 		tv_msg = (TextView) rootView.findViewById(R.id.tv_msg);
 		tv_name.setText(name);
 		tv_msg.setText(msg);
+		if(!TextUtils.isEmpty(confirm)){
+			confirmView.setText(confirm);
+		}
 
 		confirmView.setOnClickListener(new OnClickListener() {
 			@Override

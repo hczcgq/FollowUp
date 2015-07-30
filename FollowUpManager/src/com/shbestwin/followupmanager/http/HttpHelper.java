@@ -217,4 +217,49 @@ public class HttpHelper {
         }
         return result;
     }
+    
+    
+    
+    public static String GetHttpClient(Context context, String url,
+            HashMap<String, String> hashParams) {
+        String result = null;
+        HttpClient client = getHttpClient(context);
+
+        if (hashParams != null) {
+            for (Entry<String, String> entry : hashParams.entrySet()) {
+                if (!url.contains("?"))
+                    url += "?" + entry.getKey() + "=" + entry.getValue();
+                else
+                    url += "&" + entry.getKey() + "=" + entry.getValue();
+            }
+        }
+        url = url.replaceAll(" ", "");
+        System.out.println("url---"+url);
+        HttpGet get = new HttpGet(url);
+        // 设置头文件
+        Map<String, String> headers = getHeader();
+        Set<String> setHead = headers.keySet();
+        Iterator<String> iteratorHead = setHead.iterator();
+        while (iteratorHead.hasNext()) {
+            String headName = iteratorHead.next();
+            String headValue = (String) headers.get(headName);
+            get.setHeader(headName, headValue);
+        }
+        try {
+            HttpResponse response = client.execute(get);
+            if (response.getStatusLine().getStatusCode() == 200) {
+            	 result = EntityUtils.toString(response.getEntity(),
+                         DEFAULT_PARAMS_ENCODING);
+            }
+        } catch (ClientProtocolException e) {
+            e.printStackTrace();
+        } catch (ConnectTimeoutException e) {
+            e.printStackTrace();
+        } catch (SocketTimeoutException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 }
