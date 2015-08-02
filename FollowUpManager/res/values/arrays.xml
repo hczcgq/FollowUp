@@ -317,7 +317,7 @@
     <string-array name="personalStatus">
         <item>正常 </item>
         <item>注销 </item>
-        <item>死忙 </item>
+        <item>死亡</item>
         <item>迁出（区域\外地） </item>
         <item>挂起</item>
         <item>临时</item>

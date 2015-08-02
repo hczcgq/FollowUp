@@ -28,6 +28,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
+import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.SystemUtils;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
@@ -159,6 +160,7 @@ public class VersionFragment extends BaseFragment {
 
         @Override
         protected String doInBackground(String... params) {
+        	String ServerUrl=getActivity().getSharedPreferences("USER_INFO", Context.MODE_PRIVATE).getString("Server_Url", MyApplication.serverUrl);
             String result = null;
             String versionCode=String.valueOf(getVersionCode());
             String versionName=getVersionName();
@@ -171,7 +173,7 @@ public class VersionFragment extends BaseFragment {
                     hashParams.put("clientType ", client);
                     hashParams.put("imsi ", IMSI);
                     result = HttpHelper.GetHttpClient(getActivity(),
-                            "http://180.153.53.247:82/ylms/inter/updateSoftVersion",
+                    		ServerUrl+"/inter/updateSoftVersion",
                             hashParams);
             } else {
                 ToastUtils.showToast(getActivity(), "请检查网络连接。");

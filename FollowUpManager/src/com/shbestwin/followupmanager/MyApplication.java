@@ -37,6 +37,9 @@ import com.tencent.bugly.crashreport.CrashReport;
 import com.tencent.bugly.crashreport.CrashReport.UserStrategy;
 
 public class MyApplication extends Application {
+	
+	public static String serverUrl="http://180.153.53.247:82/yyms";
+	
 	private static MyApplication mInstance = null;
 
 	private ArchiveInfo archiveInfo;

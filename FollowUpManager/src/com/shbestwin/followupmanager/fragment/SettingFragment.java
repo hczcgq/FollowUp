@@ -18,6 +18,7 @@ import com.shbestwin.followupmanager.fragment.setting.AboutFragment;
 import com.shbestwin.followupmanager.fragment.setting.DeviceFragment;
 import com.shbestwin.followupmanager.fragment.setting.FunctionFragment;
 import com.shbestwin.followupmanager.fragment.setting.HelpFragment;
+import com.shbestwin.followupmanager.fragment.setting.ServerSettingFragment;
 import com.shbestwin.followupmanager.fragment.setting.UserFragment;
 import com.shbestwin.followupmanager.fragment.setting.VersionFragment;
 import com.shbestwin.followupmanager.model.MenuItem;
@@ -70,6 +71,7 @@ public class SettingFragment extends BaseFragment {
 		menuItems.add(new MenuItem(R.drawable.xtsz_menu_gnjs_selector, getString(R.string.xtsz_menu_item_gnjs)));// 功能介绍
 		menuItems.add(new MenuItem(R.drawable.xtsz_menu_bbgx_selector, getString(R.string.xtsz_menu_item_bbgx)));// 版本更新
 		menuItems.add(new MenuItem(R.drawable.xtsz_menu_bz_selector, getString(R.string.xtsz_menu_item_bz)));// 帮助
+		menuItems.add(new MenuItem(R.drawable.xtsz_menu_bz_selector, getString(R.string.wfqpz_menu_item_bz)));// 服务器配置
 		menuItems.add(new MenuItem(R.drawable.xtsz_menu_gy_selector, getString(R.string.xtsz_menu_item_gy)));// 关于
 		leftMenuLayout.renderMenu(menuItems);
 		leftMenuLayout.setMarginView(marginView);
@@ -93,6 +95,7 @@ public class SettingFragment extends BaseFragment {
 		contentFragmentList.add(FunctionFragment.newInstance());// 功能介绍
 		contentFragmentList.add(VersionFragment.newInstance());// 版本更新
 		contentFragmentList.add(HelpFragment.newInstance());// 帮助
+		contentFragmentList.add(ServerSettingFragment.newInstance());// 帮助
 		contentFragmentList.add(AboutFragment.newInstance());// 关于
 
 		contentViewPager.setPageTransformer(true, new FlipHorizontalTransformer());

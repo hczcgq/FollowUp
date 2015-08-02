@@ -2,7 +2,6 @@ package com.shbestwin.followupmanager.fragment.archive;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -15,9 +14,6 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.RelativeLayout;
-
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.JsonUtil;
@@ -195,6 +191,10 @@ public class AllergyHistoryFragment extends BaseArchiveFragment {
 					e.printStackTrace();
 				}
 			}
+		}else {
+			allergyHistoryRadioGroup.check(R.id.allergyHistoryNoRadioButton);
+			renderRadioNo();
+			allergyEditTextOther.setText("");
 		}
 	}
 	

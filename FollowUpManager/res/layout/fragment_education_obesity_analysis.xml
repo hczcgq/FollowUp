@@ -14,7 +14,7 @@
         <TextView
             android:id="@+id/heightTextView"
             style="@style/GeneralEducationTextStyle"
-            android:text="170" />
+            android:text="" />
 
         <TextView
             style="@style/GeneralEducationLabelStyle"
@@ -23,7 +23,7 @@
         <TextView
             android:id="@+id/weightTextView"
             style="@style/GeneralEducationTextStyle"
-            android:text="70" />
+            android:text="" />
 
         <TextView
             style="@style/GeneralEducationLabelStyle"
@@ -32,7 +32,7 @@
         <TextView
             android:id="@+id/BMITextView"
             style="@style/GeneralEducationTextStyle"
-            android:text="12" />
+            android:text="" />
     </LinearLayout>
 
     <LinearLayout
@@ -48,7 +48,7 @@
         <TextView
             android:id="@+id/waistTextView"
             style="@style/GeneralEducationTextStyle"
-            android:text="80" />
+            android:text="" />
 
         <TextView
             style="@style/GeneralEducationLabelStyle"
@@ -57,7 +57,7 @@
         <TextView
             android:id="@+id/hipsTextView"
             style="@style/GeneralEducationTextStyle"
-            android:text="90" />
+            android:text="" />
 
         <TextView
             style="@style/GeneralEducationLabelStyle"
@@ -66,7 +66,7 @@
         <TextView
             android:id="@+id/waistToHipratioTextView"
             style="@style/GeneralEducationTextStyle"
-            android:text="1.2" />
+            android:text="" />
     </LinearLayout>
 
     <LinearLayout
@@ -82,7 +82,7 @@
         <TextView
             android:id="@+id/bodyImpedanceTextView"
             style="@style/GeneralEducationTextStyle"
-            android:text="80" />
+            android:text="" />
 
         <TextView
             style="@style/GeneralEducationLabelStyle"
@@ -91,7 +91,7 @@
         <TextView
             android:id="@+id/fatTextView"
             style="@style/GeneralEducationTextStyle"
-            android:text="90" />
+            android:text="" />
 
         <TextView
             style="@style/GeneralEducationLabelStyle"
@@ -100,7 +100,7 @@
         <TextView
             android:id="@+id/visceralFatTextView"
             style="@style/GeneralEducationTextStyle"
-            android:text="1.2" />
+            android:text="" />
 
         <TextView
             style="@style/GeneralEducationLabelStyle"
@@ -109,7 +109,7 @@
         <TextView
             android:id="@+id/KCALTextView"
             style="@style/GeneralEducationTextStyle"
-            android:text="1.2" />
+            android:text="" />
     </LinearLayout>
 
     <LinearLayout

@@ -307,6 +307,15 @@ public class FamilyHistoryFragment extends BaseArchiveFragment {
 					
 				}
 			}
+		}else {
+			isFatherHistory = false;
+			setCheckBoxStatus(familyHistoryByFather, true);
+			isMotherHistory = false;
+			setCheckBoxStatus(familyHistoryByMother, true);
+			isBrotherHistory = false;
+			setCheckBoxStatus(familyHistoryByBrother, true);
+			isChildHistory = false;
+			setCheckBoxStatus(familyHistoryByChild, true);
 		}
 	}
 

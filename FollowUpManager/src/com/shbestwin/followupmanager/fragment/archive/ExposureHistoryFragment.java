@@ -2,10 +2,8 @@ package com.shbestwin.followupmanager.fragment.archive;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +11,6 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
-
 import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.JsonUtil;
@@ -163,7 +160,11 @@ public class ExposureHistoryFragment extends BaseArchiveFragment {
 					e.printStackTrace();
 				}
 			}
+		}else{
+			exposureHistoryRadioGroup.check(R.id.exposureHistoryNoRadioButton);
+			renderRadioNo();
 		}
+			
 	}
 
 	private void setCheckBoxText(ViewGroup layout, List<ExposureHistories> exposureHistoriesList) {

@@ -56,7 +56,7 @@
                 android:background="@drawable/button_blue_selector"
                 android:gravity="center"
                 android:minHeight="40dp"
-                android:text="确认报考"
+                android:text="确认报卡"
                 android:textColor="@color/white"
                 android:textSize="@dimen/global_font_size_large" />
 

@@ -24,6 +24,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.fragment.BaseFragment;
@@ -139,6 +140,7 @@ public class SearchUploadFragment extends BaseFragment {
 
         @Override
         protected String doInBackground(String... params) {
+        	String ServerUrl=getActivity().getSharedPreferences("USER_INFO", Context.MODE_PRIVATE).getString("Server_Url", MyApplication.serverUrl);
             File file = getActivity().getApplication().getDatabasePath(
                     "follow_up_manager.db");
             String result = null;
@@ -147,14 +149,16 @@ public class SearchUploadFragment extends BaseFragment {
                     if (file.exists()) {
                         // 上传
                         HashMap<String, String> hashParams = new HashMap<String, String>();
-                        hashParams.put("username", "t_user");
-                        hashParams.put("password ", "t_password");
+//                        hashParams.put("username", "t_user");
+//                        hashParams.put("password ", "t_password");
+                        hashParams.put("username", "sfry");
+                        hashParams.put("password ", "abcd123");
                         hashParams.put("datafile ", file.getAbsolutePath());
                         try {
                             result = HttpHelper
                                     .uploadHttpClient(
                                             getActivity(),
-                                            "http://180.153.53.247:82/ylms/inter/upDataFile",
+                                            ServerUrl+"/inter/upDataFile",
                                             hashParams, file.getAbsolutePath());
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -165,10 +169,12 @@ public class SearchUploadFragment extends BaseFragment {
                 } else if (state == DOWNLOAD) {
                     // 下载
                     HashMap<String, String> hashParams = new HashMap<String, String>();
-                    hashParams.put("username", "t_user");
-                    hashParams.put("password ", "t_password");
+//                  hashParams.put("username", "t_user");
+//                  hashParams.put("password ", "t_password");
+                   hashParams.put("username", "sfry");
+                   hashParams.put("password ", "abcd123");
                     result = HttpHelper.DowmloadHttpClient(getActivity(),
-                            "http://180.153.53.247:82/ylms/inter/downFile",
+                    		ServerUrl+"/inter/downFile",
                             hashParams, file);
                 }
             } else {
