@@ -31,7 +31,7 @@ import com.shbestwin.followupmanager.dao.FollowUpDisabledPersonDao;
  * Master of DAO (schema version 1): knows all DAOs.
  */
 public class DaoMaster extends AbstractDaoMaster {
-	public static final int SCHEMA_VERSION = 1;
+	public static final int SCHEMA_VERSION = 2;
 	public static final String SCHEMA_NAME = "follow_up_manager.db";
 
 	/** Creates underlying database table using DAOs. */

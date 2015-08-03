@@ -197,9 +197,11 @@ public class HttpHelper {
                 int j = 0;
                 while ((j = input.read(b)) != -1) {
                     fos.write(b, 0, j);
+                    System.out.println("shifouchengg-----------");
                 }
                 fos.flush();
                 fos.close();
+                
                 MessageItem item=new MessageItem("true","下载成功");
                 result=new Gson().toJson(item);
             }else {

@@ -149,10 +149,10 @@ public class SearchUploadFragment extends BaseFragment {
                     if (file.exists()) {
                         // 上传
                         HashMap<String, String> hashParams = new HashMap<String, String>();
-//                        hashParams.put("username", "t_user");
-//                        hashParams.put("password ", "t_password");
-                        hashParams.put("username", "sfry");
-                        hashParams.put("password ", "abcd123");
+                        hashParams.put("username", "t_user");
+                        hashParams.put("password ", "t_password");
+//                        hashParams.put("username", "sfry");
+//                        hashParams.put("password ", "abcd123");
                         hashParams.put("datafile ", file.getAbsolutePath());
                         try {
                             result = HttpHelper
@@ -169,10 +169,10 @@ public class SearchUploadFragment extends BaseFragment {
                 } else if (state == DOWNLOAD) {
                     // 下载
                     HashMap<String, String> hashParams = new HashMap<String, String>();
-//                  hashParams.put("username", "t_user");
-//                  hashParams.put("password ", "t_password");
-                   hashParams.put("username", "sfry");
-                   hashParams.put("password ", "abcd123");
+                  hashParams.put("username", "t_user");
+                  hashParams.put("password ", "t_password");
+//                   hashParams.put("username", "sfry");
+//                   hashParams.put("password ", "abcd123");
                     result = HttpHelper.DowmloadHttpClient(getActivity(),
                     		ServerUrl+"/inter/downFile",
                             hashParams, file);
