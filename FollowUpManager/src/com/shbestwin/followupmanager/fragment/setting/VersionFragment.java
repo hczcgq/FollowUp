@@ -71,26 +71,25 @@ public class VersionFragment extends BaseFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         // TODO 检查是本地登录还是网络登录
-//        String tips = "立创家庭医生移动随访系统软件V3.0\n杭州立创生物科技有限公司\n当前版本号："
-//                + SystemUtils.getVersionName(getActivity())
-//                + "\n当前是本地登录，无法判断是否需要更新。";
+        // String tips = "立创家庭医生移动随访系统软件V3.0\n杭州立创生物科技有限公司\n当前版本号："
+        // + SystemUtils.getVersionName(getActivity())
+        // + "\n当前是本地登录，无法判断是否需要更新。";
         String tips = "立创家庭医生移动随访系统软件V3.0\n杭州立创生物科技有限公司\n当前版本号："
                 + SystemUtils.getVersionName(getActivity());
         tipsTextView.setText(tips);
-//        updateVersionButton.setEnabled(false);
+        // updateVersionButton.setEnabled(false);
         // 如果为本地登录，则不允许更新版本
         updateVersionButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-            	
-//                showUpdateVersionDialog();
-            	
-            	new GetDataTask().execute();
+
+                // showUpdateVersionDialog();
+
+                new GetDataTask().execute();
             }
         });
     }
-    
-    
+
     public boolean isNetworkAvailable(Context context) {
         boolean value = false;
         ConnectivityManager manager = (ConnectivityManager) context
@@ -101,40 +100,41 @@ public class VersionFragment extends BaseFragment {
         }
         return value;
     }
-    
-    private String getVersionName(){
-		PackageManager packageManager = getActivity().getPackageManager();
-		PackageInfo packInfo = null;
-		try {
-			packInfo = packageManager.getPackageInfo(getActivity().getPackageName(),0);
-		} catch (NameNotFoundException e) {
-			e.printStackTrace();
-		}
-		return packInfo.versionName;
-	}
-    
-    private int getVersionCode(){
-		PackageManager packageManager = getActivity().getPackageManager();
-		PackageInfo packInfo = null;
-		try {
-			packInfo = packageManager.getPackageInfo(getActivity().getPackageName(),0);
-		} catch (NameNotFoundException e) {
-			e.printStackTrace();
-		}
-		return packInfo.versionCode;
-	}
-    
-    private String getImsi(){
-    	TelephonyManager mTelephonyMgr = (TelephonyManager) getActivity().getSystemService(Context.TELEPHONY_SERVICE);
-    	return mTelephonyMgr.getSubscriberId();
-	}
-    
-    
+
+    private String getVersionName() {
+        PackageManager packageManager = getActivity().getPackageManager();
+        PackageInfo packInfo = null;
+        try {
+            packInfo = packageManager.getPackageInfo(getActivity()
+                    .getPackageName(), 0);
+        } catch (NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return packInfo.versionName;
+    }
+
+    private int getVersionCode() {
+        PackageManager packageManager = getActivity().getPackageManager();
+        PackageInfo packInfo = null;
+        try {
+            packInfo = packageManager.getPackageInfo(getActivity()
+                    .getPackageName(), 0);
+        } catch (NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return packInfo.versionCode;
+    }
+
+    private String getImsi() {
+        TelephonyManager mTelephonyMgr = (TelephonyManager) getActivity()
+                .getSystemService(Context.TELEPHONY_SERVICE);
+        return mTelephonyMgr.getSubscriberId();
+    }
 
     private void showUpdateVersionDialog(String desc, final String url,
             String external_ver) {
         final ReportConfirmDialog medicationDialog = new ReportConfirmDialog(
-                "发现新本版", "确认是否更新！","确认");
+                "发现新本版", "确认是否更新！", "确认");
         medicationDialog.show(
                 ((FragmentActivity) getActivity()).getSupportFragmentManager(),
                 "medicationDialog");
@@ -152,29 +152,28 @@ public class VersionFragment extends BaseFragment {
                     }
                 });
     }
-    
-    
-    
+
     private class GetDataTask extends AsyncTask<String, Void, String> {
         private ProgressDialog progressDialog;
 
         @Override
         protected String doInBackground(String... params) {
-        	String ServerUrl=getActivity().getSharedPreferences("USER_INFO", Context.MODE_PRIVATE).getString("Server_Url", MyApplication.serverUrl);
+            String ServerUrl = getActivity().getSharedPreferences("USER_INFO",
+                    Context.MODE_PRIVATE).getString("Server_Url",
+                    MyApplication.serverUrl);
             String result = null;
-            String versionCode=String.valueOf(getVersionCode());
-            String versionName=getVersionName();
-            String IMSI=getImsi();
-            String client="Android";
+            String versionCode = String.valueOf(getVersionCode());
+            String versionName = getVersionName();
+            String IMSI = getImsi();
+            String client = "Android";
             if (isNetworkAvailable(getActivity())) {
-                    HashMap<String, String> hashParams = new HashMap<String, String>();
-                    hashParams.put("currentversion", versionName);
-                    hashParams.put("appCode ", versionCode);
-                    hashParams.put("clientType ", client);
-                    hashParams.put("imsi ", IMSI);
-                    result = HttpHelper.GetHttpClient(getActivity(),
-                    		ServerUrl+"/inter/updateSoftVersion",
-                            hashParams);
+                HashMap<String, String> hashParams = new HashMap<String, String>();
+                hashParams.put("currentversion", versionName);
+                hashParams.put("appCode ", versionCode);
+                hashParams.put("clientType ", client);
+                hashParams.put("imsi ", IMSI);
+                result = HttpHelper.GetHttpClient(getActivity(), ServerUrl
+                        + "/inter/updateSoftVersion", hashParams);
             } else {
                 ToastUtils.showToast(getActivity(), "请检查网络连接。");
             }
@@ -189,21 +188,22 @@ public class VersionFragment extends BaseFragment {
             }
             if (result != null) {
                 System.out.println("请求结果：" + result);
-                  VersionItem versionItem=new Gson().fromJson(result, VersionItem.class);
-                  if(versionItem.getSuccess().equals("true")){
-                	  if(versionItem.getIsoptional().equals("true")){
-                		  showUpdateVersionDialog(versionItem.getDesc(), versionItem.getDownPath(), versionItem.getVersion());
-                	  }else {
-						ToastUtils.showToast(getActivity(), "已是最新版本。");
-					}
-                  }
+                VersionItem versionItem = new Gson().fromJson(result,
+                        VersionItem.class);
+                System.out.println(versionItem.getVersion()+"---"+getVersionName());
+                if (!versionItem.getVersion().equals(getVersionName())) {
+                    showUpdateVersionDialog(versionItem.getDesc(),
+                            versionItem.getDownPath(), versionItem.getVersion());
+                } else {
+                    ToastUtils.showToast(getActivity(), "已是最新版本。");
+                }
             }
         }
 
         @Override
         protected void onPreExecute() {
-            progressDialog = ProgressDialog.show(getActivity(), "温馨提示","正在检查更新",
-                    false, true);
+            progressDialog = ProgressDialog.show(getActivity(), "温馨提示",
+                    "正在检查更新", false, true);
             progressDialog.setOnCancelListener(new OnCancelListener() {
                 @Override
                 public void onCancel(DialogInterface dialog) {

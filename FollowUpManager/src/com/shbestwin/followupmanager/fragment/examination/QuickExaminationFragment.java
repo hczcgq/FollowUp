@@ -348,9 +348,8 @@ public class QuickExaminationFragment extends BaseFragment {
 				bloodPressure.setPulseRate(Integer.parseInt(json
 						.getString("pulse")));
 			}
-			System.out.println(bloodPressure.getSystolicPressure()+"---"+bloodPressure.getSystolicPressure());
 			if ((bloodPressure.getSystolicPressure() >= 140)
-					|| (bloodPressure.getSystolicPressure() >= 90)) {
+					|| (bloodPressure.getDiastolicPressure() <= 90)) {
 				showBloodPress(bloodPressure);
 			}
 		}
