@@ -99,7 +99,7 @@
             android:id="@+id/symptom11"
             style="@style/CheckBoxStyle"
             android:layout_width="90dp"
-            android:layout_alignBaseline="@+id/otherSymptomTextView"
+            android:layout_alignBaseline="@+id/et_other"
             android:layout_below="@id/symptom6"
             android:layout_marginTop="10dp"
             android:text="其他" />
