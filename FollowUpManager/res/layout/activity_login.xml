@@ -97,6 +97,33 @@
             android:textColorHint="@color/white"
             android:textSize="@dimen/global_font_size_large" />
     </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/ll_server"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:src="@drawable/login_icon_password" />
+
+        <EditText
+            android:id="@+id/et_server"
+            android:layout_width="300dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="15dp"
+           android:background="@drawable/login_edittext_bg"
+            android:gravity="center"
+            android:text="http://183.247.164.200/ylms"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="@dimen/global_font_size_large" />
+    </LinearLayout>
 
     <CheckBox
         android:id="@+id/ck_remember"

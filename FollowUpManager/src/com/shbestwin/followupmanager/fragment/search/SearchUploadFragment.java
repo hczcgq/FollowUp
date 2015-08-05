@@ -140,7 +140,7 @@ public class SearchUploadFragment extends BaseFragment {
 
         @Override
         protected String doInBackground(String... params) {
-        	String ServerUrl=getActivity().getSharedPreferences("USER_INFO", Context.MODE_PRIVATE).getString("Server_Url", MyApplication.serverUrl);
+        	String ServerUrl=getActivity().getSharedPreferences("USER_INFO", Context.MODE_PRIVATE).getString("Server_Url", "");
             File file = getActivity().getApplication().getDatabasePath(
                     "follow_up_manager.db");
             String result = null;

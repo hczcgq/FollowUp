@@ -39,7 +39,7 @@ import com.tencent.bugly.crashreport.CrashReport.UserStrategy;
 public class MyApplication extends Application {
 	
 //	public static String serverUrl="http://180.153.53.247:82/ylms";
-	public static String serverUrl="http://183.247.164.200/ylms";
+//	public static String serverUrl="http://183.247.164.200/ylms";
 	
 	private static MyApplication mInstance = null;
 

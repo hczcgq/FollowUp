@@ -44,8 +44,7 @@ public class SearchBackgroundFragment extends BaseFragment {
 
 	private void showWebView() {
 		String ServerUrl = getActivity().getSharedPreferences("USER_INFO",
-				Context.MODE_PRIVATE).getString("Server_Url",
-				MyApplication.serverUrl);
+				Context.MODE_PRIVATE).getString("Server_Url","");
 		ServerUrl = ServerUrl + "/a/login";
 		System.out.println(ServerUrl);
 		webView.getSettings().setJavaScriptEnabled(true);

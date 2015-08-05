@@ -159,8 +159,7 @@ public class VersionFragment extends BaseFragment {
         @Override
         protected String doInBackground(String... params) {
             String ServerUrl = getActivity().getSharedPreferences("USER_INFO",
-                    Context.MODE_PRIVATE).getString("Server_Url",
-                    MyApplication.serverUrl);
+                    Context.MODE_PRIVATE).getString("Server_Url","");
             String result = null;
             String versionCode = String.valueOf(getVersionCode());
             String versionName = getVersionName();

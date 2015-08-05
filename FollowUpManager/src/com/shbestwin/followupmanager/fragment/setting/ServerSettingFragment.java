@@ -43,7 +43,7 @@ public class ServerSettingFragment extends BaseFragment {
 		super.onActivityCreated(savedInstanceState);
 		
 		final SharedPreferences preferences = getActivity().getSharedPreferences("USER_INFO", Context.MODE_PRIVATE);
-		String ServerUrl=preferences.getString("Server_Url", MyApplication.serverUrl);
+		String ServerUrl=preferences.getString("Server_Url", "");
 		if(!TextUtils.isEmpty(ServerUrl)){
 			CurrentServerText.setText("当前服务器地址："+ServerUrl);
 		}
