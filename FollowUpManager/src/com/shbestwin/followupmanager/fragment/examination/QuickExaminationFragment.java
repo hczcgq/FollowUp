@@ -349,7 +349,7 @@ public class QuickExaminationFragment extends BaseFragment {
 						.getString("pulse")));
 			}
 			if ((bloodPressure.getSystolicPressure() >= 140)
-					|| (bloodPressure.getDiastolicPressure() <= 90)) {
+					|| (bloodPressure.getDiastolicPressure() >= 90)) {
 				showBloodPress(bloodPressure);
 			}
 		}

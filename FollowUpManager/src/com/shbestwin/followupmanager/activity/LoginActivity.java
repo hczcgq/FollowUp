@@ -1,7 +1,6 @@
 package com.shbestwin.followupmanager.activity;
 
 import java.util.HashMap;
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -20,18 +19,13 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-
 import com.google.gson.Gson;
-import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.dao.DaoMaster;
-import com.shbestwin.followupmanager.dao.DaoSession;
 import com.shbestwin.followupmanager.dao.DaoMaster.DevOpenHelper;
 import com.shbestwin.followupmanager.http.HttpHelper;
 import com.shbestwin.followupmanager.model.MessageItem;
-import com.shbestwin.followupmanager.model.VersionItem;
-import com.tencent.bugly.crashreport.crash.jni.b;
 
 /**
  * 
@@ -88,7 +82,7 @@ public class LoginActivity extends AbsBaseActivity {
 		}
 		username = preferences.getString("Username", "");
 		password = preferences.getString("Password", "");
-		server_name=preferences.getString("Server_Url", "");
+		server_name=preferences.getString("Server_Url", "http://183.247.164.200/ylms");
 		boolean rememberUser = preferences.getBoolean("RememberUser", false);
 		if (rememberUser) {
 			et_username.setText(username);
@@ -165,7 +159,8 @@ public class LoginActivity extends AbsBaseActivity {
             return result;
         }
 
-        @Override
+        @SuppressWarnings("static-access")
+		@Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
             if (progressDialog != null) {

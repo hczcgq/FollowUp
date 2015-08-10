@@ -24,7 +24,6 @@ import android.widget.Button;
 import android.widget.ListView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.fragment.BaseFragment;
@@ -149,10 +148,8 @@ public class SearchUploadFragment extends BaseFragment {
                     if (file.exists()) {
                         // 上传
                         HashMap<String, String> hashParams = new HashMap<String, String>();
-                        hashParams.put("username", "t_user");
-                        hashParams.put("password ", "t_password");
-//                        hashParams.put("username", "sfry");
-//                        hashParams.put("password ", "abcd123");
+                        hashParams.put("username", preferences.getString("Username", "t_user"));
+                        hashParams.put("password ", preferences.getString("Password", "t_password"));
                         hashParams.put("datafile ", file.getAbsolutePath());
                         try {
                             result = HttpHelper
@@ -169,10 +166,8 @@ public class SearchUploadFragment extends BaseFragment {
                 } else if (state == DOWNLOAD) {
                     // 下载
                     HashMap<String, String> hashParams = new HashMap<String, String>();
-                  hashParams.put("username", "t_user");
-                  hashParams.put("password ", "t_password");
-//                   hashParams.put("username", "sfry");
-//                   hashParams.put("password ", "abcd123");
+                    hashParams.put("username", preferences.getString("Username", "t_user"));
+                    hashParams.put("password ", preferences.getString("Password", "t_password"));
                     result = HttpHelper.DowmloadHttpClient(getActivity(),
                     		ServerUrl+"/inter/downFile",
                             hashParams, file);

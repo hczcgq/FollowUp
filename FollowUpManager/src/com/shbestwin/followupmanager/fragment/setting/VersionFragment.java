@@ -1,14 +1,9 @@
 package com.shbestwin.followupmanager.fragment.setting;
 
-import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -19,32 +14,22 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.telephony.TelephonyManager;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.google.gson.Gson;
-import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.util.SystemUtils;
 import com.shbestwin.followupmanager.common.util.ToastUtils;
 import com.shbestwin.followupmanager.fragment.BaseFragment;
 import com.shbestwin.followupmanager.http.HttpHelper;
 import com.shbestwin.followupmanager.http.UpdateThread;
-import com.shbestwin.followupmanager.manager.AccompanyManager;
-import com.shbestwin.followupmanager.manager.FollowUpManager;
-import com.shbestwin.followupmanager.model.Accompany;
-import com.shbestwin.followupmanager.model.MessageItem;
-import com.shbestwin.followupmanager.model.UploadManageItem;
 import com.shbestwin.followupmanager.model.VersionItem;
-import com.shbestwin.followupmanager.model.report.ReportDiabetesMellitus;
 import com.shbestwin.followupmanager.view.dialog.ReportConfirmDialog;
 import com.shbestwin.followupmanager.view.dialog.ReportConfirmDialog.OnConfirmClickListener;
-import com.shbestwin.followupmanager.view.dialog.followup.FollowupDiabetesMellitusReportDialog;
 
 public class VersionFragment extends BaseFragment {
     private TextView tipsTextView;
