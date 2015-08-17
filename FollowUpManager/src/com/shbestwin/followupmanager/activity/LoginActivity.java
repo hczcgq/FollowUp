@@ -1,6 +1,9 @@
 package com.shbestwin.followupmanager.activity;
 
 import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -10,9 +13,10 @@ import android.content.DialogInterface.OnCancelListener;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.telephony.TelephonyManager;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -56,6 +60,8 @@ public class LoginActivity extends AbsBaseActivity {
 	@Override
 	protected void setContentView(Bundle savedInstanceState) {
 		setContentView(R.layout.activity_login);
+		
+		getImsi();
 
 	}
 
@@ -122,15 +128,40 @@ public class LoginActivity extends AbsBaseActivity {
 			return;
 		}
 		
+		System.out.println("server_name:"+matchIp(server_name));
+		
+		if(!matchIp(server_name)){
+			ToastUtils.showToast(this, "服务器地址格式正确！");
+			return;
+		}
+		
+		
 		new GetDataTask().execute();
 
 	}
 	
 	private String getImsi() {
-        TelephonyManager mTelephonyMgr =(TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-        return mTelephonyMgr.getSubscriberId();
+		 WifiManager wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);  
+         WifiInfo info = wifi.getConnectionInfo();  
+         System.out.println(info.getMacAddress());
+         return info.getMacAddress();  
     }
 
+	private boolean matchIp(String ip){
+		Pattern pattern=Pattern.compile("^((https|http|ftp|rtsp|mms)?://)" 
+			     + "+(([0-9a-z_!~*'().&=+$%-]+: )?[0-9a-z_!~*'().&=+$%-]+@)?" 
+			     + "(([0-9]{1,3}\\.){3}[0-9]{1,3}" 
+			     + "|" 
+			     + "([0-9a-z_!~*'()-]+\\.)*" 
+			     + "([0-9a-z][0-9a-z-]{0,61})?[0-9a-z]\\." 
+			     + "[a-z]{2,6})" 
+			     + "(:[0-9]{1,4})?" 
+			     + "((/?)|" 
+			     + "(/[0-9a-z_!~*'().;?:@&=+$,%#-]+)+/?)$", Pattern.CASE_INSENSITIVE);
+		Matcher matcher = pattern.matcher(ip); //以验证127.400.600.2为例
+		return matcher.matches();
+	}
+	
 	private class GetDataTask extends AsyncTask<String, Void, String> {
         private ProgressDialog progressDialog;
 
@@ -147,7 +178,6 @@ public class LoginActivity extends AbsBaseActivity {
             } else {
             	String histLog=username+"-"+password;
             	String per_histLog=preferences.getString("History_Login", "");
-            	System.out.println(per_histLog.contains(histLog));
             	if(per_histLog.contains(histLog)){
             		 MessageItem item=new MessageItem("true","登陆成功");
                      result=new Gson().toJson(item);
@@ -156,6 +186,7 @@ public class LoginActivity extends AbsBaseActivity {
                      result=new Gson().toJson(item);
 				}
             }
+            System.out.println("resutl="+result);
             return result;
         }
 
@@ -166,7 +197,7 @@ public class LoginActivity extends AbsBaseActivity {
             if (progressDialog != null) {
                 progressDialog.dismiss();
             }
-            if (result != null) {
+            if (result != null||result=="") {
                 MessageItem item = new Gson().fromJson(result,
                 		MessageItem.class);
                 if (item.getSuccess().equals("true")) {
@@ -199,7 +230,9 @@ public class LoginActivity extends AbsBaseActivity {
                 } else {
                     ToastUtils.showToast(LoginActivity.this, item.getMsg());
                 }
-            }
+            }else {
+            	ToastUtils.showToast(LoginActivity.this, "登陆失败，请检查用户名,密码或服务器地址是否正确！");
+			}
         }
 
         @Override

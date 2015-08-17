@@ -255,9 +255,12 @@
                     style="@style/PersonalInfoLabelStyle"
                     android:text="血压级别：" />
 
-                <EditText
-                    android:id="@+id/bloodPressLeveEditText"
-                    style="@style/PersonalInfoEditTextStyle" />
+                
+                <Spinner
+                    android:id="@+id/bloodPressLeveSpinner"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:layout_width="144dp"
+                    android:entries="@array/BloodPressLevel" />
             </LinearLayout>
 
             <LinearLayout style="@style/PersonalInfoItemStyle" >
@@ -266,9 +269,11 @@
                     style="@style/PersonalInfoLabelStyle"
                     android:text="类型：" />
 
-                <EditText
-                    android:id="@+id/bloodPressTypeEditText"
-                    style="@style/PersonalInfoEditTextStyle" />
+                <Spinner
+                    android:id="@+id/bloodPressTypeSpinner"
+                    style="@style/PersonalInfoSpinnerStyle"
+                    android:layout_width="144dp"
+                    android:entries="@array/BloodPressType" />
             </LinearLayout>
         </LinearLayout>
 

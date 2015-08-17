@@ -1,9 +1,11 @@
 package com.shbestwin.followupmanager.http;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.SocketTimeoutException;
 import java.util.HashMap;
@@ -11,7 +13,6 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpVersion;
 import org.apache.http.client.ClientProtocolException;
@@ -38,12 +39,11 @@ import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.util.EntityUtils;
-
 import com.google.gson.Gson;
 import com.shbestwin.followupmanager.model.MessageItem;
-
 import android.content.Context;
 
+@SuppressWarnings("deprecation")
 public class HttpHelper {
     private static final int DEFAULT_MAX_CONNECTIONS = 30;
 
@@ -55,7 +55,6 @@ public class HttpHelper {
 
     private static final String DEFAULT_PARAMS_ENCODING = "UTF-8";
 
-    @SuppressWarnings("deprecation")
     public static String uploadHttpClient(Context context, String url,
             HashMap<String, String> map, String filepath) {
         String result = null;
@@ -193,11 +192,14 @@ public class HttpHelper {
                 FileOutputStream fos = new FileOutputStream(file);
                 // 得到网络资源并写入文件
                 InputStream input = response.getEntity().getContent();
+//                result=readInputStream(input);
+//                if(result.contains("success")&&result.contains("msg")){
+//                	return result;
+//                }
                 byte b[] = new byte[1024];
                 int j = 0;
                 while ((j = input.read(b)) != -1) {
                     fos.write(b, 0, j);
-                    System.out.println("shifouchengg-----------");
                 }
                 fos.flush();
                 fos.close();
@@ -221,6 +223,23 @@ public class HttpHelper {
     }
     
     
+    public static String readInputStream(InputStream is) {
+        InputStreamReader reader = new InputStreamReader(is);
+        BufferedReader bufferedReader = new BufferedReader(reader);
+        StringBuffer buffer = new StringBuffer("");
+        String str;
+        try {
+			while ((str = bufferedReader.readLine()) != null) {
+			    buffer.append(str);
+			    buffer.append("\n");
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+        return buffer.toString();
+    }
+
+    
     
     public static String GetHttpClient(Context context, String url,
             HashMap<String, String> hashParams) {
@@ -235,9 +254,17 @@ public class HttpHelper {
                     url += "&" + entry.getKey() + "=" + entry.getValue();
             }
         }
+        System.out.println(url);
         url = url.replaceAll(" ", "");
-        System.out.println("url---"+url);
-        HttpGet get = new HttpGet(url);
+        HttpGet get = null;
+        try {
+        	get= new HttpGet(url);
+		} catch (Exception e) {
+			MessageItem item=new MessageItem("false","登陆失败，无效的服务地址！");
+            result=new Gson().toJson(item);
+            return result;
+		}
+       
         // 设置头文件
         Map<String, String> headers = getHeader();
         Set<String> setHead = headers.keySet();
@@ -255,11 +282,19 @@ public class HttpHelper {
             }
         } catch (ClientProtocolException e) {
             e.printStackTrace();
+            MessageItem item=new MessageItem("false","登陆失败！");
+            result=new Gson().toJson(item);
         } catch (ConnectTimeoutException e) {
+        	MessageItem item=new MessageItem("false","登陆失败，连接超时！");
+            result=new Gson().toJson(item);
             e.printStackTrace();
         } catch (SocketTimeoutException e) {
+        	MessageItem item=new MessageItem("false","登陆失败，连接超时！");
+            result=new Gson().toJson(item);
             e.printStackTrace();
         } catch (IOException e) {
+        	MessageItem item=new MessageItem("false","登陆失败！");
+            result=new Gson().toJson(item);
             e.printStackTrace();
         }
         return result;

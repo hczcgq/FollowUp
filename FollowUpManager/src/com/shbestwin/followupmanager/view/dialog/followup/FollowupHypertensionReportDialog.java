@@ -37,12 +37,12 @@ import com.shbestwin.followupmanager.view.dialog.DatePickerDialog.OnDatePickerLi
  * 
  */
 public class FollowupHypertensionReportDialog extends BaseDialogReportFragment {
-	private Spinner genderSpinner, ethnicSpinner, familyHistorySpinner;
+	private Spinner genderSpinner, ethnicSpinner, familyHistorySpinner,bloodPressLeveSpinner,bloodPressTypeSpinner;
 	private EditText cardIDEditText, nameEditText, birthdayEditText,
 			telephoneEditText, reportTimeEditText, reportUnitEdittext,
 			reportDocEdittext, bloodPressCheckEditText1,
-			bloodPressCheckEditText2, bloodPressLeveEditText,
-			bloodPressTypeEditText, heightEditText, weightEditText,
+			bloodPressCheckEditText2,
+			 heightEditText, weightEditText,
 			pluseEditText, bloodPressEditText1, bloodPressEditText2,
 			nextFollowupTimeEditText, descibeEditText;
 	private TextView confirmView, cancelView;
@@ -93,10 +93,10 @@ public class FollowupHypertensionReportDialog extends BaseDialogReportFragment {
 				.findViewById(R.id.bloodPressCheckEditText1);
 		bloodPressCheckEditText2 = (EditText) rootView
 				.findViewById(R.id.bloodPressCheckEditText2);
-		bloodPressLeveEditText = (EditText) rootView
-				.findViewById(R.id.bloodPressLeveEditText);
-		bloodPressTypeEditText = (EditText) rootView
-				.findViewById(R.id.bloodPressTypeEditText);
+		bloodPressLeveSpinner = (Spinner) rootView
+				.findViewById(R.id.bloodPressLeveSpinner);
+		bloodPressTypeSpinner = (Spinner) rootView
+				.findViewById(R.id.bloodPressTypeSpinner);
 		heightEditText = (EditText) rootView.findViewById(R.id.heightEditText);
 		weightEditText = (EditText) rootView.findViewById(R.id.weightEditText);
 		pluseEditText = (EditText) rootView.findViewById(R.id.pluseEditText);
@@ -233,7 +233,7 @@ public class FollowupHypertensionReportDialog extends BaseDialogReportFragment {
 			    bloodPressEditText1.setText(bloodPressure.getSystolicPressure()+"");
 			    bloodPressEditText2.setText(bloodPressure.getDiastolicPressure()+"");
 			    pluseEditText.setText(bloodPressure.getPulseRate()+"");
-			    bloodPressTypeEditText.setText(bloodPressure.getConclusion());
+//			    bloodPressTypeEditText.setText(bloodPressure.getConclusion());
 			}
 		}
 	}
@@ -253,8 +253,8 @@ public class FollowupHypertensionReportDialog extends BaseDialogReportFragment {
 		entity.setReport_unit(reportUnitEdittext.getText().toString());
 		entity.setReport_doctor(reportDocEdittext.getText().toString());
 		entity.setCheck_bloodpress(bloodPressCheckEditText1.getText().toString()+"/"+bloodPressCheckEditText2.getText().toString());
-		entity.setBloodpress_level(bloodPressLeveEditText.getText().toString());
-		entity.setBloodpress_type(bloodPressTypeEditText.getText().toString());
+		entity.setBloodpress_level(ViewDataUtil.getSpinnerData(bloodPressLeveSpinner));
+		entity.setBloodpress_type(ViewDataUtil.getSpinnerData(bloodPressTypeSpinner));
 		entity.setWeight(weightEditText.getText().toString());
 		entity.setHeight(heightEditText.getText().toString());
 		entity.setPluse(pluseEditText.getText().toString());

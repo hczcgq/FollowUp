@@ -4,15 +4,11 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Method;
-
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.util.Log;
-
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.common.constant.PreferencesConstant;
 import com.shbestwin.followupmanager.common.util.FileUtils;

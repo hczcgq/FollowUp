@@ -12,6 +12,7 @@ public class JsonUtil {
 	//对象转换成json
 	public static String objectToJson(Object obj) throws Exception {
 		JSONObject jsonObject = new JSONObject();
+		@SuppressWarnings("rawtypes")
 		Class c = obj.getClass();
 		Field field[] = c.getDeclaredFields();
 		for (Field f : field) {
@@ -27,6 +28,7 @@ public class JsonUtil {
 		if (null != objs && objs.size() > 0) {
 			for (Object obj : objs) {
 				JSONObject jsonObject = new JSONObject();
+				@SuppressWarnings("rawtypes")
 				Class c = obj.getClass();
 				Field field[] = c.getDeclaredFields();
 				for (Field f : field) {

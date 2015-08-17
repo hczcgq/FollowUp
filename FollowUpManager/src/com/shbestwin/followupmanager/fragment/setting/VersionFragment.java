@@ -10,10 +10,11 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -111,9 +112,9 @@ public class VersionFragment extends BaseFragment {
     }
 
     private String getImsi() {
-        TelephonyManager mTelephonyMgr = (TelephonyManager) getActivity()
-                .getSystemService(Context.TELEPHONY_SERVICE);
-        return mTelephonyMgr.getSubscriberId();
+    	 WifiManager wifi = (WifiManager) getActivity().getSystemService(Context.WIFI_SERVICE);  
+         WifiInfo info = wifi.getConnectionInfo();  
+         return info.getMacAddress();  
     }
 
     private void showUpdateVersionDialog(String desc, final String url,

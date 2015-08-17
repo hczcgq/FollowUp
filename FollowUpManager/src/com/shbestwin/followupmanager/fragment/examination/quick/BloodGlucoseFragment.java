@@ -146,12 +146,6 @@ public class BloodGlucoseFragment extends BaseQuickExaminationFragment {
 				return bloodGlucose;
 			}
 			return null;
-
-			// BloodGlucose bloodPressure = new BloodGlucose();
-			// bloodPressure.setType(bloodGlucoseTypeSpinner
-			// .getSelectedItemPosition());// 收缩压
-			// bloodPressure.setBloodGlucose((float) 7.0);// 舒张压
-			// return bloodPressure;
 		}
 
 		@Override
@@ -252,50 +246,6 @@ public class BloodGlucoseFragment extends BaseQuickExaminationFragment {
 		} else {
 			conclusionEditText.setText("");
 		}
-
-		// if (!TextUtils.isEmpty(bloodGlucoseStr)) {
-		// if ((bloodGlucoseType == 0 && (Float.parseFloat(bloodGlucoseStr) >=
-		// 7.0))
-		// || (bloodGlucoseType == 1 && (Float
-		// .parseFloat(bloodGlucoseStr) >= 11.1))) {
-		//
-		// final ReportConfirmDialog medicationDialog = new ReportConfirmDialog(
-		// "血糖");
-		// medicationDialog.show(((FragmentActivity) getActivity())
-		// .getSupportFragmentManager(), "medicationDialog");
-		// medicationDialog
-		// .setOnConfirmClickListener(new OnConfirmClickListener() {
-		//
-		// @Override
-		// public void onConfirmClick() {
-		// final FollowupDiabetesMellitusReportDialog reportDialog =
-		// FollowupDiabetesMellitusReportDialog
-		// .newInstance();
-		// reportDialog.show(
-		// ((FragmentActivity) getActivity())
-		// .getSupportFragmentManager(),
-		// "DiabetesMellitusReportDialog");
-		// reportDialog
-		// .setOnConfirmClickListener(new
-		// FollowupDiabetesMellitusReportDialog.OnConfirmClickListener() {
-		//
-		// @Override
-		// public void onConfirmClick() {
-		// ReportDiabetesMellitus entity = reportDialog
-		// .getReportDiabetesMellitus();
-		// FollowUpManager
-		// .getInstance(
-		// getActivity())
-		// .saveOrUpdateReportDiabetesMellitus(
-		// entity);
-		// reportDialog.hide();
-		// }
-		// });
-		// medicationDialog.hide();
-		// }
-		// });
-		// }
-		// }
 
 	}
 

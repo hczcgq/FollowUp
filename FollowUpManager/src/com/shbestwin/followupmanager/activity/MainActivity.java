@@ -1,7 +1,6 @@
 package com.shbestwin.followupmanager.activity;
 
 import java.util.List;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,7 +13,6 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.fragment.ArchiveInfoFragment;
 import com.shbestwin.followupmanager.fragment.FollowUpManagerFragment;
@@ -23,9 +21,7 @@ import com.shbestwin.followupmanager.fragment.HealthExaminationFragment;
 import com.shbestwin.followupmanager.fragment.MedicationGuideFragment;
 import com.shbestwin.followupmanager.fragment.TopBarFragment;
 import com.shbestwin.followupmanager.manager.AccompanyManager;
-import com.shbestwin.followupmanager.manager.ArchiveInfoManager;
 import com.shbestwin.followupmanager.model.Accompany;
-import com.shbestwin.followupmanager.model.ArchiveInfo;
 
 /**
  * 

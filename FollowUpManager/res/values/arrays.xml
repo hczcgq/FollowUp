@@ -1139,4 +1139,14 @@
         <item>12</item>
     </string-array>
 
+    
+     <string-array name="BloodPressLevel">
+        <item>1级高血压（轻度）</item>
+        <item>2级高血压（中度）</item>
+        <item>3级高血压（重度）</item>
+    </string-array>
+     <string-array name="BloodPressType">
+        <item>高血压</item>
+        <item>单纯收缩期高血压</item>
+    </string-array>
 </resources>

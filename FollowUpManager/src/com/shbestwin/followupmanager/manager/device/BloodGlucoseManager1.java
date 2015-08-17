@@ -166,22 +166,10 @@ public class BloodGlucoseManager1 {
 
 	private void showTips(final int resId) {
 		mTipsInfo = mActivity.getResources().getString(resId);
-		// mActivity.runOnUiThread(new Runnable() {
-		// @Override
-		// public void run() {
-		// ToastUtils.showToast(mActivity, resId);
-		// }
-		// });
 	}
 
 	private void showTips(String tipsInfo) {
 		mTipsInfo = tipsInfo;
-		// mActivity.runOnUiThread(new Runnable() {
-		// @Override
-		// public void run() {
-		// ToastUtils.showToast(mActivity, resId);
-		// }
-		// });
 	}
 
 	public String getTipsInfo() {
