@@ -168,9 +168,19 @@ public class SearchUploadFragment extends BaseFragment {
                     HashMap<String, String> hashParams = new HashMap<String, String>();
                     hashParams.put("username", preferences.getString("Username", "t_user"));
                     hashParams.put("password ", preferences.getString("Password", "t_password"));
-                    result = HttpHelper.DowmloadHttpClient(getActivity(),
-                    		ServerUrl+"/inter/downFile",
-                            hashParams, file);
+                    
+                    result=HttpHelper.GetHttpClient(getActivity(),
+                    		ServerUrl+"/inter/hasDownFile",
+                            hashParams);
+                    if(result!=null){
+                    	 MessageItem msg = new Gson().fromJson(result,
+                                 MessageItem.class);
+                         if (msg.getSuccess().equals("true")) {
+                        	 result = HttpHelper.DowmloadHttpClient(getActivity(),
+                             		ServerUrl+"/inter/downFile",
+                                     hashParams, file);
+                         }
+                    }
                 }
             } else {
                 ToastUtils.showToast(getActivity(), "请检查网络连接。");

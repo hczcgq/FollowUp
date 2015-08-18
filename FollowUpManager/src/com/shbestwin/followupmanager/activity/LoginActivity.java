@@ -205,11 +205,16 @@ public class LoginActivity extends AbsBaseActivity {
                 	String busername = preferences.getString("Username", "");
                 	String bpassword = preferences.getString("Password", "");
             		if(!username.equals(busername)&&!password.equals(bpassword)){
+            			
             			DevOpenHelper helper = new DaoMaster.DevOpenHelper(LoginActivity.this, null);
             			SQLiteDatabase db = helper.getWritableDatabase();
             			DaoMaster daoMaster = new DaoMaster(db);
             			daoMaster.dropAllTables(db, true);
             			daoMaster.createAllTables(db, true);
+            			
+            			 SharedPreferences.Editor editor = preferences.edit();
+                         editor.putString("UploadManage", "");
+                         editor.commit();
             		}
                 	
                 	String histLog=username+"-"+password+";";
