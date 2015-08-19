@@ -67,6 +67,12 @@ public class AccompanyManager {
 		return mAccompanyDao.queryRaw(where.toString(), new String[]{});
 	}
 	
+	public List<Accompany> getAccompanyListNone() {
+        StringBuilder where = new StringBuilder(" where ");
+        where.append(Properties.reported.columnName).append(" = ").append("0").append(" group by IDCARD,CRURRENT_TIME ");
+        return mAccompanyDao.queryRaw(where.toString(), new String[]{});
+    }
+	
 	public List<Accompany> getAccompanyNextDate() {
 		StringBuilder where = new StringBuilder(" where NEXT_TIME!=CRURRENT_TIME AND NEXT_TIME  not null order by next_time asc limit 1  ");
 		return mAccompanyDao.queryRaw(where.toString(), new String[]{});

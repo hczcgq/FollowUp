@@ -19,6 +19,8 @@ import android.widget.TextView;
 
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.activity.LoginActivity;
+import com.shbestwin.followupmanager.activity.MainActivity;
+import com.shbestwin.followupmanager.activity.MainActivity.OnRefreshBarListen;
 import com.shbestwin.followupmanager.activity.SearchActivity;
 import com.shbestwin.followupmanager.activity.SettingActivity;
 import com.shbestwin.followupmanager.view.widget.TopTabItemView;
@@ -30,7 +32,7 @@ import com.shbestwin.followupmanager.view.widget.TopTabItemView;
  * 
  */
 public class TopBarFragment extends BaseFragment implements
-		View.OnClickListener {
+		View.OnClickListener,OnRefreshBarListen{
 	// R.string.top_tab_item1_title,
 	private static final int[] tabItemTitleResIds = {
 			R.string.top_tab_item3_title, R.string.top_tab_item4_title,
@@ -87,6 +89,7 @@ public class TopBarFragment extends BaseFragment implements
 		logoutButton = root.findViewById(R.id.logoutButton);
 		searchButton = root.findViewById(R.id.searchButton);
 		setttingButton = root.findViewById(R.id.setttingButton);
+		((MainActivity) onTabSelectedListener).setOnRefreshBarListen(this);
 
 		return root;
 	}
@@ -224,4 +227,17 @@ public class TopBarFragment extends BaseFragment implements
 
 		public void onTabSelected(int index);
 	}
+
+    @Override
+    public void onRefreshBar(int index) {
+        if (null != onTabSelectedListener) {
+            onTabSelectedListener.onTabSelected(index);
+        }
+        if (this.tabSelectedIndex == index) {
+            return;
+        }
+        startTabItemBgAnim(index);
+
+       
+    }
 }

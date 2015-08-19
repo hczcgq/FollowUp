@@ -1,6 +1,7 @@
 package com.shbestwin.followupmanager.activity;
 
 import java.util.List;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.shbestwin.followupmanager.MyApplication;
 import com.shbestwin.followupmanager.R;
 import com.shbestwin.followupmanager.fragment.ArchiveInfoFragment;
 import com.shbestwin.followupmanager.fragment.FollowUpManagerFragment;
@@ -21,7 +23,11 @@ import com.shbestwin.followupmanager.fragment.HealthExaminationFragment;
 import com.shbestwin.followupmanager.fragment.MedicationGuideFragment;
 import com.shbestwin.followupmanager.fragment.TopBarFragment;
 import com.shbestwin.followupmanager.manager.AccompanyManager;
+import com.shbestwin.followupmanager.manager.ArchiveInfoManager;
 import com.shbestwin.followupmanager.model.Accompany;
+import com.shbestwin.followupmanager.model.ArchiveInfo;
+import com.shbestwin.followupmanager.view.dialog.followup.AccompanyDialog;
+import com.shbestwin.followupmanager.view.dialog.followup.AccompanyDialog.OnItemListener;
 
 /**
  * 
@@ -29,7 +35,7 @@ import com.shbestwin.followupmanager.model.Accompany;
  * @Description: 主Activity
  *
  */
-public class MainActivity extends AbsBaseActivity implements TopBarFragment.OnTabSelectedListener {
+public class MainActivity extends AbsBaseActivity implements TopBarFragment.OnTabSelectedListener ,OnItemListener{
 
 	private ImageView switchMenuImageView;
 	private LinearLayout buttonLayout;
@@ -87,6 +93,51 @@ public class MainActivity extends AbsBaseActivity implements TopBarFragment.OnTa
 				}
 			}
 		});
+		
+		textView01.setOnClickListener(new OnClickListener() {
+            
+            @Override
+            public void onClick(View arg0) {
+                List<Accompany> accompanyList=AccompanyManager.getInstance(MainActivity.this).getAccompanyListGroupBy();
+                if(accompanyList!=null&&accompanyList.size()>0) {
+                    final AccompanyDialog dialog = new AccompanyDialog(
+                            accompanyList,0);
+                    dialog.show(getSupportFragmentManager(),
+                            "AccompanyDialog");
+                    dialog.setOnItemListener(MainActivity.this);
+                }
+            }
+        });
+		
+		textView02.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                List<Accompany> accompanyListed=AccompanyManager.getInstance(MainActivity.this).getAccompanyListAlready();
+                if(accompanyListed!=null&&accompanyListed.size()>0){
+                    final AccompanyDialog dialog = new AccompanyDialog(
+                            accompanyListed,1);
+                    dialog.show(getSupportFragmentManager(),
+                            "AccompanyDialog");
+                    dialog.setOnItemListener(MainActivity.this);
+                }
+            }
+        });
+		
+		textView03.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                List<Accompany> accompanyListed=AccompanyManager.getInstance(MainActivity.this).getAccompanyListNone();
+                if(accompanyListed!=null&&accompanyListed.size()>0){
+                    final AccompanyDialog dialog = new AccompanyDialog(
+                            accompanyListed,2);
+                    dialog.show(getSupportFragmentManager(),
+                            "AccompanyDialog");
+                    dialog.setOnItemListener(MainActivity.this);
+                }
+            }
+        });
+		
+		
 	}
 
 	@Override
@@ -141,4 +192,19 @@ public class MainActivity extends AbsBaseActivity implements TopBarFragment.OnTa
 		Intent intent = new Intent(context, MainActivity.class);
 		context.startActivity(intent);
 	}
+
+    @Override
+    public void onItemClick(Accompany accompany) {
+        ArchiveInfo archiveInfo = ArchiveInfoManager.getInstance(this).getArchiveInfoById(accompany.getIdcard());
+        MyApplication.getInstance().setArchiveInfo(archiveInfo);
+        refreshBarListen.onRefreshBar(0);
+    }
+    
+    private  OnRefreshBarListen refreshBarListen;
+    public void setOnRefreshBarListen(OnRefreshBarListen refreshBarListen) {
+        this.refreshBarListen=refreshBarListen;
+    }
+    public interface OnRefreshBarListen{
+        public void onRefreshBar(int index);
+    }
 }
